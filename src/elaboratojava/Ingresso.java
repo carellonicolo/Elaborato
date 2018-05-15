@@ -53,7 +53,13 @@ public class Ingresso {
         return Arrays.toString(articolo);
     }
     
+    //
     //MANCANO I METODI SET!! 
+    //
+    //
+    //
+    //
+    //
     
     
 }//fine ingresso

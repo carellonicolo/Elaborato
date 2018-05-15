@@ -4,13 +4,13 @@ public class Negozio {
     private String codiceFiscale;
     private String nome;
     private String indirizzo;
-    private String citta;
+    private String città;
     
     public Negozio(String cf, String name, String address, String city){
         codiceFiscale = cf;
         nome = name;
         indirizzo = address;
-        citta = city;
+        città = city;
     }
     
     
@@ -38,7 +38,7 @@ public class Negozio {
     
     public boolean setCitta(String x){
         if(!" ".equals(x) && !"".equals(x)){
-            citta = x;
+            città = x;
             return true;
         }else return false;
     }//setCittà
@@ -59,6 +59,15 @@ public class Negozio {
     }
     
     public String getCitta(){
-        return citta;
+        return città;
     }
+    
+    
+    /*----------------TO STRING--------------------------*/
+    @Override
+    public String toString(){
+        return "Codice Fiscale: " + codiceFiscale + "\nNome: " + nome + "\nIndirizzo: " + indirizzo + "\nCittà: " + città;
+    }
+    
+    
 }//negozio

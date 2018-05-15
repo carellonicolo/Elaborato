@@ -44,4 +44,27 @@ public class Ordine {
         data = d;
     }//costruttore con data in formato gregorianCalendar
     
+    //------------------METODI-GET-------------------//
+    public Negozio getOrdinante(){
+        return ordinante;
+    }
+    
+    public int getID(){
+        return ID;
+    }
+    
+    public int getTotalPrice(){
+        return totale;
+    }
+    
+    public String getArticoli_e_quantità(){
+        //sappiamo che l'array articoli e l'array quantità sono uguali
+        
+        String s = "";
+        int i = 0;
+        for(Articolo X: articoli){
+            
+        }
+        return s;
+    }
 }//fine ordine

@@ -43,5 +43,10 @@ public class Utenti {
             default: return false;
         }//switch   
     }//fine setType
+    
+    @Override
+    public String toString(){//per sicurezza non passo la password in chiaro
+        return "nome: "+usr+"\nPassword: "+"********\n"+"Tipo Account: "+t+" - "+typeOfUsers[t];
+    }
 
 }//fine Utenti
