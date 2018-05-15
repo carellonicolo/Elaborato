@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package elaboratojava;
 
-public class Utenti {
+public class Utente implements UserInterface{
     
     public static final String typeOfUsers[] = {"Magazziniere", "Segreteria Amministrativa", "Responsabile Negozi"};
     
@@ -13,12 +8,13 @@ public class Utenti {
     private String pwd;
     private int t; 
     
-    public Utenti(String user, String password, int type) throws Exception{
+    public Utente(String user, String password, int type) throws Exception{
         usr = user;
         pwd = password;
         this.t = type;
     }
     
+    @Override
     public boolean setUser(String newUser){
         if(!" ".equals(newUser) && !"".equals(newUser)){
             usr = newUser;
@@ -26,15 +22,27 @@ public class Utenti {
         }else return false;
     }//fine setUser
     
+    @Override
     public boolean setPassword(String newPassword){//La stringa deve essere almeno lunga 8 caratteri
         if(newPassword.length()>8){
          pwd = newPassword;
          return true;
         }else
         return false;
-    }//fine setPassword
+    }//setPassword
 
+    
+    @Override
+    public boolean checkPass(Utente x, String usr, String pwd){
+        return x.getUsr().equals(usr) && x.pwd.equals(pwd);
+    }
         
+    @Override
+    public String getUsr(){
+        return usr;
+    }
+            
+    @Override
     public boolean setType(int newType){
         switch(newType){
             case 1: 
@@ -49,4 +57,4 @@ public class Utenti {
         return "nome: "+usr+"\nPassword: "+"********\n"+"Tipo Account: "+t+" - "+typeOfUsers[t];
     }
 
-}//fine Utenti
+}//fine Utente

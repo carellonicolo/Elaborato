@@ -66,5 +66,11 @@ public class Ordine {
             
         }
         return s;
-    }
+    }//getArticoli_e_quantità
+    
+    /*--------------MANCANO I METODI SET--------------*/
+    
+    
+    
+    
 }//fine ordine
