@@ -1,4 +1,4 @@
-package elaboratojava;
+package Main;
 
 public interface UserInterface {
     boolean setUser(String newUser);

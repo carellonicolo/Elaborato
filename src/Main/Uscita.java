@@ -1,4 +1,4 @@
-package elaboratojava;
+package Main;
 
 public class Uscita {
     

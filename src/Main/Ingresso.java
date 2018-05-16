@@ -1,4 +1,4 @@
-package elaboratojava;
+package Main;
 
 import java.util.GregorianCalendar; //In caso si vogliano fare delle manipolazione sulle date
 import java.util.Random; 
