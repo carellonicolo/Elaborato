@@ -19,29 +19,34 @@ public class Negozio {
         if(!" ".equals(cf) && !"".equals(cf)){
             codiceFiscale = cf;
             return true;
-        }else return false;
+        }
+        return false;
     }//setCodiceFiscale
     
     public boolean setNome(String x){
         if(!" ".equals(x) && !"".equals(x)){
             nome = x;
             return true;
-        }else return false;
+        }
+        return false;
     }//setNome
     
     public boolean setIndirizzo(String x){
         if(!" ".equals(x) && !"".equals(x)){
             indirizzo = x;
             return true;
-        }else return false;
+        }
+        return false;
     }//setIndirizzo
     
     public boolean setCitta(String x){
         if(!" ".equals(x) && !"".equals(x)){
             città = x;
             return true;
-        }else return false;
+        }
+        return false;
     }//setCittà
+    
     
     
     
@@ -61,6 +66,8 @@ public class Negozio {
     public String getCitta(){
         return città;
     }
+    
+    
     
     
     /*----------------TO STRING--------------------------*/

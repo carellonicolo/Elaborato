@@ -1,98 +1,84 @@
 package Main;
 
-public class Articolo {
-    
-    public final String sportArray[]= {"NUOTO", "CALCIO", "PALESTRA", "TENNIS", "SCII", "BASKET", "Cannottaggio", "Ciclismo", "Ping Pong", "Atletica", "Air Hockey", "Golf", "Pallavolo", "Danza", "Judo"};
-    public final String arrayMateriali[] = {"Poliestere", "Silicone", "Finta Pelle"};
-    
-    private String nome;
-    private String descrizione;
-    private int numSport;
-    private int numMateriali;
-    
-    
-    public Articolo(String name, String description, int numberOfSport, int numberOfMaterial) throws Exception{
-        if(!" ".equals(name) && !"".equals(name)){
-            if(!" ".equals(description) && !"".equals(description)){
-                if(numberOfSport >=0 && numberOfMaterial >= 0){
-                    this.nome = name;
-                    this.descrizione = description;
-                    this.numSport = numberOfSport;
-                    this.numMateriali = numberOfMaterial;
-                }else{
-                    throw new Exception("parametro non valido");
-                }
-            }else{
-                throw new Exception("parametro non valido");
-            }
-        }else{
-            throw new Exception("parametro non valido");
-        }
-    }//Costruttore
-    
+import java.util.GregorianCalendar;
+import java.util.Random;
 
-    public Articolo() throws Exception{//in caso uno mi chiami l
-        throw new Exception("Nessun Parametro inserito");
+
+public class Articolo {
+    private final int ID;
+    private TipoArticolo x;
+    private float prezzo;
+    private GregorianCalendar data;
+    
+    Random r = new Random(); 
+    
+    public Articolo(TipoArticolo x, float prezzo){//SENZA DATA
+        this.prezzo = prezzo;
+        this.x = x;
+        data = new GregorianCalendar();//se non mi viene passata la data prendo la data odierna
+        ID = Integer.parseInt(""+data.get(data.HOUR)+"99"+data.get(data.MINUTE)+data.get(data.SECOND)+r.nextInt(1543))+r.nextInt(99);
     }
     
-    /**************--METODI SET-******************/
-  
-    public String getName(){
-        return nome;
+    public Articolo(TipoArticolo x, float price, GregorianCalendar data){//CON DATA
+        this.prezzo = price;
+        this.x = x;
+        this.data = data;//Salvo la data se mi viene passata
+        ID = Integer.parseInt(""+data.get(data.HOUR)+"99"+data.get(data.MINUTE)+data.get(data.SECOND)+r.nextInt(1543))+r.nextInt(99);
     }
     
-    public String getDescription(){
-        return descrizione;
+    
+    
+    
+    /**************************METODI GET*******************************/
+    public TipoArticolo getTipoArticolo(){
+        return x;
     }
     
-    public String getSports(){
-        return sportArray[numSport];
+    public int getID(){
+        return ID;
     }
     
-    public String getMaterial(){
-        return arrayMateriali[numMateriali];
+    public float getPrezzo(){
+        return prezzo;
     }
     
-    /*************--METODI SET-******************/
+    public GregorianCalendar getData(){
+        return data;
+    }
+   
     
-    public boolean setNome(String newName){
-        if(!" ".equals(newName) && !"".equals(newName)){
-            this.nome = newName;
+    
+    
+    
+    /**************************METODI SET*******************************/
+    public boolean setTipoArticolo(TipoArticolo x){
+        if(x instanceof TipoArticolo){
+            this.x=x;
             return true;
-        }else{
-            return false;
-        }//else
-    }//SETNOME
-    
-    public boolean setDescription(String newDescritpion){
-        if(!" ".equals(newDescritpion) && !"".equals(newDescritpion)){
-            this.descrizione = newDescritpion;
-            return true;
-        }else{
-            return false;
         }
-    }//SETDESCRIPTION
-    
-    public boolean setSport(int s){
-        if(s>=0){//da aggiungere controllo su numero massimo di sport disponibili
-            this.numSport = s;
-            return true;
-        }else return false;
-    }//SETSPORT
-    
-    public boolean setMaterial(int m){
-        if(m>=0){//da aggiungere controllo su numero massimo di sport disponibili
-            this.numMateriali = m;
-            return true;
-        }else return false;
-    }//SETMATERIAL
-    
-    
-    
-    //----------------------TO STRING--------------------------//
-    @Override
-    public String toString(){
-        return "Nome: "+ nome + "\nDescrizione: "+ descrizione + "\nSport: "+ this.arrayMateriali[numSport] + "/nMateriali: " + this.arrayMateriali[numMateriali];
+        return false;
     }
     
-}//ARTICOLO
+    public void setPrezzo(float p){//il prezzo, anche se sarà impossibile ma potrebbe essere negativo quindi non faccio controlli sul prezzo
+        prezzo=p;
+    }
+    
+    public boolean setData(GregorianCalendar d){
+        if(d instanceof GregorianCalendar){
+            data = d;
+            return true;
+        }
+        return false;
+    }
+    
+    public void setData(){//se non mi viene passata una data me la prendo io quella odierna
+        data = new GregorianCalendar();
+    }
+    
+    
+    
+    
+    public String toString(){
+        return "ID Articolo: "+ID+"\nPrezzo: " + prezzo + "\nData: " + data + "\nTipo di articolo: \n"+x.toString();
+    }
+}

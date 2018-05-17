@@ -3,37 +3,32 @@ package Main;
 import java.util.GregorianCalendar; //In caso si vogliano fare delle manipolazione sulle date
 import java.util.Random; 
 import java.util.Arrays; //mi serve dopo per convertire un array in stringa
+import java.util.TreeMap;
 
 public class Ingresso {
-    private int ID;
+    private final int ID;
     private GregorianCalendar data;
     private Articolo articolo[];
     private int posizioneMagazzino;
     
-    Random random = new Random(); 
+    private TreeMap<Integer, Articolo> articoloPosizione;
+    Random r = new Random(); 
     
-    public Ingresso(int position, Articolo... article){//se non viene passata la data specificata prendo la data odierna
-        ID = random.nextInt(1000000);
+    
+    
+    //COSTRUTTORE
+    public Ingresso( Articolo... article){//se non viene passata la data specificata prendo la data odierna
+        ID = Integer.parseInt(""+data.get(data.HOUR)+"99"+data.get(data.MINUTE)+data.get(data.SECOND)+r.nextInt(1543))+r.nextInt(99);
         data = new GregorianCalendar(); 
-        posizioneMagazzino = position;
-        articolo = article;
+        articoloPosizione = new TreeMap<>();
         int i = 0;
         for(Articolo X: article){
-            articolo[i] = X;
+            articoloPosizione.put(i, X);
             i++;
+            //posizione magazzino = getLastPosition()+i
         }
     }
     
-    public Ingresso(int position, int day, int month, int year, Articolo... article){//se mi viene specificata la data la configuro
-        ID = random.nextInt(1000000);
-        data = new GregorianCalendar(year, month, day); 
-        posizioneMagazzino = position;
-        int i = 0;
-        for(Articolo X: article){
-            articolo[i] = X;
-            i++;
-        }
-    }
     
     public int getID(){
         return ID;
