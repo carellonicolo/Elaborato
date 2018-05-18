@@ -45,24 +45,16 @@ public class Articolo {
     
     /**************************METODI SET*******************************/
  
-    public boolean setTipoArticolo(TipoArticolo x){
-        if(x instanceof TipoArticolo){
+    public void setTipoArticolo(TipoArticolo x){
             this.x=x;
-            return true;
-        }
-        return false;
     }
     
-    public void setPrezzo(float p){//il prezzo, anche se sarà impossibile ma potrebbe essere negativo quindi non faccio controlli sul prezzo
+    public void setPrezzo(float p){
         prezzo=p;
     }
     
-    public boolean setData(GregorianCalendar d){
-        if(d instanceof GregorianCalendar){
+    public void setData(GregorianCalendar d){
             data = d;
-            return true;
-        }
-        return false;
     }
     
     public void setData(){//se non mi viene passata una data me la prendo io quella odierna

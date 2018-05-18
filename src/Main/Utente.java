@@ -15,11 +15,8 @@ public class Utente implements UserInterface{
                     pwd = password;
                     this.t = type;
 
-    }//costruttore
-    
-    
-    
-    
+    }
+
     
     /*********************METODI SET**********************/
     @Override
@@ -56,6 +53,7 @@ public class Utente implements UserInterface{
     
     
     /*********************CONTROLLO PASSWORD**********************/
+    @Override
     public boolean checkPass(Utente x, Utente y){
         return x.getUsr().equals(y.getUsr()) && x.pwd.equals(y.getPin());
     }

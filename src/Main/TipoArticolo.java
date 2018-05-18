@@ -11,23 +11,11 @@ public class TipoArticolo {
     private int numMateriali;
     
     
-    public TipoArticolo(String name, String description, int numberOfSport, int numberOfMaterial) throws Exception{
-        if(!" ".equals(name) && !"".equals(name)){
-            if(!" ".equals(description) && !"".equals(description)){
-                if(numberOfSport >=0 && numberOfMaterial >= 0){
+    public TipoArticolo(String name, String description, int numberOfSport, int numberOfMaterial){
                     this.nome = name;
                     this.descrizione = description;
                     this.numSport = numberOfSport;
                     this.numMateriali = numberOfMaterial;
-                }else{
-                    throw new Exception("parametro non valido");
-                }
-            }else{
-                throw new Exception("parametro non valido");
-            }
-        }else{
-            throw new Exception("parametro non valido");
-        }
     }//Costruttore
 
     

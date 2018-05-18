@@ -1,4 +1,3 @@
-
 package Main;
 
 import java.util.logging.Level;
@@ -7,8 +6,8 @@ import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
 
-     Magazzino m;
-     
+    Magazzino m;
+
     public Main() {
         m = new Magazzino();
         initComponents();
@@ -56,6 +55,7 @@ public class Main extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jTextField5 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jButton17 = new javax.swing.JButton();
         creaNuovoOrdinePanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -77,6 +77,28 @@ public class Main extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jButton18 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jButton19 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        jButton21 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -184,12 +206,15 @@ public class Main extends javax.swing.JFrame {
         newArticlePanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 213, -1, -1));
         newArticlePanel.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 219, 49, -1));
 
+        jButton1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton1.setText("Data Odierna");
         newArticlePanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 251, -1, -1));
 
+        jButton2.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton2.setText("Cancella");
         newArticlePanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 362, -1, -1));
 
+        jButton3.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton3.setText("Inserisci");
         newArticlePanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 362, 130, -1));
 
@@ -214,6 +239,7 @@ public class Main extends javax.swing.JFrame {
         jLabel11.setText("Prezzo Totale:");
         ordersViewPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 138, -1, -1));
 
+        jButton4.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton4.setText("Vedi info Negozio");
         ordersViewPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 103, -1, -1));
 
@@ -226,9 +252,11 @@ public class Main extends javax.swing.JFrame {
         jButton6.setText(">");
         ordersViewPanel.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 40, -1));
 
+        jButton7.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton7.setText("Modifica");
         ordersViewPanel.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
 
+        jButton8.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton8.setText("Chiudi");
         ordersViewPanel.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
         ordersViewPanel.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 93, -1));
@@ -236,13 +264,17 @@ public class Main extends javax.swing.JFrame {
         jLabel13.setText("Cerca:");
         ordersViewPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
 
+        jButton17.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        jButton17.setText("Crea Nuovo Ordine");
+        ordersViewPanel.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, -1, -1));
+
         getContentPane().add(ordersViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 27, 600, 400));
 
         creaNuovoOrdinePanel.setBackground(new java.awt.Color(255, 255, 0));
         creaNuovoOrdinePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setFont(new java.awt.Font("Avenir", 0, 36)); // NOI18N
-        jLabel17.setText("Crea un nuovo ordini: ");
+        jLabel17.setText("Crea un nuovo ordine:");
         creaNuovoOrdinePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, -1, 37));
 
         jLabel18.setText("ID:");
@@ -254,15 +286,19 @@ public class Main extends javax.swing.JFrame {
         jLabel20.setText("Articoli:");
         creaNuovoOrdinePanel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
+        jButton9.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton9.setText("Seleziona Negozio");
         creaNuovoOrdinePanel.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 128, -1, -1));
 
+        jButton10.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton10.setText("Seleziona Articolo");
         creaNuovoOrdinePanel.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
+        jButton11.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton11.setText("Crea");
         creaNuovoOrdinePanel.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 220, -1, -1));
 
+        jButton12.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton12.setText("Chiudi");
         creaNuovoOrdinePanel.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 220, -1, -1));
 
@@ -270,7 +306,7 @@ public class Main extends javax.swing.JFrame {
         creaNuovoOrdinePanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
         creaNuovoOrdinePanel.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 96, 138, -1));
 
-        getContentPane().add(creaNuovoOrdinePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 410, 310));
+        getContentPane().add(creaNuovoOrdinePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 410, 260));
 
         jPanel1.setBackground(new java.awt.Color(255, 0, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -298,31 +334,107 @@ public class Main extends javax.swing.JFrame {
         jLabel21.setText("Cerca:");
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
 
+        jButton15.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton15.setText("Chiudi");
         jPanel1.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
+        jButton16.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         jButton16.setText("Modifica");
         jPanel1.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, -1));
 
+        jLabel16.setText("Codice Fiscale: ");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        jLabel23.setText("Nome: ");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+
+        jLabel24.setText("Indirizzo:");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        jLabel25.setText("Città: ");
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+
+        jButton18.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        jButton18.setText("Crea Negozio");
+        jPanel1.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 710, 550, 340));
+
+        jPanel3.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setFont(new java.awt.Font("Avenir", 0, 36)); // NOI18N
+        jLabel26.setText("Visualizza Articoli: ");
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+
+        jLabel27.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jLabel27.setText("ID: ");
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 74, -1, -1));
+
+        jLabel28.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jLabel28.setText("Prezzo: ");
+        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 98, -1, -1));
+
+        jLabel29.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jLabel29.setText("Data:");
+        jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 134, -1, -1));
+
+        jLabel30.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel30.setText("Tipo Articolo");
+        jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 74, -1, -1));
+
+        jLabel31.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jLabel31.setText("Nome:");
+        jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
+
+        jLabel32.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jLabel32.setText("Descrizione:");
+        jPanel3.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
+
+        jLabel33.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jLabel33.setText("Sport:");
+        jPanel3.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
+
+        jLabel34.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jLabel34.setText("Materiali:");
+        jPanel3.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
+
+        jButton19.setText(">");
+        jPanel3.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 40, -1));
+
+        jButton20.setText("<");
+        jPanel3.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 41, -1));
+        jPanel3.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 93, -1));
+
+        jLabel35.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jLabel35.setText("Cerca:");
+        jPanel3.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
+
+        jButton21.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jButton21.setText("Modifica");
+        jPanel3.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, -1, -1));
+
+        jButton22.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jButton22.setText("Crea Negozio");
+        jPanel3.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, -1));
+
+        jButton23.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jButton23.setText("Chiudi");
+        jPanel3.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 740, 590, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    
-    
     //
     //ACTION PERFORMED
     //
-    
+
     private void usrFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usrFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usrFieldActionPerformed
 
-    
-    
     //PULSANTE CANCELLA PANNELLO PIN
     private void cancelPinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelPinButtonActionPerformed
         usrField.setText("");
@@ -330,25 +442,31 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelPinButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-         try {
-             m.addUser(new Utente("ciao" , "ciao", 1));
-         } catch (Exception ex) {
-             JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattae l'amministratore di sistema il prima possibile");
-         }
-        
-        
+
+        m.addUser(new Utente("ciao", "ciao", 1));
+        JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattae l'amministratore di sistema il prima possibile");
+
         String pin = pinField.getText();
         String user = usrField.getText();
-         try {
-             int type = m.login(new Utente(user, pin, 1));
-         } catch (Exception ex) {
-             JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattae l'amministratore di sistema il prima possibile");
-             usrField.setText("");
-             pinField.setText("");
-         }
+
+        int type = m.login(new Utente(user, pin, 1));
+        
+        if(m.login(new Utente(user, pin, 1)) == -1){
+            JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattae l'amministratore di sistema il prima possibile");
+            usrField.setText("");
+            pinField.setText("");
+        }else{
+            usrField.setText("");
+            pinField.setText("");
+            JOptionPane.showMessageDialog(null, "Login effettuato correttamente\nTipoAccount: " + type);
+        }
+            
+            
+
+        
+
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -360,13 +478,11 @@ public class Main extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-      
+
         java.awt.EventQueue.invokeLater(() -> {
             new Main().setVisible(true);
         });
-        
-        
-        
+
     }//fine main
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -380,7 +496,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -398,6 +521,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -405,7 +529,20 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -414,6 +551,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -421,6 +559,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel loginTitleLabel;
     private javax.swing.JPanel newArticlePanel;
