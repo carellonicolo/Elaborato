@@ -23,7 +23,8 @@ public class Ordine {
     /*-------------COSTRUTTORI---------------------*/
     
   
-    
+    //in fase di ordine, si vedano le foto, si fa inserire manualmente un prodotto alla volta per tanto ogni volta
+    //che l'utente conferma il prodotto si aggiunge ad un mappa che viene creata nel moemnto in cui si preme "Crea Ordine"
     public Ordine(Negozio n, int day, int month, int year, Map<Articolo, Integer> m){//DATA PASSATA IN INTERO 
         this.prezzoTotale = 0;
         this.ID = Integer.parseInt(""+data.get(data.HOUR)+"99"+data.get(data.MINUTE)+data.get(data.SECOND)+r.nextInt(1543))+r.nextInt(99);

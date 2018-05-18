@@ -4,18 +4,16 @@ import java.util.*;
 
 public class Magazzino {
     
-    private TreeMap<Integer, Articolo> articoloPosizione;//togliere
     private Map<Ordine, Uscita> ordineUscita ;
     private Ingresso ingressi[];
 
     private Set<Ingresso> ingressiMensili;
     private Set<Uscita> usciteMensili;
 
-    
+    //COSTRUTTORE
     public Magazzino() {
-        this.usciteMensili = new TreeSet<>();
-        this.articoloPosizione = new TreeMap<>();
         this.ordineUscita = new HashMap<>();
+        this.usciteMensili = new TreeSet<>();
         this.ingressiMensili = new TreeSet<>();
     }
     
@@ -40,10 +38,6 @@ public class Magazzino {
     public void resetYear(){
         ingressiMensili.clear();
         usciteMensili.clear();
-    }
-    
-    public int getLastPosition(){
-        return articoloPosizione.lastKey();
     }
     
 }
