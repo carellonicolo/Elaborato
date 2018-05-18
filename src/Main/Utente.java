@@ -10,23 +10,11 @@ public class Utente implements UserInterface{
     
     
     /*********************COSTRUTTORE**********************/
-    public Utente(String user, String password, int type) throws Exception{
-        if(!" ".equals(user) && !"".equals(user)){
-            if(password.length()>8){//la password deve avere almeno 8 caratteri
-                if(type>=0 && type < 3){
+    public Utente(String user, String password, int type){
                     usr = user;
                     pwd = password;
                     this.t = type;
-                }else{
-                    throw new Exception("parametro non valido");
-                }
-            }else{
-                    throw new Exception("parametro non valido");
-                }
-        }else{
-                    throw new Exception("parametro non valido");
-                }
-        
+
     }//costruttore
     
     
@@ -44,7 +32,7 @@ public class Utente implements UserInterface{
     
     @Override
     public boolean setPassword(String newPassword){//La password deve essere almeno lunga 8 caratteri
-        if(newPassword.length()>8){
+        if( !"".equals(newPassword) && !"".equals(newPassword) ){
          pwd = newPassword;
          return true;
         }else
