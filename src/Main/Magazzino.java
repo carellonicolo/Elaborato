@@ -30,6 +30,16 @@ public class Magazzino {
         return users.remove(u);
     }
     
+    public int login(Utente u){
+        
+        for(Utente X: users){
+            if(X.checkPass(X, u))
+                return X.getTypeInt();
+        }
+        
+        return -1; //non è stata trovata una corrispondenza tra un utente esistente e quello inserito dall'utente!
+    }
+    
     
     
     

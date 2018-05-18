@@ -68,9 +68,8 @@ public class Utente implements UserInterface{
     
     
     /*********************CONTROLLO PASSWORD**********************/
-    @Override
-    public boolean checkPass(Utente x, String usr, String pwd){
-        return x.getUsr().equals(usr) && x.pwd.equals(pwd);
+    public boolean checkPass(Utente x, Utente y){
+        return x.getUsr().equals(y.getUsr()) && x.pwd.equals(y.getPin());
     }
         
     
@@ -85,6 +84,10 @@ public class Utente implements UserInterface{
             
     public int getTypeInt(){
         return t;
+    }
+    
+    public String getPin(){
+        return pwd;
     }
 
     

@@ -1,9 +1,16 @@
 
 package Main;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 public class Main extends javax.swing.JFrame {
 
+     Magazzino m;
+     
     public Main() {
+        m = new Magazzino();
         initComponents();
     }
 
@@ -126,6 +133,11 @@ public class Main extends javax.swing.JFrame {
 
         loginButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         loginButton.setText("Login");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
         pinPanel.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
 
         usrLabel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
@@ -313,8 +325,28 @@ public class Main extends javax.swing.JFrame {
     
     //PULSANTE CANCELLA PANNELLO PIN
     private void cancelPinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelPinButtonActionPerformed
-        // TODO add your handling code here:
+        usrField.setText("");
+        pinField.setText("");
     }//GEN-LAST:event_cancelPinButtonActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+         try {
+             m.addUser(new Utente("ciao" , "ciao", 1));
+         } catch (Exception ex) {
+             JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattae l'amministratore di sistema il prima possibile");
+         }
+        
+        
+        String pin = pinField.getText();
+        String user = usrField.getText();
+         try {
+             int type = m.login(new Utente(user, pin, 1));
+         } catch (Exception ex) {
+             JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattae l'amministratore di sistema il prima possibile");
+             usrField.setText("");
+             pinField.setText("");
+         }
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     
     public static void main(String args[]) {
@@ -328,10 +360,6 @@ public class Main extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
-        
-        Magazzino m = new Magazzino();
-
       
         java.awt.EventQueue.invokeLater(() -> {
             new Main().setVisible(true);
