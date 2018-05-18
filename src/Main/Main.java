@@ -21,6 +21,55 @@ public class Main extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
         usrLabel = new javax.swing.JLabel();
         usrField = new javax.swing.JTextField();
+        loginTitleLabel = new javax.swing.JLabel();
+        newArticlePanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        ordersViewPanel = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        creaNuovoOrdinePanel = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -56,84 +105,216 @@ public class Main extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pinPanel.setBackground(new java.awt.Color(0, 153, 0));
+        pinPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pinPanel.add(pinField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 143, -1));
 
+        jLabel1.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         jLabel1.setText("Password:");
+        pinPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
 
+        cancelPinButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         cancelPinButton.setText("Cancel");
+        cancelPinButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelPinButtonActionPerformed(evt);
+            }
+        });
+        pinPanel.add(cancelPinButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
+        loginButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         loginButton.setText("Login");
+        pinPanel.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
 
+        usrLabel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         usrLabel.setText("Username:");
+        pinPanel.add(usrLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
         usrField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usrFieldActionPerformed(evt);
             }
         });
+        pinPanel.add(usrField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 149, -1));
 
-        javax.swing.GroupLayout pinPanelLayout = new javax.swing.GroupLayout(pinPanel);
-        pinPanel.setLayout(pinPanelLayout);
-        pinPanelLayout.setHorizontalGroup(
-            pinPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pinPanelLayout.createSequentialGroup()
-                .addGroup(pinPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pinPanelLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(cancelPinButton)
-                        .addGap(37, 37, 37)
-                        .addComponent(loginButton))
-                    .addGroup(pinPanelLayout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(pinPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(usrLabel)
-                            .addComponent(usrField, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addComponent(pinField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(95, Short.MAX_VALUE))
-        );
-        pinPanelLayout.setVerticalGroup(
-            pinPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pinPanelLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(usrLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usrField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(pinPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelPinButton)
-                    .addComponent(loginButton))
-                .addGap(10, 10, 10))
-        );
+        loginTitleLabel.setFont(new java.awt.Font("Lucida Grande", 0, 36)); // NOI18N
+        loginTitleLabel.setText("LOGIN");
+        pinPanel.add(loginTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(175, 175, 175)
-                .addComponent(pinPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(pinPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
-        );
+        getContentPane().add(pinPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 340, 260));
+
+        newArticlePanel.setBackground(new java.awt.Color(0, 153, 255));
+        newArticlePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Avenir", 0, 24)); // NOI18N
+        jLabel2.setText("Inserisci un nuovo Articolo:");
+        newArticlePanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 289, 46));
+
+        jLabel3.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jLabel3.setText("Prezzo:");
+        newArticlePanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 163, -1, -1));
+        newArticlePanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 158, 86, -1));
+
+        jLabel4.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        jLabel4.setText("Data: ");
+        newArticlePanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 224, -1, -1));
+        newArticlePanel.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 219, 29, -1));
+
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel5.setText("/");
+        newArticlePanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 213, -1, -1));
+        newArticlePanel.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 219, 27, -1));
+
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel6.setText("/");
+        newArticlePanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 213, -1, -1));
+        newArticlePanel.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 219, 49, -1));
+
+        jButton1.setText("Data Odierna");
+        newArticlePanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 251, -1, -1));
+
+        jButton2.setText("Cancella");
+        newArticlePanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 362, -1, -1));
+
+        jButton3.setText("Inserisci");
+        newArticlePanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 362, 130, -1));
+
+        jLabel7.setText("Tipo di Articolo:");
+        newArticlePanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 64, -1, -1));
+
+        getContentPane().add(newArticlePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+
+        ordersViewPanel.setBackground(new java.awt.Color(255, 102, 102));
+        ordersViewPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Avenir", 0, 30)); // NOI18N
+        jLabel8.setText("Visualizza Ordini:");
+        ordersViewPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jLabel9.setText("ID:");
+        ordersViewPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 75, -1, -1));
+
+        jLabel10.setText("Negozio:");
+        ordersViewPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 103, -1, -1));
+
+        jLabel11.setText("Prezzo Totale:");
+        ordersViewPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 138, -1, -1));
+
+        jButton4.setText("Vedi info Negozio");
+        ordersViewPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 103, -1, -1));
+
+        jLabel12.setText("Data");
+        ordersViewPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 172, -1, -1));
+
+        jButton5.setText("<");
+        ordersViewPanel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 41, -1));
+
+        jButton6.setText(">");
+        ordersViewPanel.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 40, -1));
+
+        jButton7.setText("Modifica");
+        ordersViewPanel.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
+
+        jButton8.setText("Chiudi");
+        ordersViewPanel.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        ordersViewPanel.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 93, -1));
+
+        jLabel13.setText("Cerca:");
+        ordersViewPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
+
+        getContentPane().add(ordersViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 27, 600, 400));
+
+        creaNuovoOrdinePanel.setBackground(new java.awt.Color(255, 255, 0));
+        creaNuovoOrdinePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("Avenir", 0, 36)); // NOI18N
+        jLabel17.setText("Crea un nuovo ordini: ");
+        creaNuovoOrdinePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, -1, 37));
+
+        jLabel18.setText("ID:");
+        creaNuovoOrdinePanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+
+        jLabel19.setText("Negozio:");
+        creaNuovoOrdinePanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+
+        jLabel20.setText("Articoli:");
+        creaNuovoOrdinePanel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+
+        jButton9.setText("Seleziona Negozio");
+        creaNuovoOrdinePanel.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 128, -1, -1));
+
+        jButton10.setText("Seleziona Articolo");
+        creaNuovoOrdinePanel.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
+
+        jButton11.setText("Crea");
+        creaNuovoOrdinePanel.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 220, -1, -1));
+
+        jButton12.setText("Chiudi");
+        creaNuovoOrdinePanel.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 220, -1, -1));
+
+        jLabel22.setText("Corriere:");
+        creaNuovoOrdinePanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        creaNuovoOrdinePanel.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 96, 138, -1));
+
+        getContentPane().add(creaNuovoOrdinePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 410, 310));
+
+        jPanel1.setBackground(new java.awt.Color(255, 0, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setFont(new java.awt.Font("Avenir", 1, 36)); // NOI18N
+        jLabel14.setText("Visualizza Negozio:");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 0, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setFont(new java.awt.Font("Avenir", 1, 36)); // NOI18N
+        jLabel15.setText("Visualizza Ordine:");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 720, 550, 340));
+
+        jButton13.setText(">");
+        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 40, -1));
+
+        jButton14.setText("<");
+        jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 41, -1));
+        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 93, -1));
+
+        jLabel21.setText("Cerca:");
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
+
+        jButton15.setText("Chiudi");
+        jPanel1.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
+
+        jButton16.setText("Modifica");
+        jPanel1.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 710, 550, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    
+    
+    //
+    //ACTION PERFORMED
+    //
+    
     private void usrFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usrFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usrFieldActionPerformed
+
+    
+    
+    //PULSANTE CANCELLA PANNELLO PIN
+    private void cancelPinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelPinButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelPinButtonActionPerformed
 
     
     public static void main(String args[]) {
@@ -144,33 +325,78 @@ public class Main extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-
+        
+        
+        Magazzino m = new Magazzino();
 
       
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new Main().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Main().setVisible(true);
         });
+        
+        
+        
     }//fine main
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelPinButton;
+    private javax.swing.JPanel creaNuovoOrdinePanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     private javax.swing.JButton loginButton;
+    private javax.swing.JLabel loginTitleLabel;
+    private javax.swing.JPanel newArticlePanel;
+    private javax.swing.JPanel ordersViewPanel;
     private javax.swing.JPasswordField pinField;
     private javax.swing.JPanel pinPanel;
     private javax.swing.JTextField usrField;
