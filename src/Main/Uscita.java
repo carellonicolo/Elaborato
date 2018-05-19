@@ -12,17 +12,27 @@ public class Uscita {
     private String corriere;
     private Negozio negozio;
     private GregorianCalendar data;
+    private Ordine o;
     
     private final Random r = new Random();
 
-    public Uscita(String corriere, int ID){
+    public Uscita(String corriere, int ID, Ordine o){
         this.bolla = ID;
         this.corriere = corriere;
         this.articoli = new HashSet<>();
+        this.o = o;
     }
     
     public boolean addArticoli(Articolo i){
         return articoli.add(i);
+    }
+    
+    public void setOrdine(Ordine o){
+        this.o = o;
+    }
+    
+    public Ordine getOrdine(){
+        return o;
     }
     
     public boolean removeArticoli(Articolo i){

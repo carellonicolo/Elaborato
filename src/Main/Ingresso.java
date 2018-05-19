@@ -53,13 +53,9 @@ public class Ingresso {
         return null;//se non esiste un'associazione posizione-articolo
     }
     
-    public boolean addArticle(Articolo a){
-        if(a instanceof Articolo){
+    public void addArticle(Articolo a){
            articoloPosizione.put(a, i);
             i++;//incrementare sempre la posizione ad ogni aggiunta
-            return true;
-        }
-        return false;
     }
     
 }//fine ingresso

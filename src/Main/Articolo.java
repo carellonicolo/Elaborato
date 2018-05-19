@@ -13,8 +13,9 @@ public class Articolo {
 
     
     //se non viene passata nessuna data sarà il chiamante la funzione che mi deve passare unda data in formato GregorianCalendar
-    public Articolo(float price, GregorianCalendar data){//CON DATA
+    public Articolo(float price, GregorianCalendar data, TipoArticolo x){//CON DATA
         this.prezzo = price;
+        this.x = x;
         this.data = data;//Salvo la data se mi viene passata
         ID = Integer.parseInt(""+data.get(data.HOUR)+"99"+data.get(data.MINUTE)+data.get(data.SECOND)+r.nextInt(1543))+r.nextInt(99);
     }
@@ -37,7 +38,7 @@ public class Articolo {
     }
    
     public TipoArticolo getTipoArticolo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return x;
     }
     
     
