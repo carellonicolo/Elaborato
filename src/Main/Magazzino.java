@@ -144,7 +144,7 @@ public class Magazzino {
     
     //      ORDINI
     
-    public boolean addrdine(Ordine o){
+    public boolean addOrdine(Ordine o){
         return ordini.add(o);
     }
     
@@ -162,6 +162,10 @@ public class Magazzino {
     
     public boolean ordineIsEmpty(){
         return ordini.isEmpty();
+    }
+    
+    public int ordineSize(){
+        return ordini.size();
     }
     
     public void resetMounth() {//server per resettare il totale degli ingressi e uscite in un anno

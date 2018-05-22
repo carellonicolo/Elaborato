@@ -2,10 +2,11 @@ package Main;
 
 import java.util.GregorianCalendar;
 import java.util.Random;
+import java.util.UUID;
 
 
 public class Articolo {
-    private final int ID;
+    private UUID ID;
     private float prezzo;
     private GregorianCalendar data;
     private TipoArticolo x;
@@ -17,7 +18,15 @@ public class Articolo {
         this.prezzo = price;
         this.x = x;
         this.data = data;//Salvo la data se mi viene passata
-        ID = Integer.parseInt(""+data.get(data.HOUR)+"99"+data.get(data.MINUTE)+data.get(data.SECOND)+r.nextInt(1543))+r.nextInt(99);
+        this.ID = UUID.randomUUID();
+    }
+    
+    
+    public Articolo(float price, TipoArticolo x){//CON DATA
+        this.prezzo = price;
+        this.x = x;
+        this.data = new GregorianCalendar();
+        this.ID = UUID.randomUUID();
     }
     
     
@@ -25,8 +34,8 @@ public class Articolo {
     
     /**************************METODI GET*******************************/
     
-    public int getID(){
-        return ID;
+    public String getID(){
+        return ID.toString();
     }
     
     public float getPrezzo(){

@@ -4,18 +4,17 @@ import java.util.GregorianCalendar; //In caso si vogliano fare delle manipolazio
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-
+import java.util.UUID;
 
 public class Ordine {
 
-    private final int ID;
     private Negozio ordinante;
     private GregorianCalendar data;
     private float prezzoTotale;
+    private UUID ID;
     
     private Map<Articolo, Integer> mappa = new HashMap<>();
     
-    Random r = new Random(); 
     
     
     
@@ -27,16 +26,21 @@ public class Ordine {
     //che l'utente conferma il prodotto si aggiunge ad un mappa che viene creata nel moemnto in cui si preme "Crea Ordine"
     public Ordine(Negozio n, int day, int month, int year, Map<Articolo, Integer> m){//DATA PASSATA IN INTERO 
         this.prezzoTotale = 0;
-        this.ID = Integer.parseInt(""+data.get(data.HOUR)+"99"+data.get(data.MINUTE)+data.get(data.SECOND)+r.nextInt(1543))+r.nextInt(99);
         this.ordinante = n;
         this.mappa = m;
         this.data = new GregorianCalendar(year, month, year);
-        
         //Calcolo il costo totale degli articoli nella mappa
         calcolaPrezzo();
-        
+        this.ID = UUID.randomUUID();
     }//costruttore con data come parametri interi
     
+    
+    
+    public Ordine(Negozio n){
+        this.ordinante = n;
+        this.data = new GregorianCalendar();
+        this.ID = UUID.randomUUID();
+    }
     
     
     
@@ -45,12 +49,13 @@ public class Ordine {
     
     
     //------------------METODI-GET-------------------//
-    public Negozio getOrdinante(){
+    
+    public Negozio getNegozio(){
         return ordinante;
     }
     
-    public int getID(){
-        return ID;
+    public String getID(){
+        return ID.toString();
     }
     
     public float getTotalPrice(){
@@ -62,10 +67,15 @@ public class Ordine {
         for(Map.Entry<Articolo, Integer> entry: mappa.entrySet()){
             Articolo a = entry.getKey();
             int q = entry.getValue();
-            s = ""+a.getID()+ " " +a.getTipoArticolo().getName() + " " + q;
+            s = ""+a.getID()+ " " +a.getTipoArticolo().getName() + " " + q+"\n";
         }
         return s;
     }//getArticoli_e_quantità
+    
+    public String getData(){
+        return ""+data.get(GregorianCalendar.DATE)+"-"+data.get(GregorianCalendar.MONTH)+"-"+data.get(GregorianCalendar.YEAR);
+    }
+
     
     
     

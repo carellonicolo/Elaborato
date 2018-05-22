@@ -6,11 +6,14 @@ import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
 
+    static int indexOrder = 0; //numero ordine
     Magazzino m;
 
     public Main() {
         m = new Magazzino();
         initComponents();
+        hideAll();
+        pinPanel.setVisible(true);
     }
     
     public void hideAll(){
@@ -53,18 +56,19 @@ public class Main extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         ordersViewPanel = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
+        negozioInfo_OrderPanel = new javax.swing.JButton();
+        indietroButton_OrderPanel = new javax.swing.JButton();
+        avantiButton_OrderPanel = new javax.swing.JButton();
+        modificaButtonOrderPanel = new javax.swing.JButton();
+        chiudiButtonOrderPanel = new javax.swing.JButton();
+        searchFieldOrderPanel = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jButton17 = new javax.swing.JButton();
         orderIDLabel = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        orderDataLabel = new javax.swing.JLabel();
+        orderPrezzoLabel = new javax.swing.JLabel();
+        orderNomeNegozioLabel = new javax.swing.JLabel();
+        articoliQuantitaOrderPanel = new javax.swing.JLabel();
         creaNuovoOrdinePanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -180,6 +184,11 @@ public class Main extends javax.swing.JFrame {
                 usrFieldActionPerformed(evt);
             }
         });
+        usrField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usrFieldKeyPressed(evt);
+            }
+        });
         pinPanel.add(usrField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 149, -1));
 
         loginTitleLabel.setFont(new java.awt.Font("Lucida Grande", 0, 36)); // NOI18N
@@ -239,24 +248,39 @@ public class Main extends javax.swing.JFrame {
         jLabel8.setText("Visualizza Ordini:");
         ordersViewPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jButton4.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        jButton4.setText("Vedi info Negozio");
-        ordersViewPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
+        negozioInfo_OrderPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        negozioInfo_OrderPanel.setText("Vedi info Negozio");
+        ordersViewPanel.add(negozioInfo_OrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
 
-        jButton5.setText("<");
-        ordersViewPanel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 41, -1));
+        indietroButton_OrderPanel.setText("<");
+        indietroButton_OrderPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indietroButton_OrderPanelActionPerformed(evt);
+            }
+        });
+        ordersViewPanel.add(indietroButton_OrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 41, -1));
 
-        jButton6.setText(">");
-        ordersViewPanel.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 40, -1));
+        avantiButton_OrderPanel.setText(">");
+        avantiButton_OrderPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avantiButton_OrderPanelActionPerformed(evt);
+            }
+        });
+        ordersViewPanel.add(avantiButton_OrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 40, -1));
 
-        jButton7.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        jButton7.setText("Modifica");
-        ordersViewPanel.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
+        modificaButtonOrderPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        modificaButtonOrderPanel.setText("Modifica");
+        ordersViewPanel.add(modificaButtonOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
 
-        jButton8.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        jButton8.setText("Chiudi");
-        ordersViewPanel.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
-        ordersViewPanel.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 93, -1));
+        chiudiButtonOrderPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        chiudiButtonOrderPanel.setText("Chiudi");
+        chiudiButtonOrderPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chiudiButtonOrderPanelActionPerformed(evt);
+            }
+        });
+        ordersViewPanel.add(chiudiButtonOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        ordersViewPanel.add(searchFieldOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 93, -1));
 
         jLabel13.setText("Cerca:");
         ordersViewPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
@@ -270,17 +294,20 @@ public class Main extends javax.swing.JFrame {
         orderIDLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ordersViewPanel.add(orderIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 210, 60));
 
-        jLabel9.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
-        jLabel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        ordersViewPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 210, 60));
+        orderDataLabel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
+        orderDataLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13))); // NOI18N
+        ordersViewPanel.add(orderDataLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 210, 60));
 
-        jLabel10.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
-        jLabel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Prezzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        ordersViewPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 210, 60));
+        orderPrezzoLabel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
+        orderPrezzoLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Prezzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13))); // NOI18N
+        ordersViewPanel.add(orderPrezzoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 210, 60));
 
-        jLabel11.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
-        jLabel11.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Negozio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        ordersViewPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 220, 70));
+        orderNomeNegozioLabel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
+        orderNomeNegozioLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Negozio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13))); // NOI18N
+        ordersViewPanel.add(orderNomeNegozioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 220, 70));
+
+        articoliQuantitaOrderPanel.setText("jLabel9");
+        ordersViewPanel.add(articoliQuantitaOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 240, 130));
 
         getContentPane().add(ordersViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 600, 400));
 
@@ -458,32 +485,112 @@ public class Main extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
 
         m.addUser(new Utente("ciao", "ciao", 1));
-        JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattae l'amministratore di sistema il prima possibile");
+        m.addOrdine(new Ordine(new Negozio("codice fiscale", "nome Negozio", "Indirizzo", "City")));
+        m.getOrdine(0).addArticle(new Articolo((float) 12.9, new TipoArticolo("nome", "Desrizione",  3,  4)), 10);
+        m.getOrdine(0).addArticle(new Articolo((float) 12.9, new TipoArticolo("nome", "Desrizione",  3,  4)), 10);
+        
+        
 
         String pin = pinField.getText();
         String user = usrField.getText();
 
         int type = m.login(new Utente(user, pin, 1));
-        
-        if(m.login(new Utente(user, pin, 1)) == -1){
+
+        if(type == -1){
             JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattae l'amministratore di sistema il prima possibile");
             usrField.setText("");
             pinField.setText("");
-        }else{
+        }else if(type == 1){
             usrField.setText("");
             pinField.setText("");
             JOptionPane.showMessageDialog(null, "Login effettuato correttamente\nTipoAccount: " + type);
-            hideAll();
-            resetOrdini();
+            hideAll();//nascondo tutti i pannelli
+            indexOrder = 0;//azzero 'indice degli ordini
+            aggiornaOrdini();
             ordersViewPanel.setVisible(true);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    public void resetOrdini(){
-        if(m.)
-        orderIDLabel.setText("");
-    }
+    private void chiudiButtonOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButtonOrderPanelActionPerformed
+        exit();
+    }//GEN-LAST:event_chiudiButtonOrderPanelActionPerformed
+
+    private void usrFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usrFieldKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usrFieldKeyPressed
+
+    private void avantiButton_OrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiButton_OrderPanelActionPerformed
+        indexOrder++;
+        aggiornaOrdini();
+    }//GEN-LAST:event_avantiButton_OrderPanelActionPerformed
+
+    private void indietroButton_OrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroButton_OrderPanelActionPerformed
+        indexOrder--;
+        aggiornaOrdini();
+    }//GEN-LAST:event_indietroButton_OrderPanelActionPerformed
     
+    
+    
+    void aggiornaOrdini(){
+        if(m.ordineIsEmpty()){
+          indexOrder = 0;//azzero 'indice degli ordini per sicurezza
+          orderIDLabel.setText("");  
+          orderDataLabel.setText("");
+          orderPrezzoLabel.setText("");
+          orderNomeNegozioLabel.setText("");
+          searchFieldOrderPanel.setText("");
+          searchFieldOrderPanel.setEditable(false);
+          indietroButton_OrderPanel.setEnabled(false);
+          avantiButton_OrderPanel.setEnabled(false);
+          negozioInfo_OrderPanel.setEnabled(false);
+          modificaButtonOrderPanel.setEnabled(false);
+          JOptionPane.showMessageDialog(null, "Nessun ordine ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
+        }else{
+            if(indexOrder == 0){
+                indietroButton_OrderPanel.setEnabled(false);
+            }
+            if(indexOrder == m.ordineSize()-1){
+                avantiButton_OrderPanel.setEnabled(false);
+
+            }
+            System.out.println("i = "+indexOrder);
+            System.out.println("size = "+m.ordineSize());
+            System.out.println("size-1 = "+(m.ordineSize()-1));
+            searchFieldOrderPanel.setEditable(true);
+            indietroButton_OrderPanel.setEnabled(true);
+            avantiButton_OrderPanel.setEnabled(true);
+            negozioInfo_OrderPanel.setEnabled(true);
+            
+            modificaButtonOrderPanel.setEnabled(true);
+            searchFieldOrderPanel.setText(""+indexOrder);
+            orderIDLabel.setText(""+m.getOrdine(indexOrder).getID());
+            orderDataLabel.setText(""+m.getOrdine(indexOrder).getData());
+            orderPrezzoLabel.setText(""+m.getOrdine(indexOrder).getTotalPrice());
+            orderNomeNegozioLabel.setText(""+m.getOrdine(indexOrder).getNegozio().getNome());
+            articoliQuantitaOrderPanel.setText(""+m.getOrdine(indexOrder).getArticoli_e_quantità());
+        }
+
+    }//resetOrder
+    
+    void exit(){
+        
+        Object[] options = {"Esci", "Annulla"};//dichiaro i tipi di opzioni nel prossimo JOptionPane
+ 
+         if(JOptionPane.showOptionDialog(null,
+            "Sei sicuro di voler uscire dalla sezione riservata?\nConfermano si esce e per effettuare ulteriori operazioni bisogna rieffettuare il login", "Logout",
+            JOptionPane.YES_NO_CANCEL_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            options,
+            options[1]) == 0){
+             
+           hideAll();
+          usrField.setText("");
+          pinField.setText("");
+          pinPanel.setVisible(true);
+         
+         }//if JOPTIONPANE
+    }//exit
     
     public static void main(String args[]) {
         try {
@@ -504,8 +611,12 @@ public class Main extends javax.swing.JFrame {
     }//fine main
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel articoliQuantitaOrderPanel;
+    private javax.swing.JButton avantiButton_OrderPanel;
     private javax.swing.JButton cancelPinButton;
+    private javax.swing.JButton chiudiButtonOrderPanel;
     private javax.swing.JPanel creaNuovoOrdinePanel;
+    private javax.swing.JButton indietroButton_OrderPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -523,18 +634,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -565,23 +669,27 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel loginTitleLabel;
+    private javax.swing.JButton modificaButtonOrderPanel;
+    private javax.swing.JButton negozioInfo_OrderPanel;
     private javax.swing.JPanel newArticlePanel;
+    private javax.swing.JLabel orderDataLabel;
     private javax.swing.JLabel orderIDLabel;
+    private javax.swing.JLabel orderNomeNegozioLabel;
+    private javax.swing.JLabel orderPrezzoLabel;
     private javax.swing.JPanel ordersViewPanel;
     private javax.swing.JPasswordField pinField;
     private javax.swing.JPanel pinPanel;
+    private javax.swing.JTextField searchFieldOrderPanel;
     private javax.swing.JTextField usrField;
     private javax.swing.JLabel usrLabel;
     private javax.swing.JPanel visaulizzaNegozioPanel;
