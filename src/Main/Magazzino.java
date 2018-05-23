@@ -125,7 +125,6 @@ public class Magazzino {
     
     //      USCITE
     public boolean addUscita(Uscita u, Ordine n){
-        
         return uscite.add(u);
     }
     

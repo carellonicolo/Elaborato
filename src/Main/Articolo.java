@@ -1,16 +1,14 @@
 package Main;
 
 import java.util.GregorianCalendar;
-import java.util.Random;
 import java.util.UUID;
 
 
 public class Articolo {
-    private UUID ID;
+    private final UUID ID;
     private float prezzo;
     private GregorianCalendar data;
     private TipoArticolo x;
-    Random r = new Random(); 
 
     
     //se non viene passata nessuna data sarà il chiamante la funzione che mi deve passare unda data in formato GregorianCalendar

@@ -1,5 +1,6 @@
 package Main;
 
+import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -235,6 +236,11 @@ public class Main extends javax.swing.JFrame {
         negoziPanel.add(CreaNegozioButton_NegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
 
         selezionaButton_NegozioPanel.setText("Seleziona");
+        selezionaButton_NegozioPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selezionaButton_NegozioPanelActionPerformed(evt);
+            }
+        });
         negoziPanel.add(selezionaButton_NegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, -1));
 
         closeButton_NegozioPanel1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
@@ -824,9 +830,15 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        hideAll();
-        negoziPanel.setVisible(true);
-        selezionaButton_NegozioPanel.setVisible(rootPaneCheckingEnabled);
+        if(!"".equals(corrriereField_NewOrderPanel.getText()) && !" ".equals(corrriereField_NewOrderPanel.getText())){
+            JOptionPane.showMessageDialog(null, "Prima di scegliere il negozio ordinante bisogna inserire il corriere che prende in carico la spedizione! ");
+            corrriereField_NewOrderPanel.setBackground(Color.red);
+        }else{
+            corrriereField_NewOrderPanel.setBackground(Color.white);
+            hideAll();
+            negoziPanel.setVisible(true);
+            selezionaButton_NegozioPanel.setVisible(true);
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void modificaButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButton_NegozioPanelActionPerformed
@@ -859,6 +871,12 @@ public class Main extends javax.swing.JFrame {
         negoziPanel.setVisible(true);
         negozi();
     }//GEN-LAST:event_modificaFromNewNegozioPanelActionPerformed
+
+    private void selezionaButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selezionaButton_NegozioPanelActionPerformed
+        String corriere = corrriereField_NewOrderPanel.getText();
+        //Ordine n = m.addOrdine(new Ordine(m.getNegozi(indexShop)));
+        //m.addUscita(m, n)
+    }//GEN-LAST:event_selezionaButton_NegozioPanelActionPerformed
 
     void negozi() {
         if (m.negoziIsEmpty()) {
