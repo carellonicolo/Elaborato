@@ -73,6 +73,10 @@ public class Magazzino {
     public boolean articoliIsEmpty(){
         return articoli.isEmpty();
     }
+    
+    public int articoliSize(){
+        return articoli.size();
+    }
 
     
     //      NEGOZI

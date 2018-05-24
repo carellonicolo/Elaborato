@@ -26,7 +26,7 @@ public class Articolo {
         this.data = new GregorianCalendar();
         this.ID = UUID.randomUUID();
     }
-    
+   
     
     
     
@@ -40,10 +40,22 @@ public class Articolo {
         return prezzo;
     }
     
-    public GregorianCalendar getData(){
-        return data;
+    public String getData(){
+        return ""+data.get(GregorianCalendar.DATE)+"-"+data.get(GregorianCalendar.MONTH)+"-"+data.get(GregorianCalendar.YEAR);
+    }
+    
+    public String getDay(){
+        return ""+data.get(GregorianCalendar.DATE);
     }
    
+    public String getMonth(){
+        return ""+data.get(GregorianCalendar.MONTH);
+    }
+    
+    public String getYear(){
+        return ""+data.get(GregorianCalendar.YEAR);
+    }
+    
     public TipoArticolo getTipoArticolo() {
         return x;
     }
@@ -67,6 +79,10 @@ public class Articolo {
     
     public void setData(){//se non mi viene passata una data me la prendo io quella odierna
         data = new GregorianCalendar();
+    }
+    
+    public void setData(int d, int m, int y){
+        data = new GregorianCalendar(d, m, y);
     }
     
     

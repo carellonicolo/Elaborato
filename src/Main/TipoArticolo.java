@@ -2,8 +2,8 @@ package Main;
 
 public class TipoArticolo {
     
-    public final String sportArray[]= {"NUOTO", "CALCIO", "PALESTRA", "TENNIS", "SCII", "BASKET", "Cannottaggio", "Ciclismo", "Ping Pong", "Atletica", "Air Hockey", "Golf", "Pallavolo", "Danza", "Judo"};
-    public final String arrayMateriali[] = {"Poliestere", "Silicone", "Finta Pelle"};
+    public final String sportArray[]= {"Nuoto", "Calcio", "Palestra", "Tennis", "Scii", "Basket", "Rafting", "Ciclismo", "Rugby", "Atletica", "Hockey", "Golf", "Pallavolo", "Danza"};
+    public final String arrayMateriali[] = {"Poliestere", "Silicone", "Finta Pelle", "GORE-TEX", "Elastan", "Polietilene", "Poliammide"};
             
     private String nome;
     private String descrizione;
@@ -63,7 +63,7 @@ public class TipoArticolo {
     }//SETDESCRIPTION
     
     public boolean setSport(int s){
-        if(s>=0){//da aggiungere controllo su numero massimo di sport disponibili
+        if(s>=0 && s<sportArray.length){//da aggiungere controllo su numero massimo di sport disponibili
             this.numSport = s;
             return true;
         }
@@ -71,7 +71,7 @@ public class TipoArticolo {
     }//SETSPORT
     
     public boolean setMaterial(int m){
-        if(m>=0){//da aggiungere controllo su numero massimo di sport disponibili
+        if(m>=0 && m < arrayMateriali.length){//da aggiungere controllo su numero massimo di sport disponibili
             this.numMateriali = m;
             return true;
         }
