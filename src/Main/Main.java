@@ -40,6 +40,7 @@ public class Main extends javax.swing.JFrame {
         hideAll();
         loginPanel.setVisible(true);
         selezionaButton_NegozioPanel.setVisible(false);
+        errorLabel_creaNuovoArticoloPanel.setVisible(false);
     }
 
     public void hideAll() {
@@ -278,31 +279,31 @@ public class Main extends javax.swing.JFrame {
 
         IDLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         IDLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        visualizzaArticoliPanel.add(IDLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, 50));
+        visualizzaArticoliPanel.add(IDLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 190, 50));
 
         prezzoLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         prezzoLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Prezzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        visualizzaArticoliPanel.add(prezzoLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 150, 50));
+        visualizzaArticoliPanel.add(prezzoLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 190, 50));
 
         dataLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         dataLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data inserimento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        visualizzaArticoliPanel.add(dataLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 150, 50));
+        visualizzaArticoliPanel.add(dataLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 190, 50));
 
         nomeLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         nomeLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        visualizzaArticoliPanel.add(nomeLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 200, 50));
+        visualizzaArticoliPanel.add(nomeLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 200, 50));
 
         descrizioneLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         descrizioneLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Descrizione", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        visualizzaArticoliPanel.add(descrizioneLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 200, 50));
+        visualizzaArticoliPanel.add(descrizioneLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 200, 50));
 
         sportLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         sportLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Sport", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        visualizzaArticoliPanel.add(sportLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 200, 50));
+        visualizzaArticoliPanel.add(sportLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 200, 50));
 
         materialiLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         materialiLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Materiale", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        visualizzaArticoliPanel.add(materialiLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 200, 50));
+        visualizzaArticoliPanel.add(materialiLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 200, 50));
 
         avantiButton_VisualizzaArticoloPanel.setText(">");
         avantiButton_VisualizzaArticoloPanel.addActionListener(new java.awt.event.ActionListener() {
@@ -310,7 +311,7 @@ public class Main extends javax.swing.JFrame {
                 avantiButton_VisualizzaArticoloPanelActionPerformed(evt);
             }
         });
-        visualizzaArticoliPanel.add(avantiButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 40, 30));
+        visualizzaArticoliPanel.add(avantiButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 40, 30));
 
         indietroButton_VisualizzaArticoloPanel.setText("<");
         indietroButton_VisualizzaArticoloPanel.addActionListener(new java.awt.event.ActionListener() {
@@ -318,7 +319,7 @@ public class Main extends javax.swing.JFrame {
                 indietroButton_VisualizzaArticoloPanelActionPerformed(evt);
             }
         });
-        visualizzaArticoliPanel.add(indietroButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 41, -1));
+        visualizzaArticoliPanel.add(indietroButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 41, -1));
 
         modificaButton_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         modificaButton_VisualizzaArticoloPanel.setText("Modifica");
@@ -327,7 +328,7 @@ public class Main extends javax.swing.JFrame {
                 modificaButton_VisualizzaArticoloPanelActionPerformed(evt);
             }
         });
-        visualizzaArticoliPanel.add(modificaButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, -1));
+        visualizzaArticoliPanel.add(modificaButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, -1, -1));
 
         creaNegozioButton_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         creaNegozioButton_VisualizzaArticoloPanel.setText("Crea Articolo");
@@ -336,7 +337,7 @@ public class Main extends javax.swing.JFrame {
                 creaNegozioButton_VisualizzaArticoloPanelActionPerformed(evt);
             }
         });
-        visualizzaArticoliPanel.add(creaNegozioButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, -1, -1));
+        visualizzaArticoliPanel.add(creaNegozioButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, -1, -1));
 
         chiudiButton_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         chiudiButton_VisualizzaArticoloPanel.setText("Chiudi");
@@ -345,23 +346,23 @@ public class Main extends javax.swing.JFrame {
                 chiudiButton_VisualizzaArticoloPanelActionPerformed(evt);
             }
         });
-        visualizzaArticoliPanel.add(chiudiButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
+        visualizzaArticoliPanel.add(chiudiButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, -1, -1));
 
         selzionaButton_VisualizzaArticoloPanel.setText("Seleziona");
-        visualizzaArticoliPanel.add(selzionaButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, -1, -1));
+        visualizzaArticoliPanel.add(selzionaButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, -1, -1));
 
         jLabel30.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
         jLabel30.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "Tipo Articolo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 18))); // NOI18N
-        visualizzaArticoliPanel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 270, 280));
+        visualizzaArticoliPanel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 270, 280));
 
         cercaLabel_VisualizzaArticoloPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        visualizzaArticoliPanel.add(cercaLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 30, 30));
+        visualizzaArticoliPanel.add(cercaLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 30, 30));
 
         jLabel35.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         jLabel35.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Cerca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        visualizzaArticoliPanel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 130, 60));
+        visualizzaArticoliPanel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 130, 60));
 
-        getContentPane().add(visualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 540, 450));
+        getContentPane().add(visualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 510, 400));
 
         negoziPanel.setBackground(new java.awt.Color(255, 0, 255));
         negoziPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -659,7 +660,7 @@ public class Main extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        adminPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, -1));
+        adminPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 90, -1));
 
         jButton5.setText("Negozi");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -667,7 +668,7 @@ public class Main extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        adminPanel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 90, -1));
+        adminPanel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 90, -1));
 
         jToggleButton1.setText("Ordini");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -675,9 +676,9 @@ public class Main extends javax.swing.JFrame {
                 jToggleButton1ActionPerformed(evt);
             }
         });
-        adminPanel.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 90, -1));
+        adminPanel.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 90, -1));
 
-        getContentPane().add(adminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 560, 130, 150));
+        getContentPane().add(adminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 90, 110));
 
         newArticlePanel.setBackground(new java.awt.Color(0, 153, 255));
         newArticlePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1409,9 +1410,9 @@ public class Main extends javax.swing.JFrame {
             nuotoRadioButton.setSelected(true);
             hideAll();
             visualizzaArticoliPanel.setVisible(true);
+            errorLabel_creaNuovoArticoloPanel.setVisible(false);
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Attenzione!! Prezzo inserito non valido, inserire nuovamente il prezzo");
-            prezzoField_newArticlePanel.setBackground(Color.red);
+            errorLabel_creaNuovoArticoloPanel.setVisible(true);
         }
     }//GEN-LAST:event_modificaButton_newArticlePanelActionPerformed
 
