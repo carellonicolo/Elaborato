@@ -18,7 +18,7 @@ public class Utente implements UserInterface{
     }
 
     
-    /*********************METODI SET**********************/
+    /*********************METODI SE*********************/
     @Override
     public boolean setUser(String newUser){
         if(!" ".equals(newUser) && !"".equals(newUser)){

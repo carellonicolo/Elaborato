@@ -7,14 +7,14 @@ import java.util.*;
 
 public class Magazzino {
 
-    private List<Uscita> uscite;
-    private List<Ordine> ordini;
-    private List<Articolo> articoli;
-    private List<Ingresso> ingressi;
-    private List<Negozio> negozi;
-    private Set<Ingresso> ingressiMensili;
-    private Set<Uscita> usciteMensili;
-    private List<Utente> users;
+    private final List<Uscita> uscite;
+    private final List<Ordine> ordini;
+    private final List<Articolo> articoli;
+    private final List<Ingresso> ingressi;
+    private final List<Negozio> negozi;
+    private final Set<Ingresso> ingressiMensili;
+    private final Set<Uscita> usciteMensili;
+    private final List<Utente> users;
 
     //COSTRUTTORE
     public Magazzino() {
@@ -53,7 +53,9 @@ public class Magazzino {
     }
 
     
-    //          ARTICOLI
+    /****************************ARTICOLI*******************************************
+     * @param a+
+     * @return */
     public boolean addArticolo(Articolo a) {
         return articoli.add(a);
     }
@@ -78,6 +80,16 @@ public class Magazzino {
         return articoli.size();
     }
 
+    public boolean exist(Articolo a){
+        return articoli.contains(a);
+    }
+    
+    public Articolo articoloContainedByName(String s){
+        for(Articolo X: articoli)
+            if(X.getTipoArticolo().getName().equals(s))
+                return X;
+        return null;
+    }
     
     //      NEGOZI
     public boolean addNegozi(Negozio i) {
@@ -104,6 +116,17 @@ public class Magazzino {
         return negozi.size();
     }
 
+    public boolean exist(Negozio n){
+        return negozi.contains(n);
+    }
+    
+    public Negozio negozioContainedByName(String s){ //controlla se esiste un negozio con quel nome
+        for (Negozio X : negozi) {
+            if(X.getNome().equals(s))
+                return X;
+        }
+        return null;
+    }
     
     //      INGRESSI
     public boolean addIngresso(Ingresso i) {

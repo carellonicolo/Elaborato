@@ -10,8 +10,13 @@ public class Articolo {
     private GregorianCalendar data;
     private TipoArticolo x;
 
-    
-    //se non viene passata nessuna data sarà il chiamante la funzione che mi deve passare unda data in formato GregorianCalendar
+
+    /**
+     *se non viene passata nessuna data sarà il chiamante la funzione che mi deve passare unda data in formato GregorianCalendar
+     * @param price
+     * @param data
+     * @param x
+     */
     public Articolo(float price, GregorianCalendar data, TipoArticolo x){//CON DATA
         this.prezzo = price;
         this.x = x;
@@ -65,6 +70,9 @@ public class Articolo {
     
     /**************************METODI SET*******************************/
  
+    /**
+     * @param x
+     */
     public void setTipoArticolo(TipoArticolo x){
             this.x=x;
     }
