@@ -649,7 +649,7 @@ public class Main extends javax.swing.JFrame {
         });
         creaNegozioPanel.add(modificaFromNewNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 90, -1));
 
-        getContentPane().add(creaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 500, 180));
+        getContentPane().add(creaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 500, 180));
 
         negoziPanel.setBackground(new java.awt.Color(255, 0, 255));
         negoziPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
