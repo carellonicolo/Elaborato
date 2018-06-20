@@ -15,8 +15,11 @@ public class Magazzino {
     private final Set<Ingresso> ingressiMensili;
     private final Set<Uscita> usciteMensili;
     private final List<Utente> users;
+    private final Map<Articolo, Integer> articoliInMagazzino;
 
-    //COSTRUTTORE
+    
+    
+    /************************************* CONSTRUCT ************************************/
     public Magazzino() {
         this.negozi = new ArrayList();
         this.uscite = new ArrayList<>();
@@ -26,11 +29,13 @@ public class Magazzino {
         this.ingressi = new ArrayList<>();
         this.articoli = new ArrayList<>();
         this.ordini = new ArrayList<>();
+        this.articoliInMagazzino = new HashMap();
     }
-
     
     
-    //          UTENTI
+    
+    
+    /************************************* USERS ************************************/
     public boolean addUser(Utente u) {
         return users.add(u);
     }
@@ -51,13 +56,22 @@ public class Magazzino {
     public boolean usersIsEmpty(){
         return users.isEmpty();
     }
-
     
-    /****************************ARTICOLI*******************************************
-     * @param a+
-     * @return */
+    public int login(Utente u) {
+        for (Utente X : users)
+            if (X.checkPass(X, u)) 
+                return X.getTypeInt();
+        return -1; //non è stata trovata una corrispondenza tra un utente esistente e quello inserito dall'utente!
+    }
+    /************************************* USERS ************************************/
+    
+    
+    
+    
+    
+    /*********************************ARTICOLI********************************************/
     public boolean addArticolo(Articolo a) {
-        return articoli.add(a);
+        return articoli.contains(a) ? false: articoli.add(a);
     }
 
     public boolean removeArticolo(Articolo u) {
@@ -90,8 +104,13 @@ public class Magazzino {
                 return X;
         return null;
     }
+    /*********************************ARTICOLI********************************************/
     
-    //      NEGOZI
+    
+    
+    
+    
+    /******************************************* NEGOZI ***********************************************************/
     public boolean addNegozi(Negozio i) {
         return negozi.add(i);
     }
@@ -127,8 +146,13 @@ public class Magazzino {
         }
         return null;
     }
+    /******************************************* NEGOZI ***********************************************************/
     
-    //      INGRESSI
+    
+    
+    
+    
+    /******************************************** INGRESSO ********************************************************/
     public boolean addIngresso(Ingresso i) {
         return ingressi.add(i);
     }
@@ -148,9 +172,13 @@ public class Magazzino {
     public Ingresso getIngresso(int i){
         return ingressi.get(i);
     }
+    /******************************************** INGRESSO ********************************************************/
     
     
-    //      USCITE
+    
+    
+    
+    /******************************************** USCITE ********************************************************/
     public boolean addUscita(Uscita u, Ordine n){
         return uscite.add(u);
     }
@@ -170,10 +198,13 @@ public class Magazzino {
     public boolean usciteIsEmpty(){
         return uscite.isEmpty();
     }
+    /******************************************** USCITE ********************************************************/
     
     
-    //      ORDINI
     
+    
+    
+    /******************************************** ORDINI ********************************************************/
     public boolean addOrdine(Ordine o){
         return ordini.add(o);
     }
@@ -202,14 +233,9 @@ public class Magazzino {
         ingressiMensili.clear();
         usciteMensili.clear();
     }//resetMounth
-
+    /******************************************** ORDINI ********************************************************/
     
-    public int login(Utente u) {
-        for (Utente X : users)
-            if (X.checkPass(X, u)) 
-                return X.getTypeInt();
-        return -1; //non è stata trovata una corrispondenza tra un utente esistente e quello inserito dall'utente!
-    }
+
     
 
 }//Magazzino
