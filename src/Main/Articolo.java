@@ -1,6 +1,5 @@
 package Main;
 
-//DIOBOIAAAAAAAAAAAAAAAAAAAAAAA
 
 import java.util.GregorianCalendar;
 import java.util.UUID;

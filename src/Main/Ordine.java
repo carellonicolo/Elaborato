@@ -44,8 +44,8 @@ public class Ordine {
     @Override
     public String toString() {
         String s = "ciao";
-        Set<Articolo> set = new HashSet<>();
-        set.addAll(mappa.keySet());
+        Set<Articolo> set = new HashSet<>(mappa.keySet());
+
         for(Articolo X: set)
             s = s.concat(X.getTipoArticolo().getName()+": "+mappa.get(X) + "pezzi" + "\n");
         
@@ -65,19 +65,28 @@ public class Ordine {
         return prezzoTotale;
     }
 
-    public String getArticoli_e_quantità() {
-        String s = "";
+    /*
+    public String getArticoli_e_quantità() { 
+       String s = "";
+        int quantità = 0;
+        
         if(mappa.isEmpty())
             return null;
         
-        for (Map.Entry<Articolo, Integer> entry : mappa.entrySet()) {
-            Articolo a = entry.getKey();
-            int q = entry.getValue();
-            s = "" + a.getID() + " " + a.getTipoArticolo().getName() + " " + q + "\n";
+        
+        Set<Articolo> articoli = new TreeSet<>(mappa.keySet());
+        
+        for(Articolo x: articoli){
+            quantità = mappa.get(x);
+            s += x.getTipoArticolo().getName()+": "+quantità + " pezzi";
         }
-        return s;
-    }//getArticoli_e_quantità
 
+        return s;
+        
+    }//getArticoli_e_quantità
+*/
+    
+    
     public String getData() {
         return "" + data.get(GregorianCalendar.DATE) + "-" + data.get(GregorianCalendar.MONTH) + "-" + data.get(GregorianCalendar.YEAR);
     }

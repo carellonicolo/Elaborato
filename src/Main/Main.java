@@ -1770,6 +1770,7 @@ public class Main extends javax.swing.JFrame {
         quantitaField8.setBackground(C);
         quantitaField9.setBackground(C);
         quantitaField10.setBackground(C);
+
         String corriere = corrriereField_NewOrderPanel.getText();
 
         if (corriere.equals("") && corriere.equals(" ")) {//controllo che sia stato inserito un corriere valido
@@ -1779,7 +1780,22 @@ public class Main extends javax.swing.JFrame {
         }
 
         String negozio = (String) ComboBoxNegozio.getSelectedItem();
-
+        Negozio x = m.negozioContainedByName(negozio);
+        Map<Articolo, Integer> articoliAndQuantita = new HashMap<>();
+        
+        int quantita1;
+        int quantita2;
+        int quantita3;
+        int quantita4;
+        int quantita5;
+        int quantita6;
+        int quantita7;
+        int quantita8;
+        int quantita9;
+        int quantita10;
+        
+   
+ 
         String articolo1 = (String) comboBoxArticoli1.getSelectedItem();
         String articolo2 = (String) comboBoxArticoli2.getSelectedItem();
         String articolo3 = (String) comboBoxArticoli3.getSelectedItem();
@@ -1791,7 +1807,8 @@ public class Main extends javax.swing.JFrame {
         String articolo9 = (String) comboBoxArticoli9.getSelectedItem();
         String articolo10 = (String) comboBoxArticoli10.getSelectedItem();
 
-        Negozio x = m.negozioContainedByName(negozio);
+        
+        
         //cerco gli articoli dal nome e mi faccio restituire l'oggetto di tipo articolo
         Articolo a1 = m.articoloContainedByName(articolo1);
         Articolo a2 = m.articoloContainedByName(articolo2);
@@ -1804,30 +1821,22 @@ public class Main extends javax.swing.JFrame {
         Articolo a9 = m.articoloContainedByName(articolo9);
         Articolo a10 = m.articoloContainedByName(articolo10);
 
-        Map<Articolo, Integer> articoliAndQuantita = new HashMap<>();
         
-        int quantita1;
-        int quantita2;
-        int quantita3;
-        int quantita4;
-        int quantita5;
-        int quantita6;
-        int quantita7;
-        int quantita8;
-        int quantita9;
-        int quantita10; 
+
         
+
         try {//raccolgo i dati di quantità per ogni articolo
-            quantita1 = Integer.parseInt(quantitaField1.getText());
-            quantita2 = Integer.parseInt(quantitaField1.getText());
-            quantita3 = Integer.parseInt(quantitaField1.getText());
-            quantita4 = Integer.parseInt(quantitaField1.getText());
-            quantita5 = Integer.parseInt(quantitaField1.getText());
-            quantita6 = Integer.parseInt(quantitaField1.getText());
-            quantita7 = Integer.parseInt(quantitaField1.getText());
-            quantita8 = Integer.parseInt(quantitaField1.getText());
-            quantita9 = Integer.parseInt(quantitaField1.getText());
-            quantita10 = Integer.parseInt(quantitaField1.getText());
+            quantita1 = quantitaField1.getText().equals("") ? 0 : Integer.parseInt(quantitaField1.getText());
+            quantita2 = quantitaField2.getText().equals("") ? 0 : Integer.parseInt(quantitaField2.getText());
+            quantita3 = quantitaField3.getText().equals("") ? 0 : Integer.parseInt(quantitaField3.getText());
+            quantita4 = quantitaField4.getText().equals("") ? 0 : Integer.parseInt(quantitaField4.getText());
+            quantita5 = quantitaField5.getText().equals("") ? 0 : Integer.parseInt(quantitaField5.getText());
+            quantita6 = quantitaField6.getText().equals("") ? 0 : Integer.parseInt(quantitaField6.getText());
+            quantita7 = quantitaField7.getText().equals("") ? 0 : Integer.parseInt(quantitaField7.getText());
+            quantita8 = quantitaField8.getText().equals("") ? 0 : Integer.parseInt(quantitaField8.getText());
+            quantita9 = quantitaField9.getText().equals("") ? 0 : Integer.parseInt(quantitaField9.getText());
+            quantita10 = quantitaField10.getText().equals("") ? 0 : Integer.parseInt(quantitaField10.getText());
+
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Errore nella raccolta dati, le quantità devono essere interi positivi\nNon sono ammessi altri tipi di caratteri!\n\n" + e);
             quantitaField1.setBackground(Color.red);
@@ -1842,26 +1851,37 @@ public class Main extends javax.swing.JFrame {
             quantitaField10.setBackground(Color.red);
             return;
         }
-        articoliAndQuantita.putIfAbsent(a1, quantita1);
-        articoliAndQuantita.putIfAbsent(a2, quantita2);
-        articoliAndQuantita.putIfAbsent(a3, quantita3);
-        articoliAndQuantita.putIfAbsent(a4, quantita4);
-        articoliAndQuantita.putIfAbsent(a5, quantita5);
-        articoliAndQuantita.putIfAbsent(a6, quantita6);
-        articoliAndQuantita.putIfAbsent(a7, quantita7);
-        articoliAndQuantita.putIfAbsent(a8, quantita8);
-        articoliAndQuantita.putIfAbsent(a9, quantita9);
-        articoliAndQuantita.putIfAbsent(a10, quantita10);
         
+        if(quantita1 != 0)
+        articoliAndQuantita.putIfAbsent(a1, quantita1);
+        if(quantita2 != 0)
+        articoliAndQuantita.putIfAbsent(a2, quantita2);
+        if(quantita3 != 0)
+        articoliAndQuantita.putIfAbsent(a3, quantita3);
+        if(quantita4 != 0)
+        articoliAndQuantita.putIfAbsent(a4, quantita4);
+        if(quantita5 != 0)
+        articoliAndQuantita.putIfAbsent(a5, quantita5);
+        if(quantita6 != 0)
+        articoliAndQuantita.putIfAbsent(a6, quantita6);
+        if(quantita7 != 0)
+        articoliAndQuantita.putIfAbsent(a7, quantita7);
+        if(quantita8 != 0)
+        articoliAndQuantita.putIfAbsent(a8, quantita8);
+        if(quantita9 != 0)
+        articoliAndQuantita.putIfAbsent(a9, quantita9);
+        if(quantita10 != 0)
+        articoliAndQuantita.putIfAbsent(a10, quantita10);
+
         Ordine o1 = new Ordine(x, new GregorianCalendar(), articoliAndQuantita);
         m.addOrdine(o1);
-        indexOrder = m.ordineSize()-1;
+        indexOrder = m.ordineSize() - 1;
         System.out.println(m.ordineSize());
         System.out.println(indexOrder);
         hideAll();
         ordini();
         visualizzaOrdiniPanel.setVisible(true);
-        
+
         corrriereField_NewOrderPanel.setText("");
         quantitaField1.setBackground(C);
         quantitaField2.setBackground(C);
@@ -1883,7 +1903,7 @@ public class Main extends javax.swing.JFrame {
         quantitaField8.setText("");
         quantitaField9.setText("");
         quantitaField10.setText("");
-        
+
     }//GEN-LAST:event_creaOrdineButton_orderViewPanelActionPerformed
 
     private void ComboBoxNegozioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxNegozioActionPerformed
@@ -2203,7 +2223,6 @@ public class Main extends javax.swing.JFrame {
             orderDataLabel.setText("" + m.getOrdine(indexOrder).getData());
             orderPrezzoLabel.setText("" + m.getOrdine(indexOrder).getTotalPrice());
             orderNomeNegozioLabel.setText("" + m.getOrdine(indexOrder).getNegozio().getNome());
-            articoliQuantitaOrderPanel.setText("" + m.getOrdine(indexOrder).getArticoli_e_quantità());
             articoliQuantitaOrderPanel.setText("" + m.getOrdine(indexOrder).toString());
             System.out.println("" + m.getOrdine(indexOrder).toString());
         }
