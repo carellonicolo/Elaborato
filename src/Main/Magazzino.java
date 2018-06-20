@@ -2,9 +2,7 @@ package Main;
 
 import java.util.*;
 
-
 //GLI ARRAYLIST, COME PER GLI ARRAY, PARTONO DA 0
-
 public class Magazzino {
 
     private final List<Uscita> uscite;
@@ -17,9 +15,10 @@ public class Magazzino {
     private final List<Utente> users;
     private final Map<Articolo, Integer> articoliInMagazzino;
 
-    
-    
-    /************************************* CONSTRUCT ************************************/
+    /**
+     * *********************************** CONSTRUCT
+     * ***********************************
+     */
     public Magazzino() {
         this.negozi = new ArrayList();
         this.uscite = new ArrayList<>();
@@ -31,11 +30,11 @@ public class Magazzino {
         this.ordini = new ArrayList<>();
         this.articoliInMagazzino = new HashMap();
     }
-    
-    
-    
-    
-    /************************************* USERS ************************************/
+
+    /**
+     * *********************************** USERS
+     * ***********************************
+     */
     public boolean addUser(Utente u) {
         return users.add(u);
     }
@@ -52,65 +51,85 @@ public class Magazzino {
     public Utente getUser(int i) {
         return users.get(i);
     }
-    
-    public boolean usersIsEmpty(){
+
+    public boolean usersIsEmpty() {
         return users.isEmpty();
     }
-    
+
     public int login(Utente u) {
-        for (Utente X : users)
-            if (X.checkPass(X, u)) 
+        for (Utente X : users) {
+            if (X.checkPass(X, u)) {
                 return X.getTypeInt();
+            }
+        }
         return -1; //non è stata trovata una corrispondenza tra un utente esistente e quello inserito dall'utente!
     }
-    /************************************* USERS ************************************/
-    
-    
-    
-    
-    
-    /*********************************ARTICOLI********************************************/
+
+    /**
+     * *********************************** USERS
+     * ***********************************
+     */
+    /**
+     * *******************************ARTICOLI*******************************************
+     */
     public boolean addArticolo(Articolo a) {
-        return articoli.contains(a) ? false: articoli.add(a);
+        if (articoli.contains(a)) {
+            return false;
+        }
+        articoli.add(a);
+        articoliInMagazzino.put(a, 0);
+        return true;
     }
 
     public boolean removeArticolo(Articolo u) {
-        return articoli.remove(u);
+        if (articoli.contains(u)) {
+            articoliInMagazzino.remove(u);
+            return articoli.remove(u);
+        }
+        return false;
     }
 
-    public void removeArticolo(int i) {
-        articoli.remove(i);
+    public boolean removeArticolo(int i) {
+        if (articoli.contains(i)) {
+            articoliInMagazzino.remove(articoli.get(i));
+            articoli.remove(i);
+            return true;
+        }
+        return false;
     }
 
     public Articolo getArticolo(int i) {
         return articoli.get(i);
     }
-    
-    public boolean articoliIsEmpty(){
+
+    public boolean articoliIsEmpty() {
         return articoli.isEmpty();
     }
-    
-    public int articoliSize(){
+
+    public int articoliSize() {
         return articoli.size();
     }
 
-    public boolean exist(Articolo a){
+    public boolean exist(Articolo a) {
         return articoli.contains(a);
     }
-    
-    public Articolo articoloContainedByName(String s){
-        for(Articolo X: articoli)
-            if(X.getTipoArticolo().getName().equals(s))
+
+    public Articolo articoloContainedByName(String s) {
+        for (Articolo X : articoli) {
+            if (X.getTipoArticolo().getName().equals(s)) {
                 return X;
+            }
+        }
         return null;
     }
-    /*********************************ARTICOLI********************************************/
-    
-    
-    
-    
-    
-    /******************************************* NEGOZI ***********************************************************/
+
+    /**
+     * *******************************ARTICOLI*******************************************
+     */
+    /**
+     * ***************************************** NEGOZI
+     * **********************************************************
+     */
     public boolean addNegozi(Negozio i) {
         return negozi.add(i);
     }
@@ -127,32 +146,35 @@ public class Magazzino {
         negozi.remove(i);
     }
 
-    public boolean negoziIsEmpty(){
+    public boolean negoziIsEmpty() {
         return negozi.isEmpty();
     }
-    
-    public int negoziSize(){
+
+    public int negoziSize() {
         return negozi.size();
     }
 
-    public boolean exist(Negozio n){
+    public boolean exist(Negozio n) {
         return negozi.contains(n);
     }
-    
-    public Negozio negozioContainedByName(String s){ //controlla se esiste un negozio con quel nome
+
+    public Negozio negozioContainedByName(String s) { //controlla se esiste un negozio con quel nome
         for (Negozio X : negozi) {
-            if(X.getNome().equals(s))
+            if (X.getNome().equals(s)) {
                 return X;
+            }
         }
         return null;
     }
-    /******************************************* NEGOZI ***********************************************************/
-    
-    
-    
-    
-    
-    /******************************************** INGRESSO ********************************************************/
+
+    /**
+     * ***************************************** NEGOZI
+     * **********************************************************
+     */
+    /**
+     * ****************************************** INGRESSO
+     * *******************************************************
+     */
     public boolean addIngresso(Ingresso i) {
         return ingressi.add(i);
     }
@@ -161,81 +183,85 @@ public class Magazzino {
         return ingressi.remove(i);
     }
 
-     public void removeIngresso(int i) {
+    public void removeIngresso(int i) {
         ingressi.remove(i);
     }
 
-    public boolean ingressiIsEmpty(){
+    public boolean ingressiIsEmpty() {
         return ingressi.isEmpty();
     }
 
-    public Ingresso getIngresso(int i){
+    public Ingresso getIngresso(int i) {
         return ingressi.get(i);
     }
-    /******************************************** INGRESSO ********************************************************/
-    
-    
-    
-    
-    
-    /******************************************** USCITE ********************************************************/
-    public boolean addUscita(Uscita u, Ordine n){
+
+    /**
+     * ****************************************** INGRESSO
+     * *******************************************************
+     */
+    /**
+     * ****************************************** USCITE
+     * *******************************************************
+     */
+    public boolean addUscita(Uscita u, Ordine n) {
         return uscite.add(u);
     }
-    
-    public boolean removeUscita(Uscita u){
+
+    public boolean removeUscita(Uscita u) {
         return uscite.remove(u);
     }
-    
-    public Uscita removeUscita(int i){
+
+    public Uscita removeUscita(int i) {
         return uscite.remove(i);
     }
-    
-    public Uscita getUscita(int i ){
+
+    public Uscita getUscita(int i) {
         return uscite.get(i);
     }
-    
-    public boolean usciteIsEmpty(){
+
+    public boolean usciteIsEmpty() {
         return uscite.isEmpty();
     }
-    /******************************************** USCITE ********************************************************/
-    
-    
-    
-    
-    
-    /******************************************** ORDINI ********************************************************/
-    public boolean addOrdine(Ordine o){
+
+    /**
+     * ****************************************** USCITE
+     * *******************************************************
+     */
+    /**
+     * ****************************************** ORDINI
+     * *******************************************************
+     */
+    public boolean addOrdine(Ordine o) {
         return ordini.add(o);
     }
-    
-    public boolean removeOrdine(Ordine o){
+
+    public boolean removeOrdine(Ordine o) {
         return ordini.remove(o);
     }
-    
-    public void removeOrdine(int i){
+
+    public void removeOrdine(int i) {
         ordini.remove(i);
     }
-    
-    public Ordine getOrdine(int i){
+
+    public Ordine getOrdine(int i) {
         return ordini.get(i);
     }
-    
-    public boolean ordineIsEmpty(){
+
+    public boolean ordineIsEmpty() {
         return ordini.isEmpty();
     }
-    
-    public int ordineSize(){
+
+    public int ordineSize() {
         return ordini.size();
     }
-    
+
     public void resetMounth() {//server per resettare il totale degli ingressi e uscite in un anno
         ingressiMensili.clear();
         usciteMensili.clear();
     }//resetMounth
-    /******************************************** ORDINI ********************************************************/
-    
-
-    
+    /**
+     * ****************************************** ORDINI
+     * *******************************************************
+     */
 
 }//Magazzino
