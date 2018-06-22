@@ -87,7 +87,7 @@ public class TipoArticolo implements Comparable<TipoArticolo>{
     
     @Override
     public boolean equals(Object other){//ignoro il controllo sulla descrizione, non è importante
-        return other instanceof TipoArticolo && ((TipoArticolo)other).nome == nome && ((TipoArticolo)other).numSport == numSport && ((TipoArticolo)other).numMateriali == numMateriali;
+        return other instanceof TipoArticolo && ((TipoArticolo)other).nome.equals(nome) && ((TipoArticolo)other).numSport == numSport && ((TipoArticolo)other).numMateriali == numMateriali;
     }
     
     @Override
