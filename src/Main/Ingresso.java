@@ -3,59 +3,68 @@ package Main;
 import java.util.GregorianCalendar; //In caso si vogliano fare delle manipolazione sulle date
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random; 
 
 
-public class Ingresso {
-    private final int ID;
-    private GregorianCalendar data;
-    private static int i = 0; 
+
+public class Ingresso extends WerehouseMovement implements Comparable<Ingresso>{
     
-    private Map<Articolo, Integer> articoloPosizione;
-    Random r = new Random(); 
+    public enum posizione{ P1,P2,P3,P4,P5,P6,P7,P8,P9,P10 }
     
-    
+    private final Map<Articolo, Integer> posizioni;
+    private Map<Articolo, Integer> quantita;
     
     //COSTRUTTORE
     public Ingresso(Articolo... article){//se non viene passata la data specificata prendo la data odierna
-        ID = Integer.parseInt(""+data.get(data.HOUR)+"99"+data.get(data.MINUTE)+data.get(data.SECOND)+r.nextInt(1543))+r.nextInt(99);
         data = new GregorianCalendar(); 
-        articoloPosizione = new HashMap<>();
+        posizioni = new HashMap<>();
         
         for(Articolo X: article){
-            articoloPosizione.put(X, i);
-            i++;
+            posizioni.put(X, 1);
+
             //posizione magazzino = getLastPosition()+i
         }
     }
     
-    
-    public int getID(){
-        return ID;
-    }
-    
-    public String getData(){
-        return ""+data.get(GregorianCalendar.DATE)+"-"+data.get(GregorianCalendar.MONTH)+"-"+data.get(GregorianCalendar.YEAR);
-    }
+ 
     
     public int getPosition(Articolo a){
         if(a instanceof Articolo)
-            if(articoloPosizione.containsKey(a))
-                return articoloPosizione.get(a);
+            if(posizioni.containsKey(a))
+                return posizioni.get(a);
         return -1;//se non esiste un articolo così nella mappa restituisci  -1
     }
     
     public Articolo getArticle(int i){
-        if(i>=0 && i<this.i && articoloPosizione.containsValue(i))
-            for(Map.Entry<Articolo, Integer> entry: articoloPosizione.entrySet())//scorro la mappa come fosse una lista
+        if(i>=0 && i<this.i && posizioni.containsValue(i))
+            for(Map.Entry<Articolo, Integer> entry: posizioni.entrySet())//scorro la mappa come fosse una lista
                 if(entry.getValue() == i)//quando trovo l'associazione posizione-articolo
                     return entry.getKey();
         return null;//se non esiste un'associazione posizione-articolo
     }
     
     public void addArticle(Articolo a){
-           articoloPosizione.put(a, i);
+           posizioni.put(a, i);
             i++;//incrementare sempre la posizione ad ogni aggiunta
     }
     
+    
+    @Override
+    public int hashCode(){//DEBUG
+        return 1;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return true;
+    }
+  
+    @Override
+    public String toString() {
+        return "";
+    }
+
+    @Override
+    public int compareTo(Ingresso o) {
+        return 2;
+    }
 }//fine ingresso

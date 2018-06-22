@@ -6,10 +6,9 @@ import java.util.UUID;
 
 
 public class Articolo {
-    private final UUID ID;
     private float prezzo;
     private GregorianCalendar data;
-    private TipoArticolo x;
+    private TipoArticolo tipoArticolo;
 
 
     /**
@@ -20,17 +19,15 @@ public class Articolo {
      */
     public Articolo(float price, GregorianCalendar data, TipoArticolo x){//CON DATA
         this.prezzo = price;
-        this.x = x;
+        this.tipoArticolo = x;
         this.data = data;//Salvo la data se mi viene passata
-        this.ID = UUID.randomUUID();
     }
     
     
     public Articolo(float price, TipoArticolo x){//CON DATA
         this.prezzo = price;
-        this.x = x;
+        this.tipoArticolo = x;
         this.data = new GregorianCalendar();
-        this.ID = UUID.randomUUID();
     }
    
     
@@ -39,7 +36,7 @@ public class Articolo {
     /**************************METODI GET*******************************/
     
     public String getID(){
-        return ID.toString();
+        return ""+hashCode();
     }
     
     public float getPrezzo(){
@@ -63,7 +60,7 @@ public class Articolo {
     }
     
     public TipoArticolo getTipoArticolo() {
-        return x;
+        return tipoArticolo;
     }
     
     
@@ -74,8 +71,8 @@ public class Articolo {
     /**
      * @param x
      */
-    public void setTipoArticolo(TipoArticolo x){
-            this.x=x;
+    public void setTipoArticolo(TipoArticolo tipoArticolo){
+        this.tipoArticolo=tipoArticolo;
     }
     
     public void setPrezzo(float p){
@@ -97,9 +94,21 @@ public class Articolo {
     
     
     
+    
+    
+    @Override
+    public int hashCode(){
+        return tipoArticolo.hashCode() ^ ( int )prezzo ^ data.hashCode();
+    }
+    
+    @Override
+    public boolean equals(Object other){
+        return other instanceof Articolo && tipoArticolo.equals(((Articolo)other).tipoArticolo) && prezzo == ((Articolo)other).prezzo;
+    }
+    
     @Override
     public String toString(){
-        return "ID Articolo: "+ID+"\nPrezzo: " + prezzo + "\nData: " + data;
+        return "ID Articolo: "+ hashCode() +"\nPrezzo: " + prezzo + "\nData: " + data;
     }
 
     

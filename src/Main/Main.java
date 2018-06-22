@@ -197,7 +197,6 @@ public class Main extends javax.swing.JFrame {
         modificaButton_VisualizzaArticoloPanel = new javax.swing.JButton();
         creaNegozioButton_VisualizzaArticoloPanel = new javax.swing.JButton();
         chiudiButton_VisualizzaArticoloPanel = new javax.swing.JButton();
-        selzionaButton_VisualizzaArticoloPanel = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         cercaLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -245,6 +244,41 @@ public class Main extends javax.swing.JFrame {
         TipoArticoloLabel_NewArticlePanel = new javax.swing.JLabel();
         modificaButton_newArticlePanel = new javax.swing.JButton();
         errorLabel_creaNuovoArticoloPanel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        jComboBox8 = new javax.swing.JComboBox<>();
+        jComboBox9 = new javax.swing.JComboBox<>();
+        jComboBox10 = new javax.swing.JComboBox<>();
+        jComboBox11 = new javax.swing.JComboBox<>();
+        jComboBox12 = new javax.swing.JComboBox<>();
+        jComboBox13 = new javax.swing.JComboBox<>();
+        jComboBox14 = new javax.swing.JComboBox<>();
+        jComboBox15 = new javax.swing.JComboBox<>();
+        jComboBox16 = new javax.swing.JComboBox<>();
+        jComboBox17 = new javax.swing.JComboBox<>();
+        jComboBox18 = new javax.swing.JComboBox<>();
+        jComboBox19 = new javax.swing.JComboBox<>();
+        jComboBox20 = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        creaOrdineButton_orderViewPanel1 = new javax.swing.JButton();
+        closeButton_newOrderPanel1 = new javax.swing.JButton();
+        addArticleButton_newOrderPanel1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -575,7 +609,7 @@ public class Main extends javax.swing.JFrame {
         corniceArticoloLabel_newOrderPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Articolo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir Next", 0, 13))); // NOI18N
         creaNuovoOrdinePanel.add(corniceArticoloLabel_newOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 360, 350));
 
-        getContentPane().add(creaNuovoOrdinePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 540, 430));
+        getContentPane().add(creaNuovoOrdinePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 540, 430));
 
         creaNegozioPanel.setBackground(new java.awt.Color(255, 204, 204));
         creaNegozioPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -866,9 +900,6 @@ public class Main extends javax.swing.JFrame {
         });
         visualizzaArticoliPanel.add(chiudiButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, -1, -1));
 
-        selzionaButton_VisualizzaArticoloPanel.setText("Seleziona");
-        visualizzaArticoliPanel.add(selzionaButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, -1, -1));
-
         jLabel30.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
         jLabel30.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "Tipo Articolo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 18))); // NOI18N
         visualizzaArticoliPanel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 270, 280));
@@ -1137,6 +1168,167 @@ public class Main extends javax.swing.JFrame {
         newArticlePanel.add(errorLabel_creaNuovoArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 190, 110));
 
         getContentPane().add(newArticlePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 730, 540));
+
+        jPanel1.setBackground(new java.awt.Color(204, 0, 204));
+        jPanel1.setLayout(null);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox1);
+        jComboBox1.setBounds(95, 180, 96, 27);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox2);
+        jComboBox2.setBounds(95, 213, 96, 27);
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox3);
+        jComboBox3.setBounds(95, 246, 96, 27);
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox4);
+        jComboBox4.setBounds(95, 279, 96, 27);
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox5);
+        jComboBox5.setBounds(95, 312, 96, 27);
+
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox6);
+        jComboBox6.setBounds(95, 345, 96, 27);
+
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox7);
+        jComboBox7.setBounds(95, 378, 96, 27);
+
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox8);
+        jComboBox8.setBounds(95, 147, 96, 27);
+
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox9);
+        jComboBox9.setBounds(95, 114, 96, 27);
+
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox10);
+        jComboBox10.setBounds(95, 81, 96, 27);
+
+        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox11);
+        jComboBox11.setBounds(197, 82, 96, 27);
+
+        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox12);
+        jComboBox12.setBounds(197, 115, 96, 27);
+
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox13);
+        jComboBox13.setBounds(197, 148, 96, 27);
+
+        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox14);
+        jComboBox14.setBounds(197, 181, 96, 27);
+
+        jComboBox15.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox15);
+        jComboBox15.setBounds(197, 214, 96, 27);
+
+        jComboBox16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox16);
+        jComboBox16.setBounds(197, 247, 96, 27);
+
+        jComboBox17.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox17);
+        jComboBox17.setBounds(197, 281, 96, 27);
+
+        jComboBox18.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox18);
+        jComboBox18.setBounds(197, 315, 96, 27);
+
+        jComboBox19.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox19);
+        jComboBox19.setBounds(197, 348, 96, 27);
+
+        jComboBox20.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox20);
+        jComboBox20.setBounds(197, 382, 96, 27);
+
+        jTextField1.setText("jTextField1");
+        jPanel1.add(jTextField1);
+        jTextField1.setBounds(310, 90, 80, 26);
+
+        jTextField2.setText("jTextField1");
+        jPanel1.add(jTextField2);
+        jTextField2.setBounds(310, 120, 80, 26);
+
+        jTextField3.setText("jTextField1");
+        jPanel1.add(jTextField3);
+        jTextField3.setBounds(310, 150, 80, 26);
+
+        jTextField4.setText("jTextField1");
+        jPanel1.add(jTextField4);
+        jTextField4.setBounds(310, 180, 80, 26);
+
+        jTextField5.setText("jTextField1");
+        jPanel1.add(jTextField5);
+        jTextField5.setBounds(310, 220, 80, 26);
+
+        jTextField6.setText("jTextField1");
+        jPanel1.add(jTextField6);
+        jTextField6.setBounds(310, 250, 80, 26);
+
+        jTextField7.setText("jTextField1");
+        jPanel1.add(jTextField7);
+        jTextField7.setBounds(311, 280, 80, 26);
+
+        jTextField8.setText("jTextField1");
+        jPanel1.add(jTextField8);
+        jTextField8.setBounds(311, 349, 80, 26);
+
+        jTextField9.setText("jTextField1");
+        jPanel1.add(jTextField9);
+        jTextField9.setBounds(311, 314, 80, 26);
+
+        jTextField10.setText("jTextField1");
+        jPanel1.add(jTextField10);
+        jTextField10.setBounds(311, 381, 80, 26);
+
+        jLabel3.setFont(new java.awt.Font("Avenir", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Crea nuovo ingresso:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(10, 10, 360, 50);
+
+        creaOrdineButton_orderViewPanel1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        creaOrdineButton_orderViewPanel1.setText("Crea");
+        creaOrdineButton_orderViewPanel1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                creaOrdineButton_orderViewPanel1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(creaOrdineButton_orderViewPanel1);
+        creaOrdineButton_orderViewPanel1.setBounds(410, 380, 150, 29);
+
+        closeButton_newOrderPanel1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        closeButton_newOrderPanel1.setText("Chiudi");
+        closeButton_newOrderPanel1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButton_newOrderPanel1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(closeButton_newOrderPanel1);
+        closeButton_newOrderPanel1.setBounds(410, 350, 150, 29);
+
+        addArticleButton_newOrderPanel1.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
+        addArticleButton_newOrderPanel1.setText("Aggiungi Articolo");
+        addArticleButton_newOrderPanel1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addArticleButton_newOrderPanel1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(addArticleButton_newOrderPanel1);
+        addArticleButton_newOrderPanel1.setBounds(400, 90, 149, 29);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 510, 620, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2129,6 +2321,18 @@ public class Main extends javax.swing.JFrame {
         quantitaField10.setBackground(x);
     }//GEN-LAST:event_quantitaField10ActionPerformed
 
+    private void creaOrdineButton_orderViewPanel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaOrdineButton_orderViewPanel1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_creaOrdineButton_orderViewPanel1ActionPerformed
+
+    private void closeButton_newOrderPanel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_newOrderPanel1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_closeButton_newOrderPanel1ActionPerformed
+
+    private void addArticleButton_newOrderPanel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArticleButton_newOrderPanel1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addArticleButton_newOrderPanel1ActionPerformed
+
     void articoli() {
         if (m.articoliIsEmpty()) {
             avantiButton_VisualizzaArticoloPanel.setEnabled(false);
@@ -2280,6 +2484,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup SportButtonGroup;
     private javax.swing.JLabel TipoArticoloLabel_NewArticlePanel;
     private javax.swing.JButton addArticleButton_newOrderPanel;
+    private javax.swing.JButton addArticleButton_newOrderPanel1;
     private javax.swing.JPanel adminPanel;
     private javax.swing.JLabel articoliQuantitaOrderPanel;
     private javax.swing.JRadioButton atleticaRadioButton;
@@ -2299,6 +2504,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton closeButton_NegozioPanel1;
     private javax.swing.JButton closeButton_creaNegozioPanel;
     private javax.swing.JButton closeButton_newOrderPanel;
+    private javax.swing.JButton closeButton_newOrderPanel1;
     private javax.swing.JLabel codiceFiscaleLabel_NegozioPanel;
     private javax.swing.JComboBox<String> comboBoxArticoli1;
     private javax.swing.JComboBox<String> comboBoxArticoli10;
@@ -2317,6 +2523,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel creaNegozioPanel;
     private javax.swing.JPanel creaNuovoOrdinePanel;
     private javax.swing.JButton creaOrdineButton_orderViewPanel;
+    private javax.swing.JButton creaOrdineButton_orderViewPanel1;
     private javax.swing.JRadioButton danzaRadioButton;
     private javax.swing.JLabel dataLabel_VisualizzaArticoloPanel;
     private javax.swing.JLabel dataLabel_newArticlePanel;
@@ -2339,6 +2546,26 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox10;
+    private javax.swing.JComboBox<String> jComboBox11;
+    private javax.swing.JComboBox<String> jComboBox12;
+    private javax.swing.JComboBox<String> jComboBox13;
+    private javax.swing.JComboBox<String> jComboBox14;
+    private javax.swing.JComboBox<String> jComboBox15;
+    private javax.swing.JComboBox<String> jComboBox16;
+    private javax.swing.JComboBox<String> jComboBox17;
+    private javax.swing.JComboBox<String> jComboBox18;
+    private javax.swing.JComboBox<String> jComboBox19;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox20;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<String> jComboBox8;
+    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JFrame jFrame1;
@@ -2351,6 +2578,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
@@ -2359,7 +2587,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JButton loginButton;
@@ -2410,7 +2649,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField searchFieldOrderPanel;
     private javax.swing.JTextField searchField_NegozioPanel;
     private javax.swing.JButton selezionaButton_NegozioPanel;
-    private javax.swing.JButton selzionaButton_VisualizzaArticoloPanel;
     private javax.swing.JRadioButton siliconeRadioButton;
     private javax.swing.JLabel sportLabelTipoArticolo_newArticlePanel;
     private javax.swing.JLabel sportLabel_VisualizzaArticoloPanel;

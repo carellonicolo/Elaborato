@@ -6,6 +6,6 @@ public interface UserInterface {
     boolean checkPass(Utente x, Utente y);
     String getUsr();
     boolean setType(int newType);
-    @Override
-    String toString();
+    @Override String toString();
+    @Override int hashCode();
 }

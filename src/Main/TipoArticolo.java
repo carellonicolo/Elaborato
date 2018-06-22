@@ -1,6 +1,6 @@
 package Main;
 
-public class TipoArticolo {
+public class TipoArticolo implements Comparable<TipoArticolo>{
     
     public final String sportArray[]= {"Nuoto", "Calcio", "Palestra", "Tennis", "Scii", "Basket", "Rafting", "Ciclismo", "Rugby", "Atletica", "Hockey", "Golf", "Pallavolo", "Danza"};
     public final String arrayMateriali[] = {"Poliestere", "Silicone", "Finta Pelle", "GORE-TEX", "Elastan", "Polietilene", "Poliammide"};
@@ -80,6 +80,28 @@ public class TipoArticolo {
     
     
     
+    @Override
+    public int hashCode(){
+        return nome.hashCode() ^ descrizione.hashCode() ^ numSport ^ numMateriali;
+    }
+    
+    @Override
+    public boolean equals(Object other){//ignoro il controllo sulla descrizione, non è importante
+        return other instanceof TipoArticolo && ((TipoArticolo)other).nome == nome && ((TipoArticolo)other).numSport == numSport && ((TipoArticolo)other).numMateriali == numMateriali;
+    }
+    
+    @Override
+    public int compareTo(TipoArticolo other){
+        int diff = numSport - other.numSport;
+        if(diff != 0)
+            return diff;
+        
+        diff = numMateriali - other.numMateriali;
+        if(diff != 0)
+            return diff;
+        
+        return nome.compareTo(other.nome);
+    }
     
     
     

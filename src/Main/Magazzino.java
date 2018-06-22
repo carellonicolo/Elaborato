@@ -13,7 +13,8 @@ public class Magazzino {
     private final Set<Ingresso> ingressiMensili;
     private final Set<Uscita> usciteMensili;
     private final List<Utente> users;
-    private final Map<Articolo, Integer> articoliInMagazzino;
+    private Map<Articolo, Integer> quantita;
+    private Map<Articolo, Ingresso.posizione> posizione;
 
     /**
      * *********************************** CONSTRUCT
@@ -28,7 +29,6 @@ public class Magazzino {
         this.ingressi = new ArrayList<>();
         this.articoli = new ArrayList<>();
         this.ordini = new ArrayList<>();
-        this.articoliInMagazzino = new HashMap();
     }
 
     /**

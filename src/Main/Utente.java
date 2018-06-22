@@ -1,8 +1,16 @@
 package Main;
 
-public class Utente implements UserInterface{
+import java.util.Objects;
+
+public class Utente implements UserInterface, Comparable<Utente>{
     
     public static final String typeOfUsers[] = {"Magazziniere", "Segreteria Amministrativa", "Responsabile Negozi"};
+    
+    public enum typeUser{
+        Magazziniere,
+        Segreteria_amministrativa,
+        Responsabile_negozi
+    }
     
     private String usr;
     private String pwd;
@@ -79,10 +87,61 @@ public class Utente implements UserInterface{
     
     
     
-    /*********************TO-STRING**********************/
+    
+    
+    /***************************************** HASHCODE *******************************************/
+    @Override
+    public int hashCode(){
+        return usr.hashCode()^pwd.hashCode();
+    }
+    
+    
+    
+    
+    
+    
+    /***************************************** EQUALS *******************************************/
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Utente other = (Utente) obj;
+        if (!Objects.equals(this.usr, other.usr)) {
+            return false;
+        }
+        if (!Objects.equals(this.pwd, other.pwd)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
+    
+    
+    /***************************************** COMPARETO *******************************************/
+    @Override
+    public int compareTo(Utente other){//ordine prima per tipo di utente e poi per nome utente 
+        //se t-other.t == 0 ritorna il compareTo degli username altrimenti ritorna la differenza tra i tipi
+        return t-other.t == 0 ? usr.compareToIgnoreCase(other.usr) : t-other.t;
+    }
+        
+    
+    
+    
+    
+    
+    /*****************************************TO-STRING*******************************************/
     @Override
     public String toString(){//per sicurezza non passo la password in chiaro
-        return "nome: "+usr+"\nPassword: "+"********\n"+"Tipo Account: "+t+" - "+typeOfUsers[t];
+        return "Username: "+usr+"\nPassword: "+"********\n"+"Tipo Account: "+t+" - "+typeOfUsers[t];
     }
 
 }//fine Utente
