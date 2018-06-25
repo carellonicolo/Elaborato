@@ -229,6 +229,7 @@ public class Magazzino {
                 this.posizione.putIfAbsent(X, posizioneParameter.get(X));
             }
             
+            
             //CIAONEEEE
             
             
