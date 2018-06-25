@@ -8,10 +8,9 @@ import java.util.Map;
 
 public class Ingresso extends WerehouseMovement implements Comparable<Ingresso>{
     
-    public enum posizione{ P1,P2,P3,P4,P5,P6,P7,P8,P9,P10 }
-    
     private final Map<Articolo, Integer> posizioni;
     private Map<Articolo, Integer> quantita;
+    public static int i;
     
     //COSTRUTTORE
     public Ingresso(Articolo... article){//se non viene passata la data specificata prendo la data odierna

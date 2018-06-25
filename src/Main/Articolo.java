@@ -1,7 +1,6 @@
 package Main;
 
 import java.util.GregorianCalendar;
-import java.util.UUID;
 
 public class Articolo implements Comparable<Articolo> {
 
@@ -97,7 +96,7 @@ public class Articolo implements Comparable<Articolo> {
 
     @Override
     public boolean equals(Object other) {
-        return other instanceof Articolo && tipoArticolo.equals(((Articolo) other).tipoArticolo) && prezzo == ((Articolo) other).prezzo;
+        return other instanceof Articolo && tipoArticolo.equals(((Articolo) other).tipoArticolo) && prezzo == ((Articolo) other).prezzo && data.equals((Articolo) other);
     }
 
     @Override

@@ -10,12 +10,14 @@ public class Magazzino {
     private final List<Articolo> articoli;
     private final List<Ingresso> ingressi;
     private final List<Negozio> negozi;
+    private final List<Utente> users;
     private final Set<Ingresso> ingressiMensili;
     private final Set<Uscita> usciteMensili;
-    private final List<Utente> users;
-    private Map<Articolo, Integer> quantita;
-    private Map<Articolo, Ingresso.posizione> posizione;
+    private final Map<Articolo, Integer> quantita;
+    private final Map<Articolo, Integer> posizione;
 
+    
+    
     /**
      * *********************************** CONSTRUCT
      * ***********************************
@@ -29,7 +31,16 @@ public class Magazzino {
         this.ingressi = new ArrayList<>();
         this.articoli = new ArrayList<>();
         this.ordini = new ArrayList<>();
+        quantita = new HashMap<>();
+        posizione = new HashMap<>();
     }
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * *********************************** USERS
@@ -66,9 +77,12 @@ public class Magazzino {
     }
 
     /**
-     * *********************************** USERS
-     * ***********************************
+     * *********************************** USERS ***********************************
      */
+    
+    
+    
+    
     /**
      * *******************************ARTICOLI*******************************************
      */
@@ -77,13 +91,11 @@ public class Magazzino {
             return false;
         }
         articoli.add(a);
-        articoliInMagazzino.put(a, 0);
         return true;
     }
 
     public boolean removeArticolo(Articolo u) {
         if (articoli.contains(u)) {
-            articoliInMagazzino.remove(u);
             return articoli.remove(u);
         }
         return false;
@@ -91,7 +103,6 @@ public class Magazzino {
 
     public boolean removeArticolo(int i) {
         if (articoli.contains(i)) {
-            articoliInMagazzino.remove(articoli.get(i));
             articoli.remove(i);
             return true;
         }
@@ -122,10 +133,33 @@ public class Magazzino {
         }
         return null;
     }
+    
+    public int getQuantita(Articolo a){
+        if(!articoli.contains(a)) 
+            return -1;
+        return quantita.get(a);
+    }
+    
+    public int getPosition(Articolo a){
+        if(!articoli.contains(a)) 
+            return -1;
+        return posizione.get(a);// se l'articolo è contenuto nell'arraylist allora sicuramente si troca in posizione
+    }
+    
+    public boolean setPosition(Articolo a){
+        if(!articoli.contains(a)) 
+            return false;
+    }
 
     /**
      * *******************************ARTICOLI*******************************************
      */
+    
+    
+    
+    
+ 
+    
     /**
      * ***************************************** NEGOZI
      * **********************************************************
@@ -175,8 +209,32 @@ public class Magazzino {
      * ****************************************** INGRESSO
      * *******************************************************
      */
-    public boolean addIngresso(Ingresso i) {
-        return ingressi.add(i);
+    public boolean addIngresso(Map<Articolo, Integer> quantitaParameter, Map<Articolo, Integer> posizioneParameter) {
+        int tmpQuantita;
+        int tmpPosizione;
+        
+        if(!quantitaParameter.keySet().equals(posizioneParameter.keySet()))
+            return false;//controllo se gli articoli sono identici nelle due mappe
+            
+        for(Articolo X: quantitaParameter.keySet())
+            if(!articoli.contains(X))
+                return false;//controllo per ogni articolo presente in uno dei due parametri è contenuto nell'ARRAYLIST degli articoli
+        
+        for(Articolo X: quantitaParameter.keySet()){
+            if(this.quantita.containsKey(X)){
+                tmpQuantita = this.quantita.get(X);
+                this.quantita.put( X , ( tmpQuantita+quantitaParameter.get(X) ) );
+            } else{
+                this.quantita.put(X, quantitaParameter.get(X));
+                this.posizione.putIfAbsent(X, posizioneParameter.get(X));
+            }
+            
+            //debug
+            //ingressi.add(new Ingresso());
+            
+        }//for
+        
+        return true;
     }
 
     public boolean removeIngresso(Ingresso i) {

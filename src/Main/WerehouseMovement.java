@@ -13,7 +13,7 @@ public abstract class WerehouseMovement{
         }
         
         public String getDataInString(){
-            return ""+data.get(GregorianCalendar.DATE)+"-"+data.get(GregorianCalendar.MONTH)+"-"+data.get(GregorianCalendar.YEAR);
+            return ""+data.get(GregorianCalendar.DATE)+"/"+data.get(GregorianCalendar.MONTH)+"/"+data.get(GregorianCalendar.YEAR);
         }
         
         
@@ -34,6 +34,7 @@ public abstract class WerehouseMovement{
         public int getID(){
             return hashCode();
         }
+        
         public String getIDtoString(){
             return ""+hashCode();
         }

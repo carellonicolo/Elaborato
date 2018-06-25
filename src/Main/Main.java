@@ -393,7 +393,7 @@ public class Main extends javax.swing.JFrame {
         jToggleButton2.setText("Genera Uscita");
         visualizzaOrdiniPanel.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, -1));
 
-        getContentPane().add(visualizzaOrdiniPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 600, 400));
+        getContentPane().add(visualizzaOrdiniPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 600, 400));
 
         creaNuovoOrdinePanel.setBackground(new java.awt.Color(255, 255, 0));
         creaNuovoOrdinePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -687,7 +687,7 @@ public class Main extends javax.swing.JFrame {
         });
         creaNegozioPanel.add(modificaFromNewNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 90, -1));
 
-        getContentPane().add(creaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 500, 180));
+        getContentPane().add(creaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 500, 180));
 
         negoziPanel.setBackground(new java.awt.Color(255, 0, 255));
         negoziPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

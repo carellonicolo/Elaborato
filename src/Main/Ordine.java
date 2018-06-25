@@ -7,7 +7,8 @@ public class Ordine implements Comparable<Ordine>{
     private Negozio negozio;
     private GregorianCalendar data;
     private float prezzo;
-
+    public static int s = 1;
+    
     private Map<Articolo, Integer> mappa = new HashMap<>();
 
     /*-------------COSTRUTTORI---------------------*/
@@ -151,7 +152,7 @@ public class Ordine implements Comparable<Ordine>{
     
     @Override
     public int hashCode(){
-        return data.hashCode() ^ mappa.hashCode() ^ ( int )prezzo;
+        return data.hashCode() ^ mappa.hashCode() ^ ( int )prezzo ^ data.get(GregorianCalendar.MINUTE) ^ data.get(GregorianCalendar.MILLISECOND) ^ data.get(GregorianCalendar.SECOND) ;
     }
 
     
