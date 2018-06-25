@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/WerehouseMovement.java</file>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/Magazzino.java</file>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/Negozio.java</file>
@@ -12,6 +13,18 @@
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/Main.java</file>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/Ordine.java</file>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/TipoArticolo.java</file>
+=======
+            <file>file:/C:/Users/Stefano/Documents/GitHub/Elaborato/src/Main/Uscita.java</file>
+            <file>file:/C:/Users/Stefano/Documents/GitHub/Elaborato/src/Main/Main.java</file>
+            <file>file:/C:/Users/Stefano/Documents/GitHub/Elaborato/src/Main/UserInterface.java</file>
+            <file>file:/C:/Users/Stefano/Documents/GitHub/Elaborato/src/Main/Negozio.java</file>
+            <file>file:/C:/Users/Stefano/Documents/GitHub/Elaborato/src/Main/Utente.java</file>
+            <file>file:/C:/Users/Stefano/Documents/GitHub/Elaborato/src/Main/Ordine.java</file>
+            <file>file:/C:/Users/Stefano/Documents/GitHub/Elaborato/src/Main/Ingresso.java</file>
+            <file>file:/C:/Users/Stefano/Documents/GitHub/Elaborato/src/Main/Magazzino.java</file>
+            <file>file:/C:/Users/Stefano/Documents/GitHub/Elaborato/src/Main/TipoArticolo.java</file>
+            <file>file:/C:/Users/Stefano/Documents/GitHub/Elaborato/src/Main/Articolo.java</file>
+>>>>>>> f902e603e6bac946c79c4bfbfbccf1bf47d2f51a
         </group>
     </open-files>
 </project-private>
