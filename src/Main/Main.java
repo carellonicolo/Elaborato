@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
 
-    static int indexOrder = 0, indexArticle = 0, indexShop = 0, articleSelected = 1;
+    static int indexOrder = 0, indexArticle = 0, indexShop = 0, orderArticleSelected = 1, ingressoArticleSelected = 1;
     Magazzino m;
 
     public Main() {
@@ -128,7 +128,7 @@ public class Main extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         creaOrdineButton_orderViewPanel = new javax.swing.JButton();
         closeButton_newOrderPanel = new javax.swing.JButton();
-        corrriereField_NewOrderPanel = new javax.swing.JTextField();
+        corriereField_NewOrderPanel = new javax.swing.JTextField();
         ComboBoxNegozio = new javax.swing.JComboBox<>();
         comboBoxArticoli1 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -257,20 +257,20 @@ public class Main extends javax.swing.JFrame {
         comboBoxIngressoArticoli3 = new javax.swing.JComboBox<>();
         comboBoxIngressoArticoli2 = new javax.swing.JComboBox<>();
         comboBoxIngressoArticoli1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        textFieldQuantita1 = new javax.swing.JTextField();
+        textFieldQuantita2 = new javax.swing.JTextField();
+        textFieldQuantita3 = new javax.swing.JTextField();
+        textFieldQuantita4 = new javax.swing.JTextField();
+        textFieldQuantita5 = new javax.swing.JTextField();
+        textFieldQuantita6 = new javax.swing.JTextField();
+        textFieldQuantita7 = new javax.swing.JTextField();
+        textFieldQuantita9 = new javax.swing.JTextField();
+        textFieldQuantita8 = new javax.swing.JTextField();
+        textFieldQuantita10 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         creaOrdineButton_orderViewPanel1 = new javax.swing.JButton();
-        closeButton_newOrderPanel1 = new javax.swing.JButton();
-        addArticleButton_newOrderPanel1 = new javax.swing.JButton();
+        closeButton_newIngressoPanel = new javax.swing.JButton();
+        addArticleButton_newIngressoPanel = new javax.swing.JButton();
         textFieldPosizioni1 = new javax.swing.JTextField();
         textFieldPosizioni2 = new javax.swing.JTextField();
         textFieldPosizioni3 = new javax.swing.JTextField();
@@ -463,15 +463,15 @@ public class Main extends javax.swing.JFrame {
         });
         creaNuovoOrdinePanel.add(closeButton_newOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 150, -1));
 
-        corrriereField_NewOrderPanel.setBackground(new java.awt.Color(255, 255, 0));
-        corrriereField_NewOrderPanel.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        corrriereField_NewOrderPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Corriere", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir Next", 0, 13))); // NOI18N
-        corrriereField_NewOrderPanel.addActionListener(new java.awt.event.ActionListener() {
+        corriereField_NewOrderPanel.setBackground(new java.awt.Color(255, 255, 0));
+        corriereField_NewOrderPanel.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
+        corriereField_NewOrderPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Corriere", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir Next", 0, 13))); // NOI18N
+        corriereField_NewOrderPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                corrriereField_NewOrderPanelActionPerformed(evt);
+                corriereField_NewOrderPanelActionPerformed(evt);
             }
         });
-        creaNuovoOrdinePanel.add(corrriereField_NewOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 150, 50));
+        creaNuovoOrdinePanel.add(corriereField_NewOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 150, 50));
 
         ComboBoxNegozio.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
         ComboBoxNegozio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -1179,11 +1179,10 @@ public class Main extends javax.swing.JFrame {
         getContentPane().add(newArticlePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 730, 540));
 
         creaIngressoPanel.setBackground(new java.awt.Color(204, 0, 204));
-        creaIngressoPanel.setLayout(null);
+        creaIngressoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comboBoxIngressoArticoli4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli4);
-        comboBoxIngressoArticoli4.setBounds(95, 180, 78, 26);
+        creaIngressoPanel.add(comboBoxIngressoArticoli4, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 180, -1, -1));
 
         comboBoxIngressoArticoli5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboBoxIngressoArticoli5.addActionListener(new java.awt.event.ActionListener() {
@@ -1191,84 +1190,64 @@ public class Main extends javax.swing.JFrame {
                 comboBoxIngressoArticoli5ActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(comboBoxIngressoArticoli5);
-        comboBoxIngressoArticoli5.setBounds(95, 213, 78, 26);
+        creaIngressoPanel.add(comboBoxIngressoArticoli5, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 213, -1, -1));
 
         comboBoxIngressoArticoli6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli6);
-        comboBoxIngressoArticoli6.setBounds(95, 246, 78, 26);
+        creaIngressoPanel.add(comboBoxIngressoArticoli6, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 246, -1, -1));
 
         comboBoxIngressoArticoli7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli7);
-        comboBoxIngressoArticoli7.setBounds(95, 279, 78, 26);
+        creaIngressoPanel.add(comboBoxIngressoArticoli7, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 279, -1, -1));
 
         comboBoxIngressoArticoli8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli8);
-        comboBoxIngressoArticoli8.setBounds(95, 312, 78, 26);
+        creaIngressoPanel.add(comboBoxIngressoArticoli8, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 312, -1, -1));
 
         comboBoxIngressoArticoli9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli9);
-        comboBoxIngressoArticoli9.setBounds(95, 345, 78, 26);
+        creaIngressoPanel.add(comboBoxIngressoArticoli9, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 345, -1, -1));
 
         comboBoxIngressoArticoli10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli10);
-        comboBoxIngressoArticoli10.setBounds(95, 378, 78, 26);
+        creaIngressoPanel.add(comboBoxIngressoArticoli10, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 378, -1, -1));
 
         comboBoxIngressoArticoli3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli3);
-        comboBoxIngressoArticoli3.setBounds(95, 147, 78, 26);
+        creaIngressoPanel.add(comboBoxIngressoArticoli3, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 147, -1, -1));
 
         comboBoxIngressoArticoli2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli2);
-        comboBoxIngressoArticoli2.setBounds(95, 114, 78, 26);
+        creaIngressoPanel.add(comboBoxIngressoArticoli2, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 114, -1, -1));
 
         comboBoxIngressoArticoli1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli1);
-        comboBoxIngressoArticoli1.setBounds(95, 81, 78, 26);
-        creaIngressoPanel.add(jTextField1);
-        jTextField1.setBounds(310, 90, 6, 26);
-        creaIngressoPanel.add(jTextField2);
-        jTextField2.setBounds(310, 120, 6, 26);
+        creaIngressoPanel.add(comboBoxIngressoArticoli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 81, -1, -1));
+        creaIngressoPanel.add(textFieldQuantita1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 70, -1));
+        creaIngressoPanel.add(textFieldQuantita2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 70, -1));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        textFieldQuantita3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                textFieldQuantita3ActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(jTextField3);
-        jTextField3.setBounds(310, 150, 6, 26);
-        creaIngressoPanel.add(jTextField4);
-        jTextField4.setBounds(310, 180, 6, 26);
+        creaIngressoPanel.add(textFieldQuantita3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 70, -1));
+        creaIngressoPanel.add(textFieldQuantita4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 70, -1));
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        textFieldQuantita5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                textFieldQuantita5ActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(jTextField5);
-        jTextField5.setBounds(310, 220, 6, 26);
-        creaIngressoPanel.add(jTextField6);
-        jTextField6.setBounds(310, 250, 6, 26);
+        creaIngressoPanel.add(textFieldQuantita5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 70, -1));
+        creaIngressoPanel.add(textFieldQuantita6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 70, -1));
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        textFieldQuantita7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                textFieldQuantita7ActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(jTextField7);
-        jTextField7.setBounds(311, 280, 6, 26);
-        creaIngressoPanel.add(jTextField8);
-        jTextField8.setBounds(311, 349, 6, 26);
-        creaIngressoPanel.add(jTextField9);
-        jTextField9.setBounds(311, 314, 6, 26);
-        creaIngressoPanel.add(jTextField10);
-        jTextField10.setBounds(311, 381, 6, 26);
+        creaIngressoPanel.add(textFieldQuantita7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 70, -1));
+        creaIngressoPanel.add(textFieldQuantita9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 70, -1));
+        creaIngressoPanel.add(textFieldQuantita8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 70, -1));
+        creaIngressoPanel.add(textFieldQuantita10, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 381, 70, -1));
 
         jLabel3.setFont(new java.awt.Font("Avenir", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Crea nuovo ingresso:");
-        creaIngressoPanel.add(jLabel3);
-        jLabel3.setBounds(10, 10, 360, 50);
+        creaIngressoPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 360, 50));
 
         creaOrdineButton_orderViewPanel1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         creaOrdineButton_orderViewPanel1.setText("Crea");
@@ -1277,54 +1256,41 @@ public class Main extends javax.swing.JFrame {
                 creaOrdineButton_orderViewPanel1ActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(creaOrdineButton_orderViewPanel1);
-        creaOrdineButton_orderViewPanel1.setBounds(410, 380, 150, 27);
+        creaIngressoPanel.add(creaOrdineButton_orderViewPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 150, -1));
 
-        closeButton_newOrderPanel1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        closeButton_newOrderPanel1.setText("Chiudi");
-        closeButton_newOrderPanel1.addActionListener(new java.awt.event.ActionListener() {
+        closeButton_newIngressoPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        closeButton_newIngressoPanel.setText("Chiudi");
+        closeButton_newIngressoPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeButton_newOrderPanel1ActionPerformed(evt);
+                closeButton_newIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(closeButton_newOrderPanel1);
-        closeButton_newOrderPanel1.setBounds(410, 350, 150, 27);
+        creaIngressoPanel.add(closeButton_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 150, -1));
 
-        addArticleButton_newOrderPanel1.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        addArticleButton_newOrderPanel1.setText("Aggiungi Articolo");
-        addArticleButton_newOrderPanel1.addActionListener(new java.awt.event.ActionListener() {
+        addArticleButton_newIngressoPanel.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
+        addArticleButton_newIngressoPanel.setText("Aggiungi Articolo");
+        addArticleButton_newIngressoPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addArticleButton_newOrderPanel1ActionPerformed(evt);
+                addArticleButton_newIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(addArticleButton_newOrderPanel1);
-        addArticleButton_newOrderPanel1.setBounds(400, 90, 131, 27);
-        creaIngressoPanel.add(textFieldPosizioni1);
-        textFieldPosizioni1.setBounds(200, 80, 80, 26);
-        creaIngressoPanel.add(textFieldPosizioni2);
-        textFieldPosizioni2.setBounds(200, 110, 80, 26);
-        creaIngressoPanel.add(textFieldPosizioni3);
-        textFieldPosizioni3.setBounds(200, 150, 80, 26);
-        creaIngressoPanel.add(textFieldPosizioni4);
-        textFieldPosizioni4.setBounds(200, 180, 80, 26);
-        creaIngressoPanel.add(textFieldPosizioni5);
-        textFieldPosizioni5.setBounds(200, 220, 80, 26);
+        creaIngressoPanel.add(addArticleButton_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
+        creaIngressoPanel.add(textFieldPosizioni1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 80, -1));
+        creaIngressoPanel.add(textFieldPosizioni2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 80, -1));
+        creaIngressoPanel.add(textFieldPosizioni3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 80, -1));
+        creaIngressoPanel.add(textFieldPosizioni4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 80, -1));
+        creaIngressoPanel.add(textFieldPosizioni5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 80, -1));
 
         textFieldPosizioni6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldPosizioni6ActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(textFieldPosizioni6);
-        textFieldPosizioni6.setBounds(200, 250, 80, 26);
-        creaIngressoPanel.add(textFieldPosizioni7);
-        textFieldPosizioni7.setBounds(200, 280, 80, 26);
-        creaIngressoPanel.add(textFieldPosizioni8);
-        textFieldPosizioni8.setBounds(200, 310, 80, 26);
-        creaIngressoPanel.add(textFieldPosizioni9);
-        textFieldPosizioni9.setBounds(200, 340, 80, 26);
-        creaIngressoPanel.add(textFieldPosizioni10);
-        textFieldPosizioni10.setBounds(200, 380, 80, 26);
+        creaIngressoPanel.add(textFieldPosizioni6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 80, -1));
+        creaIngressoPanel.add(textFieldPosizioni7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 80, -1));
+        creaIngressoPanel.add(textFieldPosizioni8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 80, -1));
+        creaIngressoPanel.add(textFieldPosizioni9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 80, -1));
+        creaIngressoPanel.add(textFieldPosizioni10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 80, -1));
 
         getContentPane().add(creaIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 500, 620, 450));
 
@@ -1418,11 +1384,11 @@ public class Main extends javax.swing.JFrame {
         quantitaField8.setEnabled(false);
         quantitaField9.setEnabled(false);
         quantitaField10.setEnabled(false);
-        articleSelected = 1;
+        orderArticleSelected = 1;
         hideAll();
         addArticleButton_newOrderPanel.setEnabled(true);
         creaNuovoOrdinePanel.setVisible(true);
-        corrriereField_NewOrderPanel.setText("");
+        corriereField_NewOrderPanel.setText("");
         int i = 0;
 
         for (i = 0; i < m.negoziSize(); i++) {
@@ -1485,6 +1451,15 @@ public class Main extends javax.swing.JFrame {
         textFieldPosizioni8.setEditable(false);
         textFieldPosizioni9.setEditable(false);
         textFieldPosizioni10.setEditable(false);
+        textFieldQuantita2.setEditable(false);
+        textFieldQuantita3.setEditable(false);
+        textFieldQuantita4.setEditable(false);
+        textFieldQuantita5.setEditable(false);
+        textFieldQuantita6.setEditable(false);
+        textFieldQuantita7.setEditable(false);
+        textFieldQuantita8.setEditable(false);
+        textFieldQuantita9.setEditable(false);
+        textFieldQuantita10.setEditable(false);
         
         for (int i = 0; i < m.articoliSize(); i++) {
             comboBoxIngressoArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
@@ -1609,7 +1584,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_modificaFromNewNegozioPanelActionPerformed
 
     private void selezionaButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selezionaButton_NegozioPanelActionPerformed
-        String corriere = corrriereField_NewOrderPanel.getText();
+        String corriere = corriereField_NewOrderPanel.getText();
         //Ordine n = m.addOrdine(new Ordine(m.getNegozi(indexShop)));
         //m.addUscita(m, n)
     }//GEN-LAST:event_selezionaButton_NegozioPanelActionPerformed
@@ -1987,10 +1962,10 @@ public class Main extends javax.swing.JFrame {
         errorLabel_creaNuovoArticoloPanel.setVisible(false);
     }//GEN-LAST:event_prezzoField_newArticlePanelActionPerformed
 
-    private void corrriereField_NewOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corrriereField_NewOrderPanelActionPerformed
+    private void corriereField_NewOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corriereField_NewOrderPanelActionPerformed
         Color c = new Color(255, 255, 0);
-        corrriereField_NewOrderPanel.setBackground(c);
-    }//GEN-LAST:event_corrriereField_NewOrderPanelActionPerformed
+        corriereField_NewOrderPanel.setBackground(c);
+    }//GEN-LAST:event_corriereField_NewOrderPanelActionPerformed
 
     private void creaOrdineButton_orderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaOrdineButton_orderViewPanelActionPerformed
         Color C = new Color(255, 255, 0);
@@ -2005,11 +1980,11 @@ public class Main extends javax.swing.JFrame {
         quantitaField9.setBackground(C);
         quantitaField10.setBackground(C);
 
-        String corriere = corrriereField_NewOrderPanel.getText();
+        String corriere = corriereField_NewOrderPanel.getText();
 
         if (corriere.equals("") && corriere.equals(" ")) {//controllo che sia stato inserito un corriere valido
             JOptionPane.showMessageDialog(null, "Inserire un campo corriere valido! ");
-            corrriereField_NewOrderPanel.setBackground(Color.red);
+            corriereField_NewOrderPanel.setBackground(Color.red);
             return;
         }
 
@@ -2116,7 +2091,7 @@ public class Main extends javax.swing.JFrame {
         ordini();
         visualizzaOrdiniPanel.setVisible(true);
 
-        corrriereField_NewOrderPanel.setText("");
+        corriereField_NewOrderPanel.setText("");
         quantitaField1.setBackground(C);
         quantitaField2.setBackground(C);
         quantitaField3.setBackground(C);
@@ -2158,19 +2133,19 @@ public class Main extends javax.swing.JFrame {
         quantitaField9.setBackground(x);
         quantitaField10.setBackground(x);
 
-        switch (articleSelected) {
+        switch (orderArticleSelected) {
             case 1:
                 try {
                     if (Integer.parseInt(quantitaField1.getText()) > 0) {
                         comboBoxArticoli2.setEnabled(true);
                         quantitaField2.setEnabled(true);
-                        articleSelected++;
+                        orderArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
                         quantitaField1.setBackground(Color.red);
                     }
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in qunatità!! \nNon sono accettati altri tipi di carattere!");
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
                     quantitaField1.setBackground(Color.red);
                 } finally {
                     break;
@@ -2181,13 +2156,13 @@ public class Main extends javax.swing.JFrame {
                     if (Integer.parseInt(quantitaField2.getText()) > 0) {
                         comboBoxArticoli3.setEnabled(true);
                         quantitaField3.setEnabled(true);
-                        articleSelected++;
+                        orderArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
                         quantitaField2.setBackground(Color.red);
                     }
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in qunatità!! \nNon sono accettati altri tipi di carattere!");
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
                     quantitaField2.setBackground(Color.red);
                 } finally {
                     break;
@@ -2197,13 +2172,13 @@ public class Main extends javax.swing.JFrame {
                     if (Integer.parseInt(quantitaField3.getText()) > 0) {
                         comboBoxArticoli4.setEnabled(true);
                         quantitaField4.setEnabled(true);
-                        articleSelected++;
+                        orderArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
                         quantitaField3.setBackground(Color.red);
                     }
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in qunatità!! \nNon sono accettati altri tipi di carattere!");
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
                     quantitaField3.setBackground(Color.red);
                 } finally {
                     break;
@@ -2213,13 +2188,13 @@ public class Main extends javax.swing.JFrame {
                     if (Integer.parseInt(quantitaField4.getText()) > 0) {
                         comboBoxArticoli5.setEnabled(true);
                         quantitaField5.setEnabled(true);
-                        articleSelected++;
+                        orderArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
                         quantitaField4.setBackground(Color.red);
                     }
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in qunatità!! \nNon sono accettati altri tipi di carattere!");
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
                     quantitaField4.setBackground(Color.red);
                 } finally {
                     break;
@@ -2229,13 +2204,13 @@ public class Main extends javax.swing.JFrame {
                     if (Integer.parseInt(quantitaField5.getText()) > 0) {
                         comboBoxArticoli6.setEnabled(true);
                         quantitaField6.setEnabled(true);
-                        articleSelected++;
+                        orderArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
                         quantitaField5.setBackground(Color.red);
                     }
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in qunatità!! \nNon sono accettati altri tipi di carattere!");
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
                     quantitaField5.setBackground(Color.red);
                 } finally {
                     break;
@@ -2245,13 +2220,13 @@ public class Main extends javax.swing.JFrame {
                     if (Integer.parseInt(quantitaField6.getText()) > 0) {
                         comboBoxArticoli7.setEnabled(true);
                         quantitaField7.setEnabled(true);
-                        articleSelected++;
+                        orderArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
                         quantitaField6.setBackground(Color.red);
                     }
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in qunatità!! \nNon sono accettati altri tipi di carattere!");
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
                     quantitaField6.setBackground(Color.red);
                 } finally {
                     break;
@@ -2261,13 +2236,13 @@ public class Main extends javax.swing.JFrame {
                     if (Integer.parseInt(quantitaField7.getText()) > 0) {
                         comboBoxArticoli8.setEnabled(true);
                         quantitaField8.setEnabled(true);
-                        articleSelected++;
+                        orderArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
                         quantitaField7.setBackground(Color.red);
                     }
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in qunatità!! \nNon sono accettati altri tipi di carattere!");
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
                     quantitaField7.setBackground(Color.red);
                 } finally {
                     break;
@@ -2277,13 +2252,13 @@ public class Main extends javax.swing.JFrame {
                     if (Integer.parseInt(quantitaField8.getText()) > 0) {
                         comboBoxArticoli9.setEnabled(true);
                         quantitaField9.setEnabled(true);
-                        articleSelected++;
+                        orderArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
                         quantitaField8.setBackground(Color.red);
                     }
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in qunatità!! \nNon sono accettati altri tipi di carattere!");
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
                     quantitaField8.setBackground(Color.red);
                 } finally {
                     break;
@@ -2293,14 +2268,14 @@ public class Main extends javax.swing.JFrame {
                     if (Integer.parseInt(quantitaField9.getText()) > 0) {
                         comboBoxArticoli10.setEnabled(true);
                         quantitaField10.setEditable(true);
-                        articleSelected++;
+                        orderArticleSelected++;
                         addArticleButton_newOrderPanel.setEnabled(false);
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
                         quantitaField9.setBackground(Color.red);
                     }
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in qunatità!! \nNon sono accettati altri tipi di carattere!");
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
                     quantitaField9.setBackground(Color.red);
                 } finally {
                     break;
@@ -2363,16 +2338,179 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_creaOrdineButton_orderViewPanel1ActionPerformed
 
-    private void closeButton_newOrderPanel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_newOrderPanel1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_closeButton_newOrderPanel1ActionPerformed
+    private void closeButton_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_newIngressoPanelActionPerformed
+        exit();
+    }//GEN-LAST:event_closeButton_newIngressoPanelActionPerformed
 
-    private void addArticleButton_newOrderPanel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArticleButton_newOrderPanel1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addArticleButton_newOrderPanel1ActionPerformed
+    private void addArticleButton_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArticleButton_newIngressoPanelActionPerformed
+        Color x = new Color(204, 0, 204);
+        textFieldPosizioni1.setBackground(x);
+        textFieldPosizioni2.setBackground(x);
+        textFieldPosizioni3.setBackground(x);
+        textFieldPosizioni4.setBackground(x);
+        textFieldPosizioni5.setBackground(x);
+        textFieldPosizioni6.setBackground(x);
+        textFieldPosizioni7.setBackground(x);
+        textFieldPosizioni8.setBackground(x);
+        textFieldPosizioni9.setBackground(x);
+        textFieldPosizioni10.setBackground(x);
+
+        switch (ingressoArticleSelected) {
+            case 1:
+                try {
+                    if (Integer.parseInt(textFieldPosizioni1.getText()) > 0) {
+                        comboBoxIngressoArticoli2.setEnabled(true);
+                        textFieldPosizioni2.setEnabled(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        textFieldPosizioni1.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    textFieldPosizioni1.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+
+            case 2:
+                try {
+                    if (Integer.parseInt(textFieldPosizioni2.getText()) > 0) {
+                        comboBoxIngressoArticoli3.setEnabled(true);
+                        textFieldPosizioni3.setEnabled(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        textFieldPosizioni2.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    textFieldPosizioni2.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 3:
+                try {
+                    if (Integer.parseInt(textFieldPosizioni3.getText()) > 0) {
+                        comboBoxIngressoArticoli4.setEnabled(true);
+                        textFieldPosizioni4.setEnabled(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        textFieldPosizioni3.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    textFieldPosizioni3.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 4:
+                try {
+                    if (Integer.parseInt(textFieldPosizioni4.getText()) > 0) {
+                        comboBoxIngressoArticoli5.setEnabled(true);
+                        textFieldPosizioni5.setEnabled(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        textFieldPosizioni4.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    textFieldPosizioni4.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 5:
+                try {
+                    if (Integer.parseInt(textFieldPosizioni5.getText()) > 0) {
+                        comboBoxIngressoArticoli6.setEnabled(true);
+                        textFieldPosizioni6.setEnabled(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        textFieldPosizioni5.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    textFieldPosizioni5.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 6:
+                try {
+                    if (Integer.parseInt(textFieldPosizioni6.getText()) > 0) {
+                        comboBoxIngressoArticoli7.setEnabled(true);
+                        textFieldPosizioni7.setEnabled(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        textFieldPosizioni6.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    textFieldPosizioni6.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 7:
+                try {
+                    if (Integer.parseInt(textFieldPosizioni7.getText()) > 0) {
+                        comboBoxIngressoArticoli8.setEnabled(true);
+                        textFieldPosizioni8.setEnabled(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        textFieldPosizioni7.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    textFieldPosizioni7.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 8:
+                try {
+                    if (Integer.parseInt(textFieldPosizioni8.getText()) > 0) {
+                        comboBoxIngressoArticoli9.setEnabled(true);
+                        textFieldPosizioni9.setEnabled(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        textFieldPosizioni8.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    textFieldPosizioni8.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 9:
+                try {
+                    if (Integer.parseInt(textFieldPosizioni9.getText()) > 0) {
+                        comboBoxIngressoArticoli10.setEnabled(true);
+                        textFieldPosizioni10.setEditable(true);
+                        ingressoArticleSelected++;
+                        addArticleButton_newIngressoPanel.setEnabled(false);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        textFieldPosizioni9.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    textFieldPosizioni9.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+
+        }
+    }//GEN-LAST:event_addArticleButton_newIngressoPanelActionPerformed
 
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
-        // TODO add your handling code here:
+        hideAll();
+        visualizzaOrdiniPanel.setVisible(true);
+        indexOrder = 0;
+        ordini();
     }//GEN-LAST:event_jToggleButton3ActionPerformed
 
     private void comboBoxIngressoArticoli5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxIngressoArticoli5ActionPerformed
@@ -2383,17 +2521,17 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldPosizioni6ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void textFieldQuantita3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldQuantita3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_textFieldQuantita3ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void textFieldQuantita5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldQuantita5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_textFieldQuantita5ActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void textFieldQuantita7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldQuantita7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_textFieldQuantita7ActionPerformed
 
     void articoli() {
         if (m.articoliIsEmpty()) {
@@ -2545,8 +2683,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup MaterialiBottonGroup;
     private javax.swing.ButtonGroup SportButtonGroup;
     private javax.swing.JLabel TipoArticoloLabel_NewArticlePanel;
+    private javax.swing.JButton addArticleButton_newIngressoPanel;
     private javax.swing.JButton addArticleButton_newOrderPanel;
-    private javax.swing.JButton addArticleButton_newOrderPanel1;
     private javax.swing.JPanel adminPanel;
     private javax.swing.JLabel articoliQuantitaOrderPanel;
     private javax.swing.JRadioButton atleticaRadioButton;
@@ -2565,8 +2703,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel cittaNegozio_NegozioPanel;
     private javax.swing.JButton closeButton_NegozioPanel1;
     private javax.swing.JButton closeButton_creaNegozioPanel;
+    private javax.swing.JButton closeButton_newIngressoPanel;
     private javax.swing.JButton closeButton_newOrderPanel;
-    private javax.swing.JButton closeButton_newOrderPanel1;
     private javax.swing.JLabel codiceFiscaleLabel_NegozioPanel;
     private javax.swing.JComboBox<String> comboBoxArticoli1;
     private javax.swing.JComboBox<String> comboBoxArticoli10;
@@ -2589,7 +2727,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxIngressoArticoli8;
     private javax.swing.JComboBox<String> comboBoxIngressoArticoli9;
     private javax.swing.JLabel corniceArticoloLabel_newOrderPanel;
-    private javax.swing.JTextField corrriereField_NewOrderPanel;
+    private javax.swing.JTextField corriereField_NewOrderPanel;
     private javax.swing.JButton creaFromCreaNegozioPanel;
     private javax.swing.JPanel creaIngressoPanel;
     private javax.swing.JButton creaNegozioButton_VisualizzaArticoloPanel;
@@ -2641,16 +2779,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
@@ -2716,6 +2844,16 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField textFieldPosizioni7;
     private javax.swing.JTextField textFieldPosizioni8;
     private javax.swing.JTextField textFieldPosizioni9;
+    private javax.swing.JTextField textFieldQuantita1;
+    private javax.swing.JTextField textFieldQuantita10;
+    private javax.swing.JTextField textFieldQuantita2;
+    private javax.swing.JTextField textFieldQuantita3;
+    private javax.swing.JTextField textFieldQuantita4;
+    private javax.swing.JTextField textFieldQuantita5;
+    private javax.swing.JTextField textFieldQuantita6;
+    private javax.swing.JTextField textFieldQuantita7;
+    private javax.swing.JTextField textFieldQuantita8;
+    private javax.swing.JTextField textFieldQuantita9;
     private javax.swing.JLabel titolo_newArticlePanel;
     private javax.swing.JTextField usrField;
     private javax.swing.JLabel usrLabel;
