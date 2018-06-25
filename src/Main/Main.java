@@ -1225,46 +1225,44 @@ public class Main extends javax.swing.JFrame {
         comboBoxIngressoArticoli1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         creaIngressoPanel.add(comboBoxIngressoArticoli1);
         comboBoxIngressoArticoli1.setBounds(95, 81, 78, 26);
-
-        jTextField1.setText("jTextField1");
         creaIngressoPanel.add(jTextField1);
-        jTextField1.setBounds(310, 90, 84, 26);
-
-        jTextField2.setText("jTextField1");
+        jTextField1.setBounds(310, 90, 6, 26);
         creaIngressoPanel.add(jTextField2);
-        jTextField2.setBounds(310, 120, 84, 26);
+        jTextField2.setBounds(310, 120, 6, 26);
 
-        jTextField3.setText("jTextField1");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
         creaIngressoPanel.add(jTextField3);
-        jTextField3.setBounds(310, 150, 84, 26);
-
-        jTextField4.setText("jTextField1");
+        jTextField3.setBounds(310, 150, 6, 26);
         creaIngressoPanel.add(jTextField4);
-        jTextField4.setBounds(310, 180, 84, 26);
+        jTextField4.setBounds(310, 180, 6, 26);
 
-        jTextField5.setText("jTextField1");
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
         creaIngressoPanel.add(jTextField5);
-        jTextField5.setBounds(310, 220, 84, 26);
-
-        jTextField6.setText("jTextField1");
+        jTextField5.setBounds(310, 220, 6, 26);
         creaIngressoPanel.add(jTextField6);
-        jTextField6.setBounds(310, 250, 84, 26);
+        jTextField6.setBounds(310, 250, 6, 26);
 
-        jTextField7.setText("jTextField1");
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
         creaIngressoPanel.add(jTextField7);
-        jTextField7.setBounds(311, 280, 84, 26);
-
-        jTextField8.setText("jTextField1");
+        jTextField7.setBounds(311, 280, 6, 26);
         creaIngressoPanel.add(jTextField8);
-        jTextField8.setBounds(311, 349, 84, 26);
-
-        jTextField9.setText("jTextField1");
+        jTextField8.setBounds(311, 349, 6, 26);
         creaIngressoPanel.add(jTextField9);
-        jTextField9.setBounds(311, 314, 84, 26);
-
-        jTextField10.setText("jTextField1");
+        jTextField9.setBounds(311, 314, 6, 26);
         creaIngressoPanel.add(jTextField10);
-        jTextField10.setBounds(311, 381, 84, 26);
+        jTextField10.setBounds(311, 381, 6, 26);
 
         jLabel3.setFont(new java.awt.Font("Avenir", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -1302,15 +1300,15 @@ public class Main extends javax.swing.JFrame {
         creaIngressoPanel.add(addArticleButton_newOrderPanel1);
         addArticleButton_newOrderPanel1.setBounds(400, 90, 131, 27);
         creaIngressoPanel.add(textFieldPosizioni1);
-        textFieldPosizioni1.setBounds(200, 80, 6, 26);
+        textFieldPosizioni1.setBounds(200, 80, 80, 26);
         creaIngressoPanel.add(textFieldPosizioni2);
-        textFieldPosizioni2.setBounds(200, 110, 6, 26);
+        textFieldPosizioni2.setBounds(200, 110, 80, 26);
         creaIngressoPanel.add(textFieldPosizioni3);
-        textFieldPosizioni3.setBounds(200, 150, 6, 26);
+        textFieldPosizioni3.setBounds(200, 150, 80, 26);
         creaIngressoPanel.add(textFieldPosizioni4);
-        textFieldPosizioni4.setBounds(200, 180, 6, 26);
+        textFieldPosizioni4.setBounds(200, 180, 80, 26);
         creaIngressoPanel.add(textFieldPosizioni5);
-        textFieldPosizioni5.setBounds(200, 220, 6, 26);
+        textFieldPosizioni5.setBounds(200, 220, 80, 26);
 
         textFieldPosizioni6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1318,15 +1316,15 @@ public class Main extends javax.swing.JFrame {
             }
         });
         creaIngressoPanel.add(textFieldPosizioni6);
-        textFieldPosizioni6.setBounds(200, 250, 6, 26);
+        textFieldPosizioni6.setBounds(200, 250, 80, 26);
         creaIngressoPanel.add(textFieldPosizioni7);
-        textFieldPosizioni7.setBounds(200, 280, 6, 26);
+        textFieldPosizioni7.setBounds(200, 280, 80, 26);
         creaIngressoPanel.add(textFieldPosizioni8);
-        textFieldPosizioni8.setBounds(200, 310, 6, 26);
+        textFieldPosizioni8.setBounds(200, 310, 80, 26);
         creaIngressoPanel.add(textFieldPosizioni9);
-        textFieldPosizioni9.setBounds(200, 340, 6, 26);
+        textFieldPosizioni9.setBounds(200, 340, 80, 26);
         creaIngressoPanel.add(textFieldPosizioni10);
-        textFieldPosizioni10.setBounds(200, 380, 6, 26);
+        textFieldPosizioni10.setBounds(200, 380, 80, 26);
 
         getContentPane().add(creaIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 500, 620, 450));
 
@@ -1478,6 +1476,15 @@ public class Main extends javax.swing.JFrame {
         comboBoxIngressoArticoli8.setEnabled(false);
         comboBoxIngressoArticoli9.setEnabled(false);
         comboBoxIngressoArticoli10.setEnabled(false);
+        textFieldPosizioni2.setEditable(false);
+        textFieldPosizioni3.setEditable(false);
+        textFieldPosizioni4.setEditable(false);
+        textFieldPosizioni5.setEditable(false);
+        textFieldPosizioni6.setEditable(false);
+        textFieldPosizioni7.setEditable(false);
+        textFieldPosizioni8.setEditable(false);
+        textFieldPosizioni9.setEditable(false);
+        textFieldPosizioni10.setEditable(false);
         
         for (int i = 0; i < m.articoliSize(); i++) {
             comboBoxIngressoArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
@@ -2375,6 +2382,18 @@ public class Main extends javax.swing.JFrame {
     private void textFieldPosizioni6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldPosizioni6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldPosizioni6ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
 
     void articoli() {
         if (m.articoliIsEmpty()) {
