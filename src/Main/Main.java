@@ -1215,33 +1215,70 @@ public class Main extends javax.swing.JFrame {
 
         comboBoxIngressoArticoli1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         creaIngressoPanel.add(comboBoxIngressoArticoli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 81, -1, -1));
+
+        textFieldQuantita1.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldQuantita1.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldQuantita1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldQuantita1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 70, -1));
+
+        textFieldQuantita2.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldQuantita2.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldQuantita2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldQuantita2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 70, -1));
 
+        textFieldQuantita3.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldQuantita3.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldQuantita3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         textFieldQuantita3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldQuantita3ActionPerformed(evt);
             }
         });
         creaIngressoPanel.add(textFieldQuantita3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 70, -1));
+
+        textFieldQuantita4.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldQuantita4.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldQuantita4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldQuantita4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 70, -1));
 
+        textFieldQuantita5.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldQuantita5.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldQuantita5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         textFieldQuantita5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldQuantita5ActionPerformed(evt);
             }
         });
         creaIngressoPanel.add(textFieldQuantita5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 70, -1));
+
+        textFieldQuantita6.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldQuantita6.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldQuantita6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldQuantita6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 70, -1));
 
+        textFieldQuantita7.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldQuantita7.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldQuantita7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         textFieldQuantita7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldQuantita7ActionPerformed(evt);
             }
         });
         creaIngressoPanel.add(textFieldQuantita7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 70, -1));
+
+        textFieldQuantita9.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldQuantita9.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldQuantita9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldQuantita9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 70, -1));
+
+        textFieldQuantita8.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldQuantita8.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldQuantita8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldQuantita8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 70, -1));
+
+        textFieldQuantita10.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldQuantita10.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldQuantita10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldQuantita10, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 381, 70, -1));
 
         jLabel3.setFont(new java.awt.Font("Avenir", 0, 36)); // NOI18N
@@ -1275,21 +1312,60 @@ public class Main extends javax.swing.JFrame {
             }
         });
         creaIngressoPanel.add(addArticleButton_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
+
+        textFieldPosizioni1.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldPosizioni1.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldPosizioni1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldPosizioni1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 80, -1));
+
+        textFieldPosizioni2.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldPosizioni2.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldPosizioni2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldPosizioni2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 80, -1));
+
+        textFieldPosizioni3.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldPosizioni3.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldPosizioni3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldPosizioni3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 80, -1));
+
+        textFieldPosizioni4.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldPosizioni4.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldPosizioni4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldPosizioni4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 80, -1));
+
+        textFieldPosizioni5.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldPosizioni5.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldPosizioni5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldPosizioni5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 80, -1));
 
+        textFieldPosizioni6.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldPosizioni6.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldPosizioni6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         textFieldPosizioni6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldPosizioni6ActionPerformed(evt);
             }
         });
         creaIngressoPanel.add(textFieldPosizioni6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 80, -1));
+
+        textFieldPosizioni7.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldPosizioni7.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldPosizioni7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldPosizioni7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 80, -1));
+
+        textFieldPosizioni8.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldPosizioni8.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldPosizioni8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldPosizioni8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 80, -1));
+
+        textFieldPosizioni9.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldPosizioni9.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldPosizioni9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldPosizioni9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 80, -1));
+
+        textFieldPosizioni10.setBackground(new java.awt.Color(204, 0, 204));
+        textFieldPosizioni10.setForeground(new java.awt.Color(255, 255, 255));
+        textFieldPosizioni10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         creaIngressoPanel.add(textFieldPosizioni10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 80, -1));
 
         getContentPane().add(creaIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 500, 620, 450));
@@ -2267,7 +2343,7 @@ public class Main extends javax.swing.JFrame {
                 try {
                     if (Integer.parseInt(quantitaField9.getText()) > 0) {
                         comboBoxArticoli10.setEnabled(true);
-                        quantitaField10.setEditable(true);
+                        quantitaField10.setEnabled(true);
                         orderArticleSelected++;
                         addArticleButton_newOrderPanel.setEnabled(false);
                     } else {
@@ -2358,9 +2434,10 @@ public class Main extends javax.swing.JFrame {
         switch (ingressoArticleSelected) {
             case 1:
                 try {
-                    if (Integer.parseInt(textFieldPosizioni1.getText()) > 0) {
+                    if (Integer.parseInt(textFieldQuantita1.getText()) > 0) {
                         comboBoxIngressoArticoli2.setEnabled(true);
-                        textFieldPosizioni2.setEnabled(true);
+                        textFieldPosizioni2.setEditable(true);
+                        textFieldQuantita2.setEditable(true);
                         ingressoArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
@@ -2375,9 +2452,10 @@ public class Main extends javax.swing.JFrame {
 
             case 2:
                 try {
-                    if (Integer.parseInt(textFieldPosizioni2.getText()) > 0) {
+                    if (Integer.parseInt(textFieldQuantita2.getText()) > 0) {
                         comboBoxIngressoArticoli3.setEnabled(true);
-                        textFieldPosizioni3.setEnabled(true);
+                        textFieldPosizioni3.setEditable(true);
+                        textFieldQuantita3.setEditable(true);
                         ingressoArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
@@ -2391,9 +2469,10 @@ public class Main extends javax.swing.JFrame {
                 }
             case 3:
                 try {
-                    if (Integer.parseInt(textFieldPosizioni3.getText()) > 0) {
+                    if (Integer.parseInt(textFieldQuantita3.getText()) > 0) {
                         comboBoxIngressoArticoli4.setEnabled(true);
-                        textFieldPosizioni4.setEnabled(true);
+                        textFieldPosizioni4.setEditable(true);
+                        textFieldQuantita4.setEditable(true);
                         ingressoArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
@@ -2407,9 +2486,10 @@ public class Main extends javax.swing.JFrame {
                 }
             case 4:
                 try {
-                    if (Integer.parseInt(textFieldPosizioni4.getText()) > 0) {
+                    if (Integer.parseInt(textFieldQuantita4.getText()) > 0) {
                         comboBoxIngressoArticoli5.setEnabled(true);
-                        textFieldPosizioni5.setEnabled(true);
+                        textFieldPosizioni5.setEditable(true);
+                        textFieldQuantita5.setEditable(true);
                         ingressoArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
@@ -2423,9 +2503,10 @@ public class Main extends javax.swing.JFrame {
                 }
             case 5:
                 try {
-                    if (Integer.parseInt(textFieldPosizioni5.getText()) > 0) {
+                    if (Integer.parseInt(textFieldQuantita5.getText()) > 0) {
                         comboBoxIngressoArticoli6.setEnabled(true);
-                        textFieldPosizioni6.setEnabled(true);
+                        textFieldPosizioni6.setEditable(true);
+                        textFieldQuantita6.setEditable(true);
                         ingressoArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
@@ -2439,9 +2520,10 @@ public class Main extends javax.swing.JFrame {
                 }
             case 6:
                 try {
-                    if (Integer.parseInt(textFieldPosizioni6.getText()) > 0) {
+                    if (Integer.parseInt(textFieldQuantita6.getText()) > 0) {
                         comboBoxIngressoArticoli7.setEnabled(true);
-                        textFieldPosizioni7.setEnabled(true);
+                        textFieldPosizioni7.setEditable(true);
+                        textFieldQuantita7.setEditable(true);
                         ingressoArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
@@ -2455,9 +2537,10 @@ public class Main extends javax.swing.JFrame {
                 }
             case 7:
                 try {
-                    if (Integer.parseInt(textFieldPosizioni7.getText()) > 0) {
+                    if (Integer.parseInt(textFieldQuantita7.getText()) > 0) {
                         comboBoxIngressoArticoli8.setEnabled(true);
-                        textFieldPosizioni8.setEnabled(true);
+                        textFieldPosizioni8.setEditable(true);
+                        textFieldQuantita8.setEditable(true);
                         ingressoArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
@@ -2471,9 +2554,10 @@ public class Main extends javax.swing.JFrame {
                 }
             case 8:
                 try {
-                    if (Integer.parseInt(textFieldPosizioni8.getText()) > 0) {
+                    if (Integer.parseInt(textFieldQuantita8.getText()) > 0) {
                         comboBoxIngressoArticoli9.setEnabled(true);
-                        textFieldPosizioni9.setEnabled(true);
+                        textFieldPosizioni9.setEditable(true);
+                        textFieldQuantita9.setEditable(true);
                         ingressoArticleSelected++;
                     } else {
                         JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
@@ -2487,9 +2571,10 @@ public class Main extends javax.swing.JFrame {
                 }
             case 9:
                 try {
-                    if (Integer.parseInt(textFieldPosizioni9.getText()) > 0) {
+                    if (Integer.parseInt(textFieldQuantita9.getText()) > 0) {
                         comboBoxIngressoArticoli10.setEnabled(true);
                         textFieldPosizioni10.setEditable(true);
+                        textFieldQuantita10.setEditable(true);
                         ingressoArticleSelected++;
                         addArticleButton_newIngressoPanel.setEnabled(false);
                     } else {
