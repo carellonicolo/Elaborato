@@ -7,7 +7,7 @@ public abstract class WerehouseMovement{
         protected GregorianCalendar data;
        
 
-        //GET
+        //GET - DATA
         public GregorianCalendar getData(){
             return data;
         }
@@ -16,9 +16,7 @@ public abstract class WerehouseMovement{
             return ""+data.get(GregorianCalendar.DATE)+"/"+data.get(GregorianCalendar.MONTH)+"/"+data.get(GregorianCalendar.YEAR);
         }
         
-        
-        
-        //SET
+        //SET DATA
         public void setData(GregorianCalendar data){
             this.data = data;
         }
@@ -30,6 +28,10 @@ public abstract class WerehouseMovement{
         public void setData(int d, int m, int y){
             this.data = new GregorianCalendar(y, m, d);
         }
+        
+        
+        
+        
         
         public int getID(){
             return hashCode();
