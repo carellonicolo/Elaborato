@@ -6,7 +6,6 @@ public class Uscita extends WerehouseMovement implements Comparable<Uscita>{
 
     private final Ordine ordine;
     
-
     public Uscita( Ordine ordine){
         this.ordine = ordine;
         data = new GregorianCalendar();

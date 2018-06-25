@@ -384,6 +384,11 @@ public class Main extends javax.swing.JFrame {
 
         modificaButtonOrderPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         modificaButtonOrderPanel.setText("Modifica");
+        modificaButtonOrderPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificaButtonOrderPanelActionPerformed(evt);
+            }
+        });
         visualizzaOrdiniPanel.add(modificaButtonOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
 
         chiudiButtonOrderPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
@@ -817,7 +822,7 @@ public class Main extends javax.swing.JFrame {
         loginPanel.add(pinField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 143, -1));
 
         jLabel1.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 16), new java.awt.Color(255, 255, 255))); // NOI18N
+        jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
         loginPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 240, 60));
 
         cancelPinButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
@@ -1677,22 +1682,18 @@ public class Main extends javax.swing.JFrame {
         }
 
         try {
-
-            System.out.println("1");
             //prendo i dati inseriti
             String nome = nomeFieldTipoArticolo_newArticlePanel.getText();
             String descrizione = descrizioneFieldTipoArticolo_newArticlePanel.getText();
             int day = Integer.parseInt(dayField_newArticlePanel.getText());
             int month = Integer.parseInt(monthField_newArticlePanel.getText());
             int year = Integer.parseInt(yearField_newArticlePanel.getText());
-            System.out.println("2");
             GregorianCalendar c = new GregorianCalendar(year, month, day);
             float prezzo = Float.parseFloat(prezzoField_newArticlePanel.getText());
 
             //aggiungo l'articolo alla lista in magazzino
             m.addArticolo(new Articolo(prezzo, c, new TipoArticolo(nome, descrizione, sport, tipoMateriale)));
-            System.out.println("3");
-
+            
             nomeFieldTipoArticolo_newArticlePanel.setText("");
             descrizioneFieldTipoArticolo_newArticlePanel.setText("");
             prezzoField_newArticlePanel.setText("");
@@ -1701,13 +1702,11 @@ public class Main extends javax.swing.JFrame {
             yearField_newArticlePanel.setText("");
             poliestereRadioButton.setSelected(true);
             nuotoRadioButton.setSelected(true);
-            System.out.println("4");
             hideAll();//nascondo tutto 
 
             indexArticle = m.articoliSize() - 1;//faccio puntare all'ultimo prodotto creato
             articoli();//aggiorno la view degli articoli
             visualizzaArticoliPanel.setVisible(true);
-            System.out.println("5");
         } catch (Exception e) {
             errorLabel_creaNuovoArticoloPanel.setText("Impossibile creare un nuovo Articolo!\n Controllare tutti i campi\n e correggere tutti gli eventuali errori!");
             errorLabel_creaNuovoArticoloPanel.setVisible(true);
@@ -1908,7 +1907,6 @@ public class Main extends javax.swing.JFrame {
             m.getArticolo(indexArticle).setData(year, month, day);
             m.getArticolo(indexArticle).setPrezzo(prezzo);
             m.getArticolo(indexArticle).setTipoArticolo(new TipoArticolo(nome, descrizione, sport, tipoMateriale));
-            System.out.println("sport: " + sport + "materiale: " + tipoMateriale);
 
             nomeFieldTipoArticolo_newArticlePanel.setText("");
             descrizioneFieldTipoArticolo_newArticlePanel.setText("");
@@ -2003,8 +2001,6 @@ public class Main extends javax.swing.JFrame {
         int quantita9;
         int quantita10;
         
-   
- 
         String articolo1 = (String) comboBoxArticoli1.getSelectedItem();
         String articolo2 = (String) comboBoxArticoli2.getSelectedItem();
         String articolo3 = (String) comboBoxArticoli3.getSelectedItem();
@@ -2015,8 +2011,6 @@ public class Main extends javax.swing.JFrame {
         String articolo8 = (String) comboBoxArticoli8.getSelectedItem();
         String articolo9 = (String) comboBoxArticoli9.getSelectedItem();
         String articolo10 = (String) comboBoxArticoli10.getSelectedItem();
-
-        
         
         //cerco gli articoli dal nome e mi faccio restituire l'oggetto di tipo articolo
         Articolo a1 = m.articoloContainedByName(articolo1);
@@ -2029,9 +2023,6 @@ public class Main extends javax.swing.JFrame {
         Articolo a8 = m.articoloContainedByName(articolo8);
         Articolo a9 = m.articoloContainedByName(articolo9);
         Articolo a10 = m.articoloContainedByName(articolo10);
-
-        
-
         
 
         try {//raccolgo i dati di quantità per ogni articolo
@@ -2085,8 +2076,7 @@ public class Main extends javax.swing.JFrame {
         Ordine o1 = new Ordine(x, new GregorianCalendar(), articoliAndQuantita);
         m.addOrdine(o1);
         indexOrder = m.ordineSize() - 1;
-        System.out.println(m.ordineSize());
-        System.out.println(indexOrder);
+
         hideAll();
         ordini();
         visualizzaOrdiniPanel.setVisible(true);
@@ -2533,6 +2523,10 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldQuantita7ActionPerformed
 
+    private void modificaButtonOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButtonOrderPanelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modificaButtonOrderPanelActionPerformed
+
     void articoli() {
         if (m.articoliIsEmpty()) {
             avantiButton_VisualizzaArticoloPanel.setEnabled(false);
@@ -2632,7 +2626,6 @@ public class Main extends javax.swing.JFrame {
             orderPrezzoLabel.setText("" + m.getOrdine(indexOrder).getTotalPrice());
             orderNomeNegozioLabel.setText("" + m.getOrdine(indexOrder).getNegozio().getNome());
             articoliQuantitaOrderPanel.setText("" + m.getOrdine(indexOrder).toString());
-            System.out.println("" + m.getOrdine(indexOrder).toString());
         }
 
     }//resetOrder
