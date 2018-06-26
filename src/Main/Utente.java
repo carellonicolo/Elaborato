@@ -56,15 +56,6 @@ public class Utente implements UserInterface, Comparable<Utente>{
     
     
     
-    
-    
-    
-    
-    /*********************CONTROLLO PASSWORD**********************/
-    @Override
-    public boolean checkLogin(Utente x, Utente y){
-        return x.getUsr().equals(y.usr) && x.pwd.equals(y.pwd);
-    }
         
     
     

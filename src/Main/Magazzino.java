@@ -17,13 +17,14 @@ public class Magazzino {
     private final Map<Articolo, Integer> quantita;
     private final Map<Articolo, Integer> posizione;
 
+    final static Magazzino INSTANCE = new Magazzino();
     
     
     /**
      * *********************************** CONSTRUCT
      * ***********************************
      */
-    public Magazzino() {
+    private Magazzino() {
         this.negozi = new ArrayList();
         this.uscite = new ArrayList<>();
         this.usciteMensili = new TreeSet<>();
@@ -71,23 +72,13 @@ public class Magazzino {
         return utenti.isEmpty();
     }
 
-    public int login(Utente u) throws UserNotFoundException {
-        for (Utente X : utenti) {
-            if (X.checkLogin(X, u)) {
-                return X.getTypeInt();
-            }
-        }
-        throw new UserNotFoundException("Utente non trovato! \n Username o Password errata!");
-    }
-
     public int loginHashCode(Utente u) throws UserNotFoundException{
         for(Utente X: utenti)
             if(u.hashCode()==X.hashCode())
                 return X.getTypeInt();
         throw new UserNotFoundException("Utente non trovato! \n Username o Password errata!");
     }
-    
-    
+        
     /**
      * *********************************** USERS ***********************************
      */
