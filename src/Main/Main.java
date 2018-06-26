@@ -45,7 +45,11 @@ public class Main extends javax.swing.JFrame {
         MaterialiBottonGroup.add(elastanRadioButton);
 
         //ISTANZIO UN PO DI OGGETTI DA USARE COME PROVA
-        m.addUser(new Utente("ciao", "ciao", 1));
+        try{
+            m.addUser(new Utente("ciao", "ciao", 1));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ciao");
+        }
 
         Articolo a1 = new Articolo((float) 14, new TipoArticolo("nome1", "Desrizione1", 2, 1));
         Articolo a2 = new Articolo((float) 17, new TipoArticolo("nome2", "Desrizione2", 3, 3));
