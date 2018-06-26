@@ -134,6 +134,8 @@ public class Magazzino {
         return null;
     }
     
+    
+    //POSIZIONI E QUANTITA
     public int getQuantita(Articolo a){
         if(!articoli.contains(a)) 
             return -1;
@@ -146,9 +148,20 @@ public class Magazzino {
         return posizione.get(a);// se l'articolo è contenuto nell'arraylist allora sicuramente si troca in posizione
     }
     
-    public boolean setPosition(Articolo a){
-        if(!articoli.contains(a)) 
+    public boolean setPosition(Articolo a, int posizione){
+        if(!articoli.contains(a)) //se l'articolo esiste nel magazzino
             return false;
+        if(this.posizione.containsValue(posizione))//se la posizione è già occupata
+            return false;
+        this.posizione.put(a, posizione); //sovrascrivo la coppia articolo, posizione
+        return true;
+    }
+    
+    public boolean setQuantity(Articolo a, int quantita){
+        if(!articoli.contains(a)) //se l'articolo esiste nel magazzino
+            return false;
+        this.quantita.put(a, quantita);
+        return true;
     }
 
     /**
@@ -228,11 +241,6 @@ public class Magazzino {
                 this.quantita.put(X, quantitaParameter.get(X));
                 this.posizione.putIfAbsent(X, posizioneParameter.get(X));
             }
-            
-            
-            //CIAONEEEE
-            
-            
             //debug
             //ingressi.add(new Ingresso());
             
@@ -257,6 +265,11 @@ public class Magazzino {
         return ingressi.get(i);
     }
 
+    public int ingressiSize(){
+        return ingressi.size();
+    }
+    
+    
     /**
      * ****************************************** INGRESSO
      * *******************************************************
