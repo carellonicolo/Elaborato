@@ -26,12 +26,12 @@ public class Utente implements UserInterface, Comparable<Utente>{
     }
 
     
-    /*********************METODI SE*********************/
+    /********************* METODI SET *********************/
     @Override
     public boolean setUser(String newUser){
         if(!" ".equals(newUser) && !"".equals(newUser)){
             usr = newUser;
-            return true;
+            return true;//lancia eccezione VoidStringUnexpectedException
         }else return false;
     }//fine setUser
     
@@ -39,7 +39,7 @@ public class Utente implements UserInterface, Comparable<Utente>{
     public boolean setPassword(String newPassword){//La password deve essere almeno lunga 8 caratteri
         if( !"".equals(newPassword) && !"".equals(newPassword) ){
          pwd = newPassword;
-         return true;
+         return true;//lancia eccezione VoidStringUnexpectedException
         }else
         return false;
     }//setPassword
@@ -62,8 +62,8 @@ public class Utente implements UserInterface, Comparable<Utente>{
     
     /*********************CONTROLLO PASSWORD**********************/
     @Override
-    public boolean checkPass(Utente x, Utente y){
-        return x.getUsr().equals(y.getUsr()) && x.pwd.equals(y.getPin());
+    public boolean checkLogin(Utente x, Utente y){
+        return x.getUsr().equals(y.usr) && x.pwd.equals(y.pwd);
     }
         
     
@@ -76,12 +76,9 @@ public class Utente implements UserInterface, Comparable<Utente>{
         return usr;
     }
             
+    @Override
     public int getTypeInt(){
         return t;
-    }
-    
-    public String getPin(){
-        return pwd;
     }
 
     
@@ -102,31 +99,15 @@ public class Utente implements UserInterface, Comparable<Utente>{
     
     /***************************************** EQUALS *******************************************/
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Utente other = (Utente) obj;
-        if (!Objects.equals(this.usr, other.usr)) {
-            return false;
-        }
-        if (!Objects.equals(this.pwd, other.pwd)) {
-            return false;
-        }
-        return true;
+    public boolean equals(Object obj) {//due utenti sono uguali se hanno lo stesso username
+        return obj instanceof Utente && ((Utente)obj).usr.equals(usr);
     }
     
     
     
     
     
-    /***************************************** COMPARETO *******************************************/
+    /***************************************** COMPARE-TO *******************************************/
     @Override
     public int compareTo(Utente other){//ordine prima per tipo di utente e poi per nome utente 
         //se t-other.t == 0 ritorna il compareTo degli username altrimenti ritorna la differenza tra i tipi

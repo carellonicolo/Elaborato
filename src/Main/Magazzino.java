@@ -10,7 +10,7 @@ public class Magazzino {
     private final List<Articolo> articoli;
     private final List<Ingresso> ingressi;
     private final List<Negozio> negozi;
-    private final List<Utente> users;
+    private final List<Utente> utenti;
     private final Set<Ingresso> ingressiMensili;
     private final Set<Uscita> usciteMensili;
     private final Map<Articolo, Integer> quantita;
@@ -27,7 +27,7 @@ public class Magazzino {
         this.uscite = new ArrayList<>();
         this.usciteMensili = new TreeSet<>();
         this.ingressiMensili = new TreeSet<>();
-        this.users = new ArrayList<>();
+        this.utenti = new ArrayList<>();
         this.ingressi = new ArrayList<>();
         this.articoli = new ArrayList<>();
         this.ordini = new ArrayList<>();
@@ -47,29 +47,32 @@ public class Magazzino {
      * ***********************************
      */
     public boolean addUser(Utente u) {
-        return users.add(u);
+        for(Utente X: utenti)
+            if(u.equals(X))
+                return false; //lancia eccezione userAlredyExist
+        return utenti.add(u);
     }
 
     public boolean removeUser(Utente u) {
-        return users.remove(u);
+        return utenti.remove(u);
     }
 
     public void removeUser(int i) {
-        users.remove(i);
+        utenti.remove(i);
         //users.equals(i); Per effettuare il login 
     }
 
     public Utente getUser(int i) {
-        return users.get(i);
+        return utenti.get(i);
     }
 
     public boolean usersIsEmpty() {
-        return users.isEmpty();
+        return utenti.isEmpty();
     }
 
     public int login(Utente u) {
-        for (Utente X : users) {
-            if (X.checkPass(X, u)) {
+        for (Utente X : utenti) {
+            if (X.checkLogin(X, u)) {
                 return X.getTypeInt();
             }
         }
@@ -90,6 +93,9 @@ public class Magazzino {
         if (articoli.contains(a)) {
             return false;
         }
+        for(Articolo X: articoli)
+            if(X.equals(a))
+                return false; //lancia eccezione ArticleAlredyExist
         articoli.add(a);
         return true;
     }
@@ -101,16 +107,20 @@ public class Magazzino {
         return false;
     }
 
-    public boolean removeArticolo(int i) {
-        if (articoli.contains(i)) {
+    public void removeArticolo(int i) {
+        if (articoli.contains(i))
             articoli.remove(i);
-            return true;
-        }
-        return false;
+        //else
+        //ArticleDontExistInWareHouseException
     }
 
     public Articolo getArticolo(int i) {
-        return articoli.get(i);
+        if(i<articoli.size() && i >= 0)
+            return articoli.get(i);
+        else if(i<0)
+            throw new IndexOutOfBoundsException("Non sono acettati indici con numeri negativi");
+        else
+            throw new IndexOutOfBoundsException("Indice troppo grande!");
     }
 
     public boolean articoliIsEmpty() {
@@ -138,30 +148,28 @@ public class Magazzino {
     //POSIZIONI E QUANTITA
     public int getQuantita(Articolo a){
         if(!articoli.contains(a)) 
-            return -1;
+            return -1;//ArticleDontExistInWareHouseException
         return quantita.get(a);
     }
     
     public int getPosition(Articolo a){
         if(!articoli.contains(a)) 
-            return -1;
+            return -1;//ArticleDontExistInWareHouseException
         return posizione.get(a);// se l'articolo è contenuto nell'arraylist allora sicuramente si troca in posizione
     }
     
-    public boolean setPosition(Articolo a, int posizione){
+    public void setPosition(Articolo a, int posizione){
         if(!articoli.contains(a)) //se l'articolo esiste nel magazzino
-            return false;
+            return;//ArticleDontExistInWareHouseException
         if(this.posizione.containsValue(posizione))//se la posizione è già occupata
-            return false;
+            return;//PositionAlredyOccupiedException
         this.posizione.put(a, posizione); //sovrascrivo la coppia articolo, posizione
-        return true;
     }
     
-    public boolean setQuantity(Articolo a, int quantita){
+    public void setQuantity(Articolo a, int quantita){
         if(!articoli.contains(a)) //se l'articolo esiste nel magazzino
-            return false;
+            return;//PositionAlredyOccupiedException
         this.quantita.put(a, quantita);
-        return true;
     }
 
     /**
@@ -178,7 +186,10 @@ public class Magazzino {
      * **********************************************************
      */
     public boolean addNegozi(Negozio i) {
-        return negozi.add(i);
+       for(Negozio X: negozi)
+           if(X.equals(i))
+               return false;//NegozioAlredyExistException
+       return negozi.add(i);
     }
 
     public boolean removeNegozi(Negozio i) {
@@ -269,6 +280,10 @@ public class Magazzino {
         return ingressi.size();
     }
     
+    public int getIndex(Ingresso i){
+        //ritorna l'indica della prima occorrenza dell'ingresso specificato nella lista
+        return ingressi.indexOf(i);
+    }
     
     /**
      * ****************************************** INGRESSO
