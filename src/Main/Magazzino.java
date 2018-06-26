@@ -1,6 +1,7 @@
 package Main;
 
 import java.util.*;
+import Exception.*; //importo tutte le mie eccezzioni
 
 //GLI ARRAYLIST, COME PER GLI ARRAY, PARTONO DA 0
 public class Magazzino {
