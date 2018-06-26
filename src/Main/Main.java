@@ -122,8 +122,9 @@ public class Main extends javax.swing.JFrame {
         orderDataLabel = new javax.swing.JLabel();
         orderPrezzoLabel = new javax.swing.JLabel();
         orderNomeNegozioLabel = new javax.swing.JLabel();
-        articoliQuantitaOrderPanel = new javax.swing.JLabel();
         jToggleButton2 = new javax.swing.JToggleButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        articoliQuantitaOrderTextArea = new javax.swing.JTextArea();
         creaNuovoOrdinePanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -454,11 +455,17 @@ public class Main extends javax.swing.JFrame {
         orderNomeNegozioLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Negozio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
         visualizzaOrdiniPanel.add(orderNomeNegozioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 220, 70));
 
-        articoliQuantitaOrderPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        visualizzaOrdiniPanel.add(articoliQuantitaOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 240, 130));
-
         jToggleButton2.setText("Genera Uscita");
         visualizzaOrdiniPanel.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, -1));
+
+        articoliQuantitaOrderTextArea.setEditable(false);
+        articoliQuantitaOrderTextArea.setBackground(new java.awt.Color(255, 102, 102));
+        articoliQuantitaOrderTextArea.setColumns(20);
+        articoliQuantitaOrderTextArea.setRows(5);
+        articoliQuantitaOrderTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Articoli e Quantità"));
+        jScrollPane1.setViewportView(articoliQuantitaOrderTextArea);
+
+        visualizzaOrdiniPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 280, 140));
 
         getContentPane().add(visualizzaOrdiniPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 600, 400));
 
@@ -2503,7 +2510,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_quantitaField10ActionPerformed
 
     private void creaIngressoButtonIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaIngressoButtonIngressoPanelActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_creaIngressoButtonIngressoPanelActionPerformed
 
     private void closeButton_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_newIngressoPanelActionPerformed
@@ -2944,7 +2951,7 @@ public class Main extends javax.swing.JFrame {
             orderDataLabel.setText("" + m.getOrdine(indexOrder).getData());
             orderPrezzoLabel.setText("" + m.getOrdine(indexOrder).getTotalPrice());
             orderNomeNegozioLabel.setText("" + m.getOrdine(indexOrder).getNegozio().getNome());
-            articoliQuantitaOrderPanel.setText("" + m.getOrdine(indexOrder).toString());
+            articoliQuantitaOrderTextArea.setText("" + m.getOrdine(indexOrder).toString());
         }
 
     }//resetOrder
@@ -3027,7 +3034,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton addArticleButton_newIngressoPanel;
     private javax.swing.JButton addArticleButton_newOrderPanel;
     private javax.swing.JPanel adminPanel;
-    private javax.swing.JLabel articoliQuantitaOrderPanel;
+    private javax.swing.JTextArea articoliQuantitaOrderTextArea;
     private javax.swing.JLabel articoliQuantitaPosizioneIngressiPanel;
     private javax.swing.JRadioButton atleticaRadioButton;
     private javax.swing.JButton avantiButton_IngressiPanel;
@@ -3135,6 +3142,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;

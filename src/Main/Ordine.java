@@ -187,7 +187,7 @@ public class Ordine implements Comparable<Ordine>{
         Set<Articolo> set = new HashSet<>(mappa.keySet());
 
         for(Articolo X: set)
-            s = s.concat(X.getTipoArticolo().getName()+": "+mappa.get(X) + "pezzi" + "\n");
+            s = s.concat(X.getTipoArticolo().getName()+": "+mappa.get(X) + "pezzi\n");
         
         return s;
     }
