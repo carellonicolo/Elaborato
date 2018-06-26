@@ -4,16 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/Magazzino.java</file>
-            <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/WarehouseMovement.java</file>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Exception/ArticleDontExistInWareHouseException.java</file>
+            <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Exception/OrdineDontExistInWarehouseException.java</file>
+            <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Exception/UserDontExistInWareHouseException.java</file>
+            <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Exception/VoidStringUnexpectedException.java</file>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/Negozio.java</file>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/Uscita.java</file>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/Articolo.java</file>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/Ingresso.java</file>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/Main.java</file>
-            <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/Utente.java</file>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/Ordine.java</file>
-            <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/UserInterface.java</file>
             <file>file:/Users/nicolocarello/Elaborato%20Java/Elaborato/src/Main/TipoArticolo.java</file>
         </group>
     </open-files>
