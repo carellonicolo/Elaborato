@@ -2,7 +2,7 @@ package Main;
 
 import java.util.GregorianCalendar;
 
-public abstract class WerehouseMovement{
+public abstract class WarehouseMovement{
     
         protected GregorianCalendar data;
        

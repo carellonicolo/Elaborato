@@ -9,7 +9,7 @@ import java.util.SortedMap;
 
 
 
-public class Ingresso extends WerehouseMovement{
+public class Ingresso extends WarehouseMovement{
     
     private final Map<Articolo, Integer> posizioni;
     private Map<Articolo, Integer> quantita;

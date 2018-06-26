@@ -2,7 +2,7 @@ package Main;
 
 import java.util.GregorianCalendar;
 
-public class Uscita extends WerehouseMovement implements Comparable<Uscita>{
+public class Uscita extends WarehouseMovement implements Comparable<Uscita>{
 
     private final Ordine ordine;
     
