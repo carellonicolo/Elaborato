@@ -47,12 +47,11 @@ public class Magazzino {
      * *********************************** USERS
      * ***********************************
      */
-    public boolean addUser(Utente u) throws Exception {
+    public void addUser(Utente u) throws UserAlreadyExist {
         for(Utente X: utenti)
             if(u.equals(X))
-                throw new Exception();
-                return false; //lancia eccezione userAlredyExist
-        return utenti.add(u);
+                throw new UserAlreadyExist("L'utente passato è già presente nella lista degli utenti!");
+         utenti.add(u);
     }
 
     public boolean removeUser(Utente u) {
@@ -63,7 +62,7 @@ public class Magazzino {
         utenti.remove(i);
         //users.equals(i); Per effettuare il login 
     }
-
+    
     public Utente getUser(int i) {
         return utenti.get(i);
     }
@@ -72,15 +71,23 @@ public class Magazzino {
         return utenti.isEmpty();
     }
 
-    public int login(Utente u) {
+    public int login(Utente u) throws UserNotFoundException {
         for (Utente X : utenti) {
             if (X.checkLogin(X, u)) {
                 return X.getTypeInt();
             }
         }
-        return -1; //non è stata trovata una corrispondenza tra un utente esistente e quello inserito dall'utente!
+        throw new UserNotFoundException("Utente non trovato! \n Username o Password errata!");
     }
 
+    public int loginHashCode(Utente u) throws UserNotFoundException{
+        for(Utente X: utenti)
+            if(u.hashCode()==X.hashCode())
+                return X.getTypeInt();
+        throw new UserNotFoundException("Utente non trovato! \n Username o Password errata!");
+    }
+    
+    
     /**
      * *********************************** USERS ***********************************
      */
@@ -116,8 +123,8 @@ public class Magazzino {
         //ArticleDontExistInWareHouseException
     }
 
-    public Articolo getArticolo(int i) {
-        if(i<articoli.size() && i >= 0)
+    public Articolo getArticolo(int i) throws IndexOutOfBoundsException{
+        if(i >= 0 && i<articoli.size())
             return articoli.get(i);
         else if(i<0)
             throw new IndexOutOfBoundsException("Non sono acettati indici con numeri negativi");
@@ -137,40 +144,38 @@ public class Magazzino {
         return articoli.contains(a);
     }
 
-    public Articolo articoloContainedByName(String s) {
-        for (Articolo X : articoli) {
-            if (X.getTipoArticolo().getName().equals(s)) {
+    public Articolo articoloContainedByName(String s) throws ArticleDontExistInWareHouseException {
+        for (Articolo X : articoli) 
+            if (X.getTipoArticolo().getName().equals(s)) 
                 return X;
-            }
-        }
-        return null;
+        throw new ArticleDontExistInWareHouseException("Nome articolo non trovato!");
     }
     
     
     //POSIZIONI E QUANTITA
-    public int getQuantita(Articolo a){
+    public int getQuantita(Articolo a) throws ArticleDontExistInWareHouseException{
         if(!articoli.contains(a)) 
-            return -1;//ArticleDontExistInWareHouseException
+            throw new ArticleDontExistInWareHouseException("Articolo inesistente!");
         return quantita.get(a);
     }
     
-    public int getPosition(Articolo a){
+    public int getPosition(Articolo a) throws ArticleDontExistInWareHouseException{
         if(!articoli.contains(a)) 
-            return -1;//ArticleDontExistInWareHouseException
+            throw new ArticleDontExistInWareHouseException("Articolo inesistente!");
         return posizione.get(a);// se l'articolo è contenuto nell'arraylist allora sicuramente si troca in posizione
     }
     
-    public void setPosition(Articolo a, int posizione){
+    public void setPosition(Articolo a, int posizione) throws ArticleDontExistInWareHouseException, PositionAlreadyOccupiedException{
         if(!articoli.contains(a)) //se l'articolo esiste nel magazzino
-            return;//ArticleDontExistInWareHouseException
+            throw new ArticleDontExistInWareHouseException("Articolo inesistente!");
         if(this.posizione.containsValue(posizione))//se la posizione è già occupata
-            return;//PositionAlredyOccupiedException
+            throw new PositionAlreadyOccupiedException("La posizione inserita è già occupata da un altro articolo");
         this.posizione.put(a, posizione); //sovrascrivo la coppia articolo, posizione
     }
     
-    public void setQuantity(Articolo a, int quantita){
+    public void setQuantity(Articolo a, int quantita) throws ArticleDontExistInWareHouseException{
         if(!articoli.contains(a)) //se l'articolo esiste nel magazzino
-            return;//PositionAlredyOccupiedException
+            throw new ArticleDontExistInWareHouseException("Articolo inesistente!");
         this.quantita.put(a, quantita);
     }
 
@@ -187,15 +192,16 @@ public class Magazzino {
      * ***************************************** NEGOZI
      * **********************************************************
      */
-    public boolean addNegozi(Negozio i) {
+    public boolean addNegozi(Negozio i) throws ShopAlreadyExistException {
        for(Negozio X: negozi)
            if(X.equals(i))
-               return false;//NegozioAlredyExistException
+               throw new ShopAlreadyExistException("Il negozio non esiste nel Database!");
        return negozi.add(i);
     }
 
-    public boolean removeNegozi(Negozio i) {
-        return negozi.remove(i);
+    public void removeNegozi(Negozio i) throws ShopAlreadyExistException {
+        if(!negozi.remove(i))
+           throw new ShopAlreadyExistException("Il negozio non esiste nel Database!");
     }
 
     public Negozio getNegozi(int i) {

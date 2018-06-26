@@ -1,6 +1,8 @@
 package Main;
 
+import Exception.ArticleDontExistInWareHouseException;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,9 +49,8 @@ public class Main extends javax.swing.JFrame {
         //ISTANZIO UN PO DI OGGETTI DA USARE COME PROVA
         try{
             m.addUser(new Utente("ciao", "ciao", 1));
-        }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Ciao");
-        }
+        
 
         Articolo a1 = new Articolo((float) 14, new TipoArticolo("nome1", "Desrizione1", 2, 1));
         Articolo a2 = new Articolo((float) 17, new TipoArticolo("nome2", "Desrizione2", 3, 3));
@@ -71,17 +72,22 @@ public class Main extends javax.swing.JFrame {
         o2.addArticle(a1, 4);
         m.addArticolo(a1);
         m.addArticolo(a2);
-        m.addNegozi(n1);
+        
+            m.addNegozi(n1);
         m.addNegozi(n2);
         m.addNegozi(n3);
         m.addNegozi(n4);
         m.addOrdine(o1);
         m.addOrdine(o2);
+        }catch(Exception e){
+            
+        }
 
         hideAll();
         loginPanel.setVisible(true);
         selezionaButton_NegozioPanel.setVisible(false);
         errorLabel_creaNuovoArticoloPanel.setVisible(false);
+        loginPanel.getRootPane().setDefaultButton(loginButton);
     }
 
     public final void hideAll() {
@@ -107,6 +113,16 @@ public class Main extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         SportButtonGroup = new javax.swing.ButtonGroup();
         MaterialiBottonGroup = new javax.swing.ButtonGroup();
+        creaNegozioPanel = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        indirizzoField_newNegozioPanel = new javax.swing.JTextField();
+        CodiceFiscaleField_NewNegozio = new javax.swing.JTextField();
+        nomeField_newNegozioPanel = new javax.swing.JTextField();
+        cittaField_NewNegozioPanel = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        creaFromCreaNegozioPanel = new javax.swing.JButton();
+        closeButton_creaNegozioPanel = new javax.swing.JButton();
+        modificaFromNewNegozioPanel = new javax.swing.JButton();
         loginPanel = new javax.swing.JPanel();
         pinField = new javax.swing.JPasswordField();
         cancelPinButton = new javax.swing.JButton();
@@ -167,16 +183,6 @@ public class Main extends javax.swing.JFrame {
         corniceArticoloLabel_newOrderPanel = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        creaNegozioPanel = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        indirizzoField_newNegozioPanel = new javax.swing.JTextField();
-        CodiceFiscaleField_NewNegozio = new javax.swing.JTextField();
-        nomeField_newNegozioPanel = new javax.swing.JTextField();
-        cittaField_NewNegozioPanel = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        creaFromCreaNegozioPanel = new javax.swing.JButton();
-        closeButton_creaNegozioPanel = new javax.swing.JButton();
-        modificaFromNewNegozioPanel = new javax.swing.JButton();
         negoziPanel = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -342,6 +348,84 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        creaNegozioPanel.setBackground(new java.awt.Color(255, 204, 204));
+        creaNegozioPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Avenir", 1, 36)); // NOI18N
+        jLabel9.setText("CREA NEGOZIO");
+        creaNegozioPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 310, 43));
+
+        indirizzoField_newNegozioPanel.setBackground(new java.awt.Color(255, 204, 204));
+        indirizzoField_newNegozioPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Indirizzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
+        indirizzoField_newNegozioPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indirizzoField_newNegozioPanelActionPerformed(evt);
+            }
+        });
+        creaNegozioPanel.add(indirizzoField_newNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 224, -1));
+
+        CodiceFiscaleField_NewNegozio.setBackground(new java.awt.Color(255, 204, 204));
+        CodiceFiscaleField_NewNegozio.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Codice Fiscale", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
+        CodiceFiscaleField_NewNegozio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CodiceFiscaleField_NewNegozioActionPerformed(evt);
+            }
+        });
+        creaNegozioPanel.add(CodiceFiscaleField_NewNegozio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 224, 40));
+
+        nomeField_newNegozioPanel.setBackground(new java.awt.Color(255, 204, 204));
+        nomeField_newNegozioPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
+        nomeField_newNegozioPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeField_newNegozioPanelActionPerformed(evt);
+            }
+        });
+        creaNegozioPanel.add(nomeField_newNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 224, -1));
+
+        cittaField_NewNegozioPanel.setBackground(new java.awt.Color(255, 204, 204));
+        cittaField_NewNegozioPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Città", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
+        cittaField_NewNegozioPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cittaField_NewNegozioPanelActionPerformed(evt);
+            }
+        });
+        creaNegozioPanel.add(cittaField_NewNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 224, -1));
+
+        jButton6.setText("Cancella");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        creaNegozioPanel.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
+
+        creaFromCreaNegozioPanel.setText("Crea");
+        creaFromCreaNegozioPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                creaFromCreaNegozioPanelActionPerformed(evt);
+            }
+        });
+        creaNegozioPanel.add(creaFromCreaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
+
+        closeButton_creaNegozioPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        closeButton_creaNegozioPanel.setText("Chiudi");
+        closeButton_creaNegozioPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButton_creaNegozioPanelActionPerformed(evt);
+            }
+        });
+        creaNegozioPanel.add(closeButton_creaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        modificaFromNewNegozioPanel.setText("Modifica");
+        modificaFromNewNegozioPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificaFromNewNegozioPanelActionPerformed(evt);
+            }
+        });
+        creaNegozioPanel.add(modificaFromNewNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 90, -1));
+
+        getContentPane().add(creaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 500, 180));
 
         loginPanel.setBackground(new java.awt.Color(0, 153, 0));
         loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -737,84 +821,6 @@ public class Main extends javax.swing.JFrame {
         creaNuovoOrdinePanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
 
         getContentPane().add(creaNuovoOrdinePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 540, 430));
-
-        creaNegozioPanel.setBackground(new java.awt.Color(255, 204, 204));
-        creaNegozioPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setFont(new java.awt.Font("Avenir", 1, 36)); // NOI18N
-        jLabel9.setText("CREA NEGOZIO");
-        creaNegozioPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 310, 43));
-
-        indirizzoField_newNegozioPanel.setBackground(new java.awt.Color(255, 204, 204));
-        indirizzoField_newNegozioPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        indirizzoField_newNegozioPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                indirizzoField_newNegozioPanelActionPerformed(evt);
-            }
-        });
-        creaNegozioPanel.add(indirizzoField_newNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 224, -1));
-
-        CodiceFiscaleField_NewNegozio.setBackground(new java.awt.Color(255, 204, 204));
-        CodiceFiscaleField_NewNegozio.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        CodiceFiscaleField_NewNegozio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CodiceFiscaleField_NewNegozioActionPerformed(evt);
-            }
-        });
-        creaNegozioPanel.add(CodiceFiscaleField_NewNegozio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 224, 40));
-
-        nomeField_newNegozioPanel.setBackground(new java.awt.Color(255, 204, 204));
-        nomeField_newNegozioPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        nomeField_newNegozioPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeField_newNegozioPanelActionPerformed(evt);
-            }
-        });
-        creaNegozioPanel.add(nomeField_newNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 224, -1));
-
-        cittaField_NewNegozioPanel.setBackground(new java.awt.Color(255, 204, 204));
-        cittaField_NewNegozioPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        cittaField_NewNegozioPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cittaField_NewNegozioPanelActionPerformed(evt);
-            }
-        });
-        creaNegozioPanel.add(cittaField_NewNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 224, -1));
-
-        jButton6.setText("Cancella");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        creaNegozioPanel.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
-
-        creaFromCreaNegozioPanel.setText("Crea");
-        creaFromCreaNegozioPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                creaFromCreaNegozioPanelActionPerformed(evt);
-            }
-        });
-        creaNegozioPanel.add(creaFromCreaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
-
-        closeButton_creaNegozioPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        closeButton_creaNegozioPanel.setText("Chiudi");
-        closeButton_creaNegozioPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeButton_creaNegozioPanelActionPerformed(evt);
-            }
-        });
-        creaNegozioPanel.add(closeButton_creaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-
-        modificaFromNewNegozioPanel.setText("Modifica");
-        modificaFromNewNegozioPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificaFromNewNegozioPanelActionPerformed(evt);
-            }
-        });
-        creaNegozioPanel.add(modificaFromNewNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 90, -1));
-
-        getContentPane().add(creaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 500, 180));
 
         negoziPanel.setBackground(new java.awt.Color(255, 0, 255));
         negoziPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1718,7 +1724,11 @@ public class Main extends javax.swing.JFrame {
         String nome = nomeField_newNegozioPanel.getText();
         String indirizzo = indirizzoField_newNegozioPanel.getText();
         String citta = cittaField_NewNegozioPanel.getText();
-        m.addNegozi(new Negozio(cf, nome, indirizzo, citta));
+        try{
+            m.addNegozi(new Negozio(cf, nome, indirizzo, citta));
+        }catch(Exception e){
+            
+        }
         JOptionPane.showMessageDialog(null, "Utente creato con successo!");
         CodiceFiscaleField_NewNegozio.setText("");
         nomeField_newNegozioPanel.setText("");
@@ -2204,6 +2214,7 @@ public class Main extends javax.swing.JFrame {
         String articolo10 = (String) comboBoxArticoli10.getSelectedItem();
         
         //cerco gli articoli dal nome e mi faccio restituire l'oggetto di tipo articolo
+        try{
         Articolo a1 = m.articoloContainedByName(articolo1);
         Articolo a2 = m.articoloContainedByName(articolo2);
         Articolo a3 = m.articoloContainedByName(articolo3);
@@ -2214,6 +2225,7 @@ public class Main extends javax.swing.JFrame {
         Articolo a8 = m.articoloContainedByName(articolo8);
         Articolo a9 = m.articoloContainedByName(articolo9);
         Articolo a10 = m.articoloContainedByName(articolo10);
+        
         
 
         try {//raccolgo i dati di quantità per ogni articolo
@@ -2294,6 +2306,9 @@ public class Main extends javax.swing.JFrame {
         quantitaField9.setText("");
         quantitaField10.setText("");
 
+        }catch(ArticleDontExistInWareHouseException | HeadlessException e){
+            //controllare quali eventi potrebbero generare un ecezzione e distinguere le varie eccezioni
+        }
     }//GEN-LAST:event_creaOrdineButton_orderViewPanelActionPerformed
 
     private void ComboBoxNegozioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxNegozioActionPerformed
