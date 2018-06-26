@@ -47,9 +47,10 @@ public class Magazzino {
      * *********************************** USERS
      * ***********************************
      */
-    public boolean addUser(Utente u) {
+    public boolean addUser(Utente u) throws Exception {
         for(Utente X: utenti)
             if(u.equals(X))
+                throw new Exception();
                 return false; //lancia eccezione userAlredyExist
         return utenti.add(u);
     }

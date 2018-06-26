@@ -387,7 +387,7 @@ public class Main extends javax.swing.JFrame {
 
         negozioInfo_OrderPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         negozioInfo_OrderPanel.setText("Vedi info Negozio");
-        visualizzaOrdiniPanel.add(negozioInfo_OrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, -1, -1));
+        visualizzaOrdiniPanel.add(negozioInfo_OrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 210, -1));
 
         indietroButton_OrderPanel.setText("<");
         indietroButton_OrderPanel.addActionListener(new java.awt.event.ActionListener() {
@@ -395,7 +395,7 @@ public class Main extends javax.swing.JFrame {
                 indietroButton_OrderPanelActionPerformed(evt);
             }
         });
-        visualizzaOrdiniPanel.add(indietroButton_OrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 41, -1));
+        visualizzaOrdiniPanel.add(indietroButton_OrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 41, -1));
 
         avantiButton_OrderPanel.setText(">");
         avantiButton_OrderPanel.addActionListener(new java.awt.event.ActionListener() {
@@ -403,7 +403,7 @@ public class Main extends javax.swing.JFrame {
                 avantiButton_OrderPanelActionPerformed(evt);
             }
         });
-        visualizzaOrdiniPanel.add(avantiButton_OrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 40, -1));
+        visualizzaOrdiniPanel.add(avantiButton_OrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 40, -1));
 
         modificaButtonOrderPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         modificaButtonOrderPanel.setText("Modifica");
@@ -412,7 +412,7 @@ public class Main extends javax.swing.JFrame {
                 modificaButtonOrderPanelActionPerformed(evt);
             }
         });
-        visualizzaOrdiniPanel.add(modificaButtonOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
+        visualizzaOrdiniPanel.add(modificaButtonOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 150, -1));
 
         chiudiButtonOrderPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         chiudiButtonOrderPanel.setText("Chiudi");
@@ -421,13 +421,15 @@ public class Main extends javax.swing.JFrame {
                 chiudiButtonOrderPanelActionPerformed(evt);
             }
         });
-        visualizzaOrdiniPanel.add(chiudiButtonOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        visualizzaOrdiniPanel.add(chiudiButtonOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 150, -1));
 
         searchFieldOrderPanel.setEditable(false);
-        visualizzaOrdiniPanel.add(searchFieldOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 93, -1));
+        searchFieldOrderPanel.setBackground(new java.awt.Color(255, 102, 102));
+        searchFieldOrderPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        visualizzaOrdiniPanel.add(searchFieldOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 30, 20));
 
-        jLabel13.setText("Cerca:");
-        visualizzaOrdiniPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
+        jLabel13.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Cerca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13))); // NOI18N
+        visualizzaOrdiniPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 140, 50));
 
         newOrderButton_orderViewPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         newOrderButton_orderViewPanel.setText("Crea Nuovo Ordine");
@@ -436,7 +438,7 @@ public class Main extends javax.swing.JFrame {
                 newOrderButton_orderViewPanelActionPerformed(evt);
             }
         });
-        visualizzaOrdiniPanel.add(newOrderButton_orderViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
+        visualizzaOrdiniPanel.add(newOrderButton_orderViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 150, -1));
 
         orderIDLabel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
         orderIDLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
@@ -453,10 +455,12 @@ public class Main extends javax.swing.JFrame {
 
         orderNomeNegozioLabel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
         orderNomeNegozioLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Negozio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        visualizzaOrdiniPanel.add(orderNomeNegozioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 220, 70));
+        visualizzaOrdiniPanel.add(orderNomeNegozioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 210, 60));
 
         jToggleButton2.setText("Genera Uscita");
-        visualizzaOrdiniPanel.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, -1));
+        visualizzaOrdiniPanel.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 150, -1));
+
+        jScrollPane1.setBorder(null);
 
         articoliQuantitaOrderTextArea.setEditable(false);
         articoliQuantitaOrderTextArea.setBackground(new java.awt.Color(255, 102, 102));
@@ -465,9 +469,9 @@ public class Main extends javax.swing.JFrame {
         articoliQuantitaOrderTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Articoli e Quantità"));
         jScrollPane1.setViewportView(articoliQuantitaOrderTextArea);
 
-        visualizzaOrdiniPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 280, 140));
+        visualizzaOrdiniPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 260, 320));
 
-        getContentPane().add(visualizzaOrdiniPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 600, 400));
+        getContentPane().add(visualizzaOrdiniPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 660, 400));
 
         creaNuovoOrdinePanel.setBackground(new java.awt.Color(255, 255, 0));
         creaNuovoOrdinePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -852,7 +856,7 @@ public class Main extends javax.swing.JFrame {
         loginPanel.add(pinField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 143, -1));
 
         jLabel1.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 16), new java.awt.Color(255, 255, 255))); // NOI18N
+        jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
         loginPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 240, 60));
 
         cancelPinButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
