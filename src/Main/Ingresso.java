@@ -128,7 +128,7 @@ public class Ingresso extends WarehouseMovement{
     public String toString() {
         String s =""+data+"\n";
         for(Articolo X: (quantita.keySet()) ){
-            s += "Artciolo: " + X.getTipoArticolo().getName() + "\tquantità: " + this.quantita.get(X) + " pezzi\tposizione: " + this.posizioni.get(X)+"\n";
+            s += "Articolo: " + X.getTipoArticolo().getName() + "\tquantità: " + this.quantita.get(X) + " pezzi\tposizione: " + this.posizioni.get(X)+"\n";
         }
         return s;
     }

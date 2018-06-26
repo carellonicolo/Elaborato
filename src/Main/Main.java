@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
 
-    static int indexOrder = 0, indexArticle = 0, indexShop = 0, orderArticleSelected = 1, ingressoArticleSelected = 1;
+    static int indexOrder = 0, indexArticle = 0, indexShop = 0, indexIngressi = 0, orderArticleSelected = 1, ingressoArticleSelected = 1;
     Magazzino m;
 
     public Main() {
@@ -90,6 +90,7 @@ public class Main extends javax.swing.JFrame {
         adminPanel.setVisible(false);
         creaNegozioPanel.setVisible(false);
         creaIngressoPanel.setVisible(false);
+        visualizzaIngressiPanel.setVisible(false);
 
     }
 
@@ -246,20 +247,6 @@ public class Main extends javax.swing.JFrame {
         modificaButton_newArticlePanel = new javax.swing.JButton();
         errorLabel_creaNuovoArticoloPanel = new javax.swing.JLabel();
         dataLabel_newArticlePanel1 = new javax.swing.JLabel();
-        visualizzaIngressiPanel = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        indietroButton_IngressiPanel = new javax.swing.JButton();
-        avantiButton_IngressiPanel = new javax.swing.JButton();
-        modificaButtonOrderPanel1 = new javax.swing.JButton();
-        chiudiButtonOrderPanel1 = new javax.swing.JButton();
-        searchFieldIngressiPanel = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        newOrderButton_orderViewPanel1 = new javax.swing.JButton();
-        orderIDLabel1 = new javax.swing.JLabel();
-        orderDataLabel1 = new javax.swing.JLabel();
-        orderPrezzoLabel1 = new javax.swing.JLabel();
-        articoliQuantitaOrderPanel1 = new javax.swing.JLabel();
-        jToggleButton4 = new javax.swing.JToggleButton();
         creaIngressoPanel = new javax.swing.JPanel();
         comboBoxIngressoArticoli4 = new javax.swing.JComboBox<>();
         comboBoxIngressoArticoli5 = new javax.swing.JComboBox<>();
@@ -282,7 +269,7 @@ public class Main extends javax.swing.JFrame {
         textFieldQuantita8 = new javax.swing.JTextField();
         textFieldQuantita10 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        creaOrdineButton_orderViewPanel1 = new javax.swing.JButton();
+        creaIngressoButtonIngressoPanel = new javax.swing.JButton();
         closeButton_newIngressoPanel = new javax.swing.JButton();
         addArticleButton_newIngressoPanel = new javax.swing.JButton();
         textFieldPosizioni1 = new javax.swing.JTextField();
@@ -298,13 +285,24 @@ public class Main extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        dataOdierna_newArticlePanel1 = new javax.swing.JButton();
-        dayField_newArticlePanel1 = new javax.swing.JTextField();
+        dataOdierna_newIngressoPanel = new javax.swing.JButton();
+        dayField_newIngressoPanel = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        monthField_newArticlePanel1 = new javax.swing.JTextField();
-        yearField_newArticlePanel1 = new javax.swing.JTextField();
-        dataLabel_newArticlePanel = new javax.swing.JLabel();
+        monthField_newIngressoPanel = new javax.swing.JTextField();
+        yearField_newIngressoPanel = new javax.swing.JTextField();
+        dataLabel_newIngressoPanel = new javax.swing.JLabel();
+        visualizzaIngressiPanel = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        indietroButton_IngressiPanel = new javax.swing.JButton();
+        avantiButton_IngressiPanel = new javax.swing.JButton();
+        modificaButtonIngressiPanel = new javax.swing.JButton();
+        chiudiButtonIngressiPanel = new javax.swing.JButton();
+        searchFieldIngressiPanel = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        newIngressoButtonIngressiPanel = new javax.swing.JButton();
+        ingressiIDLabel = new javax.swing.JLabel();
+        articoliQuantitaPosizioneIngressiPanel = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -423,6 +421,8 @@ public class Main extends javax.swing.JFrame {
             }
         });
         visualizzaOrdiniPanel.add(chiudiButtonOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+
+        searchFieldOrderPanel.setEditable(false);
         visualizzaOrdiniPanel.add(searchFieldOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 93, -1));
 
         jLabel13.setText("Cerca:");
@@ -454,7 +454,6 @@ public class Main extends javax.swing.JFrame {
         orderNomeNegozioLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Negozio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
         visualizzaOrdiniPanel.add(orderNomeNegozioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 220, 70));
 
-        articoliQuantitaOrderPanel.setText("jLabel9");
         articoliQuantitaOrderPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         visualizzaOrdiniPanel.add(articoliQuantitaOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 240, 130));
 
@@ -1207,92 +1206,12 @@ public class Main extends javax.swing.JFrame {
 
         getContentPane().add(newArticlePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 730, 540));
 
-        visualizzaIngressiPanel.setBackground(new java.awt.Color(255, 153, 51));
-        visualizzaIngressiPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel16.setFont(new java.awt.Font("Avenir", 0, 30)); // NOI18N
-        jLabel16.setText("Visualizza Ingressi:");
-        visualizzaIngressiPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        indietroButton_IngressiPanel.setText("<");
-        indietroButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                indietroButton_IngressiPanelActionPerformed(evt);
-            }
-        });
-        visualizzaIngressiPanel.add(indietroButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 41, -1));
-
-        avantiButton_IngressiPanel.setText(">");
-        avantiButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                avantiButton_IngressiPanelActionPerformed(evt);
-            }
-        });
-        visualizzaIngressiPanel.add(avantiButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 40, -1));
-
-        modificaButtonOrderPanel1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        modificaButtonOrderPanel1.setText("Modifica");
-        modificaButtonOrderPanel1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificaButtonOrderPanel1ActionPerformed(evt);
-            }
-        });
-        visualizzaIngressiPanel.add(modificaButtonOrderPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
-
-        chiudiButtonOrderPanel1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        chiudiButtonOrderPanel1.setText("Chiudi");
-        chiudiButtonOrderPanel1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chiudiButtonOrderPanel1ActionPerformed(evt);
-            }
-        });
-        visualizzaIngressiPanel.add(chiudiButtonOrderPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
-        visualizzaIngressiPanel.add(searchFieldIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 93, -1));
-
-        jLabel19.setText("Cerca:");
-        visualizzaIngressiPanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
-
-        newOrderButton_orderViewPanel1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        newOrderButton_orderViewPanel1.setText("Crea Nuovo Ordine");
-        newOrderButton_orderViewPanel1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newOrderButton_orderViewPanel1ActionPerformed(evt);
-            }
-        });
-        visualizzaIngressiPanel.add(newOrderButton_orderViewPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
-
-        orderIDLabel1.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
-        orderIDLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        orderIDLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        visualizzaIngressiPanel.add(orderIDLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 210, 60));
-
-        orderDataLabel1.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
-        orderDataLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        visualizzaIngressiPanel.add(orderDataLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 210, 60));
-
-        orderPrezzoLabel1.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
-        orderPrezzoLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Prezzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
-        visualizzaIngressiPanel.add(orderPrezzoLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 210, 60));
-
-        articoliQuantitaOrderPanel1.setText("jLabel9");
-        articoliQuantitaOrderPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        visualizzaIngressiPanel.add(articoliQuantitaOrderPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 240, 130));
-
-        jToggleButton4.setText("Genera Uscita");
-        visualizzaIngressiPanel.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, -1));
-
-        getContentPane().add(visualizzaIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 490, 600, 400));
-
         creaIngressoPanel.setBackground(new java.awt.Color(204, 0, 204));
         creaIngressoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        comboBoxIngressoArticoli4.setBackground(new java.awt.Color(0, 0, 0));
-        comboBoxIngressoArticoli4.setForeground(new java.awt.Color(255, 255, 255));
         comboBoxIngressoArticoli4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         creaIngressoPanel.add(comboBoxIngressoArticoli4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
 
-        comboBoxIngressoArticoli5.setBackground(new java.awt.Color(0, 0, 0));
-        comboBoxIngressoArticoli5.setForeground(new java.awt.Color(255, 255, 255));
         comboBoxIngressoArticoli5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboBoxIngressoArticoli5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1301,43 +1220,27 @@ public class Main extends javax.swing.JFrame {
         });
         creaIngressoPanel.add(comboBoxIngressoArticoli5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
 
-        comboBoxIngressoArticoli6.setBackground(new java.awt.Color(0, 0, 0));
-        comboBoxIngressoArticoli6.setForeground(new java.awt.Color(255, 255, 255));
         comboBoxIngressoArticoli6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         creaIngressoPanel.add(comboBoxIngressoArticoli6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
 
-        comboBoxIngressoArticoli7.setBackground(new java.awt.Color(0, 0, 0));
-        comboBoxIngressoArticoli7.setForeground(new java.awt.Color(255, 255, 255));
         comboBoxIngressoArticoli7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         creaIngressoPanel.add(comboBoxIngressoArticoli7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
 
-        comboBoxIngressoArticoli8.setBackground(new java.awt.Color(0, 0, 0));
-        comboBoxIngressoArticoli8.setForeground(new java.awt.Color(255, 255, 255));
         comboBoxIngressoArticoli8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         creaIngressoPanel.add(comboBoxIngressoArticoli8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
 
-        comboBoxIngressoArticoli9.setBackground(new java.awt.Color(0, 0, 0));
-        comboBoxIngressoArticoli9.setForeground(new java.awt.Color(255, 255, 255));
         comboBoxIngressoArticoli9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         creaIngressoPanel.add(comboBoxIngressoArticoli9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
 
-        comboBoxIngressoArticoli10.setBackground(new java.awt.Color(0, 0, 0));
-        comboBoxIngressoArticoli10.setForeground(new java.awt.Color(255, 255, 255));
         comboBoxIngressoArticoli10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         creaIngressoPanel.add(comboBoxIngressoArticoli10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, -1, -1));
 
-        comboBoxIngressoArticoli3.setBackground(new java.awt.Color(0, 0, 0));
-        comboBoxIngressoArticoli3.setForeground(new java.awt.Color(255, 255, 255));
         comboBoxIngressoArticoli3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         creaIngressoPanel.add(comboBoxIngressoArticoli3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
-        comboBoxIngressoArticoli2.setBackground(new java.awt.Color(0, 0, 0));
-        comboBoxIngressoArticoli2.setForeground(new java.awt.Color(255, 255, 255));
         comboBoxIngressoArticoli2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         creaIngressoPanel.add(comboBoxIngressoArticoli2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
 
-        comboBoxIngressoArticoli1.setBackground(new java.awt.Color(0, 0, 0));
-        comboBoxIngressoArticoli1.setForeground(new java.awt.Color(255, 255, 255));
         comboBoxIngressoArticoli1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         creaIngressoPanel.add(comboBoxIngressoArticoli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
 
@@ -1411,16 +1314,16 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setText("Crea nuovo ingresso:");
         creaIngressoPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 360, 50));
 
-        creaOrdineButton_orderViewPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        creaOrdineButton_orderViewPanel1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        creaOrdineButton_orderViewPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        creaOrdineButton_orderViewPanel1.setText("Crea");
-        creaOrdineButton_orderViewPanel1.addActionListener(new java.awt.event.ActionListener() {
+        creaIngressoButtonIngressoPanel.setBackground(new java.awt.Color(0, 0, 0));
+        creaIngressoButtonIngressoPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        creaIngressoButtonIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        creaIngressoButtonIngressoPanel.setText("Crea");
+        creaIngressoButtonIngressoPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                creaOrdineButton_orderViewPanel1ActionPerformed(evt);
+                creaIngressoButtonIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(creaOrdineButton_orderViewPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 150, -1));
+        creaIngressoPanel.add(creaIngressoButtonIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 150, -1));
 
         closeButton_newIngressoPanel.setBackground(new java.awt.Color(0, 0, 0));
         closeButton_newIngressoPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
@@ -1514,21 +1417,21 @@ public class Main extends javax.swing.JFrame {
         jLabel12.setText("Articoli: ");
         creaIngressoPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
-        dataOdierna_newArticlePanel1.setBackground(new java.awt.Color(0, 0, 0));
-        dataOdierna_newArticlePanel1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        dataOdierna_newArticlePanel1.setForeground(new java.awt.Color(255, 255, 255));
-        dataOdierna_newArticlePanel1.setText("Data Odierna");
-        dataOdierna_newArticlePanel1.addActionListener(new java.awt.event.ActionListener() {
+        dataOdierna_newIngressoPanel.setBackground(new java.awt.Color(0, 0, 0));
+        dataOdierna_newIngressoPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        dataOdierna_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        dataOdierna_newIngressoPanel.setText("Data Odierna");
+        dataOdierna_newIngressoPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataOdierna_newArticlePanel1ActionPerformed(evt);
+                dataOdierna_newIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(dataOdierna_newArticlePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 180, -1));
+        creaIngressoPanel.add(dataOdierna_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 180, -1));
 
-        dayField_newArticlePanel1.setBackground(new java.awt.Color(204, 0, 204));
-        dayField_newArticlePanel1.setForeground(new java.awt.Color(255, 255, 255));
-        dayField_newArticlePanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        creaIngressoPanel.add(dayField_newArticlePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 20, 20));
+        dayField_newIngressoPanel.setBackground(new java.awt.Color(204, 0, 204));
+        dayField_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        dayField_newIngressoPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        creaIngressoPanel.add(dayField_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 20, 20));
 
         jLabel20.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -1540,21 +1443,87 @@ public class Main extends javax.swing.JFrame {
         jLabel22.setText("/");
         creaIngressoPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, -1));
 
-        monthField_newArticlePanel1.setBackground(new java.awt.Color(204, 0, 204));
-        monthField_newArticlePanel1.setForeground(new java.awt.Color(255, 255, 255));
-        monthField_newArticlePanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        creaIngressoPanel.add(monthField_newArticlePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 27, -1));
+        monthField_newIngressoPanel.setBackground(new java.awt.Color(204, 0, 204));
+        monthField_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        monthField_newIngressoPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        creaIngressoPanel.add(monthField_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 27, -1));
 
-        yearField_newArticlePanel1.setBackground(new java.awt.Color(204, 0, 204));
-        yearField_newArticlePanel1.setForeground(new java.awt.Color(255, 255, 255));
-        yearField_newArticlePanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        creaIngressoPanel.add(yearField_newArticlePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 70, -1));
+        yearField_newIngressoPanel.setBackground(new java.awt.Color(204, 0, 204));
+        yearField_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        yearField_newIngressoPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        creaIngressoPanel.add(yearField_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 70, -1));
 
-        dataLabel_newArticlePanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        dataLabel_newArticlePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        creaIngressoPanel.add(dataLabel_newArticlePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 200, 100));
+        dataLabel_newIngressoPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        dataLabel_newIngressoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        creaIngressoPanel.add(dataLabel_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 200, 100));
 
         getContentPane().add(creaIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 480, 620, 450));
+
+        visualizzaIngressiPanel.setBackground(new java.awt.Color(255, 153, 51));
+        visualizzaIngressiPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setFont(new java.awt.Font("Avenir", 0, 30)); // NOI18N
+        jLabel16.setText("Visualizza Ingressi:");
+        visualizzaIngressiPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        indietroButton_IngressiPanel.setText("<");
+        indietroButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indietroButton_IngressiPanelActionPerformed(evt);
+            }
+        });
+        visualizzaIngressiPanel.add(indietroButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 41, -1));
+
+        avantiButton_IngressiPanel.setText(">");
+        avantiButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avantiButton_IngressiPanelActionPerformed(evt);
+            }
+        });
+        visualizzaIngressiPanel.add(avantiButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 40, -1));
+
+        modificaButtonIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        modificaButtonIngressiPanel.setText("Modifica");
+        modificaButtonIngressiPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificaButtonIngressiPanelActionPerformed(evt);
+            }
+        });
+        visualizzaIngressiPanel.add(modificaButtonIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
+
+        chiudiButtonIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        chiudiButtonIngressiPanel.setText("Chiudi");
+        chiudiButtonIngressiPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chiudiButtonIngressiPanelActionPerformed(evt);
+            }
+        });
+        visualizzaIngressiPanel.add(chiudiButtonIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+
+        searchFieldIngressiPanel.setEditable(false);
+        visualizzaIngressiPanel.add(searchFieldIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 93, -1));
+
+        jLabel19.setText("Cerca:");
+        visualizzaIngressiPanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
+
+        newIngressoButtonIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        newIngressoButtonIngressiPanel.setText("Crea Nuovo Ingresso");
+        newIngressoButtonIngressiPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newIngressoButtonIngressiPanelActionPerformed(evt);
+            }
+        });
+        visualizzaIngressiPanel.add(newIngressoButtonIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
+
+        ingressiIDLabel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
+        ingressiIDLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
+        ingressiIDLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        visualizzaIngressiPanel.add(ingressiIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 210, 60));
+
+        articoliQuantitaPosizioneIngressiPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        visualizzaIngressiPanel.add(articoliQuantitaPosizioneIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 520, 190));
+
+        getContentPane().add(visualizzaIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 490, 600, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1683,80 +1652,10 @@ public class Main extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         hideAll();
-        creaIngressoPanel.setVisible(true);
+        visualizzaIngressiPanel.setVisible(true);
+        indexIngressi = 0;
+        ingressi();
         
-        comboBoxIngressoArticoli1.removeAllItems();
-        comboBoxIngressoArticoli2.removeAllItems();
-        comboBoxIngressoArticoli3.removeAllItems();
-        comboBoxIngressoArticoli4.removeAllItems();
-        comboBoxIngressoArticoli5.removeAllItems();
-        comboBoxIngressoArticoli6.removeAllItems();
-        comboBoxIngressoArticoli7.removeAllItems();
-        comboBoxIngressoArticoli8.removeAllItems();
-        comboBoxIngressoArticoli9.removeAllItems();
-        comboBoxIngressoArticoli10.removeAllItems();
-        textFieldPosizioni1.setText("");
-        textFieldPosizioni2.setText("");
-        textFieldPosizioni3.setText("");
-        textFieldPosizioni4.setText("");
-        textFieldPosizioni5.setText("");
-        textFieldPosizioni6.setText("");
-        textFieldPosizioni7.setText("");
-        textFieldPosizioni8.setText("");
-        textFieldPosizioni9.setText("");
-        textFieldPosizioni10.setText("");
-        textFieldQuantita1.setText("");
-        textFieldQuantita2.setText("");
-        textFieldQuantita3.setText("");
-        textFieldQuantita4.setText("");
-        textFieldQuantita5.setText("");
-        textFieldQuantita6.setText("");
-        textFieldQuantita7.setText("");
-        textFieldQuantita8.setText("");
-        textFieldQuantita9.setText("");
-        textFieldQuantita10.setText("");
-        comboBoxIngressoArticoli2.setEnabled(false);
-        comboBoxIngressoArticoli3.setEnabled(false);
-        comboBoxIngressoArticoli4.setEnabled(false);
-        comboBoxIngressoArticoli5.setEnabled(false);
-        comboBoxIngressoArticoli6.setEnabled(false);
-        comboBoxIngressoArticoli7.setEnabled(false);
-        comboBoxIngressoArticoli8.setEnabled(false);
-        comboBoxIngressoArticoli9.setEnabled(false);
-        comboBoxIngressoArticoli10.setEnabled(false);
-        textFieldPosizioni2.setEditable(false);
-        textFieldPosizioni3.setEditable(false);
-        textFieldPosizioni4.setEditable(false);
-        textFieldPosizioni5.setEditable(false);
-        textFieldPosizioni6.setEditable(false);
-        textFieldPosizioni7.setEditable(false);
-        textFieldPosizioni8.setEditable(false);
-        textFieldPosizioni9.setEditable(false);
-        textFieldPosizioni10.setEditable(false);
-        textFieldQuantita2.setEditable(false);
-        textFieldQuantita3.setEditable(false);
-        textFieldQuantita4.setEditable(false);
-        textFieldQuantita5.setEditable(false);
-        textFieldQuantita6.setEditable(false);
-        textFieldQuantita7.setEditable(false);
-        textFieldQuantita8.setEditable(false);
-        textFieldQuantita9.setEditable(false);
-        textFieldQuantita10.setEditable(false);
-        
-        ingressoArticleSelected = 1;
-        
-        for (int i = 0; i < m.articoliSize(); i++) {
-            comboBoxIngressoArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
-            comboBoxIngressoArticoli2.addItem(m.getArticolo(i).getTipoArticolo().getName());
-            comboBoxIngressoArticoli3.addItem(m.getArticolo(i).getTipoArticolo().getName());
-            comboBoxIngressoArticoli4.addItem(m.getArticolo(i).getTipoArticolo().getName());
-            comboBoxIngressoArticoli5.addItem(m.getArticolo(i).getTipoArticolo().getName());
-            comboBoxIngressoArticoli6.addItem(m.getArticolo(i).getTipoArticolo().getName());
-            comboBoxIngressoArticoli7.addItem(m.getArticolo(i).getTipoArticolo().getName());
-            comboBoxIngressoArticoli8.addItem(m.getArticolo(i).getTipoArticolo().getName());
-            comboBoxIngressoArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
-            comboBoxIngressoArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
-        }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -2603,9 +2502,9 @@ public class Main extends javax.swing.JFrame {
         quantitaField10.setBackground(x);
     }//GEN-LAST:event_quantitaField10ActionPerformed
 
-    private void creaOrdineButton_orderViewPanel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaOrdineButton_orderViewPanel1ActionPerformed
+    private void creaIngressoButtonIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaIngressoButtonIngressoPanelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_creaOrdineButton_orderViewPanel1ActionPerformed
+    }//GEN-LAST:event_creaIngressoButtonIngressoPanelActionPerformed
 
     private void closeButton_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_newIngressoPanelActionPerformed
         exit();
@@ -2844,28 +2743,109 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_modificaButtonOrderPanelActionPerformed
 
     private void indietroButton_IngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroButton_IngressiPanelActionPerformed
-        // TODO add your handling code here:
+        indexIngressi--;
+        ingressi();
     }//GEN-LAST:event_indietroButton_IngressiPanelActionPerformed
 
     private void avantiButton_IngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiButton_IngressiPanelActionPerformed
-        // TODO add your handling code here:
+        indexIngressi++;
+        ingressi();
     }//GEN-LAST:event_avantiButton_IngressiPanelActionPerformed
 
-    private void modificaButtonOrderPanel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButtonOrderPanel1ActionPerformed
+    private void modificaButtonIngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButtonIngressiPanelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_modificaButtonOrderPanel1ActionPerformed
+    }//GEN-LAST:event_modificaButtonIngressiPanelActionPerformed
 
-    private void chiudiButtonOrderPanel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButtonOrderPanel1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chiudiButtonOrderPanel1ActionPerformed
+    private void chiudiButtonIngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButtonIngressiPanelActionPerformed
+        exit();
+    }//GEN-LAST:event_chiudiButtonIngressiPanelActionPerformed
 
-    private void newOrderButton_orderViewPanel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newOrderButton_orderViewPanel1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_newOrderButton_orderViewPanel1ActionPerformed
+    private void newIngressoButtonIngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newIngressoButtonIngressiPanelActionPerformed
+        
+        hideAll();
+        creaIngressoPanel.setVisible(true);
+        
+        comboBoxIngressoArticoli1.removeAllItems();
+        comboBoxIngressoArticoli2.removeAllItems();
+        comboBoxIngressoArticoli3.removeAllItems();
+        comboBoxIngressoArticoli4.removeAllItems();
+        comboBoxIngressoArticoli5.removeAllItems();
+        comboBoxIngressoArticoli6.removeAllItems();
+        comboBoxIngressoArticoli7.removeAllItems();
+        comboBoxIngressoArticoli8.removeAllItems();
+        comboBoxIngressoArticoli9.removeAllItems();
+        comboBoxIngressoArticoli10.removeAllItems();
+        textFieldPosizioni1.setText("");
+        textFieldPosizioni2.setText("");
+        textFieldPosizioni3.setText("");
+        textFieldPosizioni4.setText("");
+        textFieldPosizioni5.setText("");
+        textFieldPosizioni6.setText("");
+        textFieldPosizioni7.setText("");
+        textFieldPosizioni8.setText("");
+        textFieldPosizioni9.setText("");
+        textFieldPosizioni10.setText("");
+        textFieldQuantita1.setText("");
+        textFieldQuantita2.setText("");
+        textFieldQuantita3.setText("");
+        textFieldQuantita4.setText("");
+        textFieldQuantita5.setText("");
+        textFieldQuantita6.setText("");
+        textFieldQuantita7.setText("");
+        textFieldQuantita8.setText("");
+        textFieldQuantita9.setText("");
+        textFieldQuantita10.setText("");
+        comboBoxIngressoArticoli2.setEnabled(false);
+        comboBoxIngressoArticoli3.setEnabled(false);
+        comboBoxIngressoArticoli4.setEnabled(false);
+        comboBoxIngressoArticoli5.setEnabled(false);
+        comboBoxIngressoArticoli6.setEnabled(false);
+        comboBoxIngressoArticoli7.setEnabled(false);
+        comboBoxIngressoArticoli8.setEnabled(false);
+        comboBoxIngressoArticoli9.setEnabled(false);
+        comboBoxIngressoArticoli10.setEnabled(false);
+        textFieldPosizioni2.setEditable(false);
+        textFieldPosizioni3.setEditable(false);
+        textFieldPosizioni4.setEditable(false);
+        textFieldPosizioni5.setEditable(false);
+        textFieldPosizioni6.setEditable(false);
+        textFieldPosizioni7.setEditable(false);
+        textFieldPosizioni8.setEditable(false);
+        textFieldPosizioni9.setEditable(false);
+        textFieldPosizioni10.setEditable(false);
+        textFieldQuantita2.setEditable(false);
+        textFieldQuantita3.setEditable(false);
+        textFieldQuantita4.setEditable(false);
+        textFieldQuantita5.setEditable(false);
+        textFieldQuantita6.setEditable(false);
+        textFieldQuantita7.setEditable(false);
+        textFieldQuantita8.setEditable(false);
+        textFieldQuantita9.setEditable(false);
+        textFieldQuantita10.setEditable(false);
+        
+        ingressoArticleSelected = 1;
+        
+        for (int i = 0; i < m.articoliSize(); i++) {
+            comboBoxIngressoArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli2.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli3.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli4.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli5.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli6.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli7.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli8.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
+        }
+    }//GEN-LAST:event_newIngressoButtonIngressiPanelActionPerformed
 
-    private void dataOdierna_newArticlePanel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataOdierna_newArticlePanel1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataOdierna_newArticlePanel1ActionPerformed
+    private void dataOdierna_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataOdierna_newIngressoPanelActionPerformed
+        GregorianCalendar c = new GregorianCalendar(); //prendo la data attuale
+        //e stampo la data attuale
+        dayField_newIngressoPanel.setText("" + c.get(GregorianCalendar.DATE));
+        monthField_newIngressoPanel.setText("" + c.get(GregorianCalendar.MONTH));
+        yearField_newIngressoPanel.setText("" + c.get(GregorianCalendar.YEAR));
+    }//GEN-LAST:event_dataOdierna_newIngressoPanelActionPerformed
 
     void articoli() {
         if (m.articoliIsEmpty()) {
@@ -2957,7 +2937,6 @@ public class Main extends javax.swing.JFrame {
             } else {
                 avantiButton_OrderPanel.setEnabled(true);
             }
-            searchFieldOrderPanel.setEditable(true);
             negozioInfo_OrderPanel.setEnabled(true);
             modificaButtonOrderPanel.setEnabled(true);
             searchFieldOrderPanel.setText("" + (indexOrder + 1));
@@ -2969,6 +2948,35 @@ public class Main extends javax.swing.JFrame {
         }
 
     }//resetOrder
+    
+    void ingressi(){
+        
+        if (m.ingressiIsEmpty()) {
+            ingressiIDLabel.setText("");
+            searchFieldIngressiPanel.setText("");
+            indietroButton_IngressiPanel.setEnabled(false);
+            avantiButton_IngressiPanel.setEnabled(false);
+            modificaButtonIngressiPanel.setEnabled(false);
+            JOptionPane.showMessageDialog(null, "Nessun ordine ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
+        } else {
+
+            if (indexIngressi == 0) {
+                indietroButton_IngressiPanel.setEnabled(false);
+            } else {
+                indietroButton_IngressiPanel.setEnabled(true);
+            }
+            if (indexIngressi == m.ingressiSize() - 1) {
+                avantiButton_IngressiPanel.setEnabled(false);
+            } else {
+                avantiButton_IngressiPanel.setEnabled(true);
+            }
+            modificaButtonIngressiPanel.setEnabled(true);
+            searchFieldIngressiPanel.setText("" + (indexIngressi + 1));
+            ingressiIDLabel.setText("" + m.getIngresso(indexIngressi).getID());
+            articoliQuantitaPosizioneIngressiPanel.setText("" + m.getIngresso(indexIngressi).toString());
+        }
+        
+    }
 
     void exit() {
 
@@ -3020,7 +3028,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton addArticleButton_newOrderPanel;
     private javax.swing.JPanel adminPanel;
     private javax.swing.JLabel articoliQuantitaOrderPanel;
-    private javax.swing.JLabel articoliQuantitaOrderPanel1;
+    private javax.swing.JLabel articoliQuantitaPosizioneIngressiPanel;
     private javax.swing.JRadioButton atleticaRadioButton;
     private javax.swing.JButton avantiButton_IngressiPanel;
     private javax.swing.JButton avantiButton_NegozioPanel;
@@ -3031,8 +3039,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton cancelPinButton;
     private javax.swing.JButton cancellaButton_newArticlePanel;
     private javax.swing.JLabel cercaLabel_VisualizzaArticoloPanel;
+    private javax.swing.JButton chiudiButtonIngressiPanel;
     private javax.swing.JButton chiudiButtonOrderPanel;
-    private javax.swing.JButton chiudiButtonOrderPanel1;
     private javax.swing.JButton chiudiButton_VisualizzaArticoloPanel;
     private javax.swing.JRadioButton ciclismoRadioButton;
     private javax.swing.JTextField cittaField_NewNegozioPanel;
@@ -3065,20 +3073,20 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel corniceArticoloLabel_newOrderPanel;
     private javax.swing.JTextField corriereField_NewOrderPanel;
     private javax.swing.JButton creaFromCreaNegozioPanel;
+    private javax.swing.JButton creaIngressoButtonIngressoPanel;
     private javax.swing.JPanel creaIngressoPanel;
     private javax.swing.JButton creaNegozioButton_VisualizzaArticoloPanel;
     private javax.swing.JPanel creaNegozioPanel;
     private javax.swing.JPanel creaNuovoOrdinePanel;
     private javax.swing.JButton creaOrdineButton_orderViewPanel;
-    private javax.swing.JButton creaOrdineButton_orderViewPanel1;
     private javax.swing.JRadioButton danzaRadioButton;
     private javax.swing.JLabel dataLabel_VisualizzaArticoloPanel;
-    private javax.swing.JLabel dataLabel_newArticlePanel;
     private javax.swing.JLabel dataLabel_newArticlePanel1;
+    private javax.swing.JLabel dataLabel_newIngressoPanel;
     private javax.swing.JButton dataOdierna_newArticlePanel;
-    private javax.swing.JButton dataOdierna_newArticlePanel1;
+    private javax.swing.JButton dataOdierna_newIngressoPanel;
     private javax.swing.JTextField dayField_newArticlePanel;
-    private javax.swing.JTextField dayField_newArticlePanel1;
+    private javax.swing.JTextField dayField_newIngressoPanel;
     private javax.swing.JTextField descrizioneFieldTipoArticolo_newArticlePanel;
     private javax.swing.JLabel descrizioneLabel_VisualizzaArticoloPanel;
     private javax.swing.JRadioButton elastanRadioButton;
@@ -3093,6 +3101,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton indietroButton_VisualizzaArticoloPanel;
     private javax.swing.JTextField indirizzoField_newNegozioPanel;
     private javax.swing.JLabel indirizzoLabel_NegozioPanel;
+    private javax.swing.JLabel ingressiIDLabel;
     private javax.swing.JButton inserisciButton_newArticlePanel;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -3129,37 +3138,33 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel loginTitleLabel;
     private javax.swing.JLabel materialeTipoArticolo_newArticlePanel;
     private javax.swing.JLabel materialiLabel_VisualizzaArticoloPanel;
+    private javax.swing.JButton modificaButtonIngressiPanel;
     private javax.swing.JButton modificaButtonOrderPanel;
-    private javax.swing.JButton modificaButtonOrderPanel1;
     private javax.swing.JButton modificaButton_NegozioPanel;
     private javax.swing.JButton modificaButton_VisualizzaArticoloPanel;
     private javax.swing.JButton modificaButton_newArticlePanel;
     private javax.swing.JButton modificaFromNewNegozioPanel;
     private javax.swing.JTextField monthField_newArticlePanel;
-    private javax.swing.JTextField monthField_newArticlePanel1;
+    private javax.swing.JTextField monthField_newIngressoPanel;
     private javax.swing.JPanel negoziPanel;
     private javax.swing.JButton negozioInfo_OrderPanel;
     private javax.swing.JPanel newArticlePanel;
+    private javax.swing.JButton newIngressoButtonIngressiPanel;
     private javax.swing.JButton newOrderButton_orderViewPanel;
-    private javax.swing.JButton newOrderButton_orderViewPanel1;
     private javax.swing.JTextField nomeFieldTipoArticolo_newArticlePanel;
     private javax.swing.JTextField nomeField_newNegozioPanel;
     private javax.swing.JLabel nomeLabel_VisualizzaArticoloPanel;
     private javax.swing.JLabel nomeNegozioLabel_NegozioPanel;
     private javax.swing.JRadioButton nuotoRadioButton;
     private javax.swing.JLabel orderDataLabel;
-    private javax.swing.JLabel orderDataLabel1;
     private javax.swing.JLabel orderIDLabel;
-    private javax.swing.JLabel orderIDLabel1;
     private javax.swing.JLabel orderNomeNegozioLabel;
     private javax.swing.JLabel orderPrezzoLabel;
-    private javax.swing.JLabel orderPrezzoLabel1;
     private javax.swing.JRadioButton palestraRadioButton;
     private javax.swing.JRadioButton pallavoloRadioButton;
     private javax.swing.JPasswordField pinField;
@@ -3216,6 +3221,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel visualizzaIngressiPanel;
     private javax.swing.JPanel visualizzaOrdiniPanel;
     private javax.swing.JTextField yearField_newArticlePanel;
-    private javax.swing.JTextField yearField_newArticlePanel1;
+    private javax.swing.JTextField yearField_newIngressoPanel;
     // End of variables declaration//GEN-END:variables
 }
