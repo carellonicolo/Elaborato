@@ -1,8 +1,8 @@
 package Main;
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import Exception.*;
-=======
+//=======
 import Exception.ArticleAlreadyExistException;
 import Exception.ArticleDontExistInWareHouseException;
 import Exception.ArticleNotFound;
@@ -10,7 +10,7 @@ import Exception.OrderImpossibleToCreate;
 import Exception.OrderNotFound;
 import Exception.ShopAlreadyExistException;
 import Exception.UserAlreadyExist;
->>>>>>> a51d9e7c7089edc08c39728a0cbbd4a7404c5507
+//>>>>>>> a51d9e7c7089edc08c39728a0cbbd4a7404c5507
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.util.GregorianCalendar;
@@ -60,7 +60,7 @@ public class Graphics extends javax.swing.JFrame {
 
         //ISTANZIO UN PO DI OGGETTI DA USARE COME PROVA
         try {
-            m.addUser(new Utente("ciao", "ciao", 1));
+            m.addUser(new Utente("utente", "ciao", 1));
 
             Articolo a1 = new Articolo((float) 14, new TipoArticolo("nome1", "Desrizione1", 2, 1));
             Articolo a2 = new Articolo((float) 17, new TipoArticolo("nome2", "Desrizione2", 3, 3));
@@ -1587,18 +1587,26 @@ public class Graphics extends javax.swing.JFrame {
         //CONTROLLO DA IMPLEMENTARE A PROGETTO FINITO
         String pin = pinField.getText();
         String user = usrField.getText();
-
-        try{
-            int type = m.loginHashCode(new Utente(user, pin, 1));
-            usrField.setText("");
+        
+        if(pin.equals("") || user.equals("") || pin.substring(0, 1).equals(" ") || user.substring(0, 1).equals(" ")){
+            JOptionPane.showMessageDialog(null, "Inserire uno username e una password validi");
+	    usrField.setText("");
             pinField.setText("");
-            JOptionPane.showMessageDialog(null, "Login effettuato correttamente\nTipoAccount: " + type);
-            hideAll();//nascondo tutti i pannelli
         }
-        catch(UserNotFoundException e){
-            JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattare l'amministratore di sistema il prima possibile");
-            usrField.setText("");
-            pinField.setText("");
+        else{
+            try{
+                int type = m.loginHashCode(new Utente(user, pin, 1));
+                usrField.setText("");
+                pinField.setText("");
+                JOptionPane.showMessageDialog(null, "Login effettuato correttamente\nTipoAccount: " + type);
+                hideAll();//nascondo tutti i pannelli
+		visualizzaArticoliPanel.setVisible(true);
+            }
+            catch(UserNotFoundException e){
+                JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattare l'amministratore di sistema il prima possibile");
+                usrField.setText("");
+                pinField.setText("");
+            }
         }
         
     }//GEN-LAST:event_loginButtonActionPerformed

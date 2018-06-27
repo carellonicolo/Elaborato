@@ -74,10 +74,7 @@ public class Magazzino {
     }
 
     public int loginHashCode(Utente u) throws UserNotFoundException{
-        for(Utente X: utenti){
-            System.out.println(u.getUsr()+u.hashCode());
-            System.out.println(X.getUsr()+X.hashCode());
-            
+        for(Utente X: utenti){      
             if(u.hashCode()==X.hashCode())
                 return X.getTypeInt();
         }

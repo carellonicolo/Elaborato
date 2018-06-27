@@ -80,7 +80,7 @@ public class Utente implements UserInterface, Comparable<Utente>{
     /***************************************** HASHCODE *******************************************/
     @Override
     public int hashCode(){
-        return usr.hashCode()^pwd.hashCode();
+	return usr.hashCode()^pwd.hashCode();
     }
     
     
