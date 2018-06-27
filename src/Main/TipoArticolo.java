@@ -1,5 +1,7 @@
 package Main;
 
+import Exception.*;
+
 public class TipoArticolo implements Comparable<TipoArticolo>{
     
     public final String sportArray[]= {"Nuoto", "Calcio", "Palestra", "Tennis", "Scii", "Basket", "Rafting", "Ciclismo", "Rugby", "Atletica", "Hockey", "Golf", "Pallavolo", "Danza"};
@@ -44,38 +46,30 @@ public class TipoArticolo implements Comparable<TipoArticolo>{
     
     
     
-    /*************METODI SET******************/
+    /****************************************METODI SET*****************************/
     
-    public boolean setNome(String newName){
-        if(!" ".equals(newName) && !"".equals(newName)){
-            this.nome = newName;
-            return true;
-        }
-        return false;
+    public void setNome(String newName) throws VoidStringUnexpectedException{
+        if(" ".equals(newName) && "".equals(newName))
+            throw new VoidStringUnexpectedException("Inserire un nome per l'articolo Valido!");
+        this.nome = newName;
     }//SETNOME
     
-    public boolean setDescription(String newDescritpion){
-        if(!" ".equals(newDescritpion) && !"".equals(newDescritpion)){
-            this.descrizione = newDescritpion;
-            return true;
-        }
-        return false;
+    public void setDescription(String newDescritpion) throws VoidStringUnexpectedException{
+        if(" ".equals(newDescritpion) && "".equals(newDescritpion))
+            throw new VoidStringUnexpectedException("Inserire un nome per l'articolo Valido!");
+        this.descrizione = newDescritpion;
     }//SETDESCRIPTION
     
-    public boolean setSport(int s){
-        if(s>=0 && s<sportArray.length){//da aggiungere controllo su numero massimo di sport disponibili
-            this.numSport = s;
-            return true;
-        }
-        return false;
+    public void setSport(int s){
+        if(s<0 && s>=sportArray.length)//da aggiungere controllo su numero massimo di sport disponibili
+            throw new IndexOutOfBoundsException("Numero sport inesistente!\nInserire un numeri compreso tra 0 e " + sportArray.length);
+        this.numSport = s;
     }//SETSPORT
     
-    public boolean setMaterial(int m){
-        if(m>=0 && m < arrayMateriali.length){//da aggiungere controllo su numero massimo di sport disponibili
-            this.numMateriali = m;
-            return true;
-        }
-        return false;
+    public void setMaterial(int m){
+        if(m<0 && m >= arrayMateriali.length)//da aggiungere controllo su numero massimo di sport disponibili
+            throw new IndexOutOfBoundsException("Numero sport inesistente!\nInserire un numeri compreso tra 0 e " + arrayMateriali.length);
+        this.numMateriali = m;
     }//SETMATERIAL
     
     
@@ -102,11 +96,7 @@ public class TipoArticolo implements Comparable<TipoArticolo>{
         
         return nome.compareTo(other.nome);
     }
-    
-    
-    
-    
-    //----------------------TO STRING--------------------------//
+
     @Override
     public String toString(){
         return "Nome: "+ nome + "\nDescrizione: "+ descrizione + "\nSport: "+ this.arrayMateriali[numSport] + "/nMateriali: " + this.arrayMateriali[numMateriali];

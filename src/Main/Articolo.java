@@ -2,10 +2,9 @@ package Main;
 
 import java.util.GregorianCalendar;
 
-public class Articolo implements Comparable<Articolo> {
+public class Articolo extends WarehouseMovement implements Comparable<Articolo> {
 
     private float prezzo;
-    private GregorianCalendar data;
     private TipoArticolo tipoArticolo;
 
     /**
@@ -14,56 +13,45 @@ public class Articolo implements Comparable<Articolo> {
      *
      * @param price
      * @param data
-     * @param x
+     * @param tipoArticolo
      */
-    public Articolo(float price, GregorianCalendar data, TipoArticolo x) {//CON DATA
+    public Articolo(float price, GregorianCalendar data, TipoArticolo tipoArticolo) {//CON DATA
         this.prezzo = price;
-        this.tipoArticolo = x;
+        this.tipoArticolo = tipoArticolo;
         this.data = data;//Salvo la data se mi viene passata
     }
 
-    public Articolo(float price, TipoArticolo x) {//CON DATA
+    public Articolo(float price, TipoArticolo tipoArticolo) {//CON DATA
         this.prezzo = price;
-        this.tipoArticolo = x;
+        this.tipoArticolo = tipoArticolo;
         this.data = new GregorianCalendar();
+    }
+    
+    public Articolo(float price, int day, int month, int year, TipoArticolo tipoArticolo){
+        this.prezzo = price;
+        this.tipoArticolo = tipoArticolo;
+        this.data = new GregorianCalendar(year, month, day);
     }
 
     /**
      * ************************METODI GET******************************
      */
-    public String getID() {
-        return "" + hashCode();
-    }
 
     public float getPrezzo() {
         return prezzo;
-    }
-
-    public String getData() {
-        return "" + data.get(GregorianCalendar.DATE) + "-" + data.get(GregorianCalendar.MONTH) + "-" + data.get(GregorianCalendar.YEAR);
-    }
-
-    public String getDay() {
-        return "" + data.get(GregorianCalendar.DATE);
-    }
-
-    public String getMonth() {
-        return "" + data.get(GregorianCalendar.MONTH);
-    }
-
-    public String getYear() {
-        return "" + data.get(GregorianCalendar.YEAR);
     }
 
     public TipoArticolo getTipoArticolo() {
         return tipoArticolo;
     }
 
+    
+    
+    
+    
+    
     /**
      * ************************METODI SET******************************
-     */
-    /**
-     * @param x
      */
     public void setTipoArticolo(TipoArticolo tipoArticolo) {
         this.tipoArticolo = tipoArticolo;
@@ -72,19 +60,6 @@ public class Articolo implements Comparable<Articolo> {
     public void setPrezzo(float p) {
         prezzo = p;
     }
-
-    public void setData(GregorianCalendar d) {
-        data = d;
-    }
-
-    public void setData() {//se non mi viene passata una data me la prendo io quella odierna
-        data = new GregorianCalendar();
-    }
-
-    public void setData(int d, int m, int y) {
-        data = new GregorianCalendar(d, m, y);
-    }
-
     
     
     

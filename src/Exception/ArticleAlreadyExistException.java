@@ -11,8 +11,8 @@ import java.rmi.AlreadyBoundException;
  *
  * @author nicolocarello
  */
-public class ArticleAlredyExistException extends AlreadyBoundException{
-    public ArticleAlredyExistException(String s){
+public class ArticleAlreadyExistException extends AlreadyBoundException{
+    public ArticleAlreadyExistException(String s){
         super(s);
     }
 }

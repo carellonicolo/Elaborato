@@ -1,15 +1,15 @@
 package Main;
 
 import java.util.*;//gregorianCalendar e tutti i tipi di collezzione set, treeset,treemap,arraylist, linkedlist, hashmap, hashset...
+import Exception.*;
 
-public class Ordine implements Comparable<Ordine>{
+public class Ordine extends WarehouseMovement implements Comparable<Ordine>{
 
     private Negozio negozio;
-    private GregorianCalendar data;
     private float prezzo;
-    public static int s = 1;
+    private boolean shipped = false;
     
-    private Map<Articolo, Integer> mappa = new HashMap<>();
+    private Map<Articolo, Integer> mappa = new TreeMap<>();
 
     /*-------------COSTRUTTORI---------------------*/
     public Ordine(Negozio n, int day, int month, int year, Map<Articolo, Integer> m) {//DATA PASSATA IN INTERO 
@@ -47,98 +47,64 @@ public class Ordine implements Comparable<Ordine>{
         return negozio;
     }
 
-    public String getID() {
-        return ""+hashCode();
-    }
-
     public float getTotalPrice() {
         return prezzo;
     }
-
-    public String getData() {
-        return "" + data.get(GregorianCalendar.DATE) + "-" + data.get(GregorianCalendar.MONTH) + "-" + data.get(GregorianCalendar.YEAR);
+    
+    public boolean getIfShipped(){
+        return shipped;
     }
-        
-        
-    /*
-    public String getArticoli_e_quantità() { 
-       String s = "";
-        int quantità = 0;
-        
-        if(mappa.isEmpty())
-            return null;
-        
-        
-        Set<Articolo> articoli = new TreeSet<>(mappa.keySet());
-        
-        for(Articolo x: articoli){
-            quantità = mappa.get(x);
-            s += x.getTipoArticolo().getName()+": "+quantità + " pezzi";
-        }
-
-        return s;
-        
-    }//getArticoli_e_quantità
-*/
     
+    public Map<Articolo, Integer> getArticle(){
+        return mappa;
+    }
     
 
-
+        
     
     
     
-    
-    
-    /*--------------MANCANO I METODI SET--------------*/
     public void setNegozio(Negozio negozio) {
         this.negozio = negozio;
     }
 
-    public boolean addArticle(Articolo a, int q) {
-            if (mappa.containsKey(a)) {
-                return false;// se la mappa ha già l'articolo
-            } else {
+    public void removeArticle(Articolo o) throws ArticleNotFound{
+        if( !mappa.containsKey(o) )//Se l'articolo non esiste nella mappa
+            throw new ArticleNotFound("L'articolo non è presente nell'ordine!");
+        mappa.remove(o);//altrimenti 
+        calcolaPrezzo();
+    }
+    
+    
+    public void addArticle(Articolo a, int q) throws ArticleAlreadyExistException {
+            if (mappa.containsKey(a))// se la mappa ha già l'articolo
+                throw new ArticleAlreadyExistException("L'articolo è già presente in questo ordine");
+            else {
                 mappa.put(a, q);
                 calcolaPrezzo();
-                return true;
             }
-    }
+    }//addArticle
 
-    public boolean setArticle(Articolo a, int q) { //se q = 0 allora rimuovo l'articolo //se q > 0 modifico la quantità dell'articolo 
+    public void setArticle(Articolo a, int q) throws NegativeIntUnexpectedException { //se q = 0 allora rimuovo l'articolo //se q > 0 modifico la quantità dell'articolo 
 
-        if (q == 0) {
+        if ( q == 0 ) 
                 if (mappa.containsKey(a)) {
                     mappa.remove(a);
                     calcolaPrezzo();
-                    return true;
-                }
-            
-        }
+                }   
 
-        if (q > 0) {
+        if ( q > 0 ) 
                 if (mappa.containsKey(a)) {
-                    mappa.replace(a, q);
+                    mappa.replace(a, q);//modifica il value se la chiave è già mappata
                     calcolaPrezzo();
-                    return true;
                 }
-        }
 
-        //altrimenti se q<0
-        return false;
+        
+        if ( q < 0)
+            throw new NegativeIntUnexpectedException("Quantità inserita negativa, Inserire una quantita >0 per modificare la quantità dell'oggetto\no inserire 0 per eliminare l'oggetto");
+        
     }//set article
     
-    public void setData(GregorianCalendar data){
-        this.data = data;
-    }
-    
-    public void setData(){
-        this.data = new GregorianCalendar();
-    }
-    
-    public void setData(int d, int m, int y){
-        this.data = new GregorianCalendar(y,m,d);
-    }
-
     private void calcolaPrezzo() {
         //Calcolo il costo totale degli articoli nella mappa
         for (Map.Entry<Articolo, Integer> entry : mappa.entrySet()) {
@@ -148,6 +114,13 @@ public class Ordine implements Comparable<Ordine>{
         }
     }
     
+    public void createShip(){
+        this.shipped = true;
+    }
+    
+    public boolean isShipped(){
+        return this.shipped;
+    }
     
     
     @Override
@@ -155,7 +128,6 @@ public class Ordine implements Comparable<Ordine>{
         return data.hashCode() ^ mappa.hashCode() ^ ( int )prezzo ^ data.get(GregorianCalendar.MINUTE) ^ data.get(GregorianCalendar.MILLISECOND) ^ data.get(GregorianCalendar.SECOND) ;
     }
 
-    
     @Override
     public boolean equals(Object other){
         return other instanceof Ordine && ((Ordine)other).data.equals(data) && ((Ordine)other).mappa.equals(mappa) && negozio.equals((Ordine)other) && ((Ordine)other).prezzo ==  prezzo;

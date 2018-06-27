@@ -2,6 +2,7 @@ package Main;
 
 import java.util.*;
 import Exception.*; //importo tutte le mie eccezzioni
+import javax.swing.JOptionPane;
 
 //GLI ARRAYLIST, COME PER GLI ARRAY, PARTONO DA 0
 public class Magazzino {
@@ -89,15 +90,10 @@ public class Magazzino {
     /**
      * *******************************ARTICOLI*******************************************
      */
-    public boolean addArticolo(Articolo a) {
-        if (articoli.contains(a)) {
-            return false;
-        }
-        for(Articolo X: articoli)
-            if(X.equals(a))
-                return false; //lancia eccezione ArticleAlredyExist
+    public void addArticolo(Articolo a) throws ArticleAlreadyExistException {
+        if (articoli.contains(a)) 
+            throw new ArticleAlreadyExistException("L'articolo è già presente nella lista!");
         articoli.add(a);
-        return true;
     }
 
     public boolean removeArticolo(Articolo u) {
@@ -107,7 +103,7 @@ public class Magazzino {
         return false;
     }
 
-    public void removeArticolo(int i) {
+    public void removeArticolo( int i ){
         if (articoli.contains(i))
             articoli.remove(i);
         //else
@@ -292,9 +288,38 @@ public class Magazzino {
      * ****************************************** USCITE
      * *******************************************************
      */
-    public boolean addUscita(Uscita u, Ordine n) {
-        return uscite.add(u);
-    }
+    
+    public void createExit(Uscita u, Ordine n) throws OrderNotFound, ArticleNotFound, OrderImpossibleToCreate {
+        boolean isPossible = true;
+        for(Ordine x: ordini)//scorro array ordini per vedere se l'ordine esiste
+            
+            if(x.equals(n)){//ho trovato l'ordine nella lista
+                
+                Map<Articolo, Integer> mappaOrdine = x.getArticle();//mi preno la mappa degli articoli dell'ordine
+                Set<Articolo> listaArticoli = mappaOrdine.keySet();
+                
+                for(Articolo a: listaArticoli)//scorro tutti gli articoli della lista delle quantita in ordine
+                    if(quantita.containsKey(a)){//controllo che la mappa delle quantità contenga l'articolo
+                        if(mappaOrdine.get(a) > quantita.get(a) )//se la quantità richiesta è maggiore della quantità in magazzino 
+                            isPossible = false;
+                    }else//se la mappa non contiene l'articolo
+                        throw new ArticleNotFound("Articolo non presente in magazzino, attendere un ingresso di questo articolo e poi ritentare l'uscita!");
+                    
+                    
+                //finito il ciclo controllo allora se è possibile effettuare l'uscita
+                if(isPossible){
+                    for(Articolo articoloOrdine: listaArticoli)
+                        quantita.replace(articoloOrdine, quantita.get(articoloOrdine)-mappaOrdine.get(articoloOrdine));
+                    
+                    uscite.add(u);
+                    n.createShip();
+                    return ;
+                }else
+                    throw new OrderImpossibleToCreate("Quantità in magazzino insufficenti per effettuare spedire l'ordine!");
+
+             }//if equals
+        throw new OrderNotFound("Impossibile generare l'uscita per l'ordine indicato!\nL'ordine non si trova nella lista degli ordini!");
+    }//createExit()
 
     public boolean removeUscita(Uscita u) {
         return uscite.remove(u);
@@ -344,10 +369,23 @@ public class Magazzino {
         return ordini.size();
     }
 
-    public void resetMounth() {//server per resettare il totale degli ingressi e uscite in un anno
+    public void resetMounth() {//serve per resettare il totale degli ingressi e uscite in un anno
         ingressiMensili.clear();
         usciteMensili.clear();
     }//resetMounth
+    
+    public boolean isShipped(int i){
+        return ordini.get(i).isShipped();
+    }
+    
+    public boolean isShipped(Ordine o) throws OrderNotFound{
+        if(ordini.contains(o))
+            for(Ordine X: ordini)
+                if(X.equals(o))
+                    return X.isShipped();
+        throw new OrderNotFound("Impossibile trovare l'ordine specificato!");     
+    }
+    
     /**
      * ****************************************** ORDINI
      * *******************************************************
