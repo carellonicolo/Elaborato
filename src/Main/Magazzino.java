@@ -147,7 +147,9 @@ public class Magazzino {
     public int getQuantita(Articolo a) throws ArticleDontExistInWareHouseException{
         if(!articoli.contains(a)) 
             throw new ArticleDontExistInWareHouseException("Articolo inesistente!");
-        return quantita.get(a);
+        if(quantita.containsKey(a))
+            return quantita.get(a);
+        return -1;
     }
     
     public int getPosition(Articolo a) throws ArticleDontExistInWareHouseException{
@@ -243,19 +245,22 @@ public class Magazzino {
             if(!articoli.contains(X))
                 return false;//controllo per ogni articolo presente in uno dei due parametri è contenuto nell'ARRAYLIST degli articoli
         
-        for(Articolo X: quantitaParameter.keySet()){
+        for(Articolo X: quantitaParameter.keySet()){//itero su quantitaparameter tanto se arrivo qui so per certo che hanno gli stessi articoli
             if(this.quantita.containsKey(X)){
                 tmpQuantita = this.quantita.get(X);
                 this.quantita.put( X , ( tmpQuantita+quantitaParameter.get(X) ) );
+                this.posizione.put(X, posizioneParameter.get(X));
             } else{
                 this.quantita.put(X, quantitaParameter.get(X));
                 this.posizione.putIfAbsent(X, posizioneParameter.get(X));
             }
+            
+            
             //debug
             //ingressi.add(new Ingresso());
             
         }//for
-        
+        ingressi.add(new Ingresso(quantitaParameter, posizioneParameter));
         return true;
     }
 
@@ -293,7 +298,7 @@ public class Magazzino {
      * *******************************************************
      */
     
-    public void createExit(Uscita u, Ordine n) throws OrderNotFound, ArticleNotFound, OrderImpossibleToCreate {
+    public void createExit(Ordine n) throws OrderNotFound, ArticleNotFound, OrderImpossibleToCreate {
         boolean isPossible = true;
         for(Ordine x: ordini)//scorro array ordini per vedere se l'ordine esiste
             
@@ -315,9 +320,9 @@ public class Magazzino {
                     for(Articolo articoloOrdine: listaArticoli)
                         quantita.replace(articoloOrdine, quantita.get(articoloOrdine)-mappaOrdine.get(articoloOrdine));
                     
-                    uscite.add(u);
+                    uscite.add(new Uscita(n));
                     n.createShip();
-                    return ;
+                    return;
                 }else
                     throw new OrderImpossibleToCreate("Quantità in magazzino insufficenti per effettuare spedire l'ordine!");
 

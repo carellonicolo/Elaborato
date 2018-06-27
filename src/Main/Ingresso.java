@@ -3,9 +3,7 @@ package Main; //main
 //MAIN 
 
 import java.util.GregorianCalendar; //In caso si vogliano fare delle manipolazione sulle date
-import java.util.HashMap; //import
 import java.util.*;
-import java.util.SortedMap;
 
 
 
@@ -69,50 +67,21 @@ public class Ingresso extends WarehouseMovement{
         return null;
     }
     
+    public Map<Articolo, Integer> getQuantitaMap(){
+        return this.quantita;
+    }
+    
+    public Map<Articolo, Integer> getPositionMap(){
+        return this.posizioni;
+    }
+    
+    
+    @Override
     public int getID(){
         return hashCode();
     }
     
-    public void addArticle(Articolo a, int quantita, int posizione){
-           this.quantita.putIfAbsent(a, quantita);
-           this.posizioni.putIfAbsent(a, posizione);
-    }
-    
-    public boolean removeArticle(Articolo a){
-        if(this.quantita.containsKey(a) && this.posizioni.containsKey(a)){
-            this.posizioni.remove(a);
-            this.quantita.remove(a);
-            return true;
-        }
-        return false;
-    }
-    
-    public boolean setPosition(Articolo a, int posizione){
-        if(this.quantita.containsKey(a) && this.posizioni.containsKey(a)){//forzo il controllo su entrambe le mappe
-            this.posizioni.put(a, posizione);
-            return true;
-        }
-        return false;
-    }
-    
-    public boolean setQuantity(Articolo a, int quantita){
-        if(this.quantita.containsKey(a) && this.posizioni.containsKey(a)){
-            this.quantita.put(a, quantita);
-            return true;
-        }
-        return false;
-    }
-    
-    
-    public boolean setQuantityAndPosition(Articolo a, int quantita, int posizione){
-        if(this.quantita.containsKey(a) && this.posizioni.containsKey(a)){
-            this.quantita.put(a, quantita);
-            this.posizioni.put(a, posizione);
-            return true;
-        }
-        return true;
-    }
-    
+
     
     @Override
     public int hashCode(){//DEBUG

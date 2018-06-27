@@ -1,11 +1,24 @@
 package Main;
 
+<<<<<<< HEAD
 import Exception.*;
+=======
+import Exception.ArticleAlreadyExistException;
+import Exception.ArticleDontExistInWareHouseException;
+import Exception.ArticleNotFound;
+import Exception.OrderImpossibleToCreate;
+import Exception.OrderNotFound;
+import Exception.ShopAlreadyExistException;
+import Exception.UserAlreadyExist;
+>>>>>>> a51d9e7c7089edc08c39728a0cbbd4a7404c5507
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Graphics extends javax.swing.JFrame {
@@ -77,13 +90,13 @@ public class Graphics extends javax.swing.JFrame {
             m.addOrdine(o1);
             m.addOrdine(o2);
         } catch (ArticleAlreadyExistException | ShopAlreadyExistException | UserAlreadyExist e) {
-            JOptionPane.showMessageDialog(null,"Eccezione");
+            JOptionPane.showMessageDialog(null, "Eccezione");
         }
 
         hideAll();
         loginPanel.setVisible(true);
         selezionaButton_NegozioPanel.setVisible(false);
-       
+
         loginPanel.getRootPane().setDefaultButton(loginButton);
     }
 
@@ -130,10 +143,10 @@ public class Graphics extends javax.swing.JFrame {
         dataLabel_OrderViewPanel = new javax.swing.JLabel();
         prezzoLabel_OrderViewPanel = new javax.swing.JLabel();
         negozioLabel_OrderViewPanel = new javax.swing.JLabel();
-        jToggleButton2 = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         articoliQuantitaTextArea_OrderViewPanel = new javax.swing.JTextArea();
         shippedLabel_OrderViewPanell = new javax.swing.JLabel();
+        generaUscitaButton_OrderViewPanel = new javax.swing.JButton();
         creaNegozioPanel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         indirizzoField_newNegozioPanel = new javax.swing.JTextField();
@@ -306,11 +319,10 @@ public class Graphics extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         indietroButton_IngressiPanel = new javax.swing.JButton();
         avantiButton_IngressiPanel = new javax.swing.JButton();
-        modificaButtonIngressiPanel = new javax.swing.JButton();
         chiudiButtonIngressiPanel = new javax.swing.JButton();
         searchFieldIngressiPanel = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        newIngressoButtonIngressiPanel = new javax.swing.JButton();
+        newIngressoButton_IngressiPanel = new javax.swing.JButton();
         ingressiIDLabel = new javax.swing.JLabel();
         articoliQuantitaPosizioneIngressiPanel = new javax.swing.JLabel();
 
@@ -477,14 +489,6 @@ public class Graphics extends javax.swing.JFrame {
         negozioLabel_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Negozio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
         visualizzaOrdiniPanel.add(negozioLabel_OrderViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 210, 60));
 
-        jToggleButton2.setText("Genera Uscita");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
-            }
-        });
-        visualizzaOrdiniPanel.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 150, -1));
-
         jScrollPane1.setBorder(null);
 
         articoliQuantitaTextArea_OrderViewPanel.setEditable(false);
@@ -499,6 +503,14 @@ public class Graphics extends javax.swing.JFrame {
         shippedLabel_OrderViewPanell.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
         shippedLabel_OrderViewPanell.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Stato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
         visualizzaOrdiniPanel.add(shippedLabel_OrderViewPanell, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 130, 60));
+
+        generaUscitaButton_OrderViewPanel.setText("Genera Uscita");
+        generaUscitaButton_OrderViewPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generaUscitaButton_OrderViewPanelActionPerformed(evt);
+            }
+        });
+        visualizzaOrdiniPanel.add(generaUscitaButton_OrderViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 150, -1));
 
         getContentPane().add(visualizzaOrdiniPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 660, 400));
 
@@ -1357,7 +1369,7 @@ public class Graphics extends javax.swing.JFrame {
                 creaIngressoButtonIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(creaIngressoButtonIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, 200, -1));
+        creaIngressoPanel.add(creaIngressoButtonIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 200, -1));
 
         closeButton_newIngressoPanel.setBackground(new java.awt.Color(0, 0, 0));
         closeButton_newIngressoPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
@@ -1379,7 +1391,7 @@ public class Graphics extends javax.swing.JFrame {
                 addArticleButton_newIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(addArticleButton_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
+        creaIngressoPanel.add(addArticleButton_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 200, -1));
 
         textFieldPosizioni1.setBackground(new java.awt.Color(204, 0, 204));
         textFieldPosizioni1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1519,15 +1531,6 @@ public class Graphics extends javax.swing.JFrame {
         });
         visualizzaIngressiPanel.add(avantiButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 40, -1));
 
-        modificaButtonIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        modificaButtonIngressiPanel.setText("Modifica");
-        modificaButtonIngressiPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificaButtonIngressiPanelActionPerformed(evt);
-            }
-        });
-        visualizzaIngressiPanel.add(modificaButtonIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, -1, -1));
-
         chiudiButtonIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         chiudiButtonIngressiPanel.setText("Chiudi");
         chiudiButtonIngressiPanel.addActionListener(new java.awt.event.ActionListener() {
@@ -1543,14 +1546,14 @@ public class Graphics extends javax.swing.JFrame {
         jLabel19.setText("Cerca:");
         visualizzaIngressiPanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
 
-        newIngressoButtonIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        newIngressoButtonIngressiPanel.setText("Crea Nuovo Ingresso");
-        newIngressoButtonIngressiPanel.addActionListener(new java.awt.event.ActionListener() {
+        newIngressoButton_IngressiPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        newIngressoButton_IngressiPanel.setText("Crea Nuovo Ingresso");
+        newIngressoButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newIngressoButtonIngressiPanelActionPerformed(evt);
+                newIngressoButton_IngressiPanelActionPerformed(evt);
             }
         });
-        visualizzaIngressiPanel.add(newIngressoButtonIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
+        visualizzaIngressiPanel.add(newIngressoButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, -1, -1));
 
         ingressiIDLabel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
         ingressiIDLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
@@ -1619,7 +1622,7 @@ public class Graphics extends javax.swing.JFrame {
     }//GEN-LAST:event_indietroButton_OrderPanelActionPerformed
 
     private void newOrderButton_orderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newOrderButton_orderViewPanelActionPerformed
-        
+
         //INIZIALIZZAZIONE GRAFICA
         addArticleButton_newOrderPanel.setEnabled(true);
         ComboBoxNegozio.removeAllItems();
@@ -1633,6 +1636,7 @@ public class Graphics extends javax.swing.JFrame {
         comboBoxArticoli8.removeAllItems();
         comboBoxArticoli9.removeAllItems();
         comboBoxArticoli10.removeAllItems();
+
         comboBoxArticoli2.setEnabled(false);
         comboBoxArticoli3.setEnabled(false);
         comboBoxArticoli4.setEnabled(false);
@@ -1642,6 +1646,7 @@ public class Graphics extends javax.swing.JFrame {
         comboBoxArticoli8.setEnabled(false);
         comboBoxArticoli9.setEnabled(false);
         comboBoxArticoli10.setEnabled(false);
+
         quantitaField2.setEnabled(false);
         quantitaField3.setEnabled(false);
         quantitaField4.setEnabled(false);
@@ -1651,15 +1656,24 @@ public class Graphics extends javax.swing.JFrame {
         quantitaField8.setEnabled(false);
         quantitaField9.setEnabled(false);
         quantitaField10.setEnabled(false);
+
+        quantitaField1.setText("");
+        quantitaField2.setText("");
+        quantitaField5.setText("");
+        quantitaField8.setText("");
+        quantitaField3.setText("");
+        quantitaField6.setText("");
+        quantitaField9.setText("");
+        quantitaField4.setText("");
+        quantitaField7.setText("");
+        quantitaField10.setText("");
+
         orderArticleSelected = 1;
         hideAll();
         addArticleButton_newOrderPanel.setEnabled(true);
         creaNuovoOrdinePanel.setVisible(true);
         corriereField_NewOrderPanel.setText("");
-        
-        
-        
-        
+
         int i = 0;
 
         for (i = 0; i < m.negoziSize(); i++) {
@@ -1677,6 +1691,7 @@ public class Graphics extends javax.swing.JFrame {
             comboBoxArticoli8.addItem(m.getArticolo(i).getTipoArticolo().getName());
             comboBoxArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
             comboBoxArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
         }
     }//GEN-LAST:event_newOrderButton_orderViewPanelActionPerformed
 
@@ -2202,7 +2217,7 @@ public class Graphics extends javax.swing.JFrame {
 
         String negozio = (String) ComboBoxNegozio.getSelectedItem();
         Negozio x = m.negozioContainedByName(negozio);
-        
+
         Map<Articolo, Integer> articoliAndQuantita = new HashMap<>();
 
         int quantita1;
@@ -2240,66 +2255,118 @@ public class Graphics extends javax.swing.JFrame {
             Articolo a9 = m.articoloContainedByName(articolo9);
             Articolo a10 = m.articoloContainedByName(articolo10);
 
-            try {//raccolgo i dati di quantità per ogni articolo
-                quantita1 = quantitaField1.getText().equals("") || quantitaField1.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField1.getText());
-                quantita2 = quantitaField2.getText().equals("") || quantitaField2.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField2.getText());
-                quantita3 = quantitaField3.getText().equals("") || quantitaField3.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField3.getText());
-                quantita4 = quantitaField4.getText().equals("") || quantitaField4.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField4.getText());
-                quantita5 = quantitaField5.getText().equals("") || quantitaField5.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField5.getText());
-                quantita6 = quantitaField6.getText().equals("") || quantitaField6.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField6.getText());
-                quantita7 = quantitaField7.getText().equals("") || quantitaField7.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField7.getText());
-                quantita8 = quantitaField8.getText().equals("") || quantitaField8.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField8.getText());
-                quantita9 = quantitaField9.getText().equals("") || quantitaField9.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField9.getText());
-                quantita10 = quantitaField10.getText().equals("") || quantitaField10.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField10.getText());
-
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Errore nella raccolta dati, le quantità devono essere interi positivi\nNon sono ammessi altri tipi di caratteri!\n\n" + e);
-                quantitaField1.setBackground(Color.red);
-                quantitaField2.setBackground(Color.red);
-                quantitaField3.setBackground(Color.red);
-                quantitaField4.setBackground(Color.red);
-                quantitaField5.setBackground(Color.red);
-                quantitaField6.setBackground(Color.red);
-                quantitaField7.setBackground(Color.red);
-                quantitaField8.setBackground(Color.red);
-                quantitaField9.setBackground(Color.red);
-                quantitaField10.setBackground(Color.red);
-                return;
-            }
+            quantita1 = quantitaField1.getText().equals("") || quantitaField1.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField1.getText());
+            quantita2 = quantitaField2.getText().equals("") || quantitaField2.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField2.getText());
+            quantita3 = quantitaField3.getText().equals("") || quantitaField3.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField3.getText());
+            quantita4 = quantitaField4.getText().equals("") || quantitaField4.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField4.getText());
+            quantita5 = quantitaField5.getText().equals("") || quantitaField5.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField5.getText());
+            quantita6 = quantitaField6.getText().equals("") || quantitaField6.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField6.getText());
+            quantita7 = quantitaField7.getText().equals("") || quantitaField7.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField7.getText());
+            quantita8 = quantitaField8.getText().equals("") || quantitaField8.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField8.getText());
+            quantita9 = quantitaField9.getText().equals("") || quantitaField9.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField9.getText());
+            quantita10 = quantitaField10.getText().equals("") || quantitaField10.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField10.getText());
 
             if (quantita1 != 0) {
-                articoliAndQuantita.putIfAbsent(a1, quantita1);
+                articoliAndQuantita.put(a1, quantita1);
             }
+
             if (quantita2 != 0) {
-                articoliAndQuantita.putIfAbsent(a2, quantita2);
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
             }
+
             if (quantita3 != 0) {
-                articoliAndQuantita.putIfAbsent(a3, quantita3);
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
             }
+
             if (quantita4 != 0) {
-                articoliAndQuantita.putIfAbsent(a4, quantita4);
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
             }
+
             if (quantita5 != 0) {
-                articoliAndQuantita.putIfAbsent(a5, quantita5);
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
             }
+
             if (quantita6 != 0) {
-                articoliAndQuantita.putIfAbsent(a6, quantita6);
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
             }
+
             if (quantita7 != 0) {
-                articoliAndQuantita.putIfAbsent(a7, quantita7);
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
             }
+
             if (quantita8 != 0) {
-                articoliAndQuantita.putIfAbsent(a8, quantita8);
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
             }
+
             if (quantita9 != 0) {
-                articoliAndQuantita.putIfAbsent(a9, quantita9);
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
             }
+
             if (quantita10 != 0) {
-                articoliAndQuantita.putIfAbsent(a10, quantita10);
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
             }
 
             Ordine o1 = new Ordine(x, new GregorianCalendar(), articoliAndQuantita);
             m.addOrdine(o1);
+
+        } catch (ArticleDontExistInWareHouseException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Eccezzione");
+            quantitaField1.setBackground(Color.red);
+            quantitaField2.setBackground(Color.red);
+            quantitaField3.setBackground(Color.red);
+            quantitaField4.setBackground(Color.red);
+            quantitaField5.setBackground(Color.red);
+            quantitaField6.setBackground(Color.red);
+            quantitaField7.setBackground(Color.red);
+            quantitaField8.setBackground(Color.red);
+            quantitaField9.setBackground(Color.red);
+            quantitaField10.setBackground(Color.red);
+        } finally {
             indexOrder = m.ordineSize() - 1;
 
             hideAll();
@@ -2327,9 +2394,6 @@ public class Graphics extends javax.swing.JFrame {
             quantitaField8.setText("");
             quantitaField9.setText("");
             quantitaField10.setText("");
-
-        } catch (ArticleDontExistInWareHouseException | HeadlessException e) {
-            //controllare quali eventi potrebbero generare un ecezzione e distinguere le varie eccezioni
         }
     }//GEN-LAST:event_creaOrdineButton_orderViewPanelActionPerformed
 
@@ -2553,7 +2617,8 @@ public class Graphics extends javax.swing.JFrame {
     }//GEN-LAST:event_quantitaField10ActionPerformed
 
     private void creaIngressoButtonIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaIngressoButtonIngressoPanelActionPerformed
-
+        Map<Articolo, Integer> posizioni = new TreeMap<>();
+        Map<Articolo, Integer> quantita = new TreeMap<>();
     }//GEN-LAST:event_creaIngressoButtonIngressoPanelActionPerformed
 
     private void closeButton_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_newIngressoPanelActionPerformed
@@ -2804,15 +2869,11 @@ public class Graphics extends javax.swing.JFrame {
         ingressi();
     }//GEN-LAST:event_avantiButton_IngressiPanelActionPerformed
 
-    private void modificaButtonIngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButtonIngressiPanelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_modificaButtonIngressiPanelActionPerformed
-
     private void chiudiButtonIngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButtonIngressiPanelActionPerformed
         exit();
     }//GEN-LAST:event_chiudiButtonIngressiPanelActionPerformed
 
-    private void newIngressoButtonIngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newIngressoButtonIngressiPanelActionPerformed
+    private void newIngressoButton_IngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newIngressoButton_IngressiPanelActionPerformed
 
         hideAll();
         creaIngressoPanel.setVisible(true);
@@ -2889,7 +2950,7 @@ public class Graphics extends javax.swing.JFrame {
             comboBoxIngressoArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
             comboBoxIngressoArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
         }
-    }//GEN-LAST:event_newIngressoButtonIngressiPanelActionPerformed
+    }//GEN-LAST:event_newIngressoButton_IngressiPanelActionPerformed
 
     private void dataOdierna_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataOdierna_newIngressoPanelActionPerformed
         GregorianCalendar c = new GregorianCalendar(); //prendo la data attuale
@@ -2899,20 +2960,27 @@ public class Graphics extends javax.swing.JFrame {
         yearField_newIngressoPanel.setText("" + c.get(GregorianCalendar.YEAR));
     }//GEN-LAST:event_dataOdierna_newIngressoPanelActionPerformed
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    private void generaUscitaButton_OrderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generaUscitaButton_OrderViewPanelActionPerformed
+        try {
+            m.createExit(m.getOrdine(indexOrder));
+            ordini();
+        } catch (OrderNotFound | ArticleNotFound | OrderImpossibleToCreate ex) {
+            JOptionPane.showMessageDialog(null, "Eccezzione nel creare l'eccezzione");
+        }
+    }//GEN-LAST:event_generaUscitaButton_OrderViewPanelActionPerformed
 
     void articoli() {
-        if ( m.articoliIsEmpty() ) {
-            
+        if (m.articoliIsEmpty()) {
+
             avantiButton_VisualizzaArticoloPanel.setEnabled(false);
             indietroButton_VisualizzaArticoloPanel.setEnabled(false);
             modificaButton_VisualizzaArticoloPanel.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Nessun Articolo ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
-        
-        } else {//esiste almeno un artiolo salvato
 
+        } else {
+            try {
+            //esiste almeno un artiolo salvato
+            
             if (indexArticle == 0) {
                 indietroButton_VisualizzaArticoloPanel.setEnabled(false);
             } else {
@@ -2925,14 +2993,21 @@ public class Graphics extends javax.swing.JFrame {
             }
 
             cercaLabel_VisualizzaArticoloPanel.setText("" + (indexArticle + 1));
-            IDLabel_VisualizzaArticoloPanel.setText(""+m.getArticolo(indexArticle).getID());
+            IDLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getID());
             prezzoLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getPrezzo());
             posizioneLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getData());
             nomeLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getName());
             descrizioneLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getDescription());
             sportLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getSports());
             materialiLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getMaterial());
-
+            int quantita = m.getQuantita(m.getArticolo(indexArticle));
+            int posizione = m.getPosition(m.getArticolo(indexArticle));
+            quantitaLabel_VisualizzaArticoloPanel.setText(quantita+"");         
+            posizioneLabel_VisualizzaArticoloPanel.setText(""+posizione);
+            
+            } catch (ArticleDontExistInWareHouseException ex) {
+                System.out.println("Eccezzione");
+            }
         }
     }
 
@@ -3004,10 +3079,11 @@ public class Graphics extends javax.swing.JFrame {
             negozioLabel_OrderViewPanel.setText("" + m.getOrdine(indexOrder).getNegozio().getNome());
             articoliQuantitaTextArea_OrderViewPanel.setText("" + m.getOrdine(indexOrder).toString());
             boolean b = m.getOrdine(indexOrder).isShipped();
-            if(b)
+            if (b) {
                 shippedLabel_OrderViewPanell.setText("Spedito");
-            else
+            } else {
                 shippedLabel_OrderViewPanell.setText("Non spedito");
+            }
         }
 
     }//resetOrder
@@ -3019,8 +3095,8 @@ public class Graphics extends javax.swing.JFrame {
             searchFieldIngressiPanel.setText("");
             indietroButton_IngressiPanel.setEnabled(false);
             avantiButton_IngressiPanel.setEnabled(false);
-            modificaButtonIngressiPanel.setEnabled(false);
-            JOptionPane.showMessageDialog(null, "Nessun ordine ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
+            newIngressoButton_IngressiPanel.setEnabled(true);
+            //JOptionPane.showMessageDialog(null, "Nessun ordine ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
         } else {
 
             if (indexIngressi == 0) {
@@ -3033,7 +3109,6 @@ public class Graphics extends javax.swing.JFrame {
             } else {
                 avantiButton_IngressiPanel.setEnabled(true);
             }
-            modificaButtonIngressiPanel.setEnabled(true);
             searchFieldIngressiPanel.setText("" + (indexIngressi + 1));
             ingressiIDLabel.setText("" + m.getIngresso(indexIngressi).getID());
             articoliQuantitaPosizioneIngressiPanel.setText("" + m.getIngresso(indexIngressi).toString());
@@ -3059,15 +3134,14 @@ public class Graphics extends javax.swing.JFrame {
             loginPanel.setVisible(true);
 
         }//if JOPTIONPANE
-        */      
-        
+         */
+
         hideAll();
         usrField.setText("");
         pinField.setText("");
         loginPanel.setVisible(true);
     }//exit
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CodiceFiscaleField_NewNegozio;
@@ -3145,6 +3219,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JLabel descrizioneLabel_VisualizzaArticoloPanel;
     private javax.swing.JRadioButton elastanRadioButton;
     private javax.swing.JRadioButton fintaPelleRadioButton;
+    private javax.swing.JButton generaUscitaButton_OrderViewPanel;
     private javax.swing.JRadioButton golfRadioButton;
     private javax.swing.JRadioButton goreTexRadioButton;
     private javax.swing.JRadioButton hockeyRadioButton;
@@ -3190,14 +3265,12 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel loginTitleLabel;
     private javax.swing.JLabel materialeTipoArticolo_newArticlePanel;
     private javax.swing.JLabel materialiLabel_VisualizzaArticoloPanel;
-    private javax.swing.JButton modificaButtonIngressiPanel;
     private javax.swing.JButton modificaButtonOrderPanel;
     private javax.swing.JButton modificaButton_NegozioPanel;
     private javax.swing.JButton modificaButton_VisualizzaArticoloPanel;
@@ -3209,7 +3282,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JButton negozioInfo_OrderPanel;
     private javax.swing.JLabel negozioLabel_OrderViewPanel;
     private javax.swing.JPanel newArticlePanel;
-    private javax.swing.JButton newIngressoButtonIngressiPanel;
+    private javax.swing.JButton newIngressoButton_IngressiPanel;
     private javax.swing.JButton newOrderButton_orderViewPanel;
     private javax.swing.JTextField nomeFieldTipoArticolo_newArticlePanel;
     private javax.swing.JTextField nomeField_newNegozioPanel;
