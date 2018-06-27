@@ -143,7 +143,9 @@ public class Magazzino {
     public int getQuantita(Articolo a) throws ArticleDontExistInWareHouseException{
         if(!articoli.contains(a)) 
             throw new ArticleDontExistInWareHouseException("Articolo inesistente!");
-        return quantita.get(a);
+        if(quantita.containsKey(a))
+            return quantita.get(a);
+        return -1;
     }
     
     public int getPosition(Articolo a) throws ArticleDontExistInWareHouseException{

@@ -315,7 +315,6 @@ public class Graphics extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         indietroButton_IngressiPanel = new javax.swing.JButton();
         avantiButton_IngressiPanel = new javax.swing.JButton();
-        modificaButtonIngressiPanel = new javax.swing.JButton();
         chiudiButtonIngressiPanel = new javax.swing.JButton();
         searchFieldIngressiPanel = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
@@ -1528,15 +1527,6 @@ public class Graphics extends javax.swing.JFrame {
         });
         visualizzaIngressiPanel.add(avantiButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 40, -1));
 
-        modificaButtonIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
-        modificaButtonIngressiPanel.setText("Modifica");
-        modificaButtonIngressiPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificaButtonIngressiPanelActionPerformed(evt);
-            }
-        });
-        visualizzaIngressiPanel.add(modificaButtonIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, -1, -1));
-
         chiudiButtonIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         chiudiButtonIngressiPanel.setText("Chiudi");
         chiudiButtonIngressiPanel.addActionListener(new java.awt.event.ActionListener() {
@@ -1559,7 +1549,7 @@ public class Graphics extends javax.swing.JFrame {
                 newIngressoButton_IngressiPanelActionPerformed(evt);
             }
         });
-        visualizzaIngressiPanel.add(newIngressoButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
+        visualizzaIngressiPanel.add(newIngressoButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, -1, -1));
 
         ingressiIDLabel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
         ingressiIDLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
@@ -2878,10 +2868,6 @@ public class Graphics extends javax.swing.JFrame {
         ingressi();
     }//GEN-LAST:event_avantiButton_IngressiPanelActionPerformed
 
-    private void modificaButtonIngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButtonIngressiPanelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_modificaButtonIngressiPanelActionPerformed
-
     private void chiudiButtonIngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButtonIngressiPanelActionPerformed
         exit();
     }//GEN-LAST:event_chiudiButtonIngressiPanelActionPerformed
@@ -2990,8 +2976,10 @@ public class Graphics extends javax.swing.JFrame {
             modificaButton_VisualizzaArticoloPanel.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Nessun Articolo ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
 
-        } else {//esiste almeno un artiolo salvato
-
+        } else {
+            try {
+            //esiste almeno un artiolo salvato
+            
             if (indexArticle == 0) {
                 indietroButton_VisualizzaArticoloPanel.setEnabled(false);
             } else {
@@ -3011,7 +2999,14 @@ public class Graphics extends javax.swing.JFrame {
             descrizioneLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getDescription());
             sportLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getSports());
             materialiLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getMaterial());
-
+            int quantita = m.getQuantita(m.getArticolo(indexArticle));
+            int posizione = m.getPosition(m.getArticolo(indexArticle));
+            quantitaLabel_VisualizzaArticoloPanel.setText(quantita+"");         
+            posizioneLabel_VisualizzaArticoloPanel.setText(""+posizione);
+            
+            } catch (ArticleDontExistInWareHouseException ex) {
+                System.out.println("Eccezzione");
+            }
         }
     }
 
@@ -3099,7 +3094,6 @@ public class Graphics extends javax.swing.JFrame {
             searchFieldIngressiPanel.setText("");
             indietroButton_IngressiPanel.setEnabled(false);
             avantiButton_IngressiPanel.setEnabled(false);
-            modificaButtonIngressiPanel.setEnabled(false);
             newIngressoButton_IngressiPanel.setEnabled(true);
             //JOptionPane.showMessageDialog(null, "Nessun ordine ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
         } else {
@@ -3114,7 +3108,6 @@ public class Graphics extends javax.swing.JFrame {
             } else {
                 avantiButton_IngressiPanel.setEnabled(true);
             }
-            modificaButtonIngressiPanel.setEnabled(true);
             searchFieldIngressiPanel.setText("" + (indexIngressi + 1));
             ingressiIDLabel.setText("" + m.getIngresso(indexIngressi).getID());
             articoliQuantitaPosizioneIngressiPanel.setText("" + m.getIngresso(indexIngressi).toString());
@@ -3277,7 +3270,6 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JLabel loginTitleLabel;
     private javax.swing.JLabel materialeTipoArticolo_newArticlePanel;
     private javax.swing.JLabel materialiLabel_VisualizzaArticoloPanel;
-    private javax.swing.JButton modificaButtonIngressiPanel;
     private javax.swing.JButton modificaButtonOrderPanel;
     private javax.swing.JButton modificaButton_NegozioPanel;
     private javax.swing.JButton modificaButton_VisualizzaArticoloPanel;
