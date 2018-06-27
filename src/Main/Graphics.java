@@ -1625,6 +1625,8 @@ public class Graphics extends javax.swing.JFrame {
     }//GEN-LAST:event_indietroButton_OrderPanelActionPerformed
 
     private void newOrderButton_orderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newOrderButton_orderViewPanelActionPerformed
+        
+        //INIZIALIZZAZIONE GRAFICA
         addArticleButton_newOrderPanel.setEnabled(true);
         ComboBoxNegozio.removeAllItems();
         comboBoxArticoli1.removeAllItems();
@@ -1660,6 +1662,10 @@ public class Graphics extends javax.swing.JFrame {
         addArticleButton_newOrderPanel.setEnabled(true);
         creaNuovoOrdinePanel.setVisible(true);
         corriereField_NewOrderPanel.setText("");
+        
+        
+        
+        
         int i = 0;
 
         for (i = 0; i < m.negoziSize(); i++) {
@@ -2202,6 +2208,7 @@ public class Graphics extends javax.swing.JFrame {
 
         String negozio = (String) ComboBoxNegozio.getSelectedItem();
         Negozio x = m.negozioContainedByName(negozio);
+        
         Map<Articolo, Integer> articoliAndQuantita = new HashMap<>();
 
         int quantita1;
@@ -2240,16 +2247,16 @@ public class Graphics extends javax.swing.JFrame {
             Articolo a10 = m.articoloContainedByName(articolo10);
 
             try {//raccolgo i dati di quantità per ogni articolo
-                quantita1 = quantitaField1.getText().equals("") ? 0 : Integer.parseInt(quantitaField1.getText());
-                quantita2 = quantitaField2.getText().equals("") ? 0 : Integer.parseInt(quantitaField2.getText());
-                quantita3 = quantitaField3.getText().equals("") ? 0 : Integer.parseInt(quantitaField3.getText());
-                quantita4 = quantitaField4.getText().equals("") ? 0 : Integer.parseInt(quantitaField4.getText());
-                quantita5 = quantitaField5.getText().equals("") ? 0 : Integer.parseInt(quantitaField5.getText());
-                quantita6 = quantitaField6.getText().equals("") ? 0 : Integer.parseInt(quantitaField6.getText());
-                quantita7 = quantitaField7.getText().equals("") ? 0 : Integer.parseInt(quantitaField7.getText());
-                quantita8 = quantitaField8.getText().equals("") ? 0 : Integer.parseInt(quantitaField8.getText());
-                quantita9 = quantitaField9.getText().equals("") ? 0 : Integer.parseInt(quantitaField9.getText());
-                quantita10 = quantitaField10.getText().equals("") ? 0 : Integer.parseInt(quantitaField10.getText());
+                quantita1 = quantitaField1.getText().equals("") || quantitaField1.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField1.getText());
+                quantita2 = quantitaField2.getText().equals("") || quantitaField2.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField2.getText());
+                quantita3 = quantitaField3.getText().equals("") || quantitaField3.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField3.getText());
+                quantita4 = quantitaField4.getText().equals("") || quantitaField4.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField4.getText());
+                quantita5 = quantitaField5.getText().equals("") || quantitaField5.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField5.getText());
+                quantita6 = quantitaField6.getText().equals("") || quantitaField6.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField6.getText());
+                quantita7 = quantitaField7.getText().equals("") || quantitaField7.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField7.getText());
+                quantita8 = quantitaField8.getText().equals("") || quantitaField8.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField8.getText());
+                quantita9 = quantitaField9.getText().equals("") || quantitaField9.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField9.getText());
+                quantita10 = quantitaField10.getText().equals("") || quantitaField10.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField10.getText());
 
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Errore nella raccolta dati, le quantità devono essere interi positivi\nNon sono ammessi altri tipi di caratteri!\n\n" + e);
