@@ -1,9 +1,6 @@
 package Main;
 
-import Exception.ArticleAlreadyExistException;
-import Exception.ArticleDontExistInWareHouseException;
-import Exception.ShopAlreadyExistException;
-import Exception.UserAlreadyExist;
+import Exception.*;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.util.GregorianCalendar;
@@ -113,6 +110,12 @@ public class Graphics extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         SportButtonGroup = new javax.swing.ButtonGroup();
         MaterialiBottonGroup = new javax.swing.ButtonGroup();
+        loginPanel = new javax.swing.JPanel();
+        pinField = new javax.swing.JPasswordField();
+        cancelPinButton = new javax.swing.JButton();
+        loginButton = new javax.swing.JButton();
+        usrField = new javax.swing.JTextField();
+        loginTitleLabel = new javax.swing.JLabel();
         visualizzaOrdiniPanel = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         negozioInfo_OrderPanel = new javax.swing.JButton();
@@ -141,12 +144,6 @@ public class Graphics extends javax.swing.JFrame {
         creaFromCreaNegozioPanel = new javax.swing.JButton();
         closeButton_creaNegozioPanel = new javax.swing.JButton();
         modificaFromNewNegozioPanel = new javax.swing.JButton();
-        loginPanel = new javax.swing.JPanel();
-        pinField = new javax.swing.JPasswordField();
-        cancelPinButton = new javax.swing.JButton();
-        loginButton = new javax.swing.JButton();
-        usrField = new javax.swing.JTextField();
-        loginTitleLabel = new javax.swing.JLabel();
         adminPanel = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -353,6 +350,54 @@ public class Graphics extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        loginPanel.setBackground(new java.awt.Color(0, 153, 0));
+        loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pinField.setBackground(new java.awt.Color(0, 153, 0));
+        pinField.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
+        pinField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        loginPanel.add(pinField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 230, 50));
+
+        cancelPinButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        cancelPinButton.setText("Cancel");
+        cancelPinButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelPinButtonActionPerformed(evt);
+            }
+        });
+        loginPanel.add(cancelPinButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+
+        loginButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        loginButton.setText("Login");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
+        loginPanel.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+
+        usrField.setBackground(new java.awt.Color(0, 153, 0));
+        usrField.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
+        usrField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        usrField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usrFieldActionPerformed(evt);
+            }
+        });
+        usrField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usrFieldKeyPressed(evt);
+            }
+        });
+        loginPanel.add(usrField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 230, 50));
+
+        loginTitleLabel.setFont(new java.awt.Font("Avenir Next", 0, 36)); // NOI18N
+        loginTitleLabel.setForeground(new java.awt.Color(255, 255, 255));
+        loginTitleLabel.setText("LOGIN");
+        loginPanel.add(loginTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        getContentPane().add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 350, 270));
+
         visualizzaOrdiniPanel.setBackground(new java.awt.Color(255, 102, 102));
         visualizzaOrdiniPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -534,54 +579,6 @@ public class Graphics extends javax.swing.JFrame {
         creaNegozioPanel.add(modificaFromNewNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 90, -1));
 
         getContentPane().add(creaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 500, 180));
-
-        loginPanel.setBackground(new java.awt.Color(0, 153, 0));
-        loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pinField.setBackground(new java.awt.Color(0, 153, 0));
-        pinField.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        pinField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        loginPanel.add(pinField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 230, 50));
-
-        cancelPinButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        cancelPinButton.setText("Cancel");
-        cancelPinButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelPinButtonActionPerformed(evt);
-            }
-        });
-        loginPanel.add(cancelPinButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
-
-        loginButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        loginButton.setText("Login");
-        loginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginButtonActionPerformed(evt);
-            }
-        });
-        loginPanel.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
-
-        usrField.setBackground(new java.awt.Color(0, 153, 0));
-        usrField.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        usrField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        usrField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usrFieldActionPerformed(evt);
-            }
-        });
-        usrField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                usrFieldKeyPressed(evt);
-            }
-        });
-        loginPanel.add(usrField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 230, 50));
-
-        loginTitleLabel.setFont(new java.awt.Font("Avenir Next", 0, 36)); // NOI18N
-        loginTitleLabel.setForeground(new java.awt.Color(255, 255, 255));
-        loginTitleLabel.setText("LOGIN");
-        loginPanel.add(loginTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        getContentPane().add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 350, 270));
 
         adminPanel.setBackground(new java.awt.Color(0, 0, 0));
         adminPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1583,27 +1580,24 @@ public class Graphics extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelPinButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        /*
+        
         //CONTROLLO DA IMPLEMENTARE A PROGETTO FINITO
         String pin = pinField.getText();
         String user = usrField.getText();
 
-        int type = m.login(new Utente(user, pin, 1));
-
-        if (type == -1) {
-            JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattae l'amministratore di sistema il prima possibile");
+        try{
+            int type = m.loginHashCode(new Utente(user, pin, 1));
             usrField.setText("");
             pinField.setText("");
-        } else {
-            usrField.setText("");
+            JOptionPane.showMessageDialog(null, "Login effettuato correttamente\nTipoAccount: " + type);
+            hideAll();//nascondo tutti i pannelli
         }
-        pinField.setText("");
-        JOptionPane.showMessageDialog(null, "Login effettuato correttamente\nTipoAccount: " + type);
-        hideAll();//nascondo tutti i pannelli
-        adminPanel.setVisible(true);
-         */
-        hideAll();//nascondo tutti i pannelli
-        adminPanel.setVisible(true);
+        catch(UserNotFoundException e){
+            JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattare l'amministratore di sistema il prima possibile");
+            usrField.setText("");
+            pinField.setText("");
+        }
+        
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void chiudiButtonOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButtonOrderPanelActionPerformed
