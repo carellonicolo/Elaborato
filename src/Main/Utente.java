@@ -1,8 +1,16 @@
 package Main;
 
-public class Utente implements UserInterface{
+import java.util.Objects;
+
+public class Utente implements UserInterface, Comparable<Utente>{
     
     public static final String typeOfUsers[] = {"Magazziniere", "Segreteria Amministrativa", "Responsabile Negozi"};
+    
+    public enum typeUser{
+        Magazziniere,
+        Segreteria_amministrativa,
+        Responsabile_negozi
+    }
     
     private String usr;
     private String pwd;
@@ -18,12 +26,12 @@ public class Utente implements UserInterface{
     }
 
     
-    /*********************METODI SE*********************/
+    /********************* METODI SET *********************/
     @Override
     public boolean setUser(String newUser){
         if(!" ".equals(newUser) && !"".equals(newUser)){
             usr = newUser;
-            return true;
+            return true;//lancia eccezione VoidStringUnexpectedException
         }else return false;
     }//fine setUser
     
@@ -31,7 +39,7 @@ public class Utente implements UserInterface{
     public boolean setPassword(String newPassword){//La password deve essere almeno lunga 8 caratteri
         if( !"".equals(newPassword) && !"".equals(newPassword) ){
          pwd = newPassword;
-         return true;
+         return true;//lancia eccezione VoidStringUnexpectedException
         }else
         return false;
     }//setPassword
@@ -48,15 +56,6 @@ public class Utente implements UserInterface{
     
     
     
-    
-    
-    
-    
-    /*********************CONTROLLO PASSWORD**********************/
-    @Override
-    public boolean checkPass(Utente x, Utente y){
-        return x.getUsr().equals(y.getUsr()) && x.pwd.equals(y.getPin());
-    }
         
     
     
@@ -68,21 +67,53 @@ public class Utente implements UserInterface{
         return usr;
     }
             
+    @Override
     public int getTypeInt(){
         return t;
-    }
-    
-    public String getPin(){
-        return pwd;
     }
 
     
     
     
-    /*********************TO-STRING**********************/
+    
+    
+    /***************************************** HASHCODE *******************************************/
+    @Override
+    public int hashCode(){
+	return usr.hashCode()^pwd.hashCode();
+    }
+    
+    
+    
+    
+    
+    
+    /***************************************** EQUALS *******************************************/
+    @Override
+    public boolean equals(Object obj) {//due utenti sono uguali se hanno lo stesso username
+        return obj instanceof Utente && ((Utente)obj).usr.equals(usr);
+    }
+    
+    
+    
+    
+    
+    /***************************************** COMPARE-TO *******************************************/
+    @Override
+    public int compareTo(Utente other){//ordine prima per tipo di utente e poi per nome utente 
+        //se t-other.t == 0 ritorna il compareTo degli username altrimenti ritorna la differenza tra i tipi
+        return t-other.t == 0 ? usr.compareToIgnoreCase(other.usr) : t-other.t;
+    }
+        
+    
+    
+    
+    
+    
+    /*****************************************TO-STRING*******************************************/
     @Override
     public String toString(){//per sicurezza non passo la password in chiaro
-        return "nome: "+usr+"\nPassword: "+"********\n"+"Tipo Account: "+t+" - "+typeOfUsers[t];
+        return "Username: "+usr+"\nPassword: "+"********\n"+"Tipo Account: "+t+" - "+typeOfUsers[t];
     }
 
 }//fine Utente

@@ -1,11 +1,14 @@
 package Main;
 
-public interface UserInterface {
+public interface UserInterface{
+    
+    String getUsr();
+    int getTypeInt();
     boolean setUser(String newUser);
     boolean setPassword(String newPassword);
-    boolean checkPass(Utente x, Utente y);
-    String getUsr();
     boolean setType(int newType);
-    @Override
-    String toString();
+    
+    @Override String toString();
+    @Override int hashCode();
+    @Override boolean equals(Object obj);
 }

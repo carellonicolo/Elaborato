@@ -1,54 +1,47 @@
 package Main;
 
 import java.util.GregorianCalendar;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-import java.util.UUID;
 
-public class Uscita {
-    
-    private final UUID ID;
-    private Set<Articolo> articoli;
-    private String corriere;
-    private Negozio negozio;
-    private GregorianCalendar data;
-    private Ordine o;
-    
-    private final Random r = new Random();
+public class Uscita extends WarehouseMovement implements Comparable<Uscita>{
 
-    public Uscita(String corriere, Ordine o){
-        this.ID = UUID.randomUUID();
-        this.corriere = corriere;
-        this.articoli = new HashSet<>();
-        this.o = o;
+    private final Ordine ordine;
+    
+    public Uscita( Ordine ordine){
+        this.ordine = ordine;
+        data = new GregorianCalendar();
     }
     
-    public boolean addArticoli(Articolo i){
-        return articoli.add(i);
+    public Uscita( Ordine ordine, GregorianCalendar data){
+        this.ordine = ordine;
+        this.data = data;
     }
-    
-    public void setOrdine(Ordine o){
-        this.o = o;
-    }
+
+  
     
     public Ordine getOrdine(){
-        return o;
+        return ordine;
     }
     
-    public boolean removeArticoli(Articolo i){
-        return articoli.remove(i);
+    
+    
+    @Override
+    public int hashCode(){
+        return data.hashCode()^ordine.hashCode();
     }
     
-    public String getBolla(){
-        return ID.toString();
+    @Override
+    public boolean equals(Object other){
+        return other instanceof Uscita && ((Uscita)other).data.equals(data) && ((Uscita)other).ordine.equals(ordine);
+    }
+
+    @Override
+    public int compareTo(Uscita other){//ordino per data
+        return data.compareTo(other.data) == 0? data.compareTo(other.data): ordine.compareTo(other.ordine);
     }
     
-    public String getCorriere(){
-        return corriere;
+    @Override
+    public String toString(){
+        return "Ordine:\n" + ordine.toString() + "\n\nEffettuato il: "+data;
     }
     
-    public void setCorriere(String s){
-        corriere = s;
-    }
-}
+}//uscita

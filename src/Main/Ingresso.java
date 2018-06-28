@@ -1,61 +1,105 @@
-package Main;
+package Main; //main
+
+//MAIN 
 
 import java.util.GregorianCalendar; //In caso si vogliano fare delle manipolazione sulle date
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random; 
+import java.util.*;
 
 
-public class Ingresso {
-    private final int ID;
-    private GregorianCalendar data;
-    private static int i = 0; 
+
+public class Ingresso extends WarehouseMovement{
     
-    private Map<Articolo, Integer> articoloPosizione;
-    Random r = new Random(); 
-    
+    private final Map<Articolo, Integer> posizioni;
+    private Map<Articolo, Integer> quantita;
+    public static int i;
     
     
     //COSTRUTTORE
     public Ingresso(Articolo... article){//se non viene passata la data specificata prendo la data odierna
-        ID = Integer.parseInt(""+data.get(data.HOUR)+"99"+data.get(data.MINUTE)+data.get(data.SECOND)+r.nextInt(1543))+r.nextInt(99);
-        data = new GregorianCalendar(); 
-        articoloPosizione = new HashMap<>();
-        
-        for(Articolo X: article){
-            articoloPosizione.put(X, i);
-            i++;
-            //posizione magazzino = getLastPosition()+i
-        }
+        this.posizioni = new TreeMap<>();
+        this.quantita = new TreeMap<>();
+        this.data = new GregorianCalendar();
     }
     
-    
-    public int getID(){
-        return ID;
+    public Ingresso(Map<Articolo, Integer> quantita, Map<Articolo, Integer> posizioni){
+        this.quantita = quantita;
+        this.posizioni = posizioni;
+        this.data = new GregorianCalendar();
     }
     
-    public String getData(){
-        return ""+data.get(GregorianCalendar.DATE)+"-"+data.get(GregorianCalendar.MONTH)+"-"+data.get(GregorianCalendar.YEAR);
+    public Ingresso(int d, int m, int y){
+        this.posizioni = new TreeMap<>();
+        this.quantita = new TreeMap<>();
+        this.data = new GregorianCalendar(y, m, d);
     }
+    
+    public Ingresso(Map<Articolo, Integer> quantita, Map<Articolo, Integer> posizioni, GregorianCalendar data){
+        this.quantita = quantita;
+        this.posizioni = posizioni;
+        this.data = data;
+    }
+    
+    public Ingresso(Map<Articolo, Integer> quantita, Map<Articolo, Integer> posizioni, int d, int m, int y){
+        this.quantita = quantita;
+        this.posizioni = posizioni;
+        this.data = new GregorianCalendar(y, m, d);
+    }
+ 
+    
+    
+    
+    
+    
     
     public int getPosition(Articolo a){
         if(a instanceof Articolo)
-            if(articoloPosizione.containsKey(a))
-                return articoloPosizione.get(a);
+            if(posizioni.containsKey(a))
+                return posizioni.get(a);
         return -1;//se non esiste un articolo così nella mappa restituisci  -1
     }
     
-    public Articolo getArticle(int i){
-        if(i>=0 && i<this.i && articoloPosizione.containsValue(i))
-            for(Map.Entry<Articolo, Integer> entry: articoloPosizione.entrySet())//scorro la mappa come fosse una lista
-                if(entry.getValue() == i)//quando trovo l'associazione posizione-articolo
-                    return entry.getKey();
-        return null;//se non esiste un'associazione posizione-articolo
+    
+    public Articolo getArticleFromPosition(int i){//restituisce l'articolo nella posizione i 
+        if(posizioni.containsValue(i))
+            for(Articolo X: posizioni.keySet())
+                if(posizioni.get(X) == i)
+                    return X;
+        return null;
     }
     
-    public void addArticle(Articolo a){
-           articoloPosizione.put(a, i);
-            i++;//incrementare sempre la posizione ad ogni aggiunta
+    public Map<Articolo, Integer> getQuantitaMap(){
+        return this.quantita;
     }
     
+    public Map<Articolo, Integer> getPositionMap(){
+        return this.posizioni;
+    }
+    
+    
+    @Override
+    public int getID(){
+        return hashCode();
+    }
+    
+
+    
+    @Override
+    public int hashCode(){//DEBUG
+        return quantita.hashCode() ^ posizioni.hashCode() ^ data.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof Ingresso && ((Ingresso) other).posizioni.equals(posizioni) && ((Ingresso) other).quantita.equals(quantita) && ((Ingresso) other).data.equals(data);
+    }
+  
+    @Override
+    public String toString() {
+        String s =""+data+"\n";
+        for(Articolo X: (quantita.keySet()) ){
+            s += "Articolo: " + X.getTipoArticolo().getName() + "\tquantità: " + this.quantita.get(X) + " pezzi\tposizione: " + this.posizioni.get(X)+"\n";
+        }
+        return s;
+    }
+
 }//fine ingresso

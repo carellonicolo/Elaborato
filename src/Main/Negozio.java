@@ -1,6 +1,6 @@
 package Main;
 
-public class Negozio {
+public class Negozio implements Comparable<Negozio>{
     private String codiceFiscale;
     private String nome;
     private String indirizzo;
@@ -69,6 +69,35 @@ public class Negozio {
     
     
     
+    
+    @Override
+    public int hashCode(){
+        return codiceFiscale.hashCode() ^ nome.hashCode() ^ indirizzo.hashCode() ^ città.hashCode();
+    }
+    
+    @Override
+    public boolean equals(Object other){
+        return other instanceof Negozio && ((Negozio) other).città.equals(città) && ((Negozio) other).codiceFiscale.equals(codiceFiscale) && ((Negozio) other).indirizzo.equals(indirizzo) && ((Negozio) other).nome.equals(nome);
+    }
+    
+    
+    @Override
+    public int compareTo(Negozio other){
+        
+        int diff = nome.compareToIgnoreCase(other.nome);
+        if ( diff != 0 )
+            return diff;
+        
+        diff = codiceFiscale.compareToIgnoreCase(other.codiceFiscale);
+        if ( diff != 0 )
+            return diff;
+        
+        diff = città.compareToIgnoreCase(other.città);
+        if ( diff != 0)
+            return diff;
+        
+        return indirizzo.compareToIgnoreCase(other.indirizzo);
+    }
     
     /*----------------TO STRING--------------------------*/
     @Override
