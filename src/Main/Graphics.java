@@ -1,8 +1,5 @@
 package Main;
 
-//<<<<<<< HEAD
-import Exception.*;
-//=======
 import Exception.ArticleAlreadyExistException;
 import Exception.ArticleDontExistInWareHouseException;
 import Exception.ArticleNotFound;
@@ -10,7 +7,7 @@ import Exception.OrderImpossibleToCreate;
 import Exception.OrderNotFound;
 import Exception.ShopAlreadyExistException;
 import Exception.UserAlreadyExist;
-//>>>>>>> a51d9e7c7089edc08c39728a0cbbd4a7404c5507
+import Exception.UserNotFoundException;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.util.GregorianCalendar;
@@ -26,91 +23,117 @@ public class Graphics extends javax.swing.JFrame {
     static int indexOrder = 0, indexArticle = 0, indexShop = 0, indexIngressi = 0, orderArticleSelected = 1, ingressoArticleSelected = 1;
     public final static Magazzino m = Magazzino.INSTANCE;
 
-    public Graphics() {
+    public Graphics(){
 
-	//CREO L'OGGETTO MAGAZZINO
-	//Magazzino = new m();
-	//INIZIALIZZO I COMPONENTI GRAFICI 
-	initComponents();
+        //CREO L'OGGETTO MAGAZZINO
+        //Magazzino = new m();
+        //INIZIALIZZO I COMPONENTI GRAFICI 
+        initComponents();
+        adminPanel.setVisible(false);
+        
+        //CONFIGURO IL BUTTONGROUP DEGLI SPORT
+        SportButtonGroup.add(nuotoRadioButton);
+        SportButtonGroup.add(calcioRadioButton);
+        SportButtonGroup.add(tennisRadioButton);
+        SportButtonGroup.add(palestraRadioButton);
+        SportButtonGroup.add(sciiRadioButton);
+        SportButtonGroup.add(basketRadioButton);
+        SportButtonGroup.add(pallavoloRadioButton);
+        SportButtonGroup.add(raftingRadioButton);
+        SportButtonGroup.add(ciclismoRadioButton);
+        SportButtonGroup.add(rugbyRadioButton);
+        SportButtonGroup.add(atleticaRadioButton);
+        SportButtonGroup.add(hockeyRadioButton);
+        SportButtonGroup.add(golfRadioButton);
+        SportButtonGroup.add(danzaRadioButton);
 
-	//CONFIGURO IL BUTTONGROUP DEGLI SPORT
-	SportButtonGroup.add(nuotoRadioButton);
-	SportButtonGroup.add(calcioRadioButton);
-	SportButtonGroup.add(tennisRadioButton);
-	SportButtonGroup.add(palestraRadioButton);
-	SportButtonGroup.add(sciiRadioButton);
-	SportButtonGroup.add(basketRadioButton);
-	SportButtonGroup.add(pallavoloRadioButton);
-	SportButtonGroup.add(raftingRadioButton);
-	SportButtonGroup.add(ciclismoRadioButton);
-	SportButtonGroup.add(rugbyRadioButton);
-	SportButtonGroup.add(atleticaRadioButton);
-	SportButtonGroup.add(hockeyRadioButton);
-	SportButtonGroup.add(golfRadioButton);
-	SportButtonGroup.add(danzaRadioButton);
+        //CONFIGURO IL BUTTONGROUP DEI MATERIALI
+        MaterialiBottonGroup.add(poliestereRadioButton);
+        MaterialiBottonGroup.add(siliconeRadioButton);
+        MaterialiBottonGroup.add(fintaPelleRadioButton);
+        MaterialiBottonGroup.add(goreTexRadioButton);
+        MaterialiBottonGroup.add(poliammideRadioButton);
+        MaterialiBottonGroup.add(polietileneRadioButton);
+        MaterialiBottonGroup.add(elastanRadioButton);
 
-	//CONFIGURO IL BUTTONGROUP DEI MATERIALI
-	MaterialiBottonGroup.add(poliestereRadioButton);
-	MaterialiBottonGroup.add(siliconeRadioButton);
-	MaterialiBottonGroup.add(fintaPelleRadioButton);
-	MaterialiBottonGroup.add(goreTexRadioButton);
-	MaterialiBottonGroup.add(poliammideRadioButton);
-	MaterialiBottonGroup.add(polietileneRadioButton);
-	MaterialiBottonGroup.add(elastanRadioButton);
+        //ISTANZIO UN PO DI OGGETTI DA USARE COME PROVA
+        try {
+            m.addUser(new Utente("utente", "ciao", 1));
 
-	//ISTANZIO UN PO DI OGGETTI DA USARE COME PROVA
-	try {
-	    m.addUser(new Utente("utente", "ciao", 1));
+            Articolo a1 = new Articolo((float) 14, new TipoArticolo("nome1", "Desrizione1", 2, 1));
+            Articolo a2 = new Articolo((float) 17, new TipoArticolo("nome2", "Desrizione2", 3, 3));
+            Articolo a3 = new Articolo((float) 87, new TipoArticolo("nome3", "Desrizione3", 2, 1));
+            Articolo a4 = new Articolo((float) 90, new TipoArticolo("nome4", "Desrizione4", 9, 2));
+            Articolo a5 = new Articolo((float) 15, new TipoArticolo("nome5", "Desrizione5", 7, 1));
+            Articolo a6 = new Articolo((float) 18, new TipoArticolo("nome6", "Desrizione6", 10, 4));
+            Negozio n1 = new Negozio("codice fiscale1", "primo Negozio", "Indirizzo1", "City");
+            Negozio n2 = new Negozio("codice fiscale2", "secondo Negozio", "Indirizzo2", "City");
+            Negozio n3 = new Negozio("codice fiscale3", "terzo Negozio", "Indirizzo3", "City");
+            Negozio n4 = new Negozio("codice fiscale4", "quarto Negozio", "Indirizzo4", "City");
+            Ordine o1 = new Ordine(n1);
+            o1.addArticle(a2, 10);
+            o1.addArticle(a1, 4);
+            o1.addArticle(a3, 4);
+            o1.addArticle(a4, 10);
+            Ordine o2 = new Ordine(n2);
+            o2.addArticle(a2, 10);
+            o2.addArticle(a1, 4);
+            m.addArticolo(a1);
+            m.addArticolo(a2);
+            m.addArticolo(a3);
+            m.addArticolo(a4);
+            m.addArticolo(a5);
+            m.addArticolo(a6);
 
-	    Articolo a1 = new Articolo((float) 14, new TipoArticolo("nome1", "Desrizione1", 2, 1));
-	    Articolo a2 = new Articolo((float) 17, new TipoArticolo("nome2", "Desrizione2", 3, 3));
-	    Articolo a3 = new Articolo((float) 87, new TipoArticolo("nome3", "Desrizione3", 2, 1));
-	    Articolo a4 = new Articolo((float) 90, new TipoArticolo("nome4", "Desrizione4", 9, 2));
-	    Articolo a5 = new Articolo((float) 15, new TipoArticolo("nome5", "Desrizione5", 7, 1));
-	    Articolo a6 = new Articolo((float) 18, new TipoArticolo("nome6", "Desrizione6", 10, 4));
-	    Negozio n1 = new Negozio("codice fiscale1", "primo Negozio", "Indirizzo1", "City");
-	    Negozio n2 = new Negozio("codice fiscale2", "secondo Negozio", "Indirizzo2", "City");
-	    Negozio n3 = new Negozio("codice fiscale3", "terzo Negozio", "Indirizzo3", "City");
-	    Negozio n4 = new Negozio("codice fiscale4", "quarto Negozio", "Indirizzo4", "City");
-	    Ordine o1 = new Ordine(n1);
-	    o1.addArticle(a2, 10);
-	    o1.addArticle(a1, 4);
-	    o1.addArticle(a3, 4);
-	    o1.addArticle(a4, 10);
-	    Ordine o2 = new Ordine(n2);
-	    o2.addArticle(a2, 10);
-	    o2.addArticle(a1, 4);
-	    m.addArticolo(a1);
-	    m.addArticolo(a2);
+            System.out.println("size: "+ m.articoliSize()+"\n"+m.getArticolo(1));
+            
+            Map<Articolo, Integer> q = new TreeMap<>();
+            Map<Articolo, Integer> p = new TreeMap<>();
 
-	    m.addNegozi(n1);
-	    m.addNegozi(n2);
-	    m.addNegozi(n3);
-	    m.addNegozi(n4);
-	    m.addOrdine(o1);
-	    m.addOrdine(o2);
-	} catch (ArticleAlreadyExistException | ShopAlreadyExistException | UserAlreadyExist e) {
-	    JOptionPane.showMessageDialog(null, "Eccezione");
-	}
+            q.put(a2, 10);
+            q.put(a3, 50);
+            q.put(a5, 2);
+            q.put(a4, 10);
 
-	hideAll();
-	loginPanel.setVisible(true);
-	selezionaButton_NegozioPanel.setVisible(false);
+            p.put(a2, 1);
+            p.put(a3, 2);
+            p.put(a5, 3);
+            p.put(a4, 4);
+            System.out.println(m.getPosition(a1));
+            System.out.println(m.addIngresso(q, p, new GregorianCalendar()));
+            
+            
+            m.addNegozi(n1);
+            m.addNegozi(n2);
+            m.addNegozi(n3);
+            m.addNegozi(n4);
+            m.addOrdine(o1);
+            m.addOrdine(o2);
+            
+        } catch (ArticleAlreadyExistException | ShopAlreadyExistException | UserAlreadyExist e) {
+            JOptionPane.showMessageDialog(null, "Eccezione");
+        } catch (ArticleDontExistInWareHouseException ex) {
+            Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-	loginPanel.getRootPane().setDefaultButton(loginButton);
+        hideAll();
+        loginPanel.setVisible(true);
+        selezionaButton_NegozioPanel.setVisible(false);
+
+        loginPanel.getRootPane().setDefaultButton(loginButton);
     }
 
     public final void hideAll() {
-	newArticlePanel.setVisible(false);
-	visualizzaOrdiniPanel.setVisible(false);
-	loginPanel.setVisible(false);
-	creaNuovoOrdinePanel.setVisible(false);
-	negoziPanel.setVisible(false);
-	visualizzaArticoliPanel.setVisible(false);
-	adminPanel.setVisible(false);
-	creaNegozioPanel.setVisible(false);
-	creaIngressoPanel.setVisible(false);
-	visualizzaIngressiPanel.setVisible(false);
+        newArticlePanel.setVisible(false);
+        visualizzaOrdiniPanel.setVisible(false);
+        loginPanel.setVisible(false);
+        creaNuovoOrdinePanel.setVisible(false);
+        negoziPanel.setVisible(false);
+        visualizzaArticoliPanel.setVisible(false);
+        //adminPanel.setVisible(false);
+        creaNegozioPanel.setVisible(false);
+        creaIngressoPanel.setVisible(false);
+        visualizzaIngressiPanel.setVisible(false);
 
     }
 
@@ -123,6 +146,19 @@ public class Graphics extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         SportButtonGroup = new javax.swing.ButtonGroup();
         MaterialiBottonGroup = new javax.swing.ButtonGroup();
+        adminPanel = new javax.swing.JPanel();
+        articoliButtonAdminPanel = new javax.swing.JButton();
+        negoziButtonAdminPanel = new javax.swing.JButton();
+        ordiniButtonAdminPanel = new javax.swing.JButton();
+        ingressiButtonAdminPanel = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        saveButtonAdminPanel = new javax.swing.JButton();
+        loginPanel = new javax.swing.JPanel();
+        pinField = new javax.swing.JPasswordField();
+        cancelPinButton = new javax.swing.JButton();
+        loginButton = new javax.swing.JButton();
+        usrField = new javax.swing.JTextField();
+        loginTitleLabel = new javax.swing.JLabel();
         visualizzaOrdiniPanel = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         negozioInfo_OrderPanel = new javax.swing.JButton();
@@ -157,12 +193,6 @@ public class Graphics extends javax.swing.JFrame {
         CreaNegozioButton_NegozioPanel = new javax.swing.JButton();
         selezionaButton_NegozioPanel = new javax.swing.JButton();
         closeButton_NegozioPanel1 = new javax.swing.JButton();
-        loginPanel = new javax.swing.JPanel();
-        pinField = new javax.swing.JPasswordField();
-        cancelPinButton = new javax.swing.JButton();
-        loginButton = new javax.swing.JButton();
-        usrField = new javax.swing.JTextField();
-        loginTitleLabel = new javax.swing.JLabel();
         creaNegozioPanel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         indirizzoField_newNegozioPanel = new javax.swing.JTextField();
@@ -202,9 +232,9 @@ public class Graphics extends javax.swing.JFrame {
         quantitaField7 = new javax.swing.JTextField();
         quantitaField8 = new javax.swing.JTextField();
         quantitaField9 = new javax.swing.JTextField();
+        quantitaLabel_NewOrderPanel = new javax.swing.JLabel();
+        articoliLabel_NewOrderPanel = new javax.swing.JLabel();
         corniceArticoloLabel_newOrderPanel = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         visualizzaArticoliPanel = new javax.swing.JPanel();
         IDLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
         prezzoLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
@@ -225,13 +255,6 @@ public class Graphics extends javax.swing.JFrame {
         quantitaLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
         titleLabel_ArticleViewPanel = new javax.swing.JLabel();
         modificaPosizioneViewArticoliPanel = new javax.swing.JButton();
-        adminPanel = new javax.swing.JPanel();
-        articoliButtonAdminPanel = new javax.swing.JButton();
-        negoziButtonAdminPanel = new javax.swing.JButton();
-        ordiniButtonAdminPanel = new javax.swing.JButton();
-        ingressiButtonAdminPanel = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        saveButtonAdminPanel = new javax.swing.JButton();
         newArticlePanel = new javax.swing.JPanel();
         calcioRadioButton = new javax.swing.JRadioButton();
         nuotoRadioButton = new javax.swing.JRadioButton();
@@ -282,30 +305,30 @@ public class Graphics extends javax.swing.JFrame {
         comboBoxIngressoArticoli3 = new javax.swing.JComboBox<>();
         comboBoxIngressoArticoli2 = new javax.swing.JComboBox<>();
         comboBoxIngressoArticoli1 = new javax.swing.JComboBox<>();
-        textFieldQuantita1 = new javax.swing.JTextField();
-        textFieldQuantita2 = new javax.swing.JTextField();
-        textFieldQuantita3 = new javax.swing.JTextField();
-        textFieldQuantita4 = new javax.swing.JTextField();
-        textFieldQuantita5 = new javax.swing.JTextField();
-        textFieldQuantita6 = new javax.swing.JTextField();
-        textFieldQuantita7 = new javax.swing.JTextField();
-        textFieldQuantita9 = new javax.swing.JTextField();
-        textFieldQuantita8 = new javax.swing.JTextField();
-        textFieldQuantita10 = new javax.swing.JTextField();
+        quantitaField1_newIngressoPanel = new javax.swing.JTextField();
+        quantitaField2_newIngressoPanel = new javax.swing.JTextField();
+        quantitaField3_newIngressoPanel = new javax.swing.JTextField();
+        quantitaField4_newIngressoPanel = new javax.swing.JTextField();
+        quantitaField5_newIngressoPanel = new javax.swing.JTextField();
+        quantitaField6_newIngressoPanel = new javax.swing.JTextField();
+        quantitaField7_newIngressoPanel = new javax.swing.JTextField();
+        quantitaField9_newIngressoPanel = new javax.swing.JTextField();
+        quantitaField8_newIngressoPanel = new javax.swing.JTextField();
+        quantitaField10_newIngressoPanel = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         creaIngressoButtonIngressoPanel = new javax.swing.JButton();
         closeButton_newIngressoPanel = new javax.swing.JButton();
         addArticleButton_newIngressoPanel = new javax.swing.JButton();
-        textFieldPosizioni1 = new javax.swing.JTextField();
-        textFieldPosizioni2 = new javax.swing.JTextField();
-        textFieldPosizioni3 = new javax.swing.JTextField();
-        textFieldPosizioni4 = new javax.swing.JTextField();
-        textFieldPosizioni5 = new javax.swing.JTextField();
-        textFieldPosizioni6 = new javax.swing.JTextField();
-        textFieldPosizioni7 = new javax.swing.JTextField();
-        textFieldPosizioni8 = new javax.swing.JTextField();
-        textFieldPosizioni9 = new javax.swing.JTextField();
-        textFieldPosizioni10 = new javax.swing.JTextField();
+        posizione1Field_newIngressoPanel = new javax.swing.JTextField();
+        posizione2Field_newIngressoPanel = new javax.swing.JTextField();
+        posizione3Field_newIngressoPanel = new javax.swing.JTextField();
+        posizione4Field_newIngressoPanel = new javax.swing.JTextField();
+        posizione5Field_newIngressoPanel = new javax.swing.JTextField();
+        posizione6Field_newIngressoPanel = new javax.swing.JTextField();
+        posizione7Field_newIngressoPanel = new javax.swing.JTextField();
+        posizione8Field_newIngressoPanel = new javax.swing.JTextField();
+        posizione9Field_newIngressoPanel = new javax.swing.JTextField();
+        posizione10Field_newIngressoPanel = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -327,6 +350,7 @@ public class Graphics extends javax.swing.JFrame {
         newIngressoButton_IngressiPanel = new javax.swing.JButton();
         ingressiIDLabel = new javax.swing.JLabel();
         articoliQuantitaPosizioneIngressiPanel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -362,9 +386,113 @@ public class Graphics extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 153, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        visualizzaOrdiniPanel.setBackground(new java.awt.Color(255, 102, 102));
+        adminPanel.setBackground(new java.awt.Color(0, 0, 0));
+        adminPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        articoliButtonAdminPanel.setText("Articoli");
+        articoliButtonAdminPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                articoliButtonAdminPanelActionPerformed(evt);
+            }
+        });
+        adminPanel.add(articoliButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 90, -1));
+
+        negoziButtonAdminPanel.setText("Negozi");
+        negoziButtonAdminPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                negoziButtonAdminPanelActionPerformed(evt);
+            }
+        });
+        adminPanel.add(negoziButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 90, -1));
+
+        ordiniButtonAdminPanel.setText("Ordini");
+        ordiniButtonAdminPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordiniButtonAdminPanelActionPerformed(evt);
+            }
+        });
+        adminPanel.add(ordiniButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 90, -1));
+
+        ingressiButtonAdminPanel.setText("Ingressi");
+        ingressiButtonAdminPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingressiButtonAdminPanelActionPerformed(evt);
+            }
+        });
+        adminPanel.add(ingressiButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 90, -1));
+
+        jButton2.setText("Logout");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        adminPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 90, -1));
+
+        saveButtonAdminPanel.setText("Salva");
+        saveButtonAdminPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonAdminPanelActionPerformed(evt);
+            }
+        });
+        adminPanel.add(saveButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 90, -1));
+
+        getContentPane().add(adminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 600, 50));
+
+        loginPanel.setBackground(new java.awt.Color(0, 153, 255));
+        loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pinField.setBackground(new java.awt.Color(0, 153, 255));
+        pinField.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
+        pinField.setForeground(new java.awt.Color(255, 255, 255));
+        pinField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        loginPanel.add(pinField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 230, 50));
+
+        cancelPinButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        cancelPinButton.setText("Cancel");
+        cancelPinButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelPinButtonActionPerformed(evt);
+            }
+        });
+        loginPanel.add(cancelPinButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 110, -1));
+
+        loginButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        loginButton.setText("Login");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
+        loginPanel.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 230, 110, -1));
+
+        usrField.setBackground(new java.awt.Color(0, 153, 255));
+        usrField.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
+        usrField.setForeground(new java.awt.Color(255, 255, 255));
+        usrField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        usrField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usrFieldActionPerformed(evt);
+            }
+        });
+        usrField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usrFieldKeyPressed(evt);
+            }
+        });
+        loginPanel.add(usrField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 230, 50));
+
+        loginTitleLabel.setFont(new java.awt.Font("Avenir Next", 0, 36)); // NOI18N
+        loginTitleLabel.setForeground(new java.awt.Color(255, 255, 255));
+        loginTitleLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true), "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Avenir", 0, 48), new java.awt.Color(255, 255, 255))); // NOI18N
+        loginPanel.add(loginTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 330, 270));
+
+        getContentPane().add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 350, 310));
+
+        visualizzaOrdiniPanel.setBackground(new java.awt.Color(0, 153, 255));
         visualizzaOrdiniPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Avenir", 0, 30)); // NOI18N
@@ -446,7 +574,7 @@ public class Graphics extends javax.swing.JFrame {
         jScrollPane1.setBorder(null);
 
         articoliQuantitaTextArea_OrderViewPanel.setEditable(false);
-        articoliQuantitaTextArea_OrderViewPanel.setBackground(new java.awt.Color(255, 102, 102));
+        articoliQuantitaTextArea_OrderViewPanel.setBackground(new java.awt.Color(0, 153, 255));
         articoliQuantitaTextArea_OrderViewPanel.setColumns(20);
         articoliQuantitaTextArea_OrderViewPanel.setRows(5);
         articoliQuantitaTextArea_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Articoli e Quantità"));
@@ -468,7 +596,7 @@ public class Graphics extends javax.swing.JFrame {
 
         getContentPane().add(visualizzaOrdiniPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 660, 400));
 
-        negoziPanel.setBackground(new java.awt.Color(255, 0, 255));
+        negoziPanel.setBackground(new java.awt.Color(0, 153, 255));
         negoziPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setFont(new java.awt.Font("Avenir", 1, 36)); // NOI18N
@@ -553,55 +681,7 @@ public class Graphics extends javax.swing.JFrame {
 
         getContentPane().add(negoziPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 550, 270));
 
-        loginPanel.setBackground(new java.awt.Color(0, 153, 0));
-        loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pinField.setBackground(new java.awt.Color(0, 153, 0));
-        pinField.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        pinField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        loginPanel.add(pinField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 230, 50));
-
-        cancelPinButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        cancelPinButton.setText("Cancel");
-        cancelPinButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelPinButtonActionPerformed(evt);
-            }
-        });
-        loginPanel.add(cancelPinButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
-
-        loginButton.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        loginButton.setText("Login");
-        loginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginButtonActionPerformed(evt);
-            }
-        });
-        loginPanel.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
-
-        usrField.setBackground(new java.awt.Color(0, 153, 0));
-        usrField.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        usrField.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        usrField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usrFieldActionPerformed(evt);
-            }
-        });
-        usrField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                usrFieldKeyPressed(evt);
-            }
-        });
-        loginPanel.add(usrField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 230, 50));
-
-        loginTitleLabel.setFont(new java.awt.Font("Avenir Next", 0, 36)); // NOI18N
-        loginTitleLabel.setForeground(new java.awt.Color(255, 255, 255));
-        loginTitleLabel.setText("LOGIN");
-        loginPanel.add(loginTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        getContentPane().add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 350, 270));
-
-        creaNegozioPanel.setBackground(new java.awt.Color(255, 204, 204));
+        creaNegozioPanel.setBackground(new java.awt.Color(0, 153, 255));
         creaNegozioPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Avenir", 1, 36)); // NOI18N
@@ -679,10 +759,11 @@ public class Graphics extends javax.swing.JFrame {
 
         getContentPane().add(creaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 500, 180));
 
-        creaNuovoOrdinePanel.setBackground(new java.awt.Color(255, 255, 0));
+        creaNuovoOrdinePanel.setBackground(new java.awt.Color(0, 153, 255));
         creaNuovoOrdinePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setFont(new java.awt.Font("Avenir", 0, 36)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Crea un nuovo ordine:");
         creaNuovoOrdinePanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, -1, 37));
 
@@ -708,7 +789,7 @@ public class Graphics extends javax.swing.JFrame {
         });
         creaNuovoOrdinePanel.add(closeButton_newOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 150, -1));
 
-        corriereField_NewOrderPanel.setBackground(new java.awt.Color(255, 255, 0));
+        corriereField_NewOrderPanel.setBackground(new java.awt.Color(0, 153, 255));
         corriereField_NewOrderPanel.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
         corriereField_NewOrderPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Corriere", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir Next", 0, 13))); // NOI18N
         corriereField_NewOrderPanel.addActionListener(new java.awt.event.ActionListener() {
@@ -780,9 +861,10 @@ public class Graphics extends javax.swing.JFrame {
         comboBoxArticoli10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         creaNuovoOrdinePanel.add(comboBoxArticoli10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, -1, -1));
 
-        quantitaField10.setBackground(new java.awt.Color(255, 255, 0));
+        quantitaField10.setBackground(new java.awt.Color(0, 153, 255));
         quantitaField10.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        quantitaField10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        quantitaField10.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         quantitaField10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantitaField10ActionPerformed(evt);
@@ -790,9 +872,10 @@ public class Graphics extends javax.swing.JFrame {
         });
         creaNuovoOrdinePanel.add(quantitaField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 60, -1));
 
-        quantitaField2.setBackground(new java.awt.Color(255, 255, 0));
+        quantitaField2.setBackground(new java.awt.Color(0, 153, 255));
         quantitaField2.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        quantitaField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        quantitaField2.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         quantitaField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantitaField2ActionPerformed(evt);
@@ -800,9 +883,10 @@ public class Graphics extends javax.swing.JFrame {
         });
         creaNuovoOrdinePanel.add(quantitaField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 60, -1));
 
-        quantitaField1.setBackground(new java.awt.Color(255, 255, 0));
+        quantitaField1.setBackground(new java.awt.Color(0, 153, 255));
         quantitaField1.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        quantitaField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        quantitaField1.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         quantitaField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantitaField1ActionPerformed(evt);
@@ -810,9 +894,10 @@ public class Graphics extends javax.swing.JFrame {
         });
         creaNuovoOrdinePanel.add(quantitaField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 60, -1));
 
-        quantitaField3.setBackground(new java.awt.Color(255, 255, 0));
+        quantitaField3.setBackground(new java.awt.Color(0, 153, 255));
         quantitaField3.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        quantitaField3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        quantitaField3.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         quantitaField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantitaField3ActionPerformed(evt);
@@ -820,9 +905,10 @@ public class Graphics extends javax.swing.JFrame {
         });
         creaNuovoOrdinePanel.add(quantitaField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 60, -1));
 
-        quantitaField4.setBackground(new java.awt.Color(255, 255, 0));
+        quantitaField4.setBackground(new java.awt.Color(0, 153, 255));
         quantitaField4.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        quantitaField4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        quantitaField4.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         quantitaField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantitaField4ActionPerformed(evt);
@@ -830,9 +916,10 @@ public class Graphics extends javax.swing.JFrame {
         });
         creaNuovoOrdinePanel.add(quantitaField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 60, -1));
 
-        quantitaField5.setBackground(new java.awt.Color(255, 255, 0));
+        quantitaField5.setBackground(new java.awt.Color(0, 153, 255));
         quantitaField5.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        quantitaField5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        quantitaField5.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         quantitaField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantitaField5ActionPerformed(evt);
@@ -840,9 +927,10 @@ public class Graphics extends javax.swing.JFrame {
         });
         creaNuovoOrdinePanel.add(quantitaField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 60, -1));
 
-        quantitaField6.setBackground(new java.awt.Color(255, 255, 0));
+        quantitaField6.setBackground(new java.awt.Color(0, 153, 255));
         quantitaField6.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        quantitaField6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        quantitaField6.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         quantitaField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantitaField6ActionPerformed(evt);
@@ -850,9 +938,10 @@ public class Graphics extends javax.swing.JFrame {
         });
         creaNuovoOrdinePanel.add(quantitaField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 60, -1));
 
-        quantitaField7.setBackground(new java.awt.Color(255, 255, 0));
+        quantitaField7.setBackground(new java.awt.Color(0, 153, 255));
         quantitaField7.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        quantitaField7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        quantitaField7.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         quantitaField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantitaField7ActionPerformed(evt);
@@ -860,9 +949,10 @@ public class Graphics extends javax.swing.JFrame {
         });
         creaNuovoOrdinePanel.add(quantitaField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 60, -1));
 
-        quantitaField8.setBackground(new java.awt.Color(255, 255, 0));
+        quantitaField8.setBackground(new java.awt.Color(0, 153, 255));
         quantitaField8.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        quantitaField8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        quantitaField8.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         quantitaField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantitaField8ActionPerformed(evt);
@@ -870,9 +960,10 @@ public class Graphics extends javax.swing.JFrame {
         });
         creaNuovoOrdinePanel.add(quantitaField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 60, -1));
 
-        quantitaField9.setBackground(new java.awt.Color(255, 255, 0));
+        quantitaField9.setBackground(new java.awt.Color(0, 153, 255));
         quantitaField9.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        quantitaField9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        quantitaField9.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         quantitaField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantitaField9ActionPerformed(evt);
@@ -880,21 +971,24 @@ public class Graphics extends javax.swing.JFrame {
         });
         creaNuovoOrdinePanel.add(quantitaField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 60, -1));
 
+        quantitaLabel_NewOrderPanel.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
+        quantitaLabel_NewOrderPanel.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaLabel_NewOrderPanel.setText("Quantità:");
+        creaNuovoOrdinePanel.add(quantitaLabel_NewOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
+
+        articoliLabel_NewOrderPanel.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
+        articoliLabel_NewOrderPanel.setForeground(new java.awt.Color(255, 255, 255));
+        articoliLabel_NewOrderPanel.setText("Articoli: ");
+        creaNuovoOrdinePanel.add(articoliLabel_NewOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
+
         corniceArticoloLabel_newOrderPanel.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        corniceArticoloLabel_newOrderPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Articolo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir Next", 0, 13))); // NOI18N
+        corniceArticoloLabel_newOrderPanel.setForeground(new java.awt.Color(255, 255, 255));
+        corniceArticoloLabel_newOrderPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Articolo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir Next", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
         creaNuovoOrdinePanel.add(corniceArticoloLabel_newOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 360, 350));
-
-        jLabel10.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        jLabel10.setText("Quantità:");
-        creaNuovoOrdinePanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        jLabel11.setText("Articoli: ");
-        creaNuovoOrdinePanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
 
         getContentPane().add(creaNuovoOrdinePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 10, 540, 430));
 
-        visualizzaArticoliPanel.setBackground(new java.awt.Color(0, 255, 255));
+        visualizzaArticoliPanel.setBackground(new java.awt.Color(0, 153, 255));
         visualizzaArticoliPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         IDLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
@@ -987,57 +1081,15 @@ public class Graphics extends javax.swing.JFrame {
         quantitaLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Quantità", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
         visualizzaArticoliPanel.add(quantitaLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 190, 50));
 
+        titleLabel_ArticleViewPanel.setBackground(new java.awt.Color(0, 153, 255));
         titleLabel_ArticleViewPanel.setFont(new java.awt.Font("Avenir", 0, 36)); // NOI18N
         titleLabel_ArticleViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Visualizza Articoli", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Avenir", 0, 36))); // NOI18N
-        visualizzaArticoliPanel.add(titleLabel_ArticleViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 360));
+        visualizzaArticoliPanel.add(titleLabel_ArticleViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 400));
 
         modificaPosizioneViewArticoliPanel.setText("Modifica posizione");
         visualizzaArticoliPanel.add(modificaPosizioneViewArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
 
         getContentPane().add(visualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, 510, 400));
-
-        adminPanel.setBackground(new java.awt.Color(0, 0, 0));
-        adminPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        articoliButtonAdminPanel.setText("Articoli");
-        articoliButtonAdminPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                articoliButtonAdminPanelActionPerformed(evt);
-            }
-        });
-        adminPanel.add(articoliButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 90, -1));
-
-        negoziButtonAdminPanel.setText("Negozi");
-        negoziButtonAdminPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                negoziButtonAdminPanelActionPerformed(evt);
-            }
-        });
-        adminPanel.add(negoziButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 90, -1));
-
-        ordiniButtonAdminPanel.setText("Ordini");
-        adminPanel.add(ordiniButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 90, -1));
-
-        ingressiButtonAdminPanel.setText("Ingressi");
-        adminPanel.add(ingressiButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 90, -1));
-
-        jButton2.setText("Logout");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        adminPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 90, -1));
-
-        saveButtonAdminPanel.setText("Salva");
-        saveButtonAdminPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonAdminPanelActionPerformed(evt);
-            }
-        });
-        adminPanel.add(saveButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 90, -1));
-
-        getContentPane().add(adminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 210));
 
         newArticlePanel.setBackground(new java.awt.Color(0, 153, 255));
         newArticlePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1138,8 +1190,8 @@ public class Graphics extends javax.swing.JFrame {
 
         titolo_newArticlePanel.setFont(new java.awt.Font("Avenir", 1, 36)); // NOI18N
         titolo_newArticlePanel.setForeground(new java.awt.Color(255, 255, 255));
-        titolo_newArticlePanel.setText("Inserisci un nuovo Articolo");
-        newArticlePanel.add(titolo_newArticlePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 480, 46));
+        titolo_newArticlePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nuovo Articolo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Avenir Next", 0, 48), new java.awt.Color(255, 255, 255))); // NOI18N
+        newArticlePanel.add(titolo_newArticlePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 710, 520));
 
         prezzoField_newArticlePanel.setBackground(new java.awt.Color(0, 153, 255));
         prezzoField_newArticlePanel.setForeground(new java.awt.Color(255, 255, 255));
@@ -1260,11 +1312,11 @@ public class Graphics extends javax.swing.JFrame {
 
         getContentPane().add(newArticlePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 730, 540));
 
-        creaIngressoPanel.setBackground(new java.awt.Color(204, 0, 204));
+        creaIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
         creaIngressoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comboBoxIngressoArticoli4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
+        creaIngressoPanel.add(comboBoxIngressoArticoli4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         comboBoxIngressoArticoli5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboBoxIngressoArticoli5.addActionListener(new java.awt.event.ActionListener() {
@@ -1272,101 +1324,101 @@ public class Graphics extends javax.swing.JFrame {
                 comboBoxIngressoArticoli5ActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(comboBoxIngressoArticoli5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
+        creaIngressoPanel.add(comboBoxIngressoArticoli5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         comboBoxIngressoArticoli6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+        creaIngressoPanel.add(comboBoxIngressoArticoli6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         comboBoxIngressoArticoli7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
+        creaIngressoPanel.add(comboBoxIngressoArticoli7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         comboBoxIngressoArticoli8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
+        creaIngressoPanel.add(comboBoxIngressoArticoli8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
         comboBoxIngressoArticoli9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, -1));
+        creaIngressoPanel.add(comboBoxIngressoArticoli9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
         comboBoxIngressoArticoli10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
+        creaIngressoPanel.add(comboBoxIngressoArticoli10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         comboBoxIngressoArticoli3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
+        creaIngressoPanel.add(comboBoxIngressoArticoli3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         comboBoxIngressoArticoli2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
+        creaIngressoPanel.add(comboBoxIngressoArticoli2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         comboBoxIngressoArticoli1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        creaIngressoPanel.add(comboBoxIngressoArticoli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
+        creaIngressoPanel.add(comboBoxIngressoArticoli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
-        textFieldQuantita1.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldQuantita1.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldQuantita1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldQuantita1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 70, 30));
+        quantitaField1_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        quantitaField1_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField1_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(quantitaField1_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 70, 30));
 
-        textFieldQuantita2.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldQuantita2.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldQuantita2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldQuantita2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 70, 30));
+        quantitaField2_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        quantitaField2_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField2_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(quantitaField2_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 70, 30));
 
-        textFieldQuantita3.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldQuantita3.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldQuantita3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        textFieldQuantita3.addActionListener(new java.awt.event.ActionListener() {
+        quantitaField3_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        quantitaField3_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField3_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        quantitaField3_newIngressoPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldQuantita3ActionPerformed(evt);
+                quantitaField3_newIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(textFieldQuantita3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 70, 30));
+        creaIngressoPanel.add(quantitaField3_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 70, 30));
 
-        textFieldQuantita4.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldQuantita4.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldQuantita4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldQuantita4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 70, 30));
+        quantitaField4_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        quantitaField4_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField4_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(quantitaField4_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 70, 30));
 
-        textFieldQuantita5.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldQuantita5.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldQuantita5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        textFieldQuantita5.addActionListener(new java.awt.event.ActionListener() {
+        quantitaField5_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        quantitaField5_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField5_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        quantitaField5_newIngressoPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldQuantita5ActionPerformed(evt);
+                quantitaField5_newIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(textFieldQuantita5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 70, 30));
+        creaIngressoPanel.add(quantitaField5_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 70, 30));
 
-        textFieldQuantita6.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldQuantita6.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldQuantita6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldQuantita6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 70, 30));
+        quantitaField6_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        quantitaField6_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField6_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(quantitaField6_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 70, 30));
 
-        textFieldQuantita7.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldQuantita7.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldQuantita7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        textFieldQuantita7.addActionListener(new java.awt.event.ActionListener() {
+        quantitaField7_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        quantitaField7_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField7_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        quantitaField7_newIngressoPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldQuantita7ActionPerformed(evt);
+                quantitaField7_newIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(textFieldQuantita7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 70, 30));
+        creaIngressoPanel.add(quantitaField7_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 70, 30));
 
-        textFieldQuantita9.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldQuantita9.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldQuantita9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldQuantita9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 70, 30));
+        quantitaField9_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        quantitaField9_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField9_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(quantitaField9_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 70, 30));
 
-        textFieldQuantita8.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldQuantita8.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldQuantita8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldQuantita8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 70, 30));
+        quantitaField8_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        quantitaField8_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField8_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(quantitaField8_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 70, 30));
 
-        textFieldQuantita10.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldQuantita10.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldQuantita10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldQuantita10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 70, 30));
+        quantitaField10_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        quantitaField10_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaField10_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(quantitaField10_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 70, 30));
 
         jLabel3.setFont(new java.awt.Font("Avenir", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Crea nuovo ingresso:");
-        creaIngressoPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 360, 50));
+        creaIngressoPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 360, 50));
 
         creaIngressoButtonIngressoPanel.setBackground(new java.awt.Color(0, 0, 0));
         creaIngressoButtonIngressoPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
@@ -1377,7 +1429,7 @@ public class Graphics extends javax.swing.JFrame {
                 creaIngressoButtonIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(creaIngressoButtonIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 200, -1));
+        creaIngressoPanel.add(creaIngressoButtonIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 200, 40));
 
         closeButton_newIngressoPanel.setBackground(new java.awt.Color(0, 0, 0));
         closeButton_newIngressoPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
@@ -1388,7 +1440,7 @@ public class Graphics extends javax.swing.JFrame {
                 closeButton_newIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(closeButton_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 200, -1));
+        creaIngressoPanel.add(closeButton_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 200, 40));
 
         addArticleButton_newIngressoPanel.setBackground(new java.awt.Color(0, 0, 0));
         addArticleButton_newIngressoPanel.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
@@ -1399,77 +1451,77 @@ public class Graphics extends javax.swing.JFrame {
                 addArticleButton_newIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(addArticleButton_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 200, -1));
+        creaIngressoPanel.add(addArticleButton_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 270, -1));
 
-        textFieldPosizioni1.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldPosizioni1.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldPosizioni1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldPosizioni1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 80, 30));
+        posizione1Field_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        posizione1Field_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        posizione1Field_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(posizione1Field_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 80, 30));
 
-        textFieldPosizioni2.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldPosizioni2.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldPosizioni2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldPosizioni2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 80, 30));
+        posizione2Field_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        posizione2Field_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        posizione2Field_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(posizione2Field_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 80, 30));
 
-        textFieldPosizioni3.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldPosizioni3.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldPosizioni3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldPosizioni3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 80, 30));
+        posizione3Field_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        posizione3Field_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        posizione3Field_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(posizione3Field_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 80, 30));
 
-        textFieldPosizioni4.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldPosizioni4.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldPosizioni4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldPosizioni4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 80, 30));
+        posizione4Field_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        posizione4Field_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        posizione4Field_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(posizione4Field_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 80, 30));
 
-        textFieldPosizioni5.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldPosizioni5.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldPosizioni5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldPosizioni5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 80, 30));
+        posizione5Field_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        posizione5Field_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        posizione5Field_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(posizione5Field_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 80, 30));
 
-        textFieldPosizioni6.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldPosizioni6.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldPosizioni6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        textFieldPosizioni6.addActionListener(new java.awt.event.ActionListener() {
+        posizione6Field_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        posizione6Field_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        posizione6Field_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        posizione6Field_newIngressoPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldPosizioni6ActionPerformed(evt);
+                posizione6Field_newIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(textFieldPosizioni6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 80, 30));
+        creaIngressoPanel.add(posizione6Field_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 80, 30));
 
-        textFieldPosizioni7.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldPosizioni7.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldPosizioni7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldPosizioni7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 80, 30));
+        posizione7Field_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        posizione7Field_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        posizione7Field_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(posizione7Field_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 80, 30));
 
-        textFieldPosizioni8.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldPosizioni8.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldPosizioni8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldPosizioni8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 80, 30));
+        posizione8Field_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        posizione8Field_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        posizione8Field_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(posizione8Field_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 80, 30));
 
-        textFieldPosizioni9.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldPosizioni9.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldPosizioni9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldPosizioni9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 80, 30));
+        posizione9Field_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        posizione9Field_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        posizione9Field_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(posizione9Field_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 80, 30));
 
-        textFieldPosizioni10.setBackground(new java.awt.Color(204, 0, 204));
-        textFieldPosizioni10.setForeground(new java.awt.Color(255, 255, 255));
-        textFieldPosizioni10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        creaIngressoPanel.add(textFieldPosizioni10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 80, 30));
+        posizione10Field_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        posizione10Field_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        posizione10Field_newIngressoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        creaIngressoPanel.add(posizione10Field_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 80, 30));
 
         jLabel4.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Quantità:");
-        creaIngressoPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
+        creaIngressoPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Posizioni:");
-        creaIngressoPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
+        creaIngressoPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Articoli: ");
-        creaIngressoPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        creaIngressoPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         dataOdierna_newIngressoPanel.setBackground(new java.awt.Color(0, 0, 0));
         dataOdierna_newIngressoPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
@@ -1480,46 +1532,47 @@ public class Graphics extends javax.swing.JFrame {
                 dataOdierna_newIngressoPanelActionPerformed(evt);
             }
         });
-        creaIngressoPanel.add(dataOdierna_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 180, -1));
+        creaIngressoPanel.add(dataOdierna_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 180, -1));
 
-        dayField_newIngressoPanel.setBackground(new java.awt.Color(204, 0, 204));
+        dayField_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
         dayField_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
         dayField_newIngressoPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        creaIngressoPanel.add(dayField_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 20, 20));
+        creaIngressoPanel.add(dayField_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 20, 20));
 
         jLabel20.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("/");
-        creaIngressoPanel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
+        creaIngressoPanel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("/");
-        creaIngressoPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+        creaIngressoPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
 
-        monthField_newIngressoPanel.setBackground(new java.awt.Color(204, 0, 204));
+        monthField_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
         monthField_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
         monthField_newIngressoPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        creaIngressoPanel.add(monthField_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 27, -1));
+        creaIngressoPanel.add(monthField_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 27, -1));
 
-        yearField_newIngressoPanel.setBackground(new java.awt.Color(204, 0, 204));
+        yearField_newIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
         yearField_newIngressoPanel.setForeground(new java.awt.Color(255, 255, 255));
         yearField_newIngressoPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        creaIngressoPanel.add(yearField_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 70, -1));
+        creaIngressoPanel.add(yearField_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 70, -1));
 
         dataLabel_newIngressoPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
         dataLabel_newIngressoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        creaIngressoPanel.add(dataLabel_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 200, 100));
+        creaIngressoPanel.add(dataLabel_newIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 200, 100));
 
         jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Quantità e Posizioni", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir Next", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        creaIngressoPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 340, 350));
+        creaIngressoPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 300, 380));
 
-        getContentPane().add(creaIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 450, 590, 420));
+        getContentPane().add(creaIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 420, 530, 450));
 
-        visualizzaIngressiPanel.setBackground(new java.awt.Color(255, 153, 51));
+        visualizzaIngressiPanel.setBackground(new java.awt.Color(0, 153, 255));
         visualizzaIngressiPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setFont(new java.awt.Font("Avenir", 0, 30)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Visualizza Ingressi:");
         visualizzaIngressiPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -1529,7 +1582,7 @@ public class Graphics extends javax.swing.JFrame {
                 indietroButton_IngressiPanelActionPerformed(evt);
             }
         });
-        visualizzaIngressiPanel.add(indietroButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 41, -1));
+        visualizzaIngressiPanel.add(indietroButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 41, -1));
 
         avantiButton_IngressiPanel.setText(">");
         avantiButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
@@ -1537,7 +1590,7 @@ public class Graphics extends javax.swing.JFrame {
                 avantiButton_IngressiPanelActionPerformed(evt);
             }
         });
-        visualizzaIngressiPanel.add(avantiButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 40, -1));
+        visualizzaIngressiPanel.add(avantiButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 40, -1));
 
         chiudiButtonIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         chiudiButtonIngressiPanel.setText("Chiudi");
@@ -1546,13 +1599,15 @@ public class Graphics extends javax.swing.JFrame {
                 chiudiButtonIngressiPanelActionPerformed(evt);
             }
         });
-        visualizzaIngressiPanel.add(chiudiButtonIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        visualizzaIngressiPanel.add(chiudiButtonIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 120, -1));
 
         searchFieldIngressiPanel.setEditable(false);
-        visualizzaIngressiPanel.add(searchFieldIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 40, -1));
+        searchFieldIngressiPanel.setBackground(new java.awt.Color(0, 153, 255));
+        searchFieldIngressiPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        visualizzaIngressiPanel.add(searchFieldIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 30, 20));
 
-        jLabel19.setText("Cerca:");
-        visualizzaIngressiPanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+        jLabel19.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "cerca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir Next", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaIngressiPanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 130, 60));
 
         newIngressoButton_IngressiPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
         newIngressoButton_IngressiPanel.setText("Crea Nuovo Ingresso");
@@ -1561,17 +1616,32 @@ public class Graphics extends javax.swing.JFrame {
                 newIngressoButton_IngressiPanelActionPerformed(evt);
             }
         });
-        visualizzaIngressiPanel.add(newIngressoButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, -1, -1));
+        visualizzaIngressiPanel.add(newIngressoButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
 
         ingressiIDLabel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
-        ingressiIDLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13))); // NOI18N
+        ingressiIDLabel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
         ingressiIDLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        visualizzaIngressiPanel.add(ingressiIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 210, 60));
+        visualizzaIngressiPanel.add(ingressiIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, 60));
 
-        articoliQuantitaPosizioneIngressiPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        visualizzaIngressiPanel.add(articoliQuantitaPosizioneIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 470, 190));
+        articoliQuantitaPosizioneIngressiPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        visualizzaIngressiPanel.add(articoliQuantitaPosizioneIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 360, 260));
 
-        getContentPane().add(visualizzaIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 450, 530, 400));
+        getContentPane().add(visualizzaIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 450, 430, 430));
+
+        jPanel1.setBackground(new java.awt.Color(0, 153, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2260, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 980, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2260, 980));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1581,899 +1651,899 @@ public class Graphics extends javax.swing.JFrame {
     //
 
     private void usrFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usrFieldActionPerformed
-	// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_usrFieldActionPerformed
 
     //PULSANTE CANCELLA PANNELLO PIN
     private void cancelPinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelPinButtonActionPerformed
-	usrField.setText("");
-	pinField.setText("");
+        usrField.setText("");
+        pinField.setText("");
     }//GEN-LAST:event_cancelPinButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
 
-	//CONTROLLO DA IMPLEMENTARE A PROGETTO FINITO
-	String pin = pinField.getText();
-	String user = usrField.getText();
+        //CONTROLLO DA IMPLEMENTARE A PROGETTO FINITO
+        String pin = pinField.getText();
+        String user = usrField.getText();
 
-	if (pin.equals("") || user.equals("") || pin.substring(0, 1).equals(" ") || user.substring(0, 1).equals(" ")) {
-	    JOptionPane.showMessageDialog(null, "Inserire uno username e una password validi");
-	    usrField.setText("");
-	    pinField.setText("");
-	} else {
-	    try {
-		int type = m.loginHashCode(new Utente(user, pin, 1));
-		usrField.setText("");
-		pinField.setText("");
-		JOptionPane.showMessageDialog(null, "Login effettuato correttamente\nTipoAccount: " + type);
-		hideAll();//nascondo tutti i pannelli
-		switch (type) {
-		    case 1:
-			adminPanel.setVisible(true);
-			articoliButtonAdminPanel.setEnabled(true);
-			modificaPosizioneViewArticoliPanel.setEnabled(true);
-			creaArticoloButtonViewArticoliPanel.setEnabled(false);
-			modificaButtonViewArticoliPanel.setEnabled(false);
-			negoziButtonAdminPanel.setEnabled(false);
-			ordiniButtonAdminPanel.setEnabled(false);
-			ingressiButtonAdminPanel.setEnabled(true);
-			//Bottone per uscite setEnabled(true)
-			break;
-		    case 2:
-			adminPanel.setVisible(true);
-			articoliButtonAdminPanel.setEnabled(true);
-			modificaPosizioneViewArticoliPanel.setEnabled(false);
-			creaArticoloButtonViewArticoliPanel.setEnabled(true);
-			modificaButtonViewArticoliPanel.setEnabled(true);
-			negoziButtonAdminPanel.setEnabled(true);
-			ordiniButtonAdminPanel.setEnabled(true);
-			ingressiButtonAdminPanel.setEnabled(true);
-			//Bottone per uscite setEnabled(true)
-			break;
-		    case 3:
-			adminPanel.setVisible(true);
-			articoliButtonAdminPanel.setEnabled(false);
-			negoziButtonAdminPanel.setEnabled(false);
-			ordiniButtonAdminPanel.setEnabled(true);
-			ingressiButtonAdminPanel.setEnabled(false);
-			//Bottone per uscite setEnabled(false)
-			break;
-		    case 4:
-			adminPanel.setVisible(true);
-			articoliButtonAdminPanel.setEnabled(true);
-			negoziButtonAdminPanel.setEnabled(true);
-			ordiniButtonAdminPanel.setEnabled(true);
-			ingressiButtonAdminPanel.setEnabled(true);
-			//Bottone per uscite setEnabled(true)
-			break;
-		}
-	    } catch (UserNotFoundException e) {
-		JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattare l'amministratore di sistema il prima possibile");
-		usrField.setText("");
-		pinField.setText("");
-	    }
-	}
+        if (pin.equals("") || user.equals("") || pin.substring(0, 1).equals(" ") || user.substring(0, 1).equals(" ")) {
+            JOptionPane.showMessageDialog(null, "Inserire uno username e una password validi");
+            usrField.setText("");
+            pinField.setText("");
+        } else {
+            try {
+                int type = m.loginHashCode(new Utente(user, pin, 1));
+                usrField.setText("");
+                pinField.setText("");
+                JOptionPane.showMessageDialog(null, "Login effettuato correttamente\nTipoAccount: " + type);
+                hideAll();//nascondo tutti i pannelli
+                switch (type) {
+                    case 1:
+                        adminPanel.setVisible(true);
+                        articoliButtonAdminPanel.setEnabled(true);
+                        modificaPosizioneViewArticoliPanel.setEnabled(true);
+                        creaArticoloButtonViewArticoliPanel.setEnabled(false);
+                        modificaButtonViewArticoliPanel.setEnabled(false);
+                        negoziButtonAdminPanel.setEnabled(false);
+                        ordiniButtonAdminPanel.setEnabled(false);
+                        ingressiButtonAdminPanel.setEnabled(true);
+                        //Bottone per uscite setEnabled(true)
+                        break;
+                    case 2:
+                        adminPanel.setVisible(true);
+                        articoliButtonAdminPanel.setEnabled(true);
+                        modificaPosizioneViewArticoliPanel.setEnabled(false);
+                        creaArticoloButtonViewArticoliPanel.setEnabled(true);
+                        modificaButtonViewArticoliPanel.setEnabled(true);
+                        negoziButtonAdminPanel.setEnabled(true);
+                        ordiniButtonAdminPanel.setEnabled(true);
+                        ingressiButtonAdminPanel.setEnabled(true);
+                        //Bottone per uscite setEnabled(true)
+                        break;
+                    case 3:
+                        adminPanel.setVisible(true);
+                        articoliButtonAdminPanel.setEnabled(false);
+                        negoziButtonAdminPanel.setEnabled(false);
+                        ordiniButtonAdminPanel.setEnabled(true);
+                        ingressiButtonAdminPanel.setEnabled(false);
+                        //Bottone per uscite setEnabled(false)
+                        break;
+                    case 4:
+                        adminPanel.setVisible(true);
+                        articoliButtonAdminPanel.setEnabled(true);
+                        negoziButtonAdminPanel.setEnabled(true);
+                        ordiniButtonAdminPanel.setEnabled(true);
+                        ingressiButtonAdminPanel.setEnabled(true);
+                        //Bottone per uscite setEnabled(true)
+                        break;
+                }
+            } catch (UserNotFoundException e) {
+                JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattare l'amministratore di sistema il prima possibile");
+                usrField.setText("");
+                pinField.setText("");
+            }
+        }
 
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void chiudiButtonOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButtonOrderPanelActionPerformed
-	hideAll();
-	adminPanel.setVisible(true);
+        hideAll();
+        adminPanel.setVisible(true);
     }//GEN-LAST:event_chiudiButtonOrderPanelActionPerformed
 
     private void usrFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usrFieldKeyPressed
-	// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_usrFieldKeyPressed
 
     private void avantiButton_OrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiButton_OrderPanelActionPerformed
-	indexOrder++;
-	ordini();
+        indexOrder++;
+        ordini();
     }//GEN-LAST:event_avantiButton_OrderPanelActionPerformed
 
     private void indietroButton_OrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroButton_OrderPanelActionPerformed
-	indexOrder--;
-	ordini();
+        indexOrder--;
+        ordini();
     }//GEN-LAST:event_indietroButton_OrderPanelActionPerformed
 
     private void newOrderButton_orderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newOrderButton_orderViewPanelActionPerformed
 
-	//INIZIALIZZAZIONE GRAFICA
-	addArticleButton_newOrderPanel.setEnabled(true);
-	ComboBoxNegozio.removeAllItems();
-	comboBoxArticoli1.removeAllItems();
-	comboBoxArticoli2.removeAllItems();
-	comboBoxArticoli3.removeAllItems();
-	comboBoxArticoli4.removeAllItems();
-	comboBoxArticoli5.removeAllItems();
-	comboBoxArticoli6.removeAllItems();
-	comboBoxArticoli7.removeAllItems();
-	comboBoxArticoli8.removeAllItems();
-	comboBoxArticoli9.removeAllItems();
-	comboBoxArticoli10.removeAllItems();
+        //INIZIALIZZAZIONE GRAFICA
+        addArticleButton_newOrderPanel.setEnabled(true);
+        ComboBoxNegozio.removeAllItems();
+        comboBoxArticoli1.removeAllItems();
+        comboBoxArticoli2.removeAllItems();
+        comboBoxArticoli3.removeAllItems();
+        comboBoxArticoli4.removeAllItems();
+        comboBoxArticoli5.removeAllItems();
+        comboBoxArticoli6.removeAllItems();
+        comboBoxArticoli7.removeAllItems();
+        comboBoxArticoli8.removeAllItems();
+        comboBoxArticoli9.removeAllItems();
+        comboBoxArticoli10.removeAllItems();
 
-	comboBoxArticoli2.setEnabled(false);
-	comboBoxArticoli3.setEnabled(false);
-	comboBoxArticoli4.setEnabled(false);
-	comboBoxArticoli5.setEnabled(false);
-	comboBoxArticoli6.setEnabled(false);
-	comboBoxArticoli7.setEnabled(false);
-	comboBoxArticoli8.setEnabled(false);
-	comboBoxArticoli9.setEnabled(false);
-	comboBoxArticoli10.setEnabled(false);
+        comboBoxArticoli2.setEnabled(false);
+        comboBoxArticoli3.setEnabled(false);
+        comboBoxArticoli4.setEnabled(false);
+        comboBoxArticoli5.setEnabled(false);
+        comboBoxArticoli6.setEnabled(false);
+        comboBoxArticoli7.setEnabled(false);
+        comboBoxArticoli8.setEnabled(false);
+        comboBoxArticoli9.setEnabled(false);
+        comboBoxArticoli10.setEnabled(false);
 
-	quantitaField2.setEnabled(false);
-	quantitaField3.setEnabled(false);
-	quantitaField4.setEnabled(false);
-	quantitaField5.setEnabled(false);
-	quantitaField6.setEnabled(false);
-	quantitaField7.setEnabled(false);
-	quantitaField8.setEnabled(false);
-	quantitaField9.setEnabled(false);
-	quantitaField10.setEnabled(false);
+        quantitaField2.setEnabled(false);
+        quantitaField3.setEnabled(false);
+        quantitaField4.setEnabled(false);
+        quantitaField5.setEnabled(false);
+        quantitaField6.setEnabled(false);
+        quantitaField7.setEnabled(false);
+        quantitaField8.setEnabled(false);
+        quantitaField9.setEnabled(false);
+        quantitaField10.setEnabled(false);
 
-	quantitaField1.setText("");
-	quantitaField2.setText("");
-	quantitaField5.setText("");
-	quantitaField8.setText("");
-	quantitaField3.setText("");
-	quantitaField6.setText("");
-	quantitaField9.setText("");
-	quantitaField4.setText("");
-	quantitaField7.setText("");
-	quantitaField10.setText("");
+        quantitaField1.setText("");
+        quantitaField2.setText("");
+        quantitaField5.setText("");
+        quantitaField8.setText("");
+        quantitaField3.setText("");
+        quantitaField6.setText("");
+        quantitaField9.setText("");
+        quantitaField4.setText("");
+        quantitaField7.setText("");
+        quantitaField10.setText("");
 
-	orderArticleSelected = 1;
-	hideAll();
-	addArticleButton_newOrderPanel.setEnabled(true);
-	creaNuovoOrdinePanel.setVisible(true);
-	corriereField_NewOrderPanel.setText("");
+        orderArticleSelected = 1;
+        hideAll();
+        addArticleButton_newOrderPanel.setEnabled(true);
+        creaNuovoOrdinePanel.setVisible(true);
+        corriereField_NewOrderPanel.setText("");
 
-	int i = 0;
+        int i = 0;
 
-	for (i = 0; i < m.negoziSize(); i++) {
-	    ComboBoxNegozio.addItem(m.getNegozi(i).getNome());
-	}
+        for (i = 0; i < m.negoziSize(); i++) {
+            ComboBoxNegozio.addItem(m.getNegozi(i).getNome());
+        }
 
-	for (i = 0; i < m.articoliSize(); i++) {
-	    comboBoxArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxArticoli2.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxArticoli3.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxArticoli4.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxArticoli5.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxArticoli6.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxArticoli7.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxArticoli8.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	}
+        for (i = 0; i < m.articoliSize(); i++) {
+            comboBoxArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli2.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli3.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli4.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli5.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli6.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli7.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli8.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
+        }
     }//GEN-LAST:event_newOrderButton_orderViewPanelActionPerformed
 
     private void articoliButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_articoliButtonAdminPanelActionPerformed
-	hideAll();
-	visualizzaArticoliPanel.setVisible(true);
-	articoli();
+        hideAll();
+        visualizzaArticoliPanel.setVisible(true);
+        articoli();
     }//GEN-LAST:event_articoliButtonAdminPanelActionPerformed
 
     private void closeButton_creaNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_creaNegozioPanelActionPerformed
-	exit();
+        exit();
     }//GEN-LAST:event_closeButton_creaNegozioPanelActionPerformed
 
     private void negoziButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negoziButtonAdminPanelActionPerformed
-	hideAll();
-	negoziPanel.setVisible(true);
-	indexShop = 0;
-	negozi();
+        hideAll();
+        negoziPanel.setVisible(true);
+        indexShop = 0;
+        negozi();
     }//GEN-LAST:event_negoziButtonAdminPanelActionPerformed
 
     private void indietroButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroButton_NegozioPanelActionPerformed
-	indexShop--;
-	negozi();
+        indexShop--;
+        negozi();
     }//GEN-LAST:event_indietroButton_NegozioPanelActionPerformed
 
     private void avantiButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiButton_NegozioPanelActionPerformed
-	indexShop++;
-	negozi();
+        indexShop++;
+        negozi();
     }//GEN-LAST:event_avantiButton_NegozioPanelActionPerformed
 
     private void indirizzoField_newNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indirizzoField_newNegozioPanelActionPerformed
-	// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_indirizzoField_newNegozioPanelActionPerformed
 
     private void CodiceFiscaleField_NewNegozioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodiceFiscaleField_NewNegozioActionPerformed
-	// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_CodiceFiscaleField_NewNegozioActionPerformed
 
     private void nomeField_newNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeField_newNegozioPanelActionPerformed
-	// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_nomeField_newNegozioPanelActionPerformed
 
     private void cittaField_NewNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cittaField_NewNegozioPanelActionPerformed
-	// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_cittaField_NewNegozioPanelActionPerformed
 
     private void closeButton_NegozioPanel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_NegozioPanel1ActionPerformed
-	hideAll();
-	adminPanel.setVisible(true);
+        hideAll();
+        adminPanel.setVisible(true);
     }//GEN-LAST:event_closeButton_NegozioPanel1ActionPerformed
 
     private void CreaNegozioButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreaNegozioButton_NegozioPanelActionPerformed
-	hideAll();
-	creaNegozioPanel.setVisible(true);
+        hideAll();
+        creaNegozioPanel.setVisible(true);
     }//GEN-LAST:event_CreaNegozioButton_NegozioPanelActionPerformed
 
     private void creaFromCreaNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaFromCreaNegozioPanelActionPerformed
-	String cf = CodiceFiscaleField_NewNegozio.getText();
-	String nome = nomeField_newNegozioPanel.getText();
-	String indirizzo = indirizzoField_newNegozioPanel.getText();
-	String citta = cittaField_NewNegozioPanel.getText();
-	try {
-	    m.addNegozi(new Negozio(cf, nome, indirizzo, citta));
-	} catch (Exception e) {
+        String cf = CodiceFiscaleField_NewNegozio.getText();
+        String nome = nomeField_newNegozioPanel.getText();
+        String indirizzo = indirizzoField_newNegozioPanel.getText();
+        String citta = cittaField_NewNegozioPanel.getText();
+        try {
+            m.addNegozi(new Negozio(cf, nome, indirizzo, citta));
+        } catch (Exception e) {
 
-	}
-	JOptionPane.showMessageDialog(null, "Utente creato con successo!");
-	CodiceFiscaleField_NewNegozio.setText("");
-	nomeField_newNegozioPanel.setText("");
-	indirizzoField_newNegozioPanel.setText("");
-	cittaField_NewNegozioPanel.setText("");
-	hideAll();
-	negoziPanel.setVisible(true);
-	indexShop = m.negoziSize() - 1;
-	negozi();
+        }
+        JOptionPane.showMessageDialog(null, "Utente creato con successo!");
+        CodiceFiscaleField_NewNegozio.setText("");
+        nomeField_newNegozioPanel.setText("");
+        indirizzoField_newNegozioPanel.setText("");
+        cittaField_NewNegozioPanel.setText("");
+        hideAll();
+        negoziPanel.setVisible(true);
+        indexShop = m.negoziSize() - 1;
+        negozi();
     }//GEN-LAST:event_creaFromCreaNegozioPanelActionPerformed
 
     private void closeButton_newOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_newOrderPanelActionPerformed
-	exit();
+        exit();
     }//GEN-LAST:event_closeButton_newOrderPanelActionPerformed
 
     private void chiudiButton_VisualizzaArticoloPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButton_VisualizzaArticoloPanelActionPerformed
-	hideAll();
-	adminPanel.setVisible(true);
+        hideAll();
+        adminPanel.setVisible(true);
     }//GEN-LAST:event_chiudiButton_VisualizzaArticoloPanelActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-	CodiceFiscaleField_NewNegozio.setText("");
-	nomeField_newNegozioPanel.setText("");
-	indirizzoField_newNegozioPanel.setText("");
-	cittaField_NewNegozioPanel.setText("");
-	hideAll();
-	negoziPanel.setVisible(true);
-	ordini();
+        CodiceFiscaleField_NewNegozio.setText("");
+        nomeField_newNegozioPanel.setText("");
+        indirizzoField_newNegozioPanel.setText("");
+        cittaField_NewNegozioPanel.setText("");
+        hideAll();
+        negoziPanel.setVisible(true);
+        ordini();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void modificaButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButton_NegozioPanelActionPerformed
-	hideAll();
-	creaNegozioPanel.setVisible(true);
-	CodiceFiscaleField_NewNegozio.setText(m.getNegozi(indexShop).getCodiceFiscale());
-	nomeField_newNegozioPanel.setText(m.getNegozi(indexShop).getNome());
-	indirizzoField_newNegozioPanel.setText(m.getNegozi(indexShop).getindirizzo());
-	cittaField_NewNegozioPanel.setText(m.getNegozi(indexShop).getCitta());
-	modificaFromNewNegozioPanel.setVisible(true);
-	creaFromCreaNegozioPanel.setVisible(false);
+        hideAll();
+        creaNegozioPanel.setVisible(true);
+        CodiceFiscaleField_NewNegozio.setText(m.getNegozi(indexShop).getCodiceFiscale());
+        nomeField_newNegozioPanel.setText(m.getNegozi(indexShop).getNome());
+        indirizzoField_newNegozioPanel.setText(m.getNegozi(indexShop).getindirizzo());
+        cittaField_NewNegozioPanel.setText(m.getNegozi(indexShop).getCitta());
+        modificaFromNewNegozioPanel.setVisible(true);
+        creaFromCreaNegozioPanel.setVisible(false);
     }//GEN-LAST:event_modificaButton_NegozioPanelActionPerformed
 
     private void modificaFromNewNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaFromNewNegozioPanelActionPerformed
-	String cf = CodiceFiscaleField_NewNegozio.getText();
-	String nome = nomeField_newNegozioPanel.getText();
-	String indirizzo = indirizzoField_newNegozioPanel.getText();
-	String citta = cittaField_NewNegozioPanel.getText();
+        String cf = CodiceFiscaleField_NewNegozio.getText();
+        String nome = nomeField_newNegozioPanel.getText();
+        String indirizzo = indirizzoField_newNegozioPanel.getText();
+        String citta = cittaField_NewNegozioPanel.getText();
 
-	m.getNegozi(indexShop).setCodiceFiscale(cf);
-	m.getNegozi(indexShop).setNome(nome);
-	m.getNegozi(indexShop).setIndirizzo(indirizzo);
-	m.getNegozi(indexShop).setCitta(citta);
+        m.getNegozi(indexShop).setCodiceFiscale(cf);
+        m.getNegozi(indexShop).setNome(nome);
+        m.getNegozi(indexShop).setIndirizzo(indirizzo);
+        m.getNegozi(indexShop).setCitta(citta);
 
-	CodiceFiscaleField_NewNegozio.setText("");
-	nomeField_newNegozioPanel.setText("");
-	indirizzoField_newNegozioPanel.setText("");
-	cittaField_NewNegozioPanel.setText("");
-	hideAll();
-	negoziPanel.setVisible(true);
-	negozi();
+        CodiceFiscaleField_NewNegozio.setText("");
+        nomeField_newNegozioPanel.setText("");
+        indirizzoField_newNegozioPanel.setText("");
+        cittaField_NewNegozioPanel.setText("");
+        hideAll();
+        negoziPanel.setVisible(true);
+        negozi();
     }//GEN-LAST:event_modificaFromNewNegozioPanelActionPerformed
 
     private void selezionaButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selezionaButton_NegozioPanelActionPerformed
-	String corriere = corriereField_NewOrderPanel.getText();
-	//Ordine n = m.addOrdine(new Ordine(m.getNegozi(indexShop)));
-	//m.createExit(m, n)
+        String corriere = corriereField_NewOrderPanel.getText();
+        //Ordine n = m.addOrdine(new Ordine(m.getNegozi(indexShop)));
+        //m.createExit(m, n)
     }//GEN-LAST:event_selezionaButton_NegozioPanelActionPerformed
 
     private void avantiButton_VisualizzaArticoloPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiButton_VisualizzaArticoloPanelActionPerformed
-	indexArticle++;
-	articoli();
+        indexArticle++;
+        articoli();
     }//GEN-LAST:event_avantiButton_VisualizzaArticoloPanelActionPerformed
 
     private void indietroButton_VisualizzaArticoloPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroButton_VisualizzaArticoloPanelActionPerformed
-	indexArticle--;
-	articoli();
+        indexArticle--;
+        articoli();
     }//GEN-LAST:event_indietroButton_VisualizzaArticoloPanelActionPerformed
 
     private void tennisRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tennisRadioButtonActionPerformed
-	// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_tennisRadioButtonActionPerformed
 
     private void inserisciButton_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserisciButton_newArticlePanelActionPerformed
 
-	//di default si assume che il nuoto e il polestere siano rispettivamente lo sport e il materiale di default
-	int tipoMateriale = 0;
-	int sport = 0;
+        //di default si assume che il nuoto e il polestere siano rispettivamente lo sport e il materiale di default
+        int tipoMateriale = 0;
+        int sport = 0;
 
-	//SPORT
-	if (nuotoRadioButton.isSelected()) {
-	    sport = 0;
-	}
-	if (calcioRadioButton.isSelected()) {
-	    sport = 1;
-	}
-	if (palestraRadioButton.isSelected()) {
-	    sport = 2;
-	}
-	if (tennisRadioButton.isSelected()) {
-	    sport = 3;
-	}
-	if (sciiRadioButton.isSelected()) {
-	    sport = 4;
-	}
-	if (basketRadioButton.isSelected()) {
-	    sport = 5;
-	}
-	if (pallavoloRadioButton.isSelected()) {
-	    sport = 6;
-	}
-	if (raftingRadioButton.isSelected()) {
-	    sport = 7;
-	}
-	if (ciclismoRadioButton.isSelected()) {
-	    sport = 8;
-	}
-	if (rugbyRadioButton.isSelected()) {
-	    sport = 9;
-	}
-	if (atleticaRadioButton.isSelected()) {
-	    sport = 10;
-	}
-	if (hockeyRadioButton.isSelected()) {
-	    sport = 11;
-	}
-	if (golfRadioButton.isSelected()) {
-	    sport = 12;
-	}
-	if (danzaRadioButton.isSelected()) {
-	    sport = 13;
-	}
+        //SPORT
+        if (nuotoRadioButton.isSelected()) {
+            sport = 0;
+        }
+        if (calcioRadioButton.isSelected()) {
+            sport = 1;
+        }
+        if (palestraRadioButton.isSelected()) {
+            sport = 2;
+        }
+        if (tennisRadioButton.isSelected()) {
+            sport = 3;
+        }
+        if (sciiRadioButton.isSelected()) {
+            sport = 4;
+        }
+        if (basketRadioButton.isSelected()) {
+            sport = 5;
+        }
+        if (pallavoloRadioButton.isSelected()) {
+            sport = 6;
+        }
+        if (raftingRadioButton.isSelected()) {
+            sport = 7;
+        }
+        if (ciclismoRadioButton.isSelected()) {
+            sport = 8;
+        }
+        if (rugbyRadioButton.isSelected()) {
+            sport = 9;
+        }
+        if (atleticaRadioButton.isSelected()) {
+            sport = 10;
+        }
+        if (hockeyRadioButton.isSelected()) {
+            sport = 11;
+        }
+        if (golfRadioButton.isSelected()) {
+            sport = 12;
+        }
+        if (danzaRadioButton.isSelected()) {
+            sport = 13;
+        }
 
-	//Materiali 
-	if (poliestereRadioButton.isSelected()) {
-	    tipoMateriale = 0;
-	}
-	if (siliconeRadioButton.isSelected()) {
-	    tipoMateriale = 1;
-	}
-	if (fintaPelleRadioButton.isSelected()) {
-	    tipoMateriale = 2;
-	}
-	if (goreTexRadioButton.isSelected()) {
-	    tipoMateriale = 3;
-	}
-	if (poliammideRadioButton.isSelected()) {
-	    tipoMateriale = 4;
-	}
-	if (polietileneRadioButton.isSelected()) {
-	    tipoMateriale = 5;
-	}
-	if (elastanRadioButton.isSelected()) {
-	    tipoMateriale = 6;
-	}
+        //Materiali 
+        if (poliestereRadioButton.isSelected()) {
+            tipoMateriale = 0;
+        }
+        if (siliconeRadioButton.isSelected()) {
+            tipoMateriale = 1;
+        }
+        if (fintaPelleRadioButton.isSelected()) {
+            tipoMateriale = 2;
+        }
+        if (goreTexRadioButton.isSelected()) {
+            tipoMateriale = 3;
+        }
+        if (poliammideRadioButton.isSelected()) {
+            tipoMateriale = 4;
+        }
+        if (polietileneRadioButton.isSelected()) {
+            tipoMateriale = 5;
+        }
+        if (elastanRadioButton.isSelected()) {
+            tipoMateriale = 6;
+        }
 
-	try {
-	    //prendo i dati inseriti
-	    String nome = nomeFieldTipoArticolo_newArticlePanel.getText();
-	    String descrizione = descrizioneFieldTipoArticolo_newArticlePanel.getText();
-	    int day = Integer.parseInt(dayField_newArticlePanel.getText());
-	    int month = Integer.parseInt(monthField_newArticlePanel.getText());
-	    int year = Integer.parseInt(yearField_newArticlePanel.getText());
-	    GregorianCalendar c = new GregorianCalendar(year, month, day);
-	    float prezzo = Float.parseFloat(prezzoField_newArticlePanel.getText());
+        try {
+            //prendo i dati inseriti
+            String nome = nomeFieldTipoArticolo_newArticlePanel.getText();
+            String descrizione = descrizioneFieldTipoArticolo_newArticlePanel.getText();
+            int day = Integer.parseInt(dayField_newArticlePanel.getText());
+            int month = Integer.parseInt(monthField_newArticlePanel.getText());
+            int year = Integer.parseInt(yearField_newArticlePanel.getText());
+            GregorianCalendar c = new GregorianCalendar(year, month, day);
+            float prezzo = Float.parseFloat(prezzoField_newArticlePanel.getText());
 
-	    //aggiungo l'articolo alla lista in magazzino
-	    m.addArticolo(new Articolo(prezzo, c, new TipoArticolo(nome, descrizione, sport, tipoMateriale)));
+            //aggiungo l'articolo alla lista in magazzino
+            m.addArticolo(new Articolo(prezzo, c, new TipoArticolo(nome, descrizione, sport, tipoMateriale)));
 
-	    nomeFieldTipoArticolo_newArticlePanel.setText("");
-	    descrizioneFieldTipoArticolo_newArticlePanel.setText("");
-	    prezzoField_newArticlePanel.setText("");
-	    dayField_newArticlePanel.setText("");
-	    monthField_newArticlePanel.setText("");
-	    yearField_newArticlePanel.setText("");
-	    poliestereRadioButton.setSelected(true);
-	    nuotoRadioButton.setSelected(true);
-	    hideAll();//nascondo tutto 
+            nomeFieldTipoArticolo_newArticlePanel.setText("");
+            descrizioneFieldTipoArticolo_newArticlePanel.setText("");
+            prezzoField_newArticlePanel.setText("");
+            dayField_newArticlePanel.setText("");
+            monthField_newArticlePanel.setText("");
+            yearField_newArticlePanel.setText("");
+            poliestereRadioButton.setSelected(true);
+            nuotoRadioButton.setSelected(true);
+            hideAll();//nascondo tutto 
 
-	    indexArticle = m.articoliSize() - 1;//faccio puntare all'ultimo prodotto creato
-	    articoli();//aggiorno la view degli articoli
-	    visualizzaArticoliPanel.setVisible(true);
-	} catch (Exception e) {
-	    nomeFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
-	    descrizioneFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
-	    prezzoField_newArticlePanel.setBackground(Color.red);
-	}
+            indexArticle = m.articoliSize() - 1;//faccio puntare all'ultimo prodotto creato
+            articoli();//aggiorno la view degli articoli
+            visualizzaArticoliPanel.setVisible(true);
+        } catch (Exception e) {
+            nomeFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
+            descrizioneFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
+            prezzoField_newArticlePanel.setBackground(Color.red);
+        }
 
     }//GEN-LAST:event_inserisciButton_newArticlePanelActionPerformed
 
     private void creaArticoloButtonViewArticoliPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaArticoloButtonViewArticoliPanelActionPerformed
-	hideAll();
-	modificaButton_newArticlePanel.setVisible(false);
-	inserisciButton_newArticlePanel.setVisible(true);
-	nuotoRadioButton.setSelected(true);
-	poliestereRadioButton.setSelected(true);
-	newArticlePanel.setVisible(true);
+        hideAll();
+        modificaButton_newArticlePanel.setVisible(false);
+        inserisciButton_newArticlePanel.setVisible(true);
+        nuotoRadioButton.setSelected(true);
+        poliestereRadioButton.setSelected(true);
+        newArticlePanel.setVisible(true);
     }//GEN-LAST:event_creaArticoloButtonViewArticoliPanelActionPerformed
 
     private void basketRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basketRadioButtonActionPerformed
-	// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_basketRadioButtonActionPerformed
 
     private void prezzoField_newArticlePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prezzoField_newArticlePanelMouseClicked
-	Color a = new Color(0, 153, 255);
-	prezzoField_newArticlePanel.setBackground(a);
+        Color a = new Color(0, 153, 255);
+        prezzoField_newArticlePanel.setBackground(a);
     }//GEN-LAST:event_prezzoField_newArticlePanelMouseClicked
 
     private void modificaButtonViewArticoliPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButtonViewArticoliPanelActionPerformed
-	hideAll();//nascondo tutto
+        hideAll();//nascondo tutto
 
-	newArticlePanel.setVisible(true);
+        newArticlePanel.setVisible(true);
 
-	//configuro il testo in base ai valori dell'oggetto
-	nomeFieldTipoArticolo_newArticlePanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getName());
-	descrizioneFieldTipoArticolo_newArticlePanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getDescription());
-	prezzoField_newArticlePanel.setText(m.getArticolo(indexArticle).getPrezzo() + "");
-	dayField_newArticlePanel.setText(m.getArticolo(indexArticle).getDay());
-	monthField_newArticlePanel.setText(m.getArticolo(indexArticle).getMonth());
-	yearField_newArticlePanel.setText(m.getArticolo(indexArticle).getYear());
-	inserisciButton_newArticlePanel.setVisible(false);
-	modificaButton_newArticlePanel.setVisible(true);
+        //configuro il testo in base ai valori dell'oggetto
+        nomeFieldTipoArticolo_newArticlePanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getName());
+        descrizioneFieldTipoArticolo_newArticlePanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getDescription());
+        prezzoField_newArticlePanel.setText(m.getArticolo(indexArticle).getPrezzo() + "");
+        dayField_newArticlePanel.setText(m.getArticolo(indexArticle).getDay());
+        monthField_newArticlePanel.setText(m.getArticolo(indexArticle).getMonth());
+        yearField_newArticlePanel.setText(m.getArticolo(indexArticle).getYear());
+        inserisciButton_newArticlePanel.setVisible(false);
+        modificaButton_newArticlePanel.setVisible(true);
 
-	switch (m.getArticolo(indexArticle).getTipoArticolo().getSports()) {
-	    case "Nuoto":
-		nuotoRadioButton.setSelected(true);
-		break;
-	    case "Calcio":
-		calcioRadioButton.setSelected(true);
-		break;
-	    case "Palestra":
-		palestraRadioButton.setSelected(true);
-		break;
-	    case "Tennis":
-		tennisRadioButton.setSelected(true);
-		break;
-	    case "Scii":
-		sciiRadioButton.setSelected(true);
-		break;
-	    case "Basket":
-		basketRadioButton.setSelected(true);
-		break;
-	    case "Rafting":
-		raftingRadioButton.setSelected(true);
-		break;
-	    case "Ciclismo":
-		ciclismoRadioButton.setSelected(true);
-		break;
-	    case "Rugby":
-		rugbyRadioButton.setSelected(true);
-		break;
-	    case "Atletica":
-		atleticaRadioButton.setSelected(true);
-		break;
-	    case "Hockey":
-		hockeyRadioButton.setSelected(true);
-		break;
-	    case "Golf":
-		golfRadioButton.setSelected(true);
-		break;
-	    case "Pallavolo":
-		pallavoloRadioButton.setSelected(true);
-		break;
-	    case "Danza":
-		danzaRadioButton.setSelected(true);
-		break;
-	}
+        switch (m.getArticolo(indexArticle).getTipoArticolo().getSports()) {
+            case "Nuoto":
+                nuotoRadioButton.setSelected(true);
+                break;
+            case "Calcio":
+                calcioRadioButton.setSelected(true);
+                break;
+            case "Palestra":
+                palestraRadioButton.setSelected(true);
+                break;
+            case "Tennis":
+                tennisRadioButton.setSelected(true);
+                break;
+            case "Scii":
+                sciiRadioButton.setSelected(true);
+                break;
+            case "Basket":
+                basketRadioButton.setSelected(true);
+                break;
+            case "Rafting":
+                raftingRadioButton.setSelected(true);
+                break;
+            case "Ciclismo":
+                ciclismoRadioButton.setSelected(true);
+                break;
+            case "Rugby":
+                rugbyRadioButton.setSelected(true);
+                break;
+            case "Atletica":
+                atleticaRadioButton.setSelected(true);
+                break;
+            case "Hockey":
+                hockeyRadioButton.setSelected(true);
+                break;
+            case "Golf":
+                golfRadioButton.setSelected(true);
+                break;
+            case "Pallavolo":
+                pallavoloRadioButton.setSelected(true);
+                break;
+            case "Danza":
+                danzaRadioButton.setSelected(true);
+                break;
+        }
 
-	switch (m.getArticolo(indexArticle).getTipoArticolo().getMaterial()) {
-	    case "Poliestere":
-		poliestereRadioButton.setSelected(true);
-		break;
-	    case "Silicone":
-		siliconeRadioButton.setSelected(true);
-		break;
-	    case "Finta Pelle":
-		fintaPelleRadioButton.setSelected(true);
-		break;
-	    case "GORE-TEX":
-		goreTexRadioButton.setSelected(true);
-		break;
-	    case "Elastan":
-		poliammideRadioButton.setSelected(true);
-		break;
-	    case "Polietilene":
-		polietileneRadioButton.setSelected(true);
-		break;
-	    case "Poliammide":
-		elastanRadioButton.setSelected(true);
-		break;
-	}
+        switch (m.getArticolo(indexArticle).getTipoArticolo().getMaterial()) {
+            case "Poliestere":
+                poliestereRadioButton.setSelected(true);
+                break;
+            case "Silicone":
+                siliconeRadioButton.setSelected(true);
+                break;
+            case "Finta Pelle":
+                fintaPelleRadioButton.setSelected(true);
+                break;
+            case "GORE-TEX":
+                goreTexRadioButton.setSelected(true);
+                break;
+            case "Elastan":
+                poliammideRadioButton.setSelected(true);
+                break;
+            case "Polietilene":
+                polietileneRadioButton.setSelected(true);
+                break;
+            case "Poliammide":
+                elastanRadioButton.setSelected(true);
+                break;
+        }
 
 
     }//GEN-LAST:event_modificaButtonViewArticoliPanelActionPerformed
 
 
     private void modificaButton_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButton_newArticlePanelActionPerformed
-	int tipoMateriale = 0;
-	int sport = 0;
+        int tipoMateriale = 0;
+        int sport = 0;
 
-	//SPORT
-	if (nuotoRadioButton.isSelected()) {
-	    sport = 0;
-	}
-	if (calcioRadioButton.isSelected()) {
-	    sport = 1;
-	}
-	if (palestraRadioButton.isSelected()) {
-	    sport = 2;
-	}
-	if (tennisRadioButton.isSelected()) {
-	    sport = 3;
-	}
-	if (sciiRadioButton.isSelected()) {
-	    sport = 4;
-	}
-	if (basketRadioButton.isSelected()) {
-	    sport = 5;
-	}
-	if (pallavoloRadioButton.isSelected()) {
-	    sport = 6;
-	}
-	if (raftingRadioButton.isSelected()) {
-	    sport = 7;
-	}
-	if (ciclismoRadioButton.isSelected()) {
-	    sport = 8;
-	}
-	if (rugbyRadioButton.isSelected()) {
-	    sport = 9;
-	}
-	if (atleticaRadioButton.isSelected()) {
-	    sport = 10;
-	}
-	if (hockeyRadioButton.isSelected()) {
-	    sport = 11;
-	}
-	if (golfRadioButton.isSelected()) {
-	    sport = 12;
-	}
-	if (danzaRadioButton.isSelected()) {
-	    sport = 13;
-	}
+        //SPORT
+        if (nuotoRadioButton.isSelected()) {
+            sport = 0;
+        }
+        if (calcioRadioButton.isSelected()) {
+            sport = 1;
+        }
+        if (palestraRadioButton.isSelected()) {
+            sport = 2;
+        }
+        if (tennisRadioButton.isSelected()) {
+            sport = 3;
+        }
+        if (sciiRadioButton.isSelected()) {
+            sport = 4;
+        }
+        if (basketRadioButton.isSelected()) {
+            sport = 5;
+        }
+        if (pallavoloRadioButton.isSelected()) {
+            sport = 6;
+        }
+        if (raftingRadioButton.isSelected()) {
+            sport = 7;
+        }
+        if (ciclismoRadioButton.isSelected()) {
+            sport = 8;
+        }
+        if (rugbyRadioButton.isSelected()) {
+            sport = 9;
+        }
+        if (atleticaRadioButton.isSelected()) {
+            sport = 10;
+        }
+        if (hockeyRadioButton.isSelected()) {
+            sport = 11;
+        }
+        if (golfRadioButton.isSelected()) {
+            sport = 12;
+        }
+        if (danzaRadioButton.isSelected()) {
+            sport = 13;
+        }
 
-	//MATERIALI
-	if (poliestereRadioButton.isSelected()) {
-	    tipoMateriale = 0;
-	}
-	if (siliconeRadioButton.isSelected()) {
-	    tipoMateriale = 1;
-	}
-	if (fintaPelleRadioButton.isSelected()) {
-	    tipoMateriale = 2;
-	}
-	if (goreTexRadioButton.isSelected()) {
-	    tipoMateriale = 3;
-	}
-	if (poliammideRadioButton.isSelected()) {
-	    tipoMateriale = 4;
-	}
-	if (polietileneRadioButton.isSelected()) {
-	    tipoMateriale = 5;
-	}
-	if (elastanRadioButton.isSelected()) {
-	    tipoMateriale = 6;
-	}
+        //MATERIALI
+        if (poliestereRadioButton.isSelected()) {
+            tipoMateriale = 0;
+        }
+        if (siliconeRadioButton.isSelected()) {
+            tipoMateriale = 1;
+        }
+        if (fintaPelleRadioButton.isSelected()) {
+            tipoMateriale = 2;
+        }
+        if (goreTexRadioButton.isSelected()) {
+            tipoMateriale = 3;
+        }
+        if (poliammideRadioButton.isSelected()) {
+            tipoMateriale = 4;
+        }
+        if (polietileneRadioButton.isSelected()) {
+            tipoMateriale = 5;
+        }
+        if (elastanRadioButton.isSelected()) {
+            tipoMateriale = 6;
+        }
 
-	try {
-	    //prendo i dati inseriti
-	    String nome = nomeFieldTipoArticolo_newArticlePanel.getText();
-	    String descrizione = descrizioneFieldTipoArticolo_newArticlePanel.getText();
-	    int day = Integer.parseInt(dayField_newArticlePanel.getText());
-	    int month = Integer.parseInt(monthField_newArticlePanel.getText());
-	    int year = Integer.parseInt(yearField_newArticlePanel.getText());
-	    float prezzo = Float.parseFloat(prezzoField_newArticlePanel.getText());
+        try {
+            //prendo i dati inseriti
+            String nome = nomeFieldTipoArticolo_newArticlePanel.getText();
+            String descrizione = descrizioneFieldTipoArticolo_newArticlePanel.getText();
+            int day = Integer.parseInt(dayField_newArticlePanel.getText());
+            int month = Integer.parseInt(monthField_newArticlePanel.getText());
+            int year = Integer.parseInt(yearField_newArticlePanel.getText());
+            float prezzo = Float.parseFloat(prezzoField_newArticlePanel.getText());
 
-	    //per comodità modifico tutto
-	    m.getArticolo(indexArticle).setData(year, month, day);
-	    m.getArticolo(indexArticle).setPrezzo(prezzo);
-	    m.getArticolo(indexArticle).setTipoArticolo(new TipoArticolo(nome, descrizione, sport, tipoMateriale));
+            //per comodità modifico tutto
+            m.getArticolo(indexArticle).setData(year, month, day);
+            m.getArticolo(indexArticle).setPrezzo(prezzo);
+            m.getArticolo(indexArticle).setTipoArticolo(new TipoArticolo(nome, descrizione, sport, tipoMateriale));
 
-	    nomeFieldTipoArticolo_newArticlePanel.setText("");
-	    descrizioneFieldTipoArticolo_newArticlePanel.setText("");
-	    prezzoField_newArticlePanel.setText("");
-	    dayField_newArticlePanel.setText("");
-	    monthField_newArticlePanel.setText("");
-	    yearField_newArticlePanel.setText("");
-	    poliestereRadioButton.setSelected(true);
-	    nuotoRadioButton.setSelected(true);
+            nomeFieldTipoArticolo_newArticlePanel.setText("");
+            descrizioneFieldTipoArticolo_newArticlePanel.setText("");
+            prezzoField_newArticlePanel.setText("");
+            dayField_newArticlePanel.setText("");
+            monthField_newArticlePanel.setText("");
+            yearField_newArticlePanel.setText("");
+            poliestereRadioButton.setSelected(true);
+            nuotoRadioButton.setSelected(true);
 
-	    hideAll();//nascondo tutto
-	    articoli();//aggiorno la view di articoli
-	    //visualizzo gli articoli
-	    visualizzaArticoliPanel.setVisible(true);
-	} catch (NumberFormatException e) {
-	    nomeFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
-	    descrizioneFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
-	    prezzoField_newArticlePanel.setBackground(Color.red);
-	}
+            hideAll();//nascondo tutto
+            articoli();//aggiorno la view di articoli
+            //visualizzo gli articoli
+            visualizzaArticoliPanel.setVisible(true);
+        } catch (NumberFormatException e) {
+            nomeFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
+            descrizioneFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
+            prezzoField_newArticlePanel.setBackground(Color.red);
+        }
     }//GEN-LAST:event_modificaButton_newArticlePanelActionPerformed
 
     private void dataOdierna_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataOdierna_newArticlePanelActionPerformed
-	GregorianCalendar c = new GregorianCalendar(); //prendo la data attuale
-	//e stampo la data attuale
-	dayField_newArticlePanel.setText("" + c.get(GregorianCalendar.DATE));
-	monthField_newArticlePanel.setText("" + c.get(GregorianCalendar.MONTH));
-	yearField_newArticlePanel.setText("" + c.get(GregorianCalendar.YEAR));
+        GregorianCalendar c = new GregorianCalendar(); //prendo la data attuale
+        //e stampo la data attuale
+        dayField_newArticlePanel.setText("" + c.get(GregorianCalendar.DATE));
+        monthField_newArticlePanel.setText("" + c.get(GregorianCalendar.MONTH));
+        yearField_newArticlePanel.setText("" + c.get(GregorianCalendar.YEAR));
     }//GEN-LAST:event_dataOdierna_newArticlePanelActionPerformed
 
     //pulsante esci nel pannello per creare un articolo
     private void cancellaButton_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancellaButton_newArticlePanelActionPerformed
-	nuotoRadioButton.setSelected(false);
-	calcioRadioButton.setSelected(false);
-	palestraRadioButton.setSelected(false);
-	tennisRadioButton.setSelected(false);
-	sciiRadioButton.setSelected(false);
-	basketRadioButton.setSelected(false);
-	pallavoloRadioButton.setSelected(false);
-	raftingRadioButton.setSelected(false);
-	ciclismoRadioButton.setSelected(false);
-	rugbyRadioButton.setSelected(false);
-	atleticaRadioButton.setSelected(false);
-	hockeyRadioButton.setSelected(false);
-	golfRadioButton.setSelected(false);
-	danzaRadioButton.setSelected(false);
+        nuotoRadioButton.setSelected(false);
+        calcioRadioButton.setSelected(false);
+        palestraRadioButton.setSelected(false);
+        tennisRadioButton.setSelected(false);
+        sciiRadioButton.setSelected(false);
+        basketRadioButton.setSelected(false);
+        pallavoloRadioButton.setSelected(false);
+        raftingRadioButton.setSelected(false);
+        ciclismoRadioButton.setSelected(false);
+        rugbyRadioButton.setSelected(false);
+        atleticaRadioButton.setSelected(false);
+        hockeyRadioButton.setSelected(false);
+        golfRadioButton.setSelected(false);
+        danzaRadioButton.setSelected(false);
 
-	poliestereRadioButton.setSelected(false);
-	siliconeRadioButton.setSelected(false);
-	fintaPelleRadioButton.setSelected(false);
-	goreTexRadioButton.setSelected(false);
-	poliammideRadioButton.setSelected(false);
-	polietileneRadioButton.setSelected(false);
-	elastanRadioButton.setSelected(false);
+        poliestereRadioButton.setSelected(false);
+        siliconeRadioButton.setSelected(false);
+        fintaPelleRadioButton.setSelected(false);
+        goreTexRadioButton.setSelected(false);
+        poliammideRadioButton.setSelected(false);
+        polietileneRadioButton.setSelected(false);
+        elastanRadioButton.setSelected(false);
 
-	nomeFieldTipoArticolo_newArticlePanel.setText("");
-	descrizioneFieldTipoArticolo_newArticlePanel.setText("");
-	prezzoField_newArticlePanel.setText("");
-	dayField_newArticlePanel.setText("");
-	monthField_newArticlePanel.setText("");
-	yearField_newArticlePanel.setText("");
-	hideAll();
-	visualizzaArticoliPanel.setVisible(true);
-	articoli();
+        nomeFieldTipoArticolo_newArticlePanel.setText("");
+        descrizioneFieldTipoArticolo_newArticlePanel.setText("");
+        prezzoField_newArticlePanel.setText("");
+        dayField_newArticlePanel.setText("");
+        monthField_newArticlePanel.setText("");
+        yearField_newArticlePanel.setText("");
+        hideAll();
+        visualizzaArticoliPanel.setVisible(true);
+        articoli();
     }//GEN-LAST:event_cancellaButton_newArticlePanelActionPerformed
 
     //Nel pannello creaArticolo quando si genera un'eccezzione i campi di testo si colorano da neri a rossi e quando clicco sui i campi per modificarne il valore li ricoloro di nero e cancello la scritta di errore
     private void nomeFieldTipoArticolo_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFieldTipoArticolo_newArticlePanelActionPerformed
-	nomeFieldTipoArticolo_newArticlePanel.setBackground(Color.BLACK);
+        nomeFieldTipoArticolo_newArticlePanel.setBackground(Color.BLACK);
     }//GEN-LAST:event_nomeFieldTipoArticolo_newArticlePanelActionPerformed
 
     private void descrizioneFieldTipoArticolo_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descrizioneFieldTipoArticolo_newArticlePanelActionPerformed
-	descrizioneFieldTipoArticolo_newArticlePanel.setBackground(Color.BLACK);
+        descrizioneFieldTipoArticolo_newArticlePanel.setBackground(Color.BLACK);
     }//GEN-LAST:event_descrizioneFieldTipoArticolo_newArticlePanelActionPerformed
 
     private void prezzoField_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prezzoField_newArticlePanelActionPerformed
-	prezzoField_newArticlePanel.setBackground(Color.BLACK);
+        prezzoField_newArticlePanel.setBackground(Color.BLACK);
     }//GEN-LAST:event_prezzoField_newArticlePanelActionPerformed
 
     private void corriereField_NewOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corriereField_NewOrderPanelActionPerformed
-	Color c = new Color(255, 255, 0);
-	corriereField_NewOrderPanel.setBackground(c);
+        Color c = new Color(255, 255, 0);
+        corriereField_NewOrderPanel.setBackground(c);
     }//GEN-LAST:event_corriereField_NewOrderPanelActionPerformed
 
     private void creaOrdineButton_orderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaOrdineButton_orderViewPanelActionPerformed
-	Color C = new Color(255, 255, 0);
-	quantitaField1.setBackground(C);
-	quantitaField2.setBackground(C);
-	quantitaField3.setBackground(C);
-	quantitaField4.setBackground(C);
-	quantitaField5.setBackground(C);
-	quantitaField6.setBackground(C);
-	quantitaField7.setBackground(C);
-	quantitaField8.setBackground(C);
-	quantitaField9.setBackground(C);
-	quantitaField10.setBackground(C);
+        Color C = new Color(255, 255, 0);
+        quantitaField1.setBackground(C);
+        quantitaField2.setBackground(C);
+        quantitaField3.setBackground(C);
+        quantitaField4.setBackground(C);
+        quantitaField5.setBackground(C);
+        quantitaField6.setBackground(C);
+        quantitaField7.setBackground(C);
+        quantitaField8.setBackground(C);
+        quantitaField9.setBackground(C);
+        quantitaField10.setBackground(C);
 
-	String corriere = corriereField_NewOrderPanel.getText();
+        String corriere = corriereField_NewOrderPanel.getText();
 
-	if (corriere.equals("") && corriere.equals(" ")) {//controllo che sia stato inserito un corriere valido
-	    JOptionPane.showMessageDialog(null, "Inserire un campo corriere valido! ");
-	    corriereField_NewOrderPanel.setBackground(Color.red);
-	    return;
-	}
+        if (corriere.equals("") && corriere.equals(" ")) {//controllo che sia stato inserito un corriere valido
+            JOptionPane.showMessageDialog(null, "Inserire un campo corriere valido! ");
+            corriereField_NewOrderPanel.setBackground(Color.red);
+            return;
+        }
 
-	String negozio = (String) ComboBoxNegozio.getSelectedItem();
-	Negozio x = m.negozioContainedByName(negozio);
+        String negozio = (String) ComboBoxNegozio.getSelectedItem();
+        Negozio x = m.negozioContainedByName(negozio);
 
-	Map<Articolo, Integer> articoliAndQuantita = new HashMap<>();
+        Map<Articolo, Integer> articoliAndQuantita = new HashMap<>();
 
-	int quantita1;
-	int quantita2;
-	int quantita3;
-	int quantita4;
-	int quantita5;
-	int quantita6;
-	int quantita7;
-	int quantita8;
-	int quantita9;
-	int quantita10;
+        int quantita1;
+        int quantita2;
+        int quantita3;
+        int quantita4;
+        int quantita5;
+        int quantita6;
+        int quantita7;
+        int quantita8;
+        int quantita9;
+        int quantita10;
 
-	String articolo1 = (String) comboBoxArticoli1.getSelectedItem();
-	String articolo2 = (String) comboBoxArticoli2.getSelectedItem();
-	String articolo3 = (String) comboBoxArticoli3.getSelectedItem();
-	String articolo4 = (String) comboBoxArticoli4.getSelectedItem();
-	String articolo5 = (String) comboBoxArticoli5.getSelectedItem();
-	String articolo6 = (String) comboBoxArticoli6.getSelectedItem();
-	String articolo7 = (String) comboBoxArticoli7.getSelectedItem();
-	String articolo8 = (String) comboBoxArticoli8.getSelectedItem();
-	String articolo9 = (String) comboBoxArticoli9.getSelectedItem();
-	String articolo10 = (String) comboBoxArticoli10.getSelectedItem();
+        String articolo1 = (String) comboBoxArticoli1.getSelectedItem();
+        String articolo2 = (String) comboBoxArticoli2.getSelectedItem();
+        String articolo3 = (String) comboBoxArticoli3.getSelectedItem();
+        String articolo4 = (String) comboBoxArticoli4.getSelectedItem();
+        String articolo5 = (String) comboBoxArticoli5.getSelectedItem();
+        String articolo6 = (String) comboBoxArticoli6.getSelectedItem();
+        String articolo7 = (String) comboBoxArticoli7.getSelectedItem();
+        String articolo8 = (String) comboBoxArticoli8.getSelectedItem();
+        String articolo9 = (String) comboBoxArticoli9.getSelectedItem();
+        String articolo10 = (String) comboBoxArticoli10.getSelectedItem();
 
-	//cerco gli articoli dal nome e mi faccio restituire l'oggetto di tipo articolo
-	try {
-	    Articolo a1 = m.articoloContainedByName(articolo1);
-	    Articolo a2 = m.articoloContainedByName(articolo2);
-	    Articolo a3 = m.articoloContainedByName(articolo3);
-	    Articolo a4 = m.articoloContainedByName(articolo4);
-	    Articolo a5 = m.articoloContainedByName(articolo5);
-	    Articolo a6 = m.articoloContainedByName(articolo6);
-	    Articolo a7 = m.articoloContainedByName(articolo7);
-	    Articolo a8 = m.articoloContainedByName(articolo8);
-	    Articolo a9 = m.articoloContainedByName(articolo9);
-	    Articolo a10 = m.articoloContainedByName(articolo10);
+        //cerco gli articoli dal nome e mi faccio restituire l'oggetto di tipo articolo
+        try {
+            Articolo a1 = m.articoloContainedByName(articolo1);
+            Articolo a2 = m.articoloContainedByName(articolo2);
+            Articolo a3 = m.articoloContainedByName(articolo3);
+            Articolo a4 = m.articoloContainedByName(articolo4);
+            Articolo a5 = m.articoloContainedByName(articolo5);
+            Articolo a6 = m.articoloContainedByName(articolo6);
+            Articolo a7 = m.articoloContainedByName(articolo7);
+            Articolo a8 = m.articoloContainedByName(articolo8);
+            Articolo a9 = m.articoloContainedByName(articolo9);
+            Articolo a10 = m.articoloContainedByName(articolo10);
 
-	    quantita1 = quantitaField1.getText().equals("") || quantitaField1.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField1.getText());
-	    quantita2 = quantitaField2.getText().equals("") || quantitaField2.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField2.getText());
-	    quantita3 = quantitaField3.getText().equals("") || quantitaField3.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField3.getText());
-	    quantita4 = quantitaField4.getText().equals("") || quantitaField4.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField4.getText());
-	    quantita5 = quantitaField5.getText().equals("") || quantitaField5.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField5.getText());
-	    quantita6 = quantitaField6.getText().equals("") || quantitaField6.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField6.getText());
-	    quantita7 = quantitaField7.getText().equals("") || quantitaField7.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField7.getText());
-	    quantita8 = quantitaField8.getText().equals("") || quantitaField8.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField8.getText());
-	    quantita9 = quantitaField9.getText().equals("") || quantitaField9.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField9.getText());
-	    quantita10 = quantitaField10.getText().equals("") || quantitaField10.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField10.getText());
+            quantita1 = quantitaField1.getText().equals("") || quantitaField1.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField1.getText());
+            quantita2 = quantitaField2.getText().equals("") || quantitaField2.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField2.getText());
+            quantita3 = quantitaField3.getText().equals("") || quantitaField3.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField3.getText());
+            quantita4 = quantitaField4.getText().equals("") || quantitaField4.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField4.getText());
+            quantita5 = quantitaField5.getText().equals("") || quantitaField5.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField5.getText());
+            quantita6 = quantitaField6.getText().equals("") || quantitaField6.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField6.getText());
+            quantita7 = quantitaField7.getText().equals("") || quantitaField7.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField7.getText());
+            quantita8 = quantitaField8.getText().equals("") || quantitaField8.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField8.getText());
+            quantita9 = quantitaField9.getText().equals("") || quantitaField9.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField9.getText());
+            quantita10 = quantitaField10.getText().equals("") || quantitaField10.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField10.getText());
 
-	    if (quantita1 != 0) {
-		articoliAndQuantita.put(a1, quantita1);
-	    }
+            if (quantita1 != 0) {
+                articoliAndQuantita.put(a1, quantita1);
+            }
 
-	    if (quantita2 != 0) {
-		if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
-		{
-		    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
-		} else {
-		    articoliAndQuantita.put(a2, quantita2);
-		}
-	    }
+            if (quantita2 != 0) {
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
+            }
 
-	    if (quantita3 != 0) {
-		if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
-		{
-		    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
-		} else {
-		    articoliAndQuantita.put(a2, quantita2);
-		}
-	    }
+            if (quantita3 != 0) {
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
+            }
 
-	    if (quantita4 != 0) {
-		if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
-		{
-		    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
-		} else {
-		    articoliAndQuantita.put(a2, quantita2);
-		}
-	    }
+            if (quantita4 != 0) {
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
+            }
 
-	    if (quantita5 != 0) {
-		if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
-		{
-		    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
-		} else {
-		    articoliAndQuantita.put(a2, quantita2);
-		}
-	    }
+            if (quantita5 != 0) {
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
+            }
 
-	    if (quantita6 != 0) {
-		if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
-		{
-		    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
-		} else {
-		    articoliAndQuantita.put(a2, quantita2);
-		}
-	    }
+            if (quantita6 != 0) {
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
+            }
 
-	    if (quantita7 != 0) {
-		if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
-		{
-		    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
-		} else {
-		    articoliAndQuantita.put(a2, quantita2);
-		}
-	    }
+            if (quantita7 != 0) {
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
+            }
 
-	    if (quantita8 != 0) {
-		if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
-		{
-		    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
-		} else {
-		    articoliAndQuantita.put(a2, quantita2);
-		}
-	    }
+            if (quantita8 != 0) {
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
+            }
 
-	    if (quantita9 != 0) {
-		if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
-		{
-		    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
-		} else {
-		    articoliAndQuantita.put(a2, quantita2);
-		}
-	    }
+            if (quantita9 != 0) {
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
+            }
 
-	    if (quantita10 != 0) {
-		if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
-		{
-		    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
-		} else {
-		    articoliAndQuantita.put(a2, quantita2);
-		}
-	    }
+            if (quantita10 != 0) {
+                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                } else {
+                    articoliAndQuantita.put(a2, quantita2);
+                }
+            }
 
-	    Ordine o1 = new Ordine(x, new GregorianCalendar(), articoliAndQuantita);
-	    m.addOrdine(o1);
+            Ordine o1 = new Ordine(x, new GregorianCalendar(), articoliAndQuantita);
+            m.addOrdine(o1);
 
-	} catch (ArticleDontExistInWareHouseException | HeadlessException e) {
-	    JOptionPane.showMessageDialog(null, "Eccezzione");
-	    quantitaField1.setBackground(Color.red);
-	    quantitaField2.setBackground(Color.red);
-	    quantitaField3.setBackground(Color.red);
-	    quantitaField4.setBackground(Color.red);
-	    quantitaField5.setBackground(Color.red);
-	    quantitaField6.setBackground(Color.red);
-	    quantitaField7.setBackground(Color.red);
-	    quantitaField8.setBackground(Color.red);
-	    quantitaField9.setBackground(Color.red);
-	    quantitaField10.setBackground(Color.red);
-	} finally {
-	    indexOrder = m.ordineSize() - 1;
+        } catch (ArticleDontExistInWareHouseException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Eccezzione");
+            quantitaField1.setBackground(Color.red);
+            quantitaField2.setBackground(Color.red);
+            quantitaField3.setBackground(Color.red);
+            quantitaField4.setBackground(Color.red);
+            quantitaField5.setBackground(Color.red);
+            quantitaField6.setBackground(Color.red);
+            quantitaField7.setBackground(Color.red);
+            quantitaField8.setBackground(Color.red);
+            quantitaField9.setBackground(Color.red);
+            quantitaField10.setBackground(Color.red);
+        } finally {
+            indexOrder = m.ordineSize() - 1;
 
-	    hideAll();
-	    ordini();
-	    visualizzaOrdiniPanel.setVisible(true);
+            hideAll();
+            ordini();
+            visualizzaOrdiniPanel.setVisible(true);
 
-	    corriereField_NewOrderPanel.setText("");
-	    quantitaField1.setBackground(C);
-	    quantitaField2.setBackground(C);
-	    quantitaField3.setBackground(C);
-	    quantitaField4.setBackground(C);
-	    quantitaField5.setBackground(C);
-	    quantitaField6.setBackground(C);
-	    quantitaField7.setBackground(C);
-	    quantitaField8.setBackground(C);
-	    quantitaField9.setBackground(C);
-	    quantitaField10.setBackground(C);
-	    quantitaField1.setText("");
-	    quantitaField2.setText("");
-	    quantitaField3.setText("");
-	    quantitaField4.setText("");
-	    quantitaField5.setText("");
-	    quantitaField6.setText("");
-	    quantitaField7.setText("");
-	    quantitaField8.setText("");
-	    quantitaField9.setText("");
-	    quantitaField10.setText("");
-	}
+            corriereField_NewOrderPanel.setText("");
+            quantitaField1.setBackground(C);
+            quantitaField2.setBackground(C);
+            quantitaField3.setBackground(C);
+            quantitaField4.setBackground(C);
+            quantitaField5.setBackground(C);
+            quantitaField6.setBackground(C);
+            quantitaField7.setBackground(C);
+            quantitaField8.setBackground(C);
+            quantitaField9.setBackground(C);
+            quantitaField10.setBackground(C);
+            quantitaField1.setText("");
+            quantitaField2.setText("");
+            quantitaField3.setText("");
+            quantitaField4.setText("");
+            quantitaField5.setText("");
+            quantitaField6.setText("");
+            quantitaField7.setText("");
+            quantitaField8.setText("");
+            quantitaField9.setText("");
+            quantitaField10.setText("");
+        }
     }//GEN-LAST:event_creaOrdineButton_orderViewPanelActionPerformed
 
     private void ComboBoxNegozioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxNegozioActionPerformed
@@ -2482,722 +2552,991 @@ public class Graphics extends javax.swing.JFrame {
 
     //ogni volta che l'utente preme aggiungi articolo per rendere visibile una seconda riga di articolo controllo se il primo è stato compilato correttamente
     private void addArticleButton_newOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArticleButton_newOrderPanelActionPerformed
-	Color x = new Color(255, 255, 0);
-	quantitaField1.setBackground(x);
-	quantitaField2.setBackground(x);
-	quantitaField3.setBackground(x);
-	quantitaField4.setBackground(x);
-	quantitaField5.setBackground(x);
-	quantitaField6.setBackground(x);
-	quantitaField7.setBackground(x);
-	quantitaField8.setBackground(x);
-	quantitaField9.setBackground(x);
-	quantitaField10.setBackground(x);
+        Color x = new Color(255, 255, 0);
+        quantitaField1.setBackground(x);
+        quantitaField2.setBackground(x);
+        quantitaField3.setBackground(x);
+        quantitaField4.setBackground(x);
+        quantitaField5.setBackground(x);
+        quantitaField6.setBackground(x);
+        quantitaField7.setBackground(x);
+        quantitaField8.setBackground(x);
+        quantitaField9.setBackground(x);
+        quantitaField10.setBackground(x);
 
-	switch (orderArticleSelected) {
-	    case 1:
-		try {
-		    if (Integer.parseInt(quantitaField1.getText()) > 0) {
-			comboBoxArticoli2.setEnabled(true);
-			quantitaField2.setEnabled(true);
-			orderArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
-			quantitaField1.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    quantitaField1.setBackground(Color.red);
-		} finally {
-		    break;
-		}
+        switch (orderArticleSelected) {
+            case 1:
+                try {
+                    if (Integer.parseInt(quantitaField1.getText()) > 0) {
+                        comboBoxArticoli2.setEnabled(true);
+                        quantitaField2.setEnabled(true);
+                        orderArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        quantitaField1.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    quantitaField1.setBackground(Color.red);
+                } finally {
+                    break;
+                }
 
-	    case 2:
-		try {
-		    if (Integer.parseInt(quantitaField2.getText()) > 0) {
-			comboBoxArticoli3.setEnabled(true);
-			quantitaField3.setEnabled(true);
-			orderArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
-			quantitaField2.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    quantitaField2.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 3:
-		try {
-		    if (Integer.parseInt(quantitaField3.getText()) > 0) {
-			comboBoxArticoli4.setEnabled(true);
-			quantitaField4.setEnabled(true);
-			orderArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
-			quantitaField3.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    quantitaField3.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 4:
-		try {
-		    if (Integer.parseInt(quantitaField4.getText()) > 0) {
-			comboBoxArticoli5.setEnabled(true);
-			quantitaField5.setEnabled(true);
-			orderArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
-			quantitaField4.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    quantitaField4.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 5:
-		try {
-		    if (Integer.parseInt(quantitaField5.getText()) > 0) {
-			comboBoxArticoli6.setEnabled(true);
-			quantitaField6.setEnabled(true);
-			orderArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
-			quantitaField5.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    quantitaField5.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 6:
-		try {
-		    if (Integer.parseInt(quantitaField6.getText()) > 0) {
-			comboBoxArticoli7.setEnabled(true);
-			quantitaField7.setEnabled(true);
-			orderArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
-			quantitaField6.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    quantitaField6.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 7:
-		try {
-		    if (Integer.parseInt(quantitaField7.getText()) > 0) {
-			comboBoxArticoli8.setEnabled(true);
-			quantitaField8.setEnabled(true);
-			orderArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
-			quantitaField7.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    quantitaField7.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 8:
-		try {
-		    if (Integer.parseInt(quantitaField8.getText()) > 0) {
-			comboBoxArticoli9.setEnabled(true);
-			quantitaField9.setEnabled(true);
-			orderArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
-			quantitaField8.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    quantitaField8.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 9:
-		try {
-		    if (Integer.parseInt(quantitaField9.getText()) > 0) {
-			comboBoxArticoli10.setEnabled(true);
-			quantitaField10.setEnabled(true);
-			orderArticleSelected++;
-			addArticleButton_newOrderPanel.setEnabled(false);
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
-			quantitaField9.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    quantitaField9.setBackground(Color.red);
-		} finally {
-		    break;
-		}
+            case 2:
+                try {
+                    if (Integer.parseInt(quantitaField2.getText()) > 0) {
+                        comboBoxArticoli3.setEnabled(true);
+                        quantitaField3.setEnabled(true);
+                        orderArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        quantitaField2.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    quantitaField2.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 3:
+                try {
+                    if (Integer.parseInt(quantitaField3.getText()) > 0) {
+                        comboBoxArticoli4.setEnabled(true);
+                        quantitaField4.setEnabled(true);
+                        orderArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        quantitaField3.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    quantitaField3.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 4:
+                try {
+                    if (Integer.parseInt(quantitaField4.getText()) > 0) {
+                        comboBoxArticoli5.setEnabled(true);
+                        quantitaField5.setEnabled(true);
+                        orderArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        quantitaField4.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    quantitaField4.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 5:
+                try {
+                    if (Integer.parseInt(quantitaField5.getText()) > 0) {
+                        comboBoxArticoli6.setEnabled(true);
+                        quantitaField6.setEnabled(true);
+                        orderArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        quantitaField5.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    quantitaField5.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 6:
+                try {
+                    if (Integer.parseInt(quantitaField6.getText()) > 0) {
+                        comboBoxArticoli7.setEnabled(true);
+                        quantitaField7.setEnabled(true);
+                        orderArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        quantitaField6.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    quantitaField6.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 7:
+                try {
+                    if (Integer.parseInt(quantitaField7.getText()) > 0) {
+                        comboBoxArticoli8.setEnabled(true);
+                        quantitaField8.setEnabled(true);
+                        orderArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        quantitaField7.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    quantitaField7.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 8:
+                try {
+                    if (Integer.parseInt(quantitaField8.getText()) > 0) {
+                        comboBoxArticoli9.setEnabled(true);
+                        quantitaField9.setEnabled(true);
+                        orderArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        quantitaField8.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    quantitaField8.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 9:
+                try {
+                    if (Integer.parseInt(quantitaField9.getText()) > 0) {
+                        comboBoxArticoli10.setEnabled(true);
+                        quantitaField10.setEnabled(true);
+                        orderArticleSelected++;
+                        addArticleButton_newOrderPanel.setEnabled(false);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+                        quantitaField9.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    quantitaField9.setBackground(Color.red);
+                } finally {
+                    break;
+                }
 
-	}
+        }
     }//GEN-LAST:event_addArticleButton_newOrderPanelActionPerformed
 
     private void quantitaField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField1ActionPerformed
-	Color x = new Color(255, 255, 0);
-	quantitaField1.setBackground(x);
+        Color x = new Color(255, 255, 0);
+        quantitaField1.setBackground(x);
     }//GEN-LAST:event_quantitaField1ActionPerformed
 
     private void quantitaField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField2ActionPerformed
-	Color x = new Color(255, 255, 0);
-	quantitaField2.setBackground(x);
+        Color x = new Color(255, 255, 0);
+        quantitaField2.setBackground(x);
     }//GEN-LAST:event_quantitaField2ActionPerformed
 
     private void quantitaField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField3ActionPerformed
-	Color x = new Color(255, 255, 0);
-	quantitaField3.setBackground(x);
+        Color x = new Color(255, 255, 0);
+        quantitaField3.setBackground(x);
     }//GEN-LAST:event_quantitaField3ActionPerformed
 
     private void quantitaField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField4ActionPerformed
-	Color x = new Color(255, 255, 0);
-	quantitaField4.setBackground(x);
+        Color x = new Color(255, 255, 0);
+        quantitaField4.setBackground(x);
     }//GEN-LAST:event_quantitaField4ActionPerformed
 
     private void quantitaField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField5ActionPerformed
-	Color x = new Color(255, 255, 0);
-	quantitaField5.setBackground(x);
+        Color x = new Color(255, 255, 0);
+        quantitaField5.setBackground(x);
     }//GEN-LAST:event_quantitaField5ActionPerformed
 
     private void quantitaField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField6ActionPerformed
-	Color x = new Color(255, 255, 0);
-	quantitaField6.setBackground(x);
+        Color x = new Color(255, 255, 0);
+        quantitaField6.setBackground(x);
     }//GEN-LAST:event_quantitaField6ActionPerformed
 
     private void quantitaField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField7ActionPerformed
-	Color x = new Color(255, 255, 0);
-	quantitaField7.setBackground(x);
+        Color x = new Color(255, 255, 0);
+        quantitaField7.setBackground(x);
     }//GEN-LAST:event_quantitaField7ActionPerformed
 
     private void quantitaField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField8ActionPerformed
-	Color x = new Color(255, 255, 0);
-	quantitaField8.setBackground(x);
+        Color x = new Color(255, 255, 0);
+        quantitaField8.setBackground(x);
     }//GEN-LAST:event_quantitaField8ActionPerformed
 
     private void quantitaField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField9ActionPerformed
-	Color x = new Color(255, 255, 0);
-	quantitaField9.setBackground(x);
+        Color x = new Color(255, 255, 0);
+        quantitaField9.setBackground(x);
     }//GEN-LAST:event_quantitaField9ActionPerformed
 
     private void quantitaField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField10ActionPerformed
-	Color x = new Color(255, 255, 0);
-	quantitaField10.setBackground(x);
+        Color x = new Color(255, 255, 0);
+        quantitaField10.setBackground(x);
     }//GEN-LAST:event_quantitaField10ActionPerformed
 
     private void creaIngressoButtonIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaIngressoButtonIngressoPanelActionPerformed
-	Map<Articolo, Integer> posizioni = new TreeMap<>();
-	Map<Articolo, Integer> quantita = new TreeMap<>();
+        try {
+            Map<Articolo, Integer> posizioni = new TreeMap<>();
+            Map<Articolo, Integer> quantita = new TreeMap<>();
+            Color C = new Color(204, 0, 204);//[204,0,204]
+
+            //COLORO I TESTI DELLO SFONDO DEL PANNELLO
+            posizione1Field_newIngressoPanel.setBackground(C);
+            posizione2Field_newIngressoPanel.setBackground(C);
+            posizione3Field_newIngressoPanel.setBackground(C);
+            posizione4Field_newIngressoPanel.setBackground(C);
+            posizione5Field_newIngressoPanel.setBackground(C);
+            posizione6Field_newIngressoPanel.setBackground(C);
+            posizione7Field_newIngressoPanel.setBackground(C);
+            posizione8Field_newIngressoPanel.setBackground(C);
+            posizione9Field_newIngressoPanel.setBackground(C);
+            posizione10Field_newIngressoPanel.setBackground(C);
+
+            quantitaField1_newIngressoPanel.setBackground(C);
+            quantitaField2_newIngressoPanel.setBackground(C);
+            quantitaField3_newIngressoPanel.setBackground(C);
+            quantitaField4_newIngressoPanel.setBackground(C);
+            quantitaField5_newIngressoPanel.setBackground(C);
+            quantitaField6_newIngressoPanel.setBackground(C);
+            quantitaField7_newIngressoPanel.setBackground(C);
+            quantitaField8_newIngressoPanel.setBackground(C);
+            quantitaField9_newIngressoPanel.setBackground(C);
+            quantitaField10_newIngressoPanel.setBackground(C);
+
+            //mi dichiaro gli interi di cui ho bisogno
+            int quantita1, quantita2, quantita3, quantita4, quantita5, quantita6, quantita7, quantita8, quantita9, quantita10;
+            int posizione1, posizione2, posizione3, posizione4, posizione5, posizione6, posizione7, posizione8, posizione9, posizione10;
+
+            //mi prendo l'articolo in base alla selezione del combobox
+            String Articolo1 = (String) comboBoxIngressoArticoli1.getSelectedItem();
+            String Articolo2 = (String) comboBoxIngressoArticoli2.getSelectedItem();
+            String Articolo3 = (String) comboBoxIngressoArticoli3.getSelectedItem();
+            String Articolo4 = (String) comboBoxIngressoArticoli4.getSelectedItem();
+            String Articolo5 = (String) comboBoxIngressoArticoli5.getSelectedItem();
+            String Articolo6 = (String) comboBoxIngressoArticoli6.getSelectedItem();
+            String Articolo7 = (String) comboBoxIngressoArticoli7.getSelectedItem();
+            String Articolo8 = (String) comboBoxIngressoArticoli8.getSelectedItem();
+            String Articolo9 = (String) comboBoxIngressoArticoli9.getSelectedItem();
+            String Articolo10 = (String) comboBoxIngressoArticoli10.getSelectedItem();
+
+            //mi prendo gli articolo in base al nome del combobox
+            Articolo a1 = m.articoloContainedByName(Articolo1);
+            Articolo a2 = m.articoloContainedByName(Articolo2);
+            Articolo a3 = m.articoloContainedByName(Articolo3);
+            Articolo a4 = m.articoloContainedByName(Articolo4);
+            Articolo a5 = m.articoloContainedByName(Articolo5);
+            Articolo a6 = m.articoloContainedByName(Articolo6);
+            Articolo a7 = m.articoloContainedByName(Articolo7);
+            Articolo a8 = m.articoloContainedByName(Articolo8);
+            Articolo a9 = m.articoloContainedByName(Articolo9);
+            Articolo a10 = m.articoloContainedByName(Articolo10);
+
+            //mi prendo o mi setto i valori di quantita e posizione
+            quantita1 = quantitaField1_newIngressoPanel.getText().equals("") || quantitaField1_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField1_newIngressoPanel.getText());
+            quantita2 = quantitaField2_newIngressoPanel.getText().equals("") || quantitaField2_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField2_newIngressoPanel.getText());
+            quantita3 = quantitaField3_newIngressoPanel.getText().equals("") || quantitaField3_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField3_newIngressoPanel.getText());
+            quantita4 = quantitaField4_newIngressoPanel.getText().equals("") || quantitaField4_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField4_newIngressoPanel.getText());
+            quantita5 = quantitaField5_newIngressoPanel.getText().equals("") || quantitaField5_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField5_newIngressoPanel.getText());
+            quantita6 = quantitaField6_newIngressoPanel.getText().equals("") || quantitaField6_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField6_newIngressoPanel.getText());
+            quantita7 = quantitaField7_newIngressoPanel.getText().equals("") || quantitaField7_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField7_newIngressoPanel.getText());
+            quantita8 = quantitaField8_newIngressoPanel.getText().equals("") || quantitaField8_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField8_newIngressoPanel.getText());
+            quantita9 = quantitaField9_newIngressoPanel.getText().equals("") || quantitaField9_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField9_newIngressoPanel.getText());
+            quantita10 = quantitaField10_newIngressoPanel.getText().equals("") || quantitaField10_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField10_newIngressoPanel.getText());
+
+            posizione1 = quantitaField1_newIngressoPanel.getText().equals("") || quantitaField1_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField1_newIngressoPanel.getText());
+            posizione2 = quantitaField2_newIngressoPanel.getText().equals("") || quantitaField2_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField2_newIngressoPanel.getText());
+            posizione3 = quantitaField3_newIngressoPanel.getText().equals("") || quantitaField3_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField3_newIngressoPanel.getText());
+            posizione4 = quantitaField4_newIngressoPanel.getText().equals("") || quantitaField4_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField4_newIngressoPanel.getText());
+            posizione5 = quantitaField5_newIngressoPanel.getText().equals("") || quantitaField5_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField5_newIngressoPanel.getText());
+            posizione6 = quantitaField6_newIngressoPanel.getText().equals("") || quantitaField6_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField6_newIngressoPanel.getText());
+            posizione7 = quantitaField7_newIngressoPanel.getText().equals("") || quantitaField7_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField7_newIngressoPanel.getText());
+            posizione8 = quantitaField8_newIngressoPanel.getText().equals("") || quantitaField8_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField8_newIngressoPanel.getText());
+            posizione9 = quantitaField9_newIngressoPanel.getText().equals("") || quantitaField9_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField9_newIngressoPanel.getText());
+            posizione10 = quantitaField10_newIngressoPanel.getText().equals("") || quantitaField10_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField10_newIngressoPanel.getText());
+
+            //ora posso aggiungere i valori nelle rispettive mappe
+            if (quantita1 != 0) {
+                quantita.put(a1, quantita1);
+                if (posizione1 == 0) {
+                    posizioni.put(a1, m.getPosition(a1));
+                } else {
+                    posizioni.put(a1, posizione1);
+                }
+            }
+
+            if (quantita2 != 0) {
+                if (quantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    quantita.put(a2, quantita2 + quantita.get(a2));//in caso sia già stato inserito sommo la quantita di prima con quella di adesso
+                    //tengo la posizione di prima visto che esistendo già una voce nella mappa di quantita allora sicuramente esiste una voce anche in posizione
+                } else {
+                    //in caso non esista già una voce nella mappa allora devo inserirlo per la prima volta 
+                    quantita.put(a2, quantita2);//altrimenti lo inserisco semplicemente
+                    if (posizione2 == 0) {
+                        posizioni.put(a2, m.getPosition(a2));
+                    } else {
+                        posizioni.put(a2, posizione2);
+                    }
+                }
+            }
+
+            if (quantita3 != 0) {
+                if (quantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    quantita.put(a3, quantita3 + quantita.get(a3));//in caso sia già stato inserito sommo la quantita di prima con quella di adesso
+                } else {
+                    quantita.put(a3, quantita3);//altrimenti lo inserisco semplicemente
+                    if (posizione3 == 0) {
+                        posizioni.put(a3, m.getPosition(a3));
+                    } else {
+                        posizioni.put(a3, posizione3);
+                    }
+                }
+            }
+
+            if (quantita4 != 0) {
+                if (quantita.containsKey(a4))//controllo se è già stato inserito
+                {
+                    quantita.put(a4, quantita4 + quantita.get(a4));//in caso sia già stato inserito sommo la quantita di prima con quella di adesso
+                } else {
+                    quantita.put(a4, quantita4);//altrimenti lo inserisco semplicemente
+                    if (posizione4 == 0) {
+                        posizioni.put(a4, m.getPosition(a4));
+                    } else {
+                        posizioni.put(a4, posizione4);
+                    }
+                }
+            }
+
+            if (quantita5 != 0) {
+                if (quantita.containsKey(a5))//controllo se è già stato inserito
+                {
+                    quantita.put(a5, quantita5 + quantita.get(a5));//in caso sia già stato inserito sommo la quantita di prima con quella di adesso
+                } else {
+                    quantita.put(a5, quantita5);//altrimenti lo inserisco semplicemente
+                    if (posizione5 == 0) {
+                        posizioni.put(a5, m.getPosition(a5));
+                    } else {
+                        posizioni.put(a5, posizione5);
+                    }
+                }
+            }
+
+            if (quantita6 != 0) {
+                if (quantita.containsKey(a6))//controllo se è già stato inserito
+                {
+                    quantita.put(a6, quantita6 + quantita.get(a6));//in caso sia già stato inserito sommo la quantita di prima con quella di adesso
+                } else {
+                    quantita.put(a6, quantita6);//altrimenti lo inserisco semplicemente
+                    if (posizione6 == 0) {
+                        posizioni.put(a6, m.getPosition(a6));
+                    } else {
+                        posizioni.put(a6, posizione6);
+                    }
+                }
+            }
+
+            if (quantita7 != 0) {
+                if (quantita.containsKey(a7))//controllo se è già stato inserito
+                {
+                    quantita.put(a7, quantita7 + quantita.get(a7));//in caso sia già stato inserito sommo la quantita di prima con quella di adesso
+                } else {
+                    quantita.put(a7, quantita7);//altrimenti lo inserisco semplicemente
+                    if (posizione7 == 0) {
+                        posizioni.put(a7, m.getPosition(a7));
+                    } else {
+                        posizioni.put(a7, posizione7);
+                    }
+                }
+            }
+
+            if (quantita8 != 0) {
+                if (quantita.containsKey(a8))//controllo se è già stato inserito
+                {
+                    quantita.put(a8, quantita8 + quantita.get(a8));//in caso sia già stato inserito sommo la quantita di prima con quella di adesso
+                } else {
+                    quantita.put(a8, quantita8);//altrimenti lo inserisco semplicemente
+                    if (posizione8 == 0) {
+                        posizioni.put(a8, m.getPosition(a8));
+                    } else {
+                        posizioni.put(a8, posizione8);
+                    }
+                }
+            }
+
+            if (quantita9 != 0) {
+                if (quantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    quantita.put(a9, quantita9 + quantita.get(a9));//in caso sia già stato inserito sommo la quantita di prima con quella di adesso
+                } else {
+                    quantita.put(a9, quantita9);//altrimenti lo inserisco semplicemente
+                    if (posizione9 == 0) {
+                        posizioni.put(a9, m.getPosition(a9));
+                    } else {
+                        posizioni.put(a9, posizione9);
+                    }
+                }
+            }
+
+            if (quantita10 != 0) {
+                if (quantita.containsKey(a2))//controllo se è già stato inserito
+                {
+                    quantita.put(a10, quantita10 + quantita.get(a10));//in caso sia già stato inserito sommo la quantita di prima con quella di adesso
+                } else {
+                    quantita.put(a10, quantita10);//altrimenti lo inserisco semplicemente
+                    if (posizione10 == 0) {
+                        posizioni.put(a10, m.getPosition(a10));
+                    } else {
+                        posizioni.put(a10, posizione10);
+                    }
+                }
+            }
+
+            int day = Integer.parseInt(dayField_newIngressoPanel.getText());
+            int month = Integer.parseInt(monthField_newIngressoPanel.getText());
+            int year = Integer.parseInt(yearField_newIngressoPanel.getText());
+            GregorianCalendar c = new GregorianCalendar(year, month, day);
+
+            //ora posso aggiungere l'ingresso
+            m.addIngresso(quantita, posizioni, c);
+            indexIngressi = m.ingressiSize() - 1;
+            hideAll();
+            visualizzaIngressiPanel.setVisible(true);
+            //resetto le stringhe
+            posizione1Field_newIngressoPanel.setText("");
+            quantitaField1_newIngressoPanel.setText("");
+            posizione2Field_newIngressoPanel.setText("");
+            quantitaField2_newIngressoPanel.setText("");
+            posizione3Field_newIngressoPanel.setText("");
+            quantitaField3_newIngressoPanel.setText("");
+            posizione4Field_newIngressoPanel.setText("");
+            quantitaField4_newIngressoPanel.setText("");
+            posizione5Field_newIngressoPanel.setText("");
+            quantitaField5_newIngressoPanel.setText("");
+            posizione6Field_newIngressoPanel.setText("");
+            quantitaField6_newIngressoPanel.setText("");
+            posizione7Field_newIngressoPanel.setText("");
+            quantitaField7_newIngressoPanel.setText("");
+            posizione8Field_newIngressoPanel.setText("");
+            quantitaField8_newIngressoPanel.setText("");
+            posizione9Field_newIngressoPanel.setText("");
+            quantitaField9_newIngressoPanel.setText("");
+            posizione10Field_newIngressoPanel.setText("");
+            quantitaField10_newIngressoPanel.setText("");
+
+        } catch (Exception ex) {
+            Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_creaIngressoButtonIngressoPanelActionPerformed
 
     private void closeButton_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_newIngressoPanelActionPerformed
-	hideAll();
-	visualizzaIngressiPanel.setVisible(true);
+        hideAll();
+        visualizzaIngressiPanel.setVisible(true);
     }//GEN-LAST:event_closeButton_newIngressoPanelActionPerformed
 
     private void addArticleButton_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArticleButton_newIngressoPanelActionPerformed
-	Color x = new Color(204, 0, 204);
-	textFieldPosizioni1.setBackground(x);
-	textFieldPosizioni2.setBackground(x);
-	textFieldPosizioni3.setBackground(x);
-	textFieldPosizioni4.setBackground(x);
-	textFieldPosizioni5.setBackground(x);
-	textFieldPosizioni6.setBackground(x);
-	textFieldPosizioni7.setBackground(x);
-	textFieldPosizioni8.setBackground(x);
-	textFieldPosizioni9.setBackground(x);
-	textFieldPosizioni10.setBackground(x);
-	textFieldQuantita1.setBackground(x);
-	textFieldQuantita2.setBackground(x);
-	textFieldQuantita3.setBackground(x);
-	textFieldQuantita4.setBackground(x);
-	textFieldQuantita5.setBackground(x);
-	textFieldQuantita6.setBackground(x);
-	textFieldQuantita7.setBackground(x);
-	textFieldQuantita8.setBackground(x);
-	textFieldQuantita9.setBackground(x);
-	textFieldQuantita10.setBackground(x);
+        Color x = new Color(204, 0, 204);
+        posizione1Field_newIngressoPanel.setBackground(x);
+        posizione2Field_newIngressoPanel.setBackground(x);
+        posizione3Field_newIngressoPanel.setBackground(x);
+        posizione4Field_newIngressoPanel.setBackground(x);
+        posizione5Field_newIngressoPanel.setBackground(x);
+        posizione6Field_newIngressoPanel.setBackground(x);
+        posizione7Field_newIngressoPanel.setBackground(x);
+        posizione8Field_newIngressoPanel.setBackground(x);
+        posizione9Field_newIngressoPanel.setBackground(x);
+        posizione10Field_newIngressoPanel.setBackground(x);
+        quantitaField1_newIngressoPanel.setBackground(x);
+        quantitaField2_newIngressoPanel.setBackground(x);
+        quantitaField3_newIngressoPanel.setBackground(x);
+        quantitaField4_newIngressoPanel.setBackground(x);
+        quantitaField5_newIngressoPanel.setBackground(x);
+        quantitaField6_newIngressoPanel.setBackground(x);
+        quantitaField7_newIngressoPanel.setBackground(x);
+        quantitaField8_newIngressoPanel.setBackground(x);
+        quantitaField9_newIngressoPanel.setBackground(x);
+        quantitaField10_newIngressoPanel.setBackground(x);
 
-	switch (ingressoArticleSelected) {
-	    case 1:
-		try {
-		    if ((Integer.parseInt(textFieldQuantita1.getText()) > 0) && (Integer.parseInt(textFieldPosizioni1.getText()) > 0)) {
-			comboBoxIngressoArticoli2.setEnabled(true);
-			textFieldPosizioni2.setEditable(true);
-			textFieldQuantita2.setEditable(true);
-			ingressoArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
-			textFieldPosizioni1.setBackground(Color.red);
-			textFieldQuantita1.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    textFieldPosizioni1.setBackground(Color.red);
-		    textFieldQuantita1.setBackground(Color.red);
-		} finally {
-		    break;
-		}
+        switch (ingressoArticleSelected) {
+            case 1:
+                try {
+                    if ((Integer.parseInt(quantitaField1_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione1Field_newIngressoPanel.getText()) > 0)) {
+                        comboBoxIngressoArticoli2.setEnabled(true);
+                        posizione2Field_newIngressoPanel.setEditable(true);
+                        quantitaField2_newIngressoPanel.setEditable(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+                        posizione1Field_newIngressoPanel.setBackground(Color.red);
+                        quantitaField1_newIngressoPanel.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    posizione1Field_newIngressoPanel.setBackground(Color.red);
+                    quantitaField1_newIngressoPanel.setBackground(Color.red);
+                } finally {
+                    break;
+                }
 
-	    case 2:
-		try {
-		    if ((Integer.parseInt(textFieldQuantita2.getText()) > 0) && (Integer.parseInt(textFieldPosizioni2.getText()) > 0)) {
-			comboBoxIngressoArticoli3.setEnabled(true);
-			textFieldPosizioni3.setEditable(true);
-			textFieldQuantita3.setEditable(true);
-			ingressoArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
-			textFieldPosizioni2.setBackground(Color.red);
-			textFieldQuantita2.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    textFieldPosizioni2.setBackground(Color.red);
-		    textFieldQuantita2.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 3:
-		try {
-		    if ((Integer.parseInt(textFieldQuantita3.getText()) > 0) && (Integer.parseInt(textFieldPosizioni3.getText()) > 0)) {
-			comboBoxIngressoArticoli4.setEnabled(true);
-			textFieldPosizioni4.setEditable(true);
-			textFieldQuantita4.setEditable(true);
-			ingressoArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
-			textFieldPosizioni3.setBackground(Color.red);
-			textFieldQuantita3.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    textFieldPosizioni3.setBackground(Color.red);
-		    textFieldQuantita3.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 4:
-		try {
-		    if ((Integer.parseInt(textFieldQuantita4.getText()) > 0) && (Integer.parseInt(textFieldPosizioni4.getText()) > 0)) {
-			comboBoxIngressoArticoli5.setEnabled(true);
-			textFieldPosizioni5.setEditable(true);
-			textFieldQuantita5.setEditable(true);
-			ingressoArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
-			textFieldPosizioni4.setBackground(Color.red);
-			textFieldQuantita4.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    textFieldPosizioni4.setBackground(Color.red);
-		    textFieldQuantita4.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 5:
-		try {
-		    if ((Integer.parseInt(textFieldQuantita5.getText()) > 0) && (Integer.parseInt(textFieldPosizioni5.getText()) > 0)) {
-			comboBoxIngressoArticoli6.setEnabled(true);
-			textFieldPosizioni6.setEditable(true);
-			textFieldQuantita6.setEditable(true);
-			ingressoArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
-			textFieldPosizioni5.setBackground(Color.red);
-			textFieldQuantita5.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    textFieldPosizioni5.setBackground(Color.red);
-		    textFieldQuantita5.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 6:
-		try {
-		    if ((Integer.parseInt(textFieldQuantita6.getText()) > 0) && (Integer.parseInt(textFieldPosizioni6.getText()) > 0)) {
-			comboBoxIngressoArticoli7.setEnabled(true);
-			textFieldPosizioni7.setEditable(true);
-			textFieldQuantita7.setEditable(true);
-			ingressoArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
-			textFieldPosizioni6.setBackground(Color.red);
-			textFieldQuantita6.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    textFieldPosizioni6.setBackground(Color.red);
-		    textFieldQuantita6.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 7:
-		try {
-		    if ((Integer.parseInt(textFieldQuantita7.getText()) > 0) && (Integer.parseInt(textFieldPosizioni7.getText()) > 0)) {
-			comboBoxIngressoArticoli8.setEnabled(true);
-			textFieldPosizioni8.setEditable(true);
-			textFieldQuantita8.setEditable(true);
-			ingressoArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
-			textFieldPosizioni7.setBackground(Color.red);
-			textFieldQuantita7.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    textFieldPosizioni7.setBackground(Color.red);
-		    textFieldQuantita7.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 8:
-		try {
-		    if ((Integer.parseInt(textFieldQuantita8.getText()) > 0) && (Integer.parseInt(textFieldPosizioni8.getText()) > 0)) {
-			comboBoxIngressoArticoli9.setEnabled(true);
-			textFieldPosizioni9.setEditable(true);
-			textFieldQuantita9.setEditable(true);
-			ingressoArticleSelected++;
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
-			textFieldPosizioni8.setBackground(Color.red);
-			textFieldQuantita8.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    textFieldPosizioni8.setBackground(Color.red);
-		    textFieldQuantita8.setBackground(Color.red);
-		} finally {
-		    break;
-		}
-	    case 9:
-		try {
-		    if ((Integer.parseInt(textFieldQuantita9.getText()) > 0) && (Integer.parseInt(textFieldPosizioni9.getText()) > 0)) {
-			comboBoxIngressoArticoli10.setEnabled(true);
-			textFieldPosizioni10.setEditable(true);
-			textFieldQuantita10.setEditable(true);
-			ingressoArticleSelected++;
-			addArticleButton_newIngressoPanel.setEnabled(false);
-		    } else {
-			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
-			textFieldPosizioni9.setBackground(Color.red);
-			textFieldQuantita9.setBackground(Color.red);
-		    }
-		} catch (NumberFormatException e) {
-		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
-		    textFieldPosizioni9.setBackground(Color.red);
-		    textFieldQuantita9.setBackground(Color.red);
-		} finally {
-		    break;
-		}
+            case 2:
+                try {
+                    if ((Integer.parseInt(quantitaField2_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione2Field_newIngressoPanel.getText()) > 0)) {
+                        comboBoxIngressoArticoli3.setEnabled(true);
+                        posizione3Field_newIngressoPanel.setEditable(true);
+                        quantitaField3_newIngressoPanel.setEditable(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+                        posizione2Field_newIngressoPanel.setBackground(Color.red);
+                        quantitaField2_newIngressoPanel.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    posizione2Field_newIngressoPanel.setBackground(Color.red);
+                    quantitaField2_newIngressoPanel.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 3:
+                try {
+                    if ((Integer.parseInt(quantitaField3_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione3Field_newIngressoPanel.getText()) > 0)) {
+                        comboBoxIngressoArticoli4.setEnabled(true);
+                        posizione4Field_newIngressoPanel.setEditable(true);
+                        quantitaField4_newIngressoPanel.setEditable(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+                        posizione3Field_newIngressoPanel.setBackground(Color.red);
+                        quantitaField3_newIngressoPanel.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    posizione3Field_newIngressoPanel.setBackground(Color.red);
+                    quantitaField3_newIngressoPanel.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 4:
+                try {
+                    if ((Integer.parseInt(quantitaField4_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione4Field_newIngressoPanel.getText()) > 0)) {
+                        comboBoxIngressoArticoli5.setEnabled(true);
+                        posizione5Field_newIngressoPanel.setEditable(true);
+                        quantitaField5_newIngressoPanel.setEditable(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+                        posizione4Field_newIngressoPanel.setBackground(Color.red);
+                        quantitaField4_newIngressoPanel.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    posizione4Field_newIngressoPanel.setBackground(Color.red);
+                    quantitaField4_newIngressoPanel.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 5:
+                try {
+                    if ((Integer.parseInt(quantitaField5_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione5Field_newIngressoPanel.getText()) > 0)) {
+                        comboBoxIngressoArticoli6.setEnabled(true);
+                        posizione6Field_newIngressoPanel.setEditable(true);
+                        quantitaField6_newIngressoPanel.setEditable(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+                        posizione5Field_newIngressoPanel.setBackground(Color.red);
+                        quantitaField5_newIngressoPanel.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    posizione5Field_newIngressoPanel.setBackground(Color.red);
+                    quantitaField5_newIngressoPanel.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 6:
+                try {
+                    if ((Integer.parseInt(quantitaField6_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione6Field_newIngressoPanel.getText()) > 0)) {
+                        comboBoxIngressoArticoli7.setEnabled(true);
+                        posizione7Field_newIngressoPanel.setEditable(true);
+                        quantitaField7_newIngressoPanel.setEditable(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+                        posizione6Field_newIngressoPanel.setBackground(Color.red);
+                        quantitaField6_newIngressoPanel.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    posizione6Field_newIngressoPanel.setBackground(Color.red);
+                    quantitaField6_newIngressoPanel.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 7:
+                try {
+                    if ((Integer.parseInt(quantitaField7_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione7Field_newIngressoPanel.getText()) > 0)) {
+                        comboBoxIngressoArticoli8.setEnabled(true);
+                        posizione8Field_newIngressoPanel.setEditable(true);
+                        quantitaField8_newIngressoPanel.setEditable(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+                        posizione7Field_newIngressoPanel.setBackground(Color.red);
+                        quantitaField7_newIngressoPanel.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    posizione7Field_newIngressoPanel.setBackground(Color.red);
+                    quantitaField7_newIngressoPanel.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 8:
+                try {
+                    if ((Integer.parseInt(quantitaField8_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione8Field_newIngressoPanel.getText()) > 0)) {
+                        comboBoxIngressoArticoli9.setEnabled(true);
+                        posizione9Field_newIngressoPanel.setEditable(true);
+                        quantitaField9_newIngressoPanel.setEditable(true);
+                        ingressoArticleSelected++;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+                        posizione8Field_newIngressoPanel.setBackground(Color.red);
+                        quantitaField8_newIngressoPanel.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    posizione8Field_newIngressoPanel.setBackground(Color.red);
+                    quantitaField8_newIngressoPanel.setBackground(Color.red);
+                } finally {
+                    break;
+                }
+            case 9:
+                try {
+                    if ((Integer.parseInt(quantitaField9_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione9Field_newIngressoPanel.getText()) > 0)) {
+                        comboBoxIngressoArticoli10.setEnabled(true);
+                        posizione10Field_newIngressoPanel.setEditable(true);
+                        quantitaField10_newIngressoPanel.setEditable(true);
+                        ingressoArticleSelected++;
+                        addArticleButton_newIngressoPanel.setEnabled(false);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+                        posizione9Field_newIngressoPanel.setBackground(Color.red);
+                        quantitaField9_newIngressoPanel.setBackground(Color.red);
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+                    posizione9Field_newIngressoPanel.setBackground(Color.red);
+                    quantitaField9_newIngressoPanel.setBackground(Color.red);
+                } finally {
+                    break;
+                }
 
-	}
+        }
     }//GEN-LAST:event_addArticleButton_newIngressoPanelActionPerformed
 
     private void comboBoxIngressoArticoli5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxIngressoArticoli5ActionPerformed
-	// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxIngressoArticoli5ActionPerformed
 
-    private void textFieldPosizioni6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldPosizioni6ActionPerformed
-	// TODO add your handling code here:
-    }//GEN-LAST:event_textFieldPosizioni6ActionPerformed
+    private void posizione6Field_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posizione6Field_newIngressoPanelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_posizione6Field_newIngressoPanelActionPerformed
 
-    private void textFieldQuantita3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldQuantita3ActionPerformed
-	// TODO add your handling code here:
-    }//GEN-LAST:event_textFieldQuantita3ActionPerformed
+    private void quantitaField3_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField3_newIngressoPanelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantitaField3_newIngressoPanelActionPerformed
 
-    private void textFieldQuantita5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldQuantita5ActionPerformed
-	// TODO add your handling code here:
-    }//GEN-LAST:event_textFieldQuantita5ActionPerformed
+    private void quantitaField5_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField5_newIngressoPanelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantitaField5_newIngressoPanelActionPerformed
 
-    private void textFieldQuantita7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldQuantita7ActionPerformed
-	// TODO add your handling code here:
-    }//GEN-LAST:event_textFieldQuantita7ActionPerformed
+    private void quantitaField7_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField7_newIngressoPanelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantitaField7_newIngressoPanelActionPerformed
 
     private void modificaButtonOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButtonOrderPanelActionPerformed
-	// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_modificaButtonOrderPanelActionPerformed
 
     private void indietroButton_IngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroButton_IngressiPanelActionPerformed
-	indexIngressi--;
-	ingressi();
+        indexIngressi--;
+        ingressi();
     }//GEN-LAST:event_indietroButton_IngressiPanelActionPerformed
 
     private void avantiButton_IngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiButton_IngressiPanelActionPerformed
-	indexIngressi++;
-	ingressi();
+        indexIngressi++;
+        ingressi();
     }//GEN-LAST:event_avantiButton_IngressiPanelActionPerformed
 
     private void chiudiButtonIngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButtonIngressiPanelActionPerformed
-	hideAll();
-	adminPanel.setVisible(true);
+        hideAll();
+        adminPanel.setVisible(true);
     }//GEN-LAST:event_chiudiButtonIngressiPanelActionPerformed
 
     private void newIngressoButton_IngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newIngressoButton_IngressiPanelActionPerformed
 
-	hideAll();
-	creaIngressoPanel.setVisible(true);
+        hideAll();
+        creaIngressoPanel.setVisible(true);
 
-	comboBoxIngressoArticoli1.removeAllItems();
-	comboBoxIngressoArticoli2.removeAllItems();
-	comboBoxIngressoArticoli3.removeAllItems();
-	comboBoxIngressoArticoli4.removeAllItems();
-	comboBoxIngressoArticoli5.removeAllItems();
-	comboBoxIngressoArticoli6.removeAllItems();
-	comboBoxIngressoArticoli7.removeAllItems();
-	comboBoxIngressoArticoli8.removeAllItems();
-	comboBoxIngressoArticoli9.removeAllItems();
-	comboBoxIngressoArticoli10.removeAllItems();
-	textFieldPosizioni1.setText("");
-	textFieldPosizioni2.setText("");
-	textFieldPosizioni3.setText("");
-	textFieldPosizioni4.setText("");
-	textFieldPosizioni5.setText("");
-	textFieldPosizioni6.setText("");
-	textFieldPosizioni7.setText("");
-	textFieldPosizioni8.setText("");
-	textFieldPosizioni9.setText("");
-	textFieldPosizioni10.setText("");
-	textFieldQuantita1.setText("");
-	textFieldQuantita2.setText("");
-	textFieldQuantita3.setText("");
-	textFieldQuantita4.setText("");
-	textFieldQuantita5.setText("");
-	textFieldQuantita6.setText("");
-	textFieldQuantita7.setText("");
-	textFieldQuantita8.setText("");
-	textFieldQuantita9.setText("");
-	textFieldQuantita10.setText("");
-	comboBoxIngressoArticoli2.setEnabled(false);
-	comboBoxIngressoArticoli3.setEnabled(false);
-	comboBoxIngressoArticoli4.setEnabled(false);
-	comboBoxIngressoArticoli5.setEnabled(false);
-	comboBoxIngressoArticoli6.setEnabled(false);
-	comboBoxIngressoArticoli7.setEnabled(false);
-	comboBoxIngressoArticoli8.setEnabled(false);
-	comboBoxIngressoArticoli9.setEnabled(false);
-	comboBoxIngressoArticoli10.setEnabled(false);
-	textFieldPosizioni2.setEditable(false);
-	textFieldPosizioni3.setEditable(false);
-	textFieldPosizioni4.setEditable(false);
-	textFieldPosizioni5.setEditable(false);
-	textFieldPosizioni6.setEditable(false);
-	textFieldPosizioni7.setEditable(false);
-	textFieldPosizioni8.setEditable(false);
-	textFieldPosizioni9.setEditable(false);
-	textFieldPosizioni10.setEditable(false);
-	textFieldQuantita2.setEditable(false);
-	textFieldQuantita3.setEditable(false);
-	textFieldQuantita4.setEditable(false);
-	textFieldQuantita5.setEditable(false);
-	textFieldQuantita6.setEditable(false);
-	textFieldQuantita7.setEditable(false);
-	textFieldQuantita8.setEditable(false);
-	textFieldQuantita9.setEditable(false);
-	textFieldQuantita10.setEditable(false);
+        comboBoxIngressoArticoli1.removeAllItems();
+        comboBoxIngressoArticoli2.removeAllItems();
+        comboBoxIngressoArticoli3.removeAllItems();
+        comboBoxIngressoArticoli4.removeAllItems();
+        comboBoxIngressoArticoli5.removeAllItems();
+        comboBoxIngressoArticoli6.removeAllItems();
+        comboBoxIngressoArticoli7.removeAllItems();
+        comboBoxIngressoArticoli8.removeAllItems();
+        comboBoxIngressoArticoli9.removeAllItems();
+        comboBoxIngressoArticoli10.removeAllItems();
+        posizione1Field_newIngressoPanel.setText("");
+        posizione2Field_newIngressoPanel.setText("");
+        posizione3Field_newIngressoPanel.setText("");
+        posizione4Field_newIngressoPanel.setText("");
+        posizione5Field_newIngressoPanel.setText("");
+        posizione6Field_newIngressoPanel.setText("");
+        posizione7Field_newIngressoPanel.setText("");
+        posizione8Field_newIngressoPanel.setText("");
+        posizione9Field_newIngressoPanel.setText("");
+        posizione10Field_newIngressoPanel.setText("");
+        quantitaField1_newIngressoPanel.setText("");
+        quantitaField2_newIngressoPanel.setText("");
+        quantitaField3_newIngressoPanel.setText("");
+        quantitaField4_newIngressoPanel.setText("");
+        quantitaField5_newIngressoPanel.setText("");
+        quantitaField6_newIngressoPanel.setText("");
+        quantitaField7_newIngressoPanel.setText("");
+        quantitaField8_newIngressoPanel.setText("");
+        quantitaField9_newIngressoPanel.setText("");
+        quantitaField10_newIngressoPanel.setText("");
+        comboBoxIngressoArticoli2.setEnabled(false);
+        comboBoxIngressoArticoli3.setEnabled(false);
+        comboBoxIngressoArticoli4.setEnabled(false);
+        comboBoxIngressoArticoli5.setEnabled(false);
+        comboBoxIngressoArticoli6.setEnabled(false);
+        comboBoxIngressoArticoli7.setEnabled(false);
+        comboBoxIngressoArticoli8.setEnabled(false);
+        comboBoxIngressoArticoli9.setEnabled(false);
+        comboBoxIngressoArticoli10.setEnabled(false);
+        posizione2Field_newIngressoPanel.setEditable(false);
+        posizione3Field_newIngressoPanel.setEditable(false);
+        posizione4Field_newIngressoPanel.setEditable(false);
+        posizione5Field_newIngressoPanel.setEditable(false);
+        posizione6Field_newIngressoPanel.setEditable(false);
+        posizione7Field_newIngressoPanel.setEditable(false);
+        posizione8Field_newIngressoPanel.setEditable(false);
+        posizione9Field_newIngressoPanel.setEditable(false);
+        posizione10Field_newIngressoPanel.setEditable(false);
+        quantitaField2_newIngressoPanel.setEditable(false);
+        quantitaField3_newIngressoPanel.setEditable(false);
+        quantitaField4_newIngressoPanel.setEditable(false);
+        quantitaField5_newIngressoPanel.setEditable(false);
+        quantitaField6_newIngressoPanel.setEditable(false);
+        quantitaField7_newIngressoPanel.setEditable(false);
+        quantitaField8_newIngressoPanel.setEditable(false);
+        quantitaField9_newIngressoPanel.setEditable(false);
+        quantitaField10_newIngressoPanel.setEditable(false);
 
-	ingressoArticleSelected = 1;
+        ingressoArticleSelected = 1;
 
-	for (int i = 0; i < m.articoliSize(); i++) {
-	    comboBoxIngressoArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxIngressoArticoli2.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxIngressoArticoli3.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxIngressoArticoli4.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxIngressoArticoli5.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxIngressoArticoli6.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxIngressoArticoli7.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxIngressoArticoli8.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxIngressoArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	    comboBoxIngressoArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
-	}
+        for (int i = 0; i < m.articoliSize(); i++) {
+            comboBoxIngressoArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli2.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli3.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli4.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli5.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli6.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli7.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli8.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxIngressoArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
+        }
     }//GEN-LAST:event_newIngressoButton_IngressiPanelActionPerformed
 
     private void dataOdierna_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataOdierna_newIngressoPanelActionPerformed
-	GregorianCalendar c = new GregorianCalendar(); //prendo la data attuale
-	//e stampo la data attuale
-	dayField_newIngressoPanel.setText("" + c.get(GregorianCalendar.DATE));
-	monthField_newIngressoPanel.setText("" + c.get(GregorianCalendar.MONTH));
-	yearField_newIngressoPanel.setText("" + c.get(GregorianCalendar.YEAR));
+        GregorianCalendar c = new GregorianCalendar(); //prendo la data attuale
+        //e stampo la data attuale
+        dayField_newIngressoPanel.setText("" + c.get(GregorianCalendar.DATE));
+        monthField_newIngressoPanel.setText("" + c.get(GregorianCalendar.MONTH));
+        yearField_newIngressoPanel.setText("" + c.get(GregorianCalendar.YEAR));
     }//GEN-LAST:event_dataOdierna_newIngressoPanelActionPerformed
 
     private void generaUscitaButton_OrderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generaUscitaButton_OrderViewPanelActionPerformed
-	try {
-	    m.createExit(m.getOrdine(indexOrder));
-	    ordini();
-	} catch (OrderNotFound | ArticleNotFound | OrderImpossibleToCreate ex) {
-	    JOptionPane.showMessageDialog(null, "Eccezzione nel creare l'eccezzione");
-	}
+        try {
+            m.createExit(m.getOrdine(indexOrder));
+            ordini();
+        } catch (OrderNotFound | ArticleNotFound | OrderImpossibleToCreate ex) {
+            JOptionPane.showMessageDialog(null, "Eccezzione nel creare l'eccezzione");
+        }
     }//GEN-LAST:event_generaUscitaButton_OrderViewPanelActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-	exit();
+        exit();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void saveButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonAdminPanelActionPerformed
-	m.save();
+        m.save();
     }//GEN-LAST:event_saveButtonAdminPanelActionPerformed
 
+    private void ingressiButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingressiButtonAdminPanelActionPerformed
+        hideAll();
+        visualizzaIngressiPanel.setVisible(true);
+        indexIngressi = 0;
+        ingressi();
+    }//GEN-LAST:event_ingressiButtonAdminPanelActionPerformed
+
+    private void ordiniButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordiniButtonAdminPanelActionPerformed
+        hideAll();
+        visualizzaOrdiniPanel.setVisible(true);
+        indexOrder = 0;
+        ordini();
+    }//GEN-LAST:event_ordiniButtonAdminPanelActionPerformed
+
     void articoli() {
-	if (m.articoliIsEmpty()) {
+        if (m.articoliIsEmpty()) {
 
-	    avantiButton_VisualizzaArticoloPanel.setEnabled(false);
-	    indietroButton_VisualizzaArticoloPanel.setEnabled(false);
-	    modificaButtonViewArticoliPanel.setEnabled(false);
-	    JOptionPane.showMessageDialog(null, "Nessun Articolo ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
+            avantiButton_VisualizzaArticoloPanel.setEnabled(false);
+            indietroButton_VisualizzaArticoloPanel.setEnabled(false);
+            modificaButtonViewArticoliPanel.setEnabled(false);
+            JOptionPane.showMessageDialog(null, "Nessun Articolo ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
 
-	} else {
-	    try {
-		//esiste almeno un artiolo salvato
+        } else {
+            try {
+                //esiste almeno un artiolo salvato
 
-		if (indexArticle == 0) {
-		    indietroButton_VisualizzaArticoloPanel.setEnabled(false);
-		} else {
-		    indietroButton_VisualizzaArticoloPanel.setEnabled(true);
-		}
-		if (indexArticle == m.articoliSize() - 1) {
-		    avantiButton_VisualizzaArticoloPanel.setEnabled(false);
-		} else {
-		    avantiButton_VisualizzaArticoloPanel.setEnabled(true);
-		}
+                if (indexArticle == 0) {
+                    indietroButton_VisualizzaArticoloPanel.setEnabled(false);
+                } else {
+                    indietroButton_VisualizzaArticoloPanel.setEnabled(true);
+                }
+                if (indexArticle == m.articoliSize() - 1) {
+                    avantiButton_VisualizzaArticoloPanel.setEnabled(false);
+                } else {
+                    avantiButton_VisualizzaArticoloPanel.setEnabled(true);
+                }
 
-		cercaLabel_VisualizzaArticoloPanel.setText("" + (indexArticle + 1));
-		IDLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getID());
-		prezzoLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getPrezzo());
-		posizioneLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getData());
-		nomeLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getName());
-		descrizioneLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getDescription());
-		sportLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getSports());
-		materialiLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getMaterial());
-		int quantita = m.getQuantita(m.getArticolo(indexArticle));
-		int posizione = m.getPosition(m.getArticolo(indexArticle));
-		quantitaLabel_VisualizzaArticoloPanel.setText(quantita + "");
-		posizioneLabel_VisualizzaArticoloPanel.setText("" + posizione);
+                cercaLabel_VisualizzaArticoloPanel.setText("" + (indexArticle + 1));
+                IDLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getID());
+                prezzoLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getPrezzo());
+                dataLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getDataInString());
+                nomeLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getName());
+                descrizioneLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getDescription());
+                sportLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getSports());
+                materialiLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getMaterial());
+                System.out.println("ok");
+                Articolo articolo = m.getArticolo(indexArticle);
+                System.out.println("articolooo: " + articolo);
+                int quantita = m.getQuantita(articolo);
+                int posizione = m.getPosition(articolo);
+                System.out.println(quantita + " " + posizione);
+                quantitaLabel_VisualizzaArticoloPanel.setText(quantita + "");
+                posizioneLabel_VisualizzaArticoloPanel.setText("" + posizione);
 
-	    } catch (ArticleDontExistInWareHouseException ex) {
-		System.out.println("Eccezzione");
-	    }
-	}
+            } catch (ArticleDontExistInWareHouseException ex) {
+                System.out.println("Eccezzione");
+            }
+        }
     }
 
     void negozi() {
-	if (m.negoziIsEmpty()) {
-	    indexShop = 0;
-	    JOptionPane.showMessageDialog(null, "Nessun Negozio ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
-	    codiceFiscaleLabel_NegozioPanel.setText("");
-	    indirizzoLabel_NegozioPanel.setText("");
-	    nomeNegozioLabel_NegozioPanel.setText("");
-	    cittaNegozio_NegozioPanel.setText("");
-	    avantiButton_NegozioPanel.setEnabled(false);
-	    indietroButton_NegozioPanel.setEnabled(false);
-	    searchField_NegozioPanel.setEditable(false);
-	    modificaButton_NegozioPanel.setEnabled(false);
-	    selezionaButton_NegozioPanel.setEnabled(false);
-	} else {
-	    if (indexShop == 0) {
-		indietroButton_NegozioPanel.setEnabled(false);
-	    } else {
-		indietroButton_NegozioPanel.setEnabled(true);
-	    }
-	    if (indexShop == m.negoziSize() - 1) {
-		avantiButton_NegozioPanel.setEnabled(false);
-	    } else {
-		avantiButton_NegozioPanel.setEnabled(true);
-	    }
+        if (m.negoziIsEmpty()) {
+            indexShop = 0;
+            JOptionPane.showMessageDialog(null, "Nessun Negozio ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
+            codiceFiscaleLabel_NegozioPanel.setText("");
+            indirizzoLabel_NegozioPanel.setText("");
+            nomeNegozioLabel_NegozioPanel.setText("");
+            cittaNegozio_NegozioPanel.setText("");
+            avantiButton_NegozioPanel.setEnabled(false);
+            indietroButton_NegozioPanel.setEnabled(false);
+            searchField_NegozioPanel.setEditable(false);
+            modificaButton_NegozioPanel.setEnabled(false);
+            selezionaButton_NegozioPanel.setEnabled(false);
+        } else {
+            if (indexShop == 0) {
+                indietroButton_NegozioPanel.setEnabled(false);
+            } else {
+                indietroButton_NegozioPanel.setEnabled(true);
+            }
+            if (indexShop == m.negoziSize() - 1) {
+                avantiButton_NegozioPanel.setEnabled(false);
+            } else {
+                avantiButton_NegozioPanel.setEnabled(true);
+            }
 
-	    searchField_NegozioPanel.setText("" + (indexShop + 1));
-	    codiceFiscaleLabel_NegozioPanel.setText(m.getNegozi(indexShop).getCodiceFiscale());
-	    indirizzoLabel_NegozioPanel.setText(m.getNegozi(indexShop).getindirizzo());
-	    nomeNegozioLabel_NegozioPanel.setText(m.getNegozi(indexShop).getNome());
-	    cittaNegozio_NegozioPanel.setText(m.getNegozi(indexShop).getCitta());
-	}
+            searchField_NegozioPanel.setText("" + (indexShop + 1));
+            codiceFiscaleLabel_NegozioPanel.setText(m.getNegozi(indexShop).getCodiceFiscale());
+            indirizzoLabel_NegozioPanel.setText(m.getNegozi(indexShop).getindirizzo());
+            nomeNegozioLabel_NegozioPanel.setText(m.getNegozi(indexShop).getNome());
+            cittaNegozio_NegozioPanel.setText(m.getNegozi(indexShop).getCitta());
+        }
     }
 
     void ordini() {
 
-	if (m.ordineIsEmpty()) {
-	    orderIDLabel_OrderViewPanel.setText("");
-	    dataLabel_OrderViewPanel.setText("");
-	    prezzoLabel_OrderViewPanel.setText("");
-	    negozioLabel_OrderViewPanel.setText("");
-	    searchFieldOrderPanel.setText("");
-	    searchFieldOrderPanel.setEditable(false);
-	    indietroButton_OrderPanel.setEnabled(false);
-	    avantiButton_OrderPanel.setEnabled(false);
-	    negozioInfo_OrderPanel.setEnabled(false);
-	    modificaButtonOrderPanel.setEnabled(false);
-	    JOptionPane.showMessageDialog(null, "Nessun ordine ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
-	} else {
+        if (m.ordineIsEmpty()) {
+            orderIDLabel_OrderViewPanel.setText("");
+            dataLabel_OrderViewPanel.setText("");
+            prezzoLabel_OrderViewPanel.setText("");
+            negozioLabel_OrderViewPanel.setText("");
+            searchFieldOrderPanel.setText("");
+            searchFieldOrderPanel.setEditable(false);
+            indietroButton_OrderPanel.setEnabled(false);
+            avantiButton_OrderPanel.setEnabled(false);
+            negozioInfo_OrderPanel.setEnabled(false);
+            modificaButtonOrderPanel.setEnabled(false);
+            JOptionPane.showMessageDialog(null, "Nessun ordine ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
+        } else {
 
-	    if (indexOrder == 0) {
-		indietroButton_OrderPanel.setEnabled(false);
-	    } else {
-		indietroButton_OrderPanel.setEnabled(true);
-	    }
-	    if (indexOrder == m.ordineSize() - 1) {
-		avantiButton_OrderPanel.setEnabled(false);
-	    } else {
-		avantiButton_OrderPanel.setEnabled(true);
-	    }
-	    negozioInfo_OrderPanel.setEnabled(true);
-	    modificaButtonOrderPanel.setEnabled(true);
-	    searchFieldOrderPanel.setText("" + (indexOrder + 1));
-	    orderIDLabel_OrderViewPanel.setText("" + m.getOrdine(indexOrder).getID());
-	    dataLabel_OrderViewPanel.setText("" + m.getOrdine(indexOrder).getData());
-	    prezzoLabel_OrderViewPanel.setText("" + m.getOrdine(indexOrder).getTotalPrice());
-	    negozioLabel_OrderViewPanel.setText("" + m.getOrdine(indexOrder).getNegozio().getNome());
-	    articoliQuantitaTextArea_OrderViewPanel.setText("" + m.getOrdine(indexOrder).toString());
-	    boolean b = m.getOrdine(indexOrder).isShipped();
-	    if (b) {
-		shippedLabel_OrderViewPanell.setText("Spedito");
-	    } else {
-		shippedLabel_OrderViewPanell.setText("Non spedito");
-	    }
-	}
+            if (indexOrder == 0) {
+                indietroButton_OrderPanel.setEnabled(false);
+            } else {
+                indietroButton_OrderPanel.setEnabled(true);
+            }
+            if (indexOrder == m.ordineSize() - 1) {
+                avantiButton_OrderPanel.setEnabled(false);
+            } else {
+                avantiButton_OrderPanel.setEnabled(true);
+            }
+            negozioInfo_OrderPanel.setEnabled(true);
+            modificaButtonOrderPanel.setEnabled(true);
+            searchFieldOrderPanel.setText("" + (indexOrder + 1));
+            orderIDLabel_OrderViewPanel.setText("" + m.getOrdine(indexOrder).getID());
+            dataLabel_OrderViewPanel.setText("" + m.getOrdine(indexOrder).getData());
+            prezzoLabel_OrderViewPanel.setText("" + m.getOrdine(indexOrder).getTotalPrice());
+            negozioLabel_OrderViewPanel.setText("" + m.getOrdine(indexOrder).getNegozio().getNome());
+            articoliQuantitaTextArea_OrderViewPanel.setText("" + m.getOrdine(indexOrder).toString());
+            boolean b = m.getOrdine(indexOrder).isShipped();
+            if (b) {
+                shippedLabel_OrderViewPanell.setText("Spedito");
+            } else {
+                shippedLabel_OrderViewPanell.setText("Non spedito");
+            }
+        }
 
     }//resetOrder
 
     void ingressi() {
+            System.out.println("in: "+ m.ingressiIsEmpty() +"\nindex: "+indexIngressi + "\nsize: "+m.ingressiSize());
+        if (m.ingressiIsEmpty()) {
+            ingressiIDLabel.setText("");
+            searchFieldIngressiPanel.setText("");
+            indietroButton_IngressiPanel.setEnabled(false);
+            avantiButton_IngressiPanel.setEnabled(false);
+            newIngressoButton_IngressiPanel.setEnabled(true);
+            articoliQuantitaPosizioneIngressiPanel.setText("NESSUN INGRESSO DISPONIBILE NEL DATABASE");
+            //JOptionPane.showMessageDialog(null, "Nessun ordine ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
+        } else {
 
-	if (m.ingressiIsEmpty()) {
-	    ingressiIDLabel.setText("");
-	    searchFieldIngressiPanel.setText("");
-	    indietroButton_IngressiPanel.setEnabled(false);
-	    avantiButton_IngressiPanel.setEnabled(false);
-	    newIngressoButton_IngressiPanel.setEnabled(true);
-	    //JOptionPane.showMessageDialog(null, "Nessun ordine ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
-	} else {
-
-	    if (indexIngressi == 0) {
-		indietroButton_IngressiPanel.setEnabled(false);
-	    } else {
-		indietroButton_IngressiPanel.setEnabled(true);
-	    }
-	    if (indexIngressi == m.ingressiSize() - 1) {
-		avantiButton_IngressiPanel.setEnabled(false);
-	    } else {
-		avantiButton_IngressiPanel.setEnabled(true);
-	    }
-	    searchFieldIngressiPanel.setText("" + (indexIngressi + 1));
-	    ingressiIDLabel.setText("" + m.getIngresso(indexIngressi).getID());
-	    articoliQuantitaPosizioneIngressiPanel.setText("" + m.getIngresso(indexIngressi).toString());
-	}
+            if (indexIngressi == 0) {
+                indietroButton_IngressiPanel.setEnabled(false);
+            } else {
+                indietroButton_IngressiPanel.setEnabled(true);
+            }
+            if (indexIngressi == m.ingressiSize() - 1) {
+                avantiButton_IngressiPanel.setEnabled(false);
+            } else {
+                avantiButton_IngressiPanel.setEnabled(true);
+            }
+            searchFieldIngressiPanel.setText("" + (indexIngressi + 1));
+            ingressiIDLabel.setText("" + m.getIngresso(indexIngressi).getID());
+            articoliQuantitaPosizioneIngressiPanel.setText("" + m.getIngresso(indexIngressi).toString());
+        }
 
     }
 
     void exit() {
-	/*
+        /*
         Object[] options = {"Esci", "Annulla"};//dichiaro i tipi di opzioni nel prossimo JOptionPane
 
         if (JOptionPane.showOptionDialog(null,
@@ -3214,12 +3553,12 @@ public class Graphics extends javax.swing.JFrame {
             loginPanel.setVisible(true);
 
         }//if JOPTIONPANE
-	 */
+         */
 
-	hideAll();
-	usrField.setText("");
-	pinField.setText("");
-	loginPanel.setVisible(true);
+        hideAll();
+        usrField.setText("");
+        pinField.setText("");
+        loginPanel.setVisible(true);
     }//exit
 
 
@@ -3235,6 +3574,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JButton addArticleButton_newOrderPanel;
     private javax.swing.JPanel adminPanel;
     private javax.swing.JButton articoliButtonAdminPanel;
+    private javax.swing.JLabel articoliLabel_NewOrderPanel;
     private javax.swing.JLabel articoliQuantitaPosizioneIngressiPanel;
     private javax.swing.JTextArea articoliQuantitaTextArea_OrderViewPanel;
     private javax.swing.JRadioButton atleticaRadioButton;
@@ -3319,8 +3659,6 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JDialog jDialog2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -3342,6 +3680,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton loginButton;
@@ -3377,20 +3716,41 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JRadioButton poliammideRadioButton;
     private javax.swing.JRadioButton poliestereRadioButton;
     private javax.swing.JRadioButton polietileneRadioButton;
+    private javax.swing.JTextField posizione10Field_newIngressoPanel;
+    private javax.swing.JTextField posizione1Field_newIngressoPanel;
+    private javax.swing.JTextField posizione2Field_newIngressoPanel;
+    private javax.swing.JTextField posizione3Field_newIngressoPanel;
+    private javax.swing.JTextField posizione4Field_newIngressoPanel;
+    private javax.swing.JTextField posizione5Field_newIngressoPanel;
+    private javax.swing.JTextField posizione6Field_newIngressoPanel;
+    private javax.swing.JTextField posizione7Field_newIngressoPanel;
+    private javax.swing.JTextField posizione8Field_newIngressoPanel;
+    private javax.swing.JTextField posizione9Field_newIngressoPanel;
     private javax.swing.JLabel posizioneLabel_VisualizzaArticoloPanel;
     private javax.swing.JTextField prezzoField_newArticlePanel;
     private javax.swing.JLabel prezzoLabel_OrderViewPanel;
     private javax.swing.JLabel prezzoLabel_VisualizzaArticoloPanel;
     private javax.swing.JTextField quantitaField1;
     private javax.swing.JTextField quantitaField10;
+    private javax.swing.JTextField quantitaField10_newIngressoPanel;
+    private javax.swing.JTextField quantitaField1_newIngressoPanel;
     private javax.swing.JTextField quantitaField2;
+    private javax.swing.JTextField quantitaField2_newIngressoPanel;
     private javax.swing.JTextField quantitaField3;
+    private javax.swing.JTextField quantitaField3_newIngressoPanel;
     private javax.swing.JTextField quantitaField4;
+    private javax.swing.JTextField quantitaField4_newIngressoPanel;
     private javax.swing.JTextField quantitaField5;
+    private javax.swing.JTextField quantitaField5_newIngressoPanel;
     private javax.swing.JTextField quantitaField6;
+    private javax.swing.JTextField quantitaField6_newIngressoPanel;
     private javax.swing.JTextField quantitaField7;
+    private javax.swing.JTextField quantitaField7_newIngressoPanel;
     private javax.swing.JTextField quantitaField8;
+    private javax.swing.JTextField quantitaField8_newIngressoPanel;
     private javax.swing.JTextField quantitaField9;
+    private javax.swing.JTextField quantitaField9_newIngressoPanel;
+    private javax.swing.JLabel quantitaLabel_NewOrderPanel;
     private javax.swing.JLabel quantitaLabel_VisualizzaArticoloPanel;
     private javax.swing.JRadioButton raftingRadioButton;
     private javax.swing.JRadioButton rugbyRadioButton;
@@ -3405,26 +3765,6 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JLabel sportLabelTipoArticolo_newArticlePanel;
     private javax.swing.JLabel sportLabel_VisualizzaArticoloPanel;
     private javax.swing.JRadioButton tennisRadioButton;
-    private javax.swing.JTextField textFieldPosizioni1;
-    private javax.swing.JTextField textFieldPosizioni10;
-    private javax.swing.JTextField textFieldPosizioni2;
-    private javax.swing.JTextField textFieldPosizioni3;
-    private javax.swing.JTextField textFieldPosizioni4;
-    private javax.swing.JTextField textFieldPosizioni5;
-    private javax.swing.JTextField textFieldPosizioni6;
-    private javax.swing.JTextField textFieldPosizioni7;
-    private javax.swing.JTextField textFieldPosizioni8;
-    private javax.swing.JTextField textFieldPosizioni9;
-    private javax.swing.JTextField textFieldQuantita1;
-    private javax.swing.JTextField textFieldQuantita10;
-    private javax.swing.JTextField textFieldQuantita2;
-    private javax.swing.JTextField textFieldQuantita3;
-    private javax.swing.JTextField textFieldQuantita4;
-    private javax.swing.JTextField textFieldQuantita5;
-    private javax.swing.JTextField textFieldQuantita6;
-    private javax.swing.JTextField textFieldQuantita7;
-    private javax.swing.JTextField textFieldQuantita8;
-    private javax.swing.JTextField textFieldQuantita9;
     private javax.swing.JLabel titleLabel_ArticleViewPanel;
     private javax.swing.JLabel titolo_newArticlePanel;
     private javax.swing.JTextField usrField;

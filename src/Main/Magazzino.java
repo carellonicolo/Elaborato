@@ -7,7 +7,7 @@ import java.io.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 //GLI ARRAYLIST, COME PER GLI ARRAY, PARTONO DA 0
-public class Magazzino {
+public class Magazzino implements Serializable{
 
     private final List<Uscita> uscite;
     private final List<Ordine> ordini;
@@ -20,7 +20,7 @@ public class Magazzino {
     private final Map<Articolo, Integer> quantita;
     private final Map<Articolo, Integer> posizione;
 
-    final static Magazzino INSTANCE = new Magazzino();
+    public final static Magazzino INSTANCE = new Magazzino();
 
     /**
      * *********************************** CONSTRUCT
@@ -35,8 +35,8 @@ public class Magazzino {
 	this.ingressi = new ArrayList<>();
 	this.articoli = new ArrayList<>();
 	this.ordini = new ArrayList<>();
-	quantita = new HashMap<>();
-	posizione = new HashMap<>();
+	this.quantita = new HashMap<>();
+	this.posizione = new HashMap<>();
     }
 
     /**
@@ -90,6 +90,8 @@ public class Magazzino {
 	    throw new ArticleAlreadyExistException("L'articolo è già presente nella lista!");
 	}
 	articoli.add(a);
+        posizione.put(a, 0);
+        quantita.put(a, 0);
     }
 
     public boolean removeArticolo(Articolo u) {
@@ -140,19 +142,14 @@ public class Magazzino {
 
     //POSIZIONI E QUANTITA
     public int getQuantita(Articolo a) throws ArticleDontExistInWareHouseException {
-	if (!articoli.contains(a)) {
+	if (!articoli.contains(a))
 	    throw new ArticleDontExistInWareHouseException("Articolo inesistente!");
-	}
-	if (quantita.containsKey(a)) {
-	    return quantita.get(a);
-	}
-	return -1;
+            return quantita.get(a);
     }
 
     public int getPosition(Articolo a) throws ArticleDontExistInWareHouseException {
-	if (!articoli.contains(a)) {
+	if (!articoli.contains(a)) 
 	    throw new ArticleDontExistInWareHouseException("Articolo inesistente!");
-	}
 	return posizione.get(a);// se l'articolo è contenuto nell'arraylist allora sicuramente si troca in posizione
     }
 
@@ -235,16 +232,17 @@ public class Magazzino {
      * ****************************************** INGRESSO
      * *******************************************************
      */
-    public boolean addIngresso(Map<Articolo, Integer> quantitaParameter, Map<Articolo, Integer> posizioneParameter) {
+    public boolean addIngresso(Map<Articolo, Integer> quantitaParameter, Map<Articolo, Integer> posizioneParameter, GregorianCalendar data) {
 	int tmpQuantita;
 	int tmpPosizione;
 
 	if (!quantitaParameter.keySet().equals(posizioneParameter.keySet())) {
-	    return false;//controllo se gli articoli sono identici nelle due mappe
+            return false;//controllo se gli articoli sono identici nelle due mappe
 	}
 	for (Articolo X : quantitaParameter.keySet()) {
-	    if (!articoli.contains(X)) {
-		return false;//controllo per ogni articolo presente in uno dei due parametri è contenuto nell'ARRAYLIST degli articoli
+	    if (articoli.contains(X) == false) {
+		System.out.println("1245");
+                return false;//controllo per ogni articolo presente in uno dei due parametri è contenuto nell'ARRAYLIST degli articoli
 	    }
 	}
 	for (Articolo X : quantitaParameter.keySet()) {//itero su quantitaparameter tanto se arrivo qui so per certo che hanno gli stessi articoli
@@ -260,7 +258,7 @@ public class Magazzino {
 	    //debug
 	    //ingressi.add(new Ingresso());
 	}//for
-	ingressi.add(new Ingresso(quantitaParameter, posizioneParameter));
+	ingressi.add(new Ingresso(quantitaParameter, posizioneParameter, data));
 	return true;
     }
 
@@ -409,6 +407,8 @@ public class Magazzino {
      * ****************************************** ORDINI
      * *******************************************************
      */
+    
+    
     /**
      * SAVE DATA IN FILE
      */
@@ -441,4 +441,9 @@ public class Magazzino {
 	}
     }
 
-}//Magazzino
+}//MAGAZZINO
+
+
+
+
+/************************************************************ FINE **************************************************************************/

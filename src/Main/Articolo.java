@@ -92,7 +92,7 @@ public class Articolo extends WarehouseMovement implements Comparable<Articolo> 
 
     @Override
     public String toString() {
-        return "ID Articolo: " + hashCode() + "\nPrezzo: " + prezzo + "\nData: " + data;
+        return "ID Articolo: " + hashCode() + "\nPrezzo: " + prezzo + "\nData: " + getDataInString();
     }
 
 }
