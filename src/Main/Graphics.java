@@ -231,6 +231,7 @@ public class Graphics extends javax.swing.JFrame {
         ordiniButtonAdminPanel = new javax.swing.JButton();
         ingressiButtonAdminPanel = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        saveButtonAdminPanel = new javax.swing.JButton();
         newArticlePanel = new javax.swing.JPanel();
         calcioRadioButton = new javax.swing.JRadioButton();
         nuotoRadioButton = new javax.swing.JRadioButton();
@@ -1026,9 +1027,17 @@ public class Graphics extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        adminPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 90, -1));
+        adminPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 90, -1));
 
-        getContentPane().add(adminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 170));
+        saveButtonAdminPanel.setText("Salva");
+        saveButtonAdminPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonAdminPanelActionPerformed(evt);
+            }
+        });
+        adminPanel.add(saveButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 90, -1));
+
+        getContentPane().add(adminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 210));
 
         newArticlePanel.setBackground(new java.awt.Color(0, 153, 255));
         newArticlePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -3036,6 +3045,10 @@ public class Graphics extends javax.swing.JFrame {
 	exit();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void saveButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonAdminPanelActionPerformed
+	m.save();
+    }//GEN-LAST:event_saveButtonAdminPanelActionPerformed
+
     void articoli() {
 	if (m.articoliIsEmpty()) {
 
@@ -3381,6 +3394,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JLabel quantitaLabel_VisualizzaArticoloPanel;
     private javax.swing.JRadioButton raftingRadioButton;
     private javax.swing.JRadioButton rugbyRadioButton;
+    private javax.swing.JButton saveButtonAdminPanel;
     private javax.swing.JRadioButton sciiRadioButton;
     private javax.swing.JTextField searchFieldIngressiPanel;
     private javax.swing.JTextField searchFieldOrderPanel;
