@@ -154,14 +154,10 @@ public class Magazzino implements Serializable{
     }
 
     public void setPosition(Articolo a, int posizione) throws ArticleDontExistInWareHouseException, PositionAlreadyOccupiedException {
-	if (!articoli.contains(a)) //se l'articolo esiste nel magazzino
+	if (!articoli.contains(a)) //se l'articolo non esiste nel magazzino
 	{
 	    throw new ArticleDontExistInWareHouseException("Articolo inesistente!");
-	}
-	if (this.posizione.containsValue(posizione))//se la posizione è già occupata
-	{
-	    throw new PositionAlreadyOccupiedException("La posizione inserita è già occupata da un altro articolo");
-	}
+	}//non controllo se la posizione esiste già, ci possono essere posizioni doppie per ora 
 	this.posizione.put(a, posizione); //sovrascrivo la coppia articolo, posizione
     }
 
@@ -241,8 +237,7 @@ public class Magazzino implements Serializable{
 	}
 	for (Articolo X : quantitaParameter.keySet()) {
 	    if (articoli.contains(X) == false) {
-		System.out.println("1245");
-                return false;//controllo per ogni articolo presente in uno dei due parametri è contenuto nell'ARRAYLIST degli articoli
+                return false;//controllo che ogni articolo presente in uno dei due parametri sia contenuto nell'ARRAYLIST degli articoli
 	    }
 	}
 	for (Articolo X : quantitaParameter.keySet()) {//itero su quantitaparameter tanto se arrivo qui so per certo che hanno gli stessi articoli
@@ -255,8 +250,6 @@ public class Magazzino implements Serializable{
 		this.posizione.putIfAbsent(X, posizioneParameter.get(X));
 	    }
 
-	    //debug
-	    //ingressi.add(new Ingresso());
 	}//for
 	ingressi.add(new Ingresso(quantitaParameter, posizioneParameter, data));
 	return true;
