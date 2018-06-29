@@ -4,13 +4,13 @@ public class Negozio implements Comparable<Negozio>{
     private String codiceFiscale;
     private String nome;
     private String indirizzo;
-    private String città;
+    private String citta;
     
     public Negozio(String cf, String name, String address, String city){
         codiceFiscale = cf;
         nome = name;
         indirizzo = address;
-        città = city;
+        citta = city;
     }
     
     
@@ -41,7 +41,7 @@ public class Negozio implements Comparable<Negozio>{
     
     public boolean setCitta(String x){
         if(!" ".equals(x) && !"".equals(x)){
-            città = x;
+            citta = x;
             return true;
         }
         return false;
@@ -64,7 +64,7 @@ public class Negozio implements Comparable<Negozio>{
     }
     
     public String getCitta(){
-        return città;
+        return citta;
     }
     
     
@@ -72,12 +72,12 @@ public class Negozio implements Comparable<Negozio>{
     
     @Override
     public int hashCode(){
-        return codiceFiscale.hashCode() ^ nome.hashCode() ^ indirizzo.hashCode() ^ città.hashCode();
+        return codiceFiscale.hashCode() ^ nome.hashCode() ^ indirizzo.hashCode() ^ citta.hashCode();
     }
     
     @Override
     public boolean equals(Object other){
-        return other instanceof Negozio && ((Negozio) other).città.equals(città) && ((Negozio) other).codiceFiscale.equals(codiceFiscale) && ((Negozio) other).indirizzo.equals(indirizzo) && ((Negozio) other).nome.equals(nome);
+        return other instanceof Negozio && ((Negozio) other).citta.equals(citta) && ((Negozio) other).codiceFiscale.equals(codiceFiscale) && ((Negozio) other).indirizzo.equals(indirizzo) && ((Negozio) other).nome.equals(nome);
     }
     
     
@@ -92,7 +92,7 @@ public class Negozio implements Comparable<Negozio>{
         if ( diff != 0 )
             return diff;
         
-        diff = città.compareToIgnoreCase(other.città);
+        diff = citta.compareToIgnoreCase(other.citta);
         if ( diff != 0)
             return diff;
         
@@ -102,7 +102,7 @@ public class Negozio implements Comparable<Negozio>{
     /*----------------TO STRING--------------------------*/
     @Override
     public String toString(){
-        return "Codice Fiscale: " + codiceFiscale + "\nNome: " + nome + "\nIndirizzo: " + indirizzo + "\nCittà: " + città;
+        return "Codice Fiscale: " + codiceFiscale + "\nNome: " + nome + "\nIndirizzo: " + indirizzo + "\nCittà: " + citta;
     }
     
     

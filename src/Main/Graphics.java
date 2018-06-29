@@ -2992,6 +2992,7 @@ public class Graphics extends javax.swing.JFrame {
             m.addIngresso(quantita, posizioni, c);
             indexIngressi = m.ingressiSize() - 1;
             hideAll();
+            ingressi();
             visualizzaIngressiPanel.setVisible(true);
             //resetto le stringhe
             posizione1Field_newIngressoPanel.setText("");
