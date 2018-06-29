@@ -5,9 +5,7 @@
  */
 package Main;
 
-import Exception.ArticleAlreadyExistException;
-import Exception.ShopAlreadyExistException;
-import Exception.UserAlreadyExist;
+import Exception.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -83,12 +81,12 @@ public class Main implements Serializable{
 		Negozio n2 = new Negozio("codice fiscale2", "secondo Negozio", "Indirizzo2", "City");
 		Negozio n3 = new Negozio("codice fiscale3", "terzo Negozio", "Indirizzo3", "City");
 		Negozio n4 = new Negozio("codice fiscale4", "quarto Negozio", "Indirizzo4", "City");
-		Ordine o1 = new Ordine(n1);
+		Ordine o1 = new Ordine(n1, "Corriere1");
 		o1.addArticle(a2, 10);
 		o1.addArticle(a1, 4);
 		o1.addArticle(a3, 4);
 		o1.addArticle(a4, 10);
-		Ordine o2 = new Ordine(n2);
+		Ordine o2 = new Ordine(n2, "Corriere2");
 		o2.addArticle(a2, 10);
 		o2.addArticle(a1, 4);
 		Magazzino.INSTANCE.addArticolo(a1);
@@ -119,7 +117,7 @@ public class Main implements Serializable{
 		Magazzino.INSTANCE.addOrdine(o1);
 		Magazzino.INSTANCE.addOrdine(o2);
 
-	    } catch (ArticleAlreadyExistException | ShopAlreadyExistException | UserAlreadyExist e) {
+	    } catch (ArticleAlreadyExistException | ShopAlreadyExistException | UserAlreadyExist | VoidStringUnexpectedException e) {
 		JOptionPane.showMessageDialog(null, "Eccezione");
 	    }
 	}

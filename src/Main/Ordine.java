@@ -4,11 +4,9 @@ import java.util.*;//gregorianCalendar e tutti i tipi di collezzione set, treese
 import Exception.*;
 import java.io.Serializable;
 
-<<<<<<< HEAD
+
 public class Ordine extends WarehouseMovement implements Comparable<Ordine>, Serializable{
-=======
-public class Ordine extends WarehouseMovement implements Comparable<Ordine> {
->>>>>>> 7319205b320edcd0ccd5c97c6ba6c443f69c0693
+
 
     private Negozio negozio;
     private float prezzo;
@@ -33,7 +31,7 @@ public class Ordine extends WarehouseMovement implements Comparable<Ordine> {
 
     public Ordine(Negozio n, String corriere) throws VoidStringUnexpectedException {//se non mi viene passata la data prendo la data odieran
         if (corriere.equals("") || corriere.equals(" ")) {
-            throw new VoidStringUnexpectedException("Corierre non valido, stringa vuota!");
+            throw new VoidStringUnexpectedException("Corriere non valido, stringa vuota!");
         }
         this.negozio = n;
         this.data = new GregorianCalendar();
@@ -43,7 +41,7 @@ public class Ordine extends WarehouseMovement implements Comparable<Ordine> {
 
     public Ordine(Negozio n, String corriere, GregorianCalendar data) throws VoidStringUnexpectedException {
         if (corriere.equals("") || corriere.equals(" ")) {
-            throw new VoidStringUnexpectedException("Corierre non valido, stringa vuota!");
+            throw new VoidStringUnexpectedException("Corriere non valido, stringa vuota!");
         }
         this.negozio = n;
         this.data = data;
@@ -53,7 +51,7 @@ public class Ordine extends WarehouseMovement implements Comparable<Ordine> {
 
     public Ordine(Negozio n, String corriere, GregorianCalendar data, Map<Articolo, Integer> m) throws VoidStringUnexpectedException {
         if (corriere.equals("") || corriere.equals(" ")) {
-            throw new VoidStringUnexpectedException("Corierre non valido, stringa vuota!");
+            throw new VoidStringUnexpectedException("Corriere non valido, stringa vuota!");
         }
         this.negozio = n;
         this.data = data;
