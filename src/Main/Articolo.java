@@ -71,7 +71,7 @@ public class Articolo extends WarehouseMovement implements Comparable<Articolo> 
 
     @Override
     public boolean equals(Object other) {
-        return other instanceof Articolo && tipoArticolo.equals(((Articolo) other).tipoArticolo) && prezzo == ((Articolo) other).prezzo && data.equals((Articolo) other);
+        return other instanceof Articolo && tipoArticolo.equals(((Articolo) other).tipoArticolo) && prezzo == ((Articolo) other).prezzo && data.equals(((Articolo) other).data);
     }
 
     @Override
