@@ -2,8 +2,9 @@ package Main;
 
 import java.util.*;//gregorianCalendar e tutti i tipi di collezzione set, treeset,treemap,arraylist, linkedlist, hashmap, hashset...
 import Exception.*;
+import java.io.Serializable;
 
-public class Ordine extends WarehouseMovement implements Comparable<Ordine>{
+public class Ordine extends WarehouseMovement implements Comparable<Ordine>, Serializable{
 
     private Negozio negozio;
     private float prezzo;

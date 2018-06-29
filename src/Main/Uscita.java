@@ -1,8 +1,9 @@
 package Main;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
-public class Uscita extends WarehouseMovement implements Comparable<Uscita>{
+public class Uscita extends WarehouseMovement implements Comparable<Uscita>, Serializable{
 
     private final Ordine ordine;
     

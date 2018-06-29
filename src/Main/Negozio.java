@@ -1,6 +1,8 @@
 package Main;
 
-public class Negozio implements Comparable<Negozio>{
+import java.io.Serializable;
+
+public class Negozio implements Comparable<Negozio>, Serializable{
     private String codiceFiscale;
     private String nome;
     private String indirizzo;

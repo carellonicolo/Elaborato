@@ -23,7 +23,7 @@ import static java.lang.Math.abs;
 public class Graphics extends javax.swing.JFrame {
 
     static int indexOrder = 0, indexArticle = 0, indexShop = 0, indexIngressi = 0, orderArticleSelected = 1, ingressoArticleSelected = 1;
-    public final static Magazzino m = Magazzino.INSTANCE;
+    private static Magazzino m = Magazzino.INSTANCE;
     public final Color C = new Color(0, 153, 255);//[0,153,255]
     
     
@@ -60,60 +60,7 @@ public class Graphics extends javax.swing.JFrame {
         MaterialiBottonGroup.add(polietileneRadioButton);
         MaterialiBottonGroup.add(elastanRadioButton);
 
-        //ISTANZIO UN PO DI OGGETTI DA USARE COME PROVA
-        try {
-            m.addUser(new Utente("utente", "ciao", 1));
-
-            Articolo a1 = new Articolo((float) 14, new TipoArticolo("nome1", "Desrizione1", 2, 1));
-            Articolo a2 = new Articolo((float) 17, new TipoArticolo("nome2", "Desrizione2", 3, 3));
-            Articolo a3 = new Articolo((float) 87, new TipoArticolo("nome3", "Desrizione3", 2, 1));
-            Articolo a4 = new Articolo((float) 90, new TipoArticolo("nome4", "Desrizione4", 9, 2));
-            Articolo a5 = new Articolo((float) 15, new TipoArticolo("nome5", "Desrizione5", 7, 1));
-            Articolo a6 = new Articolo((float) 18, new TipoArticolo("nome6", "Desrizione6", 10, 4));
-            Negozio n1 = new Negozio("codice fiscale1", "primo Negozio", "Indirizzo1", "City");
-            Negozio n2 = new Negozio("codice fiscale2", "secondo Negozio", "Indirizzo2", "City");
-            Negozio n3 = new Negozio("codice fiscale3", "terzo Negozio", "Indirizzo3", "City");
-            Negozio n4 = new Negozio("codice fiscale4", "quarto Negozio", "Indirizzo4", "City");
-            Ordine o1 = new Ordine(n1);
-            o1.addArticle(a2, 10);
-            o1.addArticle(a1, 4);
-            o1.addArticle(a3, 4);
-            o1.addArticle(a4, 10);
-            Ordine o2 = new Ordine(n2);
-            o2.addArticle(a2, 10);
-            o2.addArticle(a1, 4);
-            m.addArticolo(a1);
-            m.addArticolo(a2);
-            m.addArticolo(a3);
-            m.addArticolo(a4);
-            m.addArticolo(a5);
-            m.addArticolo(a6);
-            
-            Map<Articolo, Integer> q = new TreeMap<>();
-            Map<Articolo, Integer> p = new TreeMap<>();
-
-            q.put(a2, 10);
-            q.put(a3, 50);
-            q.put(a5, 2);
-            q.put(a4, 10);
-
-            p.put(a2, 1);
-            p.put(a3, 2);
-            p.put(a5, 3);
-            p.put(a4, 4);
-            m.addIngresso(q, p, new GregorianCalendar());
-            
-            
-            m.addNegozi(n1);
-            m.addNegozi(n2);
-            m.addNegozi(n3);
-            m.addNegozi(n4);
-            m.addOrdine(o1);
-            m.addOrdine(o2);
-            
-        } catch (ArticleAlreadyExistException | ShopAlreadyExistException | UserAlreadyExist e) {
-            JOptionPane.showMessageDialog(null, "Eccezione");
-        }
+        
 
         hideAll();
         loginPanel.setVisible(true);
@@ -129,7 +76,7 @@ public class Graphics extends javax.swing.JFrame {
         creaNuovoOrdinePanel.setVisible(false);
         negoziPanel.setVisible(false);
         visualizzaArticoliPanel.setVisible(false);
-        //adminPanel.setVisible(false);
+        adminPanel.setVisible(false);
         creaNegozioPanel.setVisible(false);
         creaIngressoPanel.setVisible(false);
         visualizzaIngressiPanel.setVisible(false);
@@ -166,7 +113,7 @@ public class Graphics extends javax.swing.JFrame {
         negoziButtonAdminPanel = new javax.swing.JButton();
         ordiniButtonAdminPanel = new javax.swing.JButton();
         ingressiButtonAdminPanel = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        logoutButtonAdminPanel = new javax.swing.JButton();
         saveButtonAdminPanel = new javax.swing.JButton();
         loginPanel = new javax.swing.JPanel();
         pinField = new javax.swing.JPasswordField();
@@ -516,13 +463,13 @@ public class Graphics extends javax.swing.JFrame {
         });
         adminPanel.add(ingressiButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 90, -1));
 
-        jButton2.setText("Logout");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        logoutButtonAdminPanel.setText("Logout");
+        logoutButtonAdminPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                logoutButtonAdminPanelActionPerformed(evt);
             }
         });
-        adminPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 90, -1));
+        adminPanel.add(logoutButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 90, -1));
 
         saveButtonAdminPanel.setText("Salva");
         saveButtonAdminPanel.addActionListener(new java.awt.event.ActionListener() {
@@ -671,7 +618,7 @@ public class Graphics extends javax.swing.JFrame {
         articoliQuantitaTextArea_OrderViewPanel.setBackground(new java.awt.Color(0, 153, 255));
         articoliQuantitaTextArea_OrderViewPanel.setColumns(20);
         articoliQuantitaTextArea_OrderViewPanel.setRows(5);
-        articoliQuantitaTextArea_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Articoli e Quantità", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        articoliQuantitaTextArea_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Articoli e Quantità", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 16), new java.awt.Color(255, 255, 255))); // NOI18N
         jScrollPane1.setViewportView(articoliQuantitaTextArea_OrderViewPanel);
 
         visualizzaOrdiniPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 260, 320));
@@ -3433,9 +3380,9 @@ public class Graphics extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_generaUscitaButton_OrderViewPanelActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void logoutButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonAdminPanelActionPerformed
         exit();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_logoutButtonAdminPanelActionPerformed
 
     private void saveButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonAdminPanelActionPerformed
         m.save();
@@ -3741,7 +3688,6 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JButton ingressiButtonAdminPanel;
     private javax.swing.JLabel ingressiIDLabel_VisualizzaIngressiPanel;
     private javax.swing.JButton inserisciButton_newArticlePanel;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton6;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
@@ -3773,6 +3719,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel loginTitleLabel;
+    private javax.swing.JButton logoutButtonAdminPanel;
     private javax.swing.JLabel materialeTipoArticolo_newArticlePanel;
     private javax.swing.JLabel materialiLabel_VisualizzaArticoloPanel;
     private javax.swing.JButton modificaButtonOrderPanel;

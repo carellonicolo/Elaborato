@@ -5,26 +5,128 @@
  */
 package Main;
 
+import Exception.ArticleAlreadyExistException;
+import Exception.ShopAlreadyExistException;
+import Exception.UserAlreadyExist;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
+import java.util.GregorianCalendar;
+import java.util.Map;
+import java.util.TreeMap;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author nicolocarello
  */
-public class Main {
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Graphics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+public class Main implements Serializable{
 
-        java.awt.EventQueue.invokeLater(() -> {
-            new Graphics().setVisible(true);
-        });
+    public static void main(String args[]) {
+	try {
+	    for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+		if ("Nimbus".equals(info.getName())) {
+		    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+		    break;
+		}
+	    }
+	} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+	    java.util.logging.Logger.getLogger(Graphics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+	}
+
+	Object[] options = {"Carica file", "Crea nuovo"};
+	int buttonPressed = JOptionPane.showOptionDialog(null, "Caricare un Magazzino già esistente o crearne uno nuovo?", "Messaggio d'apertura", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
+
+	if (buttonPressed == 0) {
+	    try {
+		JFileChooser jfc = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("File dati binari (.dat)", "dat");
+		jfc.setFileFilter(filter);
+		int button = jfc.showOpenDialog(null);
+		File file;
+
+		if (button == JFileChooser.APPROVE_OPTION) {
+		    try {
+			file = jfc.getSelectedFile();
+			ObjectInputStream fileIn = new ObjectInputStream(new FileInputStream((file)));
+			Magazzino m = (Magazzino) fileIn.readObject();
+			fileIn.close();
+			Magazzino.INSTANCE = m;
+			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
+		    } catch (Exception e) {
+			System.out.println(e.getMessage());
+			JOptionPane.showMessageDialog(null, "Caricamento non riuscito");
+			System.exit(0);
+		    }
+		}
+
+	    } catch (Exception e) {
+		JOptionPane.showMessageDialog(null, "Errore nell'aprire il file");
+		System.exit(0);
+	    }
+	} else {
+
+	    //ISTANZIO UN PO DI OGGETTI DA USARE COME PROVA
+	    try {
+		Magazzino.INSTANCE.addUser(new Utente("utente2", "ciao", 1));
+
+		Articolo a1 = new Articolo((float) 14, new TipoArticolo("nome1", "Desrizione1", 2, 1));
+		Articolo a2 = new Articolo((float) 17, new TipoArticolo("nome2", "Desrizione2", 3, 3));
+		Articolo a3 = new Articolo((float) 87, new TipoArticolo("nome3", "Desrizione3", 2, 1));
+		Articolo a4 = new Articolo((float) 90, new TipoArticolo("nome4", "Desrizione4", 9, 2));
+		Articolo a5 = new Articolo((float) 15, new TipoArticolo("nome5", "Desrizione5", 7, 1));
+		Articolo a6 = new Articolo((float) 18, new TipoArticolo("nome6", "Desrizione6", 10, 4));
+		Negozio n1 = new Negozio("codice fiscale1", "primo Negozio", "Indirizzo1", "City");
+		Negozio n2 = new Negozio("codice fiscale2", "secondo Negozio", "Indirizzo2", "City");
+		Negozio n3 = new Negozio("codice fiscale3", "terzo Negozio", "Indirizzo3", "City");
+		Negozio n4 = new Negozio("codice fiscale4", "quarto Negozio", "Indirizzo4", "City");
+		Ordine o1 = new Ordine(n1);
+		o1.addArticle(a2, 10);
+		o1.addArticle(a1, 4);
+		o1.addArticle(a3, 4);
+		o1.addArticle(a4, 10);
+		Ordine o2 = new Ordine(n2);
+		o2.addArticle(a2, 10);
+		o2.addArticle(a1, 4);
+		Magazzino.INSTANCE.addArticolo(a1);
+		Magazzino.INSTANCE.addArticolo(a2);
+		Magazzino.INSTANCE.addArticolo(a3);
+		Magazzino.INSTANCE.addArticolo(a4);
+		Magazzino.INSTANCE.addArticolo(a5);
+		Magazzino.INSTANCE.addArticolo(a6);
+
+		Map<Articolo, Integer> q = new TreeMap<>();
+		Map<Articolo, Integer> p = new TreeMap<>();
+
+		q.put(a2, 10);
+		q.put(a3, 50);
+		q.put(a5, 2);
+		q.put(a4, 10);
+
+		p.put(a2, 1);
+		p.put(a3, 2);
+		p.put(a5, 3);
+		p.put(a4, 4);
+		Magazzino.INSTANCE.addIngresso(q, p, new GregorianCalendar());
+
+		Magazzino.INSTANCE.addNegozi(n1);
+		Magazzino.INSTANCE.addNegozi(n2);
+		Magazzino.INSTANCE.addNegozi(n3);
+		Magazzino.INSTANCE.addNegozi(n4);
+		Magazzino.INSTANCE.addOrdine(o1);
+		Magazzino.INSTANCE.addOrdine(o2);
+
+	    } catch (ArticleAlreadyExistException | ShopAlreadyExistException | UserAlreadyExist e) {
+		JOptionPane.showMessageDialog(null, "Eccezione");
+	    }
+	}
+	
+	java.awt.EventQueue.invokeLater(() -> {
+	    new Graphics().setVisible(true);
+	});
 
     }//fine main
 }

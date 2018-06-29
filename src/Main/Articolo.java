@@ -1,8 +1,9 @@
 package Main;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
-public class Articolo extends WarehouseMovement implements Comparable<Articolo> {
+public class Articolo extends WarehouseMovement implements Comparable<Articolo>, Serializable {
 
     private float prezzo;
     private TipoArticolo tipoArticolo;

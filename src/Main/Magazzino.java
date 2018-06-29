@@ -20,7 +20,7 @@ public class Magazzino implements Serializable{
     private final Map<Articolo, Integer> quantita;
     private final Map<Articolo, Integer> posizione;
 
-    public final static Magazzino INSTANCE = new Magazzino();
+    public static Magazzino INSTANCE = new Magazzino();
 
     /**
      * *********************************** CONSTRUCT
@@ -422,15 +422,12 @@ public class Magazzino implements Serializable{
 		    fileOut.close();
 		    JOptionPane.showMessageDialog(null, "Salvataggio riuscito");
 		} catch (Exception e) {
-		    System.out.println(e.getMessage());
+		    JOptionPane.showMessageDialog(null, "Salvataggio non riuscito");
 		}
-	    } else {
-		JOptionPane.showMessageDialog(null, "Salvataggio non riuscito");
 	    }
 
 	} catch (Exception e) {
-	    System.out.println(e.getMessage());
-	    //JOptionPane.showMessageDialog(null, "Errore nell'aprire il file");
+	    JOptionPane.showMessageDialog(null, "Errore nell'aprire il file");
 	}
     }
 
