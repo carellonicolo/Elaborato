@@ -6,7 +6,10 @@
 package Main;
 
 import Exception.*;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.Map;
 import java.util.TreeMap;
@@ -46,15 +49,13 @@ public class Main implements Serializable{
 		if (button == JFileChooser.APPROVE_OPTION) {
 		    try {
 			file = jfc.getSelectedFile();
-			ObjectOutputStream fileOut = new ObjectOutputStream(new FileOutputStream((file)));
-			fileOut.flush();
 			ObjectInputStream fileIn = new ObjectInputStream(new FileInputStream((file)));
-			Magazzino.INSTANCE = (Magazzino) fileIn.readObject();
-			fileOut.close();
+			Magazzino m = (Magazzino) fileIn.readObject();
 			fileIn.close();
+			Magazzino.INSTANCE = m;
 			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
 		    } catch (Exception e) {
-			//System.out.println(e.getStackTrace());
+			System.out.println(e.getMessage());
 			JOptionPane.showMessageDialog(null, "Caricamento non riuscito");
 			System.exit(0);
 		    }
