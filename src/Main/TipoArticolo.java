@@ -1,8 +1,9 @@
 package Main;
 
 import Exception.*;
+import java.io.Serializable;
 
-public class TipoArticolo implements Comparable<TipoArticolo>{
+public class TipoArticolo implements Comparable<TipoArticolo>, Serializable{
     
     public final String sportArray[]= {"Nuoto", "Calcio", "Palestra", "Tennis", "Scii", "Basket", "Rafting", "Ciclismo", "Rugby", "Atletica", "Hockey", "Golf", "Pallavolo", "Danza"};
     public final String arrayMateriali[] = {"Poliestere", "Silicone", "Finta Pelle", "GORE-TEX", "Elastan", "Polietilene", "Poliammide"};

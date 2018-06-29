@@ -1,8 +1,9 @@
 package Main;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Utente implements UserInterface, Comparable<Utente>{
+public class Utente implements UserInterface, Comparable<Utente>, Serializable{
     
     public static final String typeOfUsers[] = {"Magazziniere", "Segreteria Amministrativa", "Responsabile Negozi"};
     

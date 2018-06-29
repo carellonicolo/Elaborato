@@ -2,12 +2,13 @@ package Main; //main
 
 //MAIN 
 
+import java.io.Serializable;
 import java.util.GregorianCalendar; //In caso si vogliano fare delle manipolazione sulle date
 import java.util.*;
 
 
 
-public class Ingresso extends WarehouseMovement{
+public class Ingresso extends WarehouseMovement implements Serializable{
     
     private final Map<Articolo, Integer> posizioni;
     private Map<Articolo, Integer> quantita;
