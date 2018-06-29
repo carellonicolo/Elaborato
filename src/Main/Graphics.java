@@ -5,6 +5,7 @@ import Exception.ArticleDontExistInWareHouseException;
 import Exception.ArticleNotFound;
 import Exception.OrderImpossibleToCreate;
 import Exception.OrderNotFound;
+import Exception.PositionAlreadyOccupiedException;
 import Exception.ShopAlreadyExistException;
 import Exception.UserAlreadyExist;
 import Exception.UserNotFoundException;
@@ -17,7 +18,6 @@ import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.lang.Math;
 import static java.lang.Math.abs;
 
 public class Graphics extends javax.swing.JFrame {
@@ -113,8 +113,6 @@ public class Graphics extends javax.swing.JFrame {
             
         } catch (ArticleAlreadyExistException | ShopAlreadyExistException | UserAlreadyExist e) {
             JOptionPane.showMessageDialog(null, "Eccezione");
-        } catch (ArticleDontExistInWareHouseException ex) {
-            Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         hideAll();
@@ -1109,6 +1107,11 @@ public class Graphics extends javax.swing.JFrame {
         visualizzaArticoliPanel.add(quantitaLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 190, 50));
 
         modificaPosizioneViewArticoliPanel.setText("Modifica posizione");
+        modificaPosizioneViewArticoliPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificaPosizioneViewArticoliPanelActionPerformed(evt);
+            }
+        });
         visualizzaArticoliPanel.add(modificaPosizioneViewArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
 
         titleLabel__VisualizzaArticoliPanel.setBackground(new java.awt.Color(0, 153, 255));
@@ -3451,6 +3454,23 @@ public class Graphics extends javax.swing.JFrame {
         indexOrder = 0;
         ordini();
     }//GEN-LAST:event_ordiniButtonAdminPanelActionPerformed
+
+    private void modificaPosizioneViewArticoliPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaPosizioneViewArticoliPanelActionPerformed
+        int newPosition = 0;
+        String s = "";
+        do{
+            do{
+                s = JOptionPane.showInputDialog("Inserisi la nuova posizione: ");       
+        }while(s.equals(" ") && s.equals(""));     
+            newPosition = Integer.parseInt(s);
+        }while(newPosition<0);
+        
+        try {
+            m.setPosition(m.getArticolo(indexArticle), newPosition);
+        } catch (ArticleDontExistInWareHouseException | PositionAlreadyOccupiedException ex) {
+            Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_modificaPosizioneViewArticoliPanelActionPerformed
 
     void articoli() {
         if (m.articoliIsEmpty()) {
