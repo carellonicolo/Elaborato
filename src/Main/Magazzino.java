@@ -20,7 +20,7 @@ public class Magazzino implements Serializable{
     private final Map<Articolo, Integer> quantita;
     private final Map<Articolo, Integer> posizione;
 
-    public static Magazzino INSTANCE = new Magazzino();
+    public static final Magazzino INSTANCE = new Magazzino();
 
     /**
      * *********************************** CONSTRUCT

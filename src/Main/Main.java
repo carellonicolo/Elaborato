@@ -52,7 +52,7 @@ public class Main implements Serializable{
 			ObjectInputStream fileIn = new ObjectInputStream(new FileInputStream((file)));
 			Magazzino m = (Magazzino) fileIn.readObject();
 			fileIn.close();
-			Magazzino.INSTANCE = m;
+			//Magazzino.INSTANCE = m;
 			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
 		    } catch (Exception e) {
 			System.out.println(e.getMessage());
