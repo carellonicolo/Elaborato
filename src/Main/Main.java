@@ -80,18 +80,22 @@ public class Main implements Serializable{
 
 	    //ISTANZIO UN PO DI OGGETTI DA USARE COME PROVA
 	    try {
-		Magazzino.INSTANCE.addUser(new Utente("utente2", "ciao", 1));
-
+		Magazzino.INSTANCE.addUser(new Utente("utente1", "ciao1", 1));
+                Magazzino.INSTANCE.addUser(new Utente("utente2", "ciao2", 2));
+                Magazzino.INSTANCE.addUser(new Utente("utente3", "ciao3", 3));
+                
 		Articolo a1 = new Articolo((float) 14, new TipoArticolo("nome1", "Desrizione1", 2, 1));
 		Articolo a2 = new Articolo((float) 17, new TipoArticolo("nome2", "Desrizione2", 3, 3));
 		Articolo a3 = new Articolo((float) 87, new TipoArticolo("nome3", "Desrizione3", 2, 1));
 		Articolo a4 = new Articolo((float) 90, new TipoArticolo("nome4", "Desrizione4", 9, 2));
 		Articolo a5 = new Articolo((float) 15, new TipoArticolo("nome5", "Desrizione5", 7, 1));
 		Articolo a6 = new Articolo((float) 18, new TipoArticolo("nome6", "Desrizione6", 10, 4));
+                
 		Negozio n1 = new Negozio("codice fiscale1", "primo Negozio", "Indirizzo1", "City");
 		Negozio n2 = new Negozio("codice fiscale2", "secondo Negozio", "Indirizzo2", "City");
 		Negozio n3 = new Negozio("codice fiscale3", "terzo Negozio", "Indirizzo3", "City");
 		Negozio n4 = new Negozio("codice fiscale4", "quarto Negozio", "Indirizzo4", "City");
+                
 		Ordine o1 = new Ordine(n1, "Corriere1");
 		o1.addArticle(a2, 10);
 		o1.addArticle(a1, 4);
