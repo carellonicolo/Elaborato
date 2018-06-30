@@ -11,3 +11,5 @@ nbproject/private/private.xml
 nbproject/private/private.xml
 >>>>>>> bf451784d0a3e8a4ace33a3d3750a81bd90f65b1
 *.xml
+nbproject\private\private.xml
+.project
