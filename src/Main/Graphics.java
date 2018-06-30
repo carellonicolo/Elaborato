@@ -3423,7 +3423,7 @@ public class Graphics extends javax.swing.JFrame {
         String s = "";
         do {
             do {
-                s = JOptionPane.showInputDialog("Inserisi la nuova posizione: ");
+                s = JOptionPane.showInputDialog("Inserire la nuova posizione: ");
             } while (s.equals(" ") && s.equals(""));
             newPosition = Integer.parseInt(s);
         } while (newPosition < 0);
