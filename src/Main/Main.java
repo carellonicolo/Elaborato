@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.GregorianCalendar;
-import java.util.Map;
+import java.util.*;
 import java.util.TreeMap;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -50,9 +50,20 @@ public class Main implements Serializable{
 		    try {
 			file = jfc.getSelectedFile();
 			ObjectInputStream fileIn = new ObjectInputStream(new FileInputStream((file)));
-			Magazzino m = (Magazzino) fileIn.readObject();
+			
+			List<Articolo> articoli = (List) fileIn.readObject();
+			List<Ingresso> ingressi = (List) fileIn.readObject();
+			Set<Ingresso> ingressiMensili = (Set) fileIn.readObject();
+			List<Negozio> negozi = (List) fileIn.readObject();
+			List<Ordine> ordini = (List) fileIn.readObject();
+			Map<Articolo, Integer> posizione = (Map) fileIn.readObject();
+			Map<Articolo, Integer> quantita = (Map) fileIn.readObject();
+			List<Uscita> uscite = (List) fileIn.readObject();
+			Set<Uscita> usciteMensili = (Set) fileIn.readObject();
+			List<Utente> utenti = (List) fileIn.readObject();
+			Magazzino.INSTANCE.upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, uscite, usciteMensili, utenti);
+			
 			fileIn.close();
-			//Magazzino.INSTANCE = m;
 			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
 		    } catch (Exception e) {
 			System.out.println(e.getMessage());

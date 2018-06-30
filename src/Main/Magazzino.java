@@ -9,16 +9,16 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 //GLI ARRAYLIST, COME PER GLI ARRAY, PARTONO DA 0
 public class Magazzino implements Serializable{
 
-    private final List<Uscita> uscite;
-    private final List<Ordine> ordini;
-    private final List<Articolo> articoli;
-    private final List<Ingresso> ingressi;
-    private final List<Negozio> negozi;
-    private final List<Utente> utenti;
-    private final Set<Ingresso> ingressiMensili;
-    private final Set<Uscita> usciteMensili;
-    private final Map<Articolo, Integer> quantita;
-    private final Map<Articolo, Integer> posizione;
+    private List<Uscita> uscite;
+    private List<Ordine> ordini;
+    private List<Articolo> articoli;
+    private List<Ingresso> ingressi;
+    private List<Negozio> negozi;
+    private List<Utente> utenti;
+    private Set<Ingresso> ingressiMensili;
+    private Set<Uscita> usciteMensili;
+    private Map<Articolo, Integer> quantita;
+    private Map<Articolo, Integer> posizione;
 
     public static final Magazzino INSTANCE = new Magazzino();
 
@@ -417,7 +417,16 @@ public class Magazzino implements Serializable{
 		try {
 		    file = jfc.getSelectedFile();
 		    ObjectOutputStream fileOut = new ObjectOutputStream(new FileOutputStream((file)));
-		    fileOut.writeObject(this);
+		    fileOut.writeObject(this.articoli);
+		    fileOut.writeObject(this.ingressi);
+		    fileOut.writeObject(this.ingressiMensili);
+		    fileOut.writeObject(this.negozi);
+		    fileOut.writeObject(this.ordini);
+		    fileOut.writeObject(this.posizione);
+		    fileOut.writeObject(this.quantita);
+		    fileOut.writeObject(this.uscite);
+		    fileOut.writeObject(this.usciteMensili);
+		    fileOut.writeObject(this.utenti);
 		    fileOut.flush();
 		    fileOut.close();
 		    JOptionPane.showMessageDialog(null, "Salvataggio riuscito");
@@ -429,6 +438,22 @@ public class Magazzino implements Serializable{
 	} catch (Exception e) {
 	    JOptionPane.showMessageDialog(null, "Errore nell'aprire il file");
 	}
+    }
+    
+    protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, Set<Ingresso> ingressiMensiliLoad, List<Negozio> negoziLoad, List<Ordine> ordiniLoad, 
+	    Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad, List<Uscita> usciteLoad, Set<Uscita> usciteMensiliLoad, List<Utente> utentiLoad){
+	
+	this.articoli = articoliLoad;
+	this.ingressi = ingressiLoad;
+	this.ingressiMensili = ingressiMensiliLoad;
+	this.negozi = negoziLoad;
+	this.ordini = ordiniLoad;
+	this.posizione = posizioneLoad;
+	this.quantita = quantitaLoad;
+	this.uscite = usciteLoad;
+	this.usciteMensili = usciteMensiliLoad;
+	this.utenti = utentiLoad;
+	
     }
 
 }//MAGAZZINO
