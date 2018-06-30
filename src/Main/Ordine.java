@@ -150,7 +150,7 @@ public class Ordine extends WarehouseMovement implements Comparable<Ordine>, Ser
 
     @Override
     public boolean equals(Object other) {
-        return other instanceof Ordine && ((Ordine) other).data.equals(data) && ((Ordine) other).mappa.equals(mappa) && negozio.equals((Ordine) other) && ((Ordine) other).prezzo == prezzo;
+        return other instanceof Ordine && ((Ordine) other).data.equals(data) && ((Ordine) other).mappa.equals(mappa) && negozio.equals( ((Ordine) other).negozio) && ((Ordine) other).prezzo == prezzo;
     }
 
     @Override

@@ -15,10 +15,7 @@ public class Magazzino implements Serializable{
     private final List<Ingresso> ingressi;
     private final List<Negozio> negozi;
     private final List<Utente> utenti;
-    private final Set<Ingresso> ingressiMensili;
-    private final Set<Uscita> usciteMensili;
-    private final Map<Articolo, Integer> quantita;
-    private final Map<Articolo, Integer> posizione;
+    private final Map<Articolo, Integer> quantita, posizione, ingressiMensili, usciteMensili;
 
     public static final Magazzino INSTANCE = new Magazzino();
 
@@ -29,14 +26,14 @@ public class Magazzino implements Serializable{
     private Magazzino() {
 	this.negozi = new ArrayList();
 	this.uscite = new ArrayList<>();
-	this.usciteMensili = new TreeSet<>();
-	this.ingressiMensili = new TreeSet<>();
+	this.usciteMensili = new TreeMap<>();
+	this.ingressiMensili = new TreeMap<>();
 	this.utenti = new ArrayList<>();
 	this.ingressi = new ArrayList<>();
 	this.articoli = new ArrayList<>();
 	this.ordini = new ArrayList<>();
-	this.quantita = new HashMap<>();
-	this.posizione = new HashMap<>();
+	this.quantita = new TreeMap<>();
+	this.posizione = new TreeMap<>();
     }
 
     /**
@@ -102,11 +99,9 @@ public class Magazzino implements Serializable{
     }
 
     public void removeArticolo(int i) {
-	if (articoli.contains(i)) {
-	    articoli.remove(i);
-	}
-	//else
-	//ArticleDontExistInWareHouseException
+	    posizione.remove(articoli.get(i));
+            quantita.remove(articoli.get(i));
+            articoli.remove(i);
     }
 
     public Articolo getArticolo(int i) throws IndexOutOfBoundsException {
@@ -254,15 +249,7 @@ public class Magazzino implements Serializable{
 	ingressi.add(new Ingresso(quantitaParameter, posizioneParameter, data));
 	return true;
     }
-
-    public boolean removeIngresso(Ingresso i) {
-	return ingressi.remove(i);
-    }
-
-    public void removeIngresso(int i) {
-	ingressi.remove(i);
-    }
-
+    
     public boolean ingressiIsEmpty() {
 	return ingressi.isEmpty();
     }
@@ -290,6 +277,7 @@ public class Magazzino implements Serializable{
      */
     public void createExit(Ordine n) throws OrderNotFound, ArticleNotFound, OrderImpossibleToCreate {
 	boolean isPossible = true;
+        
 	for (Ordine x : ordini)//scorro array ordini per vedere se l'ordine esiste
 	{
 	    if (x.equals(n)) {//ho trovato l'ordine nella lista
