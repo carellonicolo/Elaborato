@@ -16,6 +16,7 @@ public class Magazzino implements Serializable{
     private List<Ingresso> ingressi;
     private List<Negozio> negozi;
     private List<Utente> utenti;
+    private List<Map> storicoMensili;
     private Map<Articolo, Integer> quantita, posizione, ingressiMensili, usciteMensili;
 
 
@@ -36,6 +37,7 @@ public class Magazzino implements Serializable{
 	this.ordini = new ArrayList<>();
 	this.quantita = new TreeMap<>();
 	this.posizione = new TreeMap<>();
+	this.storicoMensili = new ArrayList();
     }
 
     /**
@@ -249,6 +251,7 @@ public class Magazzino implements Serializable{
 
 	}//for
 	ingressi.add(new Ingresso(quantitaParameter, posizioneParameter, data));
+	this.addIngressoMensile(new Ingresso(quantitaParameter, posizioneParameter, data));
 	return true;
     }
     
@@ -267,6 +270,41 @@ public class Magazzino implements Serializable{
     public int getIndex(Ingresso i) {
 	//ritorna l'indica della prima occorrenza dell'ingresso specificato nella lista
 	return ingressi.indexOf(i);
+    }
+    
+    public boolean addIngressoMensile(Ingresso ingresso){
+	
+	int mese = storicoMensili.size() - 1;
+	Map<Articolo, Integer> quantitaArticoli = ingresso.getQuantitaMap(); 
+	int tmpQuantita;
+	
+	if(storicoMensili.isEmpty()){
+	    mese = ingresso.getData().get(Calendar.MONTH);
+	}
+	
+	if(ingresso.getData().get(Calendar.MONTH) > mese){ //se arriva un ingresso del mese successivo a quello salvato, salvo la mappa mensile nello storico e la pulisco
+	    saveIngressoMensile(mese);
+	}
+	else if(ingresso.getData().get(Calendar.MONTH) < mese){
+	    return false;
+	}
+	
+	for(Articolo X: quantitaArticoli.keySet()){
+	
+	    if (this.ingressiMensili.containsKey(X)) {
+		tmpQuantita = this.ingressiMensili.get(X);
+		this.ingressiMensili.put(X, (tmpQuantita + quantitaArticoli.get(X)));
+	    } else {
+		this.ingressiMensili.put(X, quantitaArticoli.get(X));
+	    }
+	}
+	
+	return true;
+    }
+    
+    public void saveIngressoMensile(int mese){
+	storicoMensili.add(mese, ingressiMensili);
+	ingressiMensili.clear();
     }
 
     /**
@@ -414,6 +452,7 @@ public class Magazzino implements Serializable{
 		    fileOut.writeObject(this.ordini);
 		    fileOut.writeObject(this.posizione);
 		    fileOut.writeObject(this.quantita);
+		    fileOut.writeObject(this.storicoMensili);
 		    fileOut.writeObject(this.uscite);
 		    fileOut.writeObject(this.usciteMensili);
 		    fileOut.writeObject(this.utenti);
@@ -430,8 +469,9 @@ public class Magazzino implements Serializable{
 	}
     }
     
-    protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, Map<Articolo, Integer> ingressiMensiliLoad, List<Negozio> negoziLoad, List<Ordine> ordiniLoad, 
-	    Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad, List<Uscita> usciteLoad, Map<Articolo, Integer> usciteMensiliLoad, List<Utente> utentiLoad){
+    protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, Map<Articolo, Integer> ingressiMensiliLoad, List<Negozio> negoziLoad, 
+	    List<Ordine> ordiniLoad, Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad, List<Map> storicoMensiliLoad, 
+	    List<Uscita> usciteLoad, Map<Articolo, Integer> usciteMensiliLoad, List<Utente> utentiLoad){
 	
 	this.articoli = articoliLoad;
 	this.ingressi = ingressiLoad;
@@ -440,6 +480,7 @@ public class Magazzino implements Serializable{
 	this.ordini = ordiniLoad;
 	this.posizione = posizioneLoad;
 	this.quantita = quantitaLoad;
+	this.storicoMensili = storicoMensiliLoad;
 	this.uscite = usciteLoad;
 	this.usciteMensili = usciteMensiliLoad;
 	this.utenti = utentiLoad;

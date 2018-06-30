@@ -58,10 +58,11 @@ public class Main implements Serializable{
 			List<Ordine> ordini = (List) fileIn.readObject();
 			Map<Articolo, Integer> posizione = (Map) fileIn.readObject();
 			Map<Articolo, Integer> quantita = (Map) fileIn.readObject();
+			List<Map> storicoMensili = (List) fileIn.readObject();
 			List<Uscita> uscite = (List) fileIn.readObject();
 			Map<Articolo, Integer> usciteMensili = (Map) fileIn.readObject();
 			List<Utente> utenti = (List) fileIn.readObject();
-			Magazzino.INSTANCE.upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, uscite, usciteMensili, utenti);
+			Magazzino.INSTANCE.upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, storicoMensili, uscite, usciteMensili, utenti);
 			
 			fileIn.close();
 			JOptionPane.showMessageDialog(null, "Caricamento riuscito");

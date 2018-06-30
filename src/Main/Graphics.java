@@ -88,7 +88,7 @@ public class Graphics extends javax.swing.JFrame {
         ingressiButtonAdminPanel = new javax.swing.JButton();
         logoutButtonAdminPanel = new javax.swing.JButton();
         saveButtonAdminPanel = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        fineMeseButtonAdminPanel = new javax.swing.JButton();
         negoziPanel = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -380,8 +380,13 @@ public class Graphics extends javax.swing.JFrame {
         });
         adminPanel.add(saveButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 90, -1));
 
-        jButton1.setText("Fine Mese");
-        adminPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, -1));
+        fineMeseButtonAdminPanel.setText("Fine Mese");
+        fineMeseButtonAdminPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fineMeseButtonAdminPanelActionPerformed(evt);
+            }
+        });
+        adminPanel.add(fineMeseButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, -1));
 
         getContentPane().add(adminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 760, 50));
 
@@ -840,7 +845,7 @@ public class Graphics extends javax.swing.JFrame {
         articoliQuantitaTextArea_OrderViewPanel.setColumns(20);
         articoliQuantitaTextArea_OrderViewPanel.setForeground(new java.awt.Color(255, 255, 255));
         articoliQuantitaTextArea_OrderViewPanel.setRows(5);
-        articoliQuantitaTextArea_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Articoli e Quantità", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        articoliQuantitaTextArea_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Articoli e Quantità", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 16), new java.awt.Color(255, 255, 255))); // NOI18N
         jScrollPane1.setViewportView(articoliQuantitaTextArea_OrderViewPanel);
 
         visualizzaOrdiniPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 260, 210));
@@ -3442,6 +3447,10 @@ public class Graphics extends javax.swing.JFrame {
         articoli();
     }//GEN-LAST:event_eliminaButton_VisualizzaArticoloPanelActionPerformed
 
+    private void fineMeseButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fineMeseButtonAdminPanelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fineMeseButtonAdminPanelActionPerformed
+
     void articoli() {
         if (m.articoliIsEmpty()) {
             cercaLabel_VisualizzaArticoloPanel.setText("");
@@ -3711,6 +3720,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JLabel descrizioneLabel_VisualizzaArticoloPanel;
     private javax.swing.JRadioButton elastanRadioButton;
     private javax.swing.JButton eliminaButton_VisualizzaArticoloPanel;
+    private javax.swing.JButton fineMeseButtonAdminPanel;
     private javax.swing.JRadioButton fintaPelleRadioButton;
     private javax.swing.JButton generaUscitaButton_OrderViewPanel;
     private javax.swing.JRadioButton golfRadioButton;
@@ -3725,7 +3735,6 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JButton ingressiButtonAdminPanel;
     private javax.swing.JLabel ingressiIDLabel_VisualizzaIngressiPanel;
     private javax.swing.JButton inserisciButton_newArticlePanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
