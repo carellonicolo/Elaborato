@@ -9,26 +9,15 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 //GLI ARRAYLIST, COME PER GLI ARRAY, PARTONO DA 0
 public class Magazzino implements Serializable{
 
-<<<<<<< HEAD
+
     private List<Uscita> uscite;
     private List<Ordine> ordini;
     private List<Articolo> articoli;
     private List<Ingresso> ingressi;
     private List<Negozio> negozi;
     private List<Utente> utenti;
-    private Set<Ingresso> ingressiMensili;
-    private Set<Uscita> usciteMensili;
-    private Map<Articolo, Integer> quantita;
-    private Map<Articolo, Integer> posizione;
-=======
-    private final List<Uscita> uscite;
-    private final List<Ordine> ordini;
-    private final List<Articolo> articoli;
-    private final List<Ingresso> ingressi;
-    private final List<Negozio> negozi;
-    private final List<Utente> utenti;
-    private final Map<Articolo, Integer> quantita, posizione, ingressiMensili, usciteMensili;
->>>>>>> 0871467f33f26d5b99f1bbf83b52f243399e7ef7
+    private Map<Articolo, Integer> quantita, posizione, ingressiMensili, usciteMensili;
+
 
     public static final Magazzino INSTANCE = new Magazzino();
 
@@ -441,8 +430,8 @@ public class Magazzino implements Serializable{
 	}
     }
     
-    protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, Set<Ingresso> ingressiMensiliLoad, List<Negozio> negoziLoad, List<Ordine> ordiniLoad, 
-	    Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad, List<Uscita> usciteLoad, Set<Uscita> usciteMensiliLoad, List<Utente> utentiLoad){
+    protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, Map<Articolo, Integer> ingressiMensiliLoad, List<Negozio> negoziLoad, List<Ordine> ordiniLoad, 
+	    Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad, List<Uscita> usciteLoad, Map<Articolo, Integer> usciteMensiliLoad, List<Utente> utentiLoad){
 	
 	this.articoli = articoliLoad;
 	this.ingressi = ingressiLoad;

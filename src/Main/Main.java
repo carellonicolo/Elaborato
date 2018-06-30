@@ -53,13 +53,13 @@ public class Main implements Serializable{
 			
 			List<Articolo> articoli = (List) fileIn.readObject();
 			List<Ingresso> ingressi = (List) fileIn.readObject();
-			Set<Ingresso> ingressiMensili = (Set) fileIn.readObject();
+			Map<Articolo, Integer> ingressiMensili = (Map) fileIn.readObject();
 			List<Negozio> negozi = (List) fileIn.readObject();
 			List<Ordine> ordini = (List) fileIn.readObject();
 			Map<Articolo, Integer> posizione = (Map) fileIn.readObject();
 			Map<Articolo, Integer> quantita = (Map) fileIn.readObject();
 			List<Uscita> uscite = (List) fileIn.readObject();
-			Set<Uscita> usciteMensili = (Set) fileIn.readObject();
+			Map<Articolo, Integer> usciteMensili = (Map) fileIn.readObject();
 			List<Utente> utenti = (List) fileIn.readObject();
 			Magazzino.INSTANCE.upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, uscite, usciteMensili, utenti);
 			
