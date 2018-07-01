@@ -12,6 +12,7 @@ public class Ordine extends WarehouseMovement implements Comparable<Ordine>, Ser
     private float prezzo;
     private boolean shipped = false;
     private final String corriere;
+    private final int ID;
 
     private Map<Articolo, Integer> mappa = new TreeMap<>();
 
@@ -27,6 +28,7 @@ public class Ordine extends WarehouseMovement implements Comparable<Ordine>, Ser
         //Calcolo il costo totale degli articoli nella mappa
         calcolaPrezzo();
         this.corriere = corriere;
+        ID = hashCode();
     }//costruttore con data come parametri interi
 
     public Ordine(Negozio n, String corriere) throws VoidStringUnexpectedException {//se non mi viene passata la data prendo la data odieran
@@ -37,6 +39,7 @@ public class Ordine extends WarehouseMovement implements Comparable<Ordine>, Ser
         this.data = new GregorianCalendar();
         calcolaPrezzo();
         this.corriere = corriere;
+        ID = hashCode();
     }
 
     public Ordine(Negozio n, String corriere, GregorianCalendar data) throws VoidStringUnexpectedException {
@@ -47,6 +50,7 @@ public class Ordine extends WarehouseMovement implements Comparable<Ordine>, Ser
         this.data = data;
         calcolaPrezzo();
         this.corriere = corriere;
+        ID = hashCode();
     }
 
     public Ordine(Negozio n, String corriere, GregorianCalendar data, Map<Articolo, Integer> m) throws VoidStringUnexpectedException {
@@ -58,6 +62,7 @@ public class Ordine extends WarehouseMovement implements Comparable<Ordine>, Ser
         mappa.putAll(m);
         calcolaPrezzo();
         this.corriere = corriere;
+        ID = hashCode();
     }
 
     //------------------METODI-GET-------------------//
@@ -143,6 +148,11 @@ public class Ordine extends WarehouseMovement implements Comparable<Ordine>, Ser
         return this.shipped;
     }
 
+    @Override
+    public int getID(){
+        return ID;
+    }
+    
     @Override
     public int hashCode() {
         return data.hashCode() ^ mappa.hashCode() ^ (int) prezzo ^ data.get(GregorianCalendar.MINUTE) ^ data.get(GregorianCalendar.MILLISECOND) ^ data.get(GregorianCalendar.SECOND);

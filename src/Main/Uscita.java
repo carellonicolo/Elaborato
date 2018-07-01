@@ -6,15 +6,18 @@ import java.util.GregorianCalendar;
 public class Uscita extends WarehouseMovement implements Comparable<Uscita>, Serializable{
 
     private final Ordine ordine;
+    private final int ID;
     
     public Uscita( Ordine ordine){
         this.ordine = ordine;
         data = new GregorianCalendar();
+        ID = hashCode();
     }
     
     public Uscita( Ordine ordine, GregorianCalendar data){
         this.ordine = ordine;
         this.data = data;
+        ID = hashCode();
     }
 
   
@@ -24,6 +27,10 @@ public class Uscita extends WarehouseMovement implements Comparable<Uscita>, Ser
     }
     
     
+    @Override
+    public int getID(){
+        return ID;
+    }
     
     @Override
     public int hashCode(){

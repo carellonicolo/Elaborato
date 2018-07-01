@@ -1900,7 +1900,7 @@ public class Graphics extends javax.swing.JFrame {
                 for(int ciao = 0; ciao < m.articoliSize(); ciao++){
                     Articolo a = m.getArticolo(ciao);
             try {
-                model.addRow(new Object[]{ a.getID(), a.getTipoArticolo().getName(), a.getPrezzo(), a.getTipoArticolo().getSports(), a.getTipoArticolo().getMaterial(), m.getQuantita(a), m.getPosition(a)});
+                model.addRow(new Object[]{ abs(a.getID()), a.getTipoArticolo().getName(), a.getPrezzo(), a.getTipoArticolo().getSports(), a.getTipoArticolo().getMaterial(), m.getQuantita(a), m.getPosition(a)});
             } catch (ArticleDontExistInWareHouseException ex) {
                 Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Eccezione generata nel comporre la tabella!");

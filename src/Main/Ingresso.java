@@ -8,37 +8,38 @@ import java.util.*;
 
 
 
-public class Ingresso extends WarehouseMovement implements Serializable{
+public final class Ingresso extends WarehouseMovement implements Serializable, Comparable<Ingresso>{
     
     private final Map<Articolo, Integer> posizioni;
     private Map<Articolo, Integer> quantita;
-    public static int i;
-    
     
     //COSTRUTTORI
-   
     public Ingresso(Map<Articolo, Integer> quantita, Map<Articolo, Integer> posizioni){
         this.quantita = quantita;
         this.posizioni = posizioni;
         this.data = new GregorianCalendar();
+        ID = hashCode();
     }
     
     public Ingresso(int d, int m, int y){
         this.posizioni = new TreeMap<>();
         this.quantita = new TreeMap<>();
         this.data = new GregorianCalendar(y, m, d);
+        ID = hashCode();
     }
     
     public Ingresso(Map<Articolo, Integer> quantita, Map<Articolo, Integer> posizioni, GregorianCalendar data){
         this.quantita = quantita;
         this.posizioni = posizioni;
         this.data = data;
+        ID = hashCode();
     }
     
     public Ingresso(Map<Articolo, Integer> quantita, Map<Articolo, Integer> posizioni, int d, int m, int y){
         this.quantita = quantita;
         this.posizioni = posizioni;
         this.data = new GregorianCalendar(y, m, d);
+        ID = hashCode();
     }
  
     
@@ -73,20 +74,22 @@ public class Ingresso extends WarehouseMovement implements Serializable{
     
     
     @Override
-    public int getID(){
-        return hashCode();
-    }
-    
-
-    
-    @Override
     public int hashCode(){//DEBUG
         return quantita.hashCode() ^ posizioni.hashCode() ^ data.hashCode();
     }
 
     @Override
+    public int compareTo(Ingresso other){
+        int diff = data.compareTo(other.data);
+        if(diff != 0)
+            return diff;
+        
+        return ID - other.ID;
+          
+    }
+    @Override
     public boolean equals(Object other) {
-        return other instanceof Ingresso && ((Ingresso) other).posizioni.equals(posizioni) && ((Ingresso) other).quantita.equals(quantita) && ((Ingresso) other).data.equals(data);
+        return other instanceof Ingresso && ((Ingresso)other).getID() == ID;
     }
   
     @Override

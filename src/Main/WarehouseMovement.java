@@ -5,7 +5,8 @@ import java.util.GregorianCalendar;
 public abstract class WarehouseMovement {
 
     protected GregorianCalendar data;
-
+    protected int ID;
+    
     //GET - DATA
     public GregorianCalendar getData() {
         return data;
@@ -53,7 +54,7 @@ public abstract class WarehouseMovement {
     }
 
     public int getID() {
-        return hashCode();
+        return ID;
     }
 
     public String getIDtoString() {
