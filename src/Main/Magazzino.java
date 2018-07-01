@@ -19,7 +19,7 @@ public class Magazzino implements Serializable {
     private List<Map> storicoIngressiMensili, storicoUsciteMensili;
     private Map<Articolo, Integer> quantita, posizione, ingressiMensili, usciteMensili;
 
-    public static Magazzino INSTANCE = null;
+    private static Magazzino INSTANCE = null;
 
     /**
      * *********************************** CONSTRUCT

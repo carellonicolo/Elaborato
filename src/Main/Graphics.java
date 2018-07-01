@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static java.lang.Math.abs;
+import javax.swing.table.DefaultTableModel;
 
 public class Graphics extends javax.swing.JFrame {
     
@@ -72,6 +73,8 @@ public class Graphics extends javax.swing.JFrame {
         
     }
     
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -112,6 +115,8 @@ public class Graphics extends javax.swing.JFrame {
         modificaPosizioneViewArticoliPanel = new javax.swing.JButton();
         titleLabel__VisualizzaArticoliPanel = new javax.swing.JLabel();
         eliminaButton_VisualizzaArticoloPanel = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabellaArticoli = new javax.swing.JTable();
         loginPanel = new javax.swing.JPanel();
         pinField = new javax.swing.JPasswordField();
         cancelPinButton = new javax.swing.JButton();
@@ -529,7 +534,42 @@ public class Graphics extends javax.swing.JFrame {
         });
         visualizzaArticoliPanel.add(eliminaButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
 
-        sfondo.add(visualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 510, 400));
+        jScrollPane2.setToolTipText("");
+
+        tabellaArticoli.setBackground(new java.awt.Color(0, 153, 255));
+        tabellaArticoli.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
+        tabellaArticoli.setForeground(new java.awt.Color(255, 255, 255));
+        tabellaArticoli.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Articolo", "Prezzo", "sport", "Materiale", "Quantità", "Posizione"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabellaArticoli.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabellaArticoli.setShowGrid(true);
+        tabellaArticoli.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(tabellaArticoli);
+
+        visualizzaArticoliPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, 530, 340));
+
+        sfondo.add(visualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 1280, 400));
 
         loginPanel.setBackground(new java.awt.Color(0, 153, 255));
         loginPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
@@ -1854,7 +1894,18 @@ public class Graphics extends javax.swing.JFrame {
     }//GEN-LAST:event_newOrderButton_orderViewPanelActionPerformed
 
     private void articoliButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_articoliButtonAdminPanelActionPerformed
-        hideAll();
+        
+        DefaultTableModel model = (DefaultTableModel)tabellaArticoli.getModel();
+                
+                for(int ciao = 0; ciao < m.articoliSize(); ciao++){
+                    Articolo a = m.getArticolo(ciao);
+            try {
+                model.addRow(new Object[]{ a.getID(), a.getTipoArticolo().getName(), a.getPrezzo(), a.getTipoArticolo().getSports(), a.getTipoArticolo().getMaterial(), m.getQuantita(a), m.getPosition(a)});
+            } catch (ArticleDontExistInWareHouseException ex) {
+                Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Eccezione generata nel comporre la tabella!");
+            }
+                }hideAll();
         visualizzaArticoliPanel.setVisible(true);
         articoli();
     }//GEN-LAST:event_articoliButtonAdminPanelActionPerformed
@@ -3718,7 +3769,8 @@ public class Graphics extends javax.swing.JFrame {
                 int posizione = m.getPosition(articolo);
                 quantitaLabel_VisualizzaArticoloPanel.setText(quantita + "");
                 posizioneLabel_VisualizzaArticoloPanel.setText("" + posizione);
-                
+                tabellaArticoli.getSelectionModel().setSelectionInterval(indexArticle, indexArticle);
+                //tabellaArticoli.setSelectionMode(indexArticle);
             } catch (ArticleDontExistInWareHouseException ex) {
                 System.out.println("Eccezzione");
             }
@@ -3995,6 +4047,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginPanel;
@@ -4079,6 +4132,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JRadioButton siliconeRadioButton;
     private javax.swing.JLabel sportLabelTipoArticolo_newArticlePanel;
     private javax.swing.JLabel sportLabel_VisualizzaArticoloPanel;
+    private javax.swing.JTable tabellaArticoli;
     private javax.swing.JRadioButton tennisRadioButton;
     private javax.swing.JLabel titleLabel__VisualizzaArticoliPanel;
     private javax.swing.JLabel titolo_newArticlePanel;
