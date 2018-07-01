@@ -3641,6 +3641,9 @@ public class Graphics extends javax.swing.JFrame {
 
     private void fineMeseButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fineMeseButtonAdminPanelActionPerformed
         int lastMonth = 0;
+	
+	Map<Articolo, Integer> map;
+	
 	for(int i = 0; i < 12; i++){
 	    if(m.getStoricoIngressoMensile().get(i) instanceof TreeMap){
 		lastMonth = i;
@@ -3648,6 +3651,9 @@ public class Graphics extends javax.swing.JFrame {
 	}
 	m.saveIngressoMensile(lastMonth);
 	m.saveUscitaMensile(lastMonth);
+	map = (Map<Articolo, Integer>) m.getStoricoIngressoMensile().get(lastMonth);
+	JOptionPane.showMessageDialog(null, "");
+	
     }//GEN-LAST:event_fineMeseButtonAdminPanelActionPerformed
 
     private void negozioInfo_OrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negozioInfo_OrderPanelActionPerformed
