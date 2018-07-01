@@ -8,8 +8,7 @@ import java.io.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 //GLI ARRAYLIST, COME PER GLI ARRAY, PARTONO DA 0
-public class Magazzino implements Serializable{
-
+public class Magazzino implements Serializable {
 
     private List<Uscita> uscite;
     private List<Ordine> ordini;
@@ -17,9 +16,8 @@ public class Magazzino implements Serializable{
     private List<Ingresso> ingressi;
     private List<Negozio> negozi;
     private List<Utente> utenti;
-    private List<Map> storicoMensili;
+    private List<Map> storicoIngressiMensili, storicoUsciteMensili;
     private Map<Articolo, Integer> quantita, posizione, ingressiMensili, usciteMensili;
-
 
     public static final Magazzino INSTANCE = new Magazzino();
 
@@ -38,12 +36,14 @@ public class Magazzino implements Serializable{
 	this.ordini = new ArrayList<>();
 	this.quantita = new TreeMap<>();
 	this.posizione = new TreeMap<>();
-	this.storicoMensili = new ArrayList();
-	
-	for(int i = 0; i<12; i++){
-	    storicoMensili.add(new TreeMap());
+	this.storicoIngressiMensili = new ArrayList();
+	this.storicoUsciteMensili = new ArrayList();
+
+	for (int i = 0; i < 12; i++) {
+	    storicoIngressiMensili.add(new HashMap());
+	    storicoUsciteMensili.add(new HashMap());
 	}
-	
+
     }
 
     /**
@@ -97,8 +97,8 @@ public class Magazzino implements Serializable{
 	    throw new ArticleAlreadyExistException("L'articolo è già presente nella lista!");
 	}
 	articoli.add(a);
-        posizione.put(a, 0);
-        quantita.put(a, 0);
+	posizione.put(a, 0);
+	quantita.put(a, 0);
     }
 
     public boolean removeArticolo(Articolo u) {
@@ -109,9 +109,9 @@ public class Magazzino implements Serializable{
     }
 
     public void removeArticolo(int i) {
-	    posizione.remove(articoli.get(i));
-            quantita.remove(articoli.get(i));
-            articoli.remove(i);
+	posizione.remove(articoli.get(i));
+	quantita.remove(articoli.get(i));
+	articoli.remove(i);
     }
 
     public Articolo getArticolo(int i) throws IndexOutOfBoundsException {
@@ -147,14 +147,16 @@ public class Magazzino implements Serializable{
 
     //POSIZIONI E QUANTITA
     public int getQuantita(Articolo a) throws ArticleDontExistInWareHouseException {
-	if (!articoli.contains(a))
+	if (!articoli.contains(a)) {
 	    throw new ArticleDontExistInWareHouseException("Articolo inesistente!");
-            return quantita.get(a);
+	}
+	return quantita.get(a);
     }
 
     public int getPosition(Articolo a) throws ArticleDontExistInWareHouseException {
-	if (!articoli.contains(a)) 
+	if (!articoli.contains(a)) {
 	    throw new ArticleDontExistInWareHouseException("Articolo inesistente!");
+	}
 	return posizione.get(a);// se l'articolo è contenuto nell'arraylist allora sicuramente si troca in posizione
     }
 
@@ -216,13 +218,13 @@ public class Magazzino implements Serializable{
 	return negozi.contains(n);
     }
 
-    public int negozioIndex(Negozio n) throws ShopNotFoundException{
-        if(exist(n))
-            return negozi.lastIndexOf(n);
-        throw new ShopNotFoundException("Negozio non trovato nella lista dei negozi!");
+    public int negozioIndex(Negozio n) throws ShopNotFoundException {
+	if (exist(n)) {
+	    return negozi.lastIndexOf(n);
+	}
+	throw new ShopNotFoundException("Negozio non trovato nella lista dei negozi!");
     }
-    
-    
+
     public Negozio negozioContainedByName(String s) { //controlla se esiste un negozio con quel nome
 	for (Negozio X : negozi) {
 	    if (X.getNome().equals(s)) {
@@ -245,17 +247,15 @@ public class Magazzino implements Serializable{
 	int tmpPosizione;
 
 	if (!quantitaParameter.keySet().equals(posizioneParameter.keySet())) {
-            return false;//controllo se gli articoli sono identici nelle due mappe
+	    return false;//controllo se gli articoli sono identici nelle due mappe
 	}
-        
-        
+
 	for (Articolo X : quantitaParameter.keySet()) {
 	    if (articoli.contains(X) == false) {
-                return false;//controllo che ogni articolo presente in uno dei due parametri sia contenuto nell'ARRAYLIST degli articoli
+		return false;//controllo che ogni articolo presente in uno dei due parametri sia contenuto nell'ARRAYLIST degli articoli
 	    }
 	}
-        
-        
+
 	for (Articolo X : quantitaParameter.keySet()) {//itero su quantitaparameter tanto se arrivo qui so per certo che hanno gli stessi articoli
 	    if (this.quantita.containsKey(X)) {
 		this.quantita.put(X, (this.quantita.get(X) + quantitaParameter.get(X)));
@@ -267,10 +267,17 @@ public class Magazzino implements Serializable{
 
 	}//for
 	ingressi.add(new Ingresso(quantitaParameter, posizioneParameter, data));
-	this.addIngressoMensile(new Ingresso(quantitaParameter, posizioneParameter, data));
-	return true;
+	try{
+	    this.addIngressoMensile(new Ingresso(quantitaParameter, posizioneParameter, data));
+	    return true;
+	}
+	catch(DateNotCorrectException e){
+	    JOptionPane.showMessageDialog(null, ""+e.getMessage());
+	    return false;
+	}
+	
     }
-    
+
     public boolean ingressiIsEmpty() {
 	return ingressi.isEmpty();
     }
@@ -287,40 +294,48 @@ public class Magazzino implements Serializable{
 	//ritorna l'indica della prima occorrenza dell'ingresso specificato nella lista
 	return ingressi.indexOf(i);
     }
-    
-    public boolean addIngressoMensile(Ingresso ingresso){
-	
-	int mese = storicoMensili.size() - 1;
-	Map<Articolo, Integer> quantitaArticoli = ingresso.getQuantitaMap(); 
+
+    public void addIngressoMensile(Ingresso ingresso) throws DateNotCorrectException{
+
+	int mese = 0;
+	Map<Articolo, Integer> quantitaArticoli = ingresso.getQuantitaMap();
 	int tmpQuantita;
-	
-	if(storicoMensili.isEmpty()){
-	    mese = ingresso.getData().get(Calendar.MONTH);
+
+	for (Map M : storicoIngressiMensili) {
+	    if (M.isEmpty()) {
+		mese = ingresso.getData().get(Calendar.MONTH);
+	    }
+	    else{
+		mese = storicoIngressiMensili.indexOf(M);
+	    }
 	}
-	
-	if(ingresso.getData().get(Calendar.MONTH) > mese){ //se arriva un ingresso del mese successivo a quello salvato, salvo la mappa mensile nello storico e la pulisco
+
+	if (ingresso.getData().get(Calendar.MONTH) > mese) { //se arriva un ingresso del mese successivo a quello salvato, salvo la mappa mensile nello storico e la pulisco
 	    saveIngressoMensile(mese);
+	} else if (ingresso.getData().get(Calendar.MONTH) < mese) {
+	    throw new DateNotCorrectException("La data inserita è di un mese già passato!");
 	}
-	else if(ingresso.getData().get(Calendar.MONTH) < mese){
-	    return false;
-	}
-	
-	for(Articolo X: quantitaArticoli.keySet()){
-	
+
+	for (Articolo X : quantitaArticoli.keySet()) {
+
 	    if (this.ingressiMensili.containsKey(X)) {
 		tmpQuantita = this.ingressiMensili.get(X);
 		this.ingressiMensili.put(X, (tmpQuantita + quantitaArticoli.get(X)));
 	    } else {
 		this.ingressiMensili.put(X, quantitaArticoli.get(X));
 	    }
+	    
 	}
-	
-	return true;
+
+    }
+
+    public void saveIngressoMensile(int mese) {
+	storicoIngressiMensili.add(mese, ingressiMensili);
+	ingressiMensili.clear();
     }
     
-    public void saveIngressoMensile(int mese){
-	storicoMensili.add(mese, ingressiMensili);
-	ingressiMensili.clear();
+    public List getStoricoIngressoMensile() {
+	return storicoIngressiMensili;
     }
 
     /**
@@ -333,12 +348,12 @@ public class Magazzino implements Serializable{
      */
     public void createExit(Ordine n) throws OrderNotFound, ArticleNotFound, OrderImpossibleToCreate {
 	boolean isPossible = true;
-        
+
 	for (Ordine x : ordini)//scorro array ordini per vedere se l'ordine esiste
 	{
 	    if (x.equals(n)) {//ho trovato l'ordine nella lista
 
-		Map<Articolo, Integer> mappaOrdine = x.getArticle();//mi preno la mappa degli articoli dell'ordine
+		Map<Articolo, Integer> mappaOrdine = x.getArticle();//mi prendo la mappa degli articoli dell'ordine
 		Set<Articolo> listaArticoli = mappaOrdine.keySet();
 
 		for (Articolo a : listaArticoli)//scorro tutti gli articoli della lista delle quantita in ordine
@@ -371,7 +386,49 @@ public class Magazzino implements Serializable{
 	}
 	throw new OrderNotFound("Impossibile generare l'uscita per l'ordine indicato!\nL'ordine non si trova nella lista degli ordini!");
     }//createExit()
+    
+    public void addUscitaMensile(Uscita uscita) throws DateNotCorrectException{
 
+	int mese = 0;
+	Map<Articolo, Integer> quantitaArticoli = uscita.getOrdine().getArticle();
+	int tmpQuantita;
+
+	for (Map<Articolo, Integer> M : storicoUsciteMensili) {
+	    if (M.isEmpty()) {
+		mese = uscita.getData().get(Calendar.MONTH);
+	    }
+	    else{
+		mese = storicoUsciteMensili.indexOf(M);
+	    }
+	}
+
+	if (uscita.getData().get(Calendar.MONTH) > mese) { //se arriva un ingresso del mese successivo a quello salvato, salvo la mappa mensile nello storico e la pulisco
+	    saveIngressoMensile(mese);
+	} else if (uscita.getData().get(Calendar.MONTH) < mese) {
+	    throw new DateNotCorrectException("La data inserita è di un mese già passato!");
+	}
+
+	for (Articolo X : quantitaArticoli.keySet()) {
+
+	    if (this.usciteMensili.containsKey(X)) {
+		tmpQuantita = this.usciteMensili.get(X);
+		this.usciteMensili.put(X, (tmpQuantita + quantitaArticoli.get(X)));
+	    } else {
+		this.usciteMensili.put(X, quantitaArticoli.get(X));
+	    }
+	    
+	}
+
+    }
+
+    public void saveUscitaMensile(int mese) {
+	storicoIngressiMensili.add(mese, usciteMensili);
+	usciteMensili.clear();
+    }
+    
+    public List getStoricoUscitaMensile() {
+	return storicoUsciteMensili;
+    }
 
     /**
      * ****************************************** USCITE
@@ -429,8 +486,6 @@ public class Magazzino implements Serializable{
      * ****************************************** ORDINI
      * *******************************************************
      */
-    
-    
     /**
      * SAVE DATA IN FILE
      */
@@ -453,7 +508,7 @@ public class Magazzino implements Serializable{
 		    fileOut.writeObject(this.ordini);
 		    fileOut.writeObject(this.posizione);
 		    fileOut.writeObject(this.quantita);
-		    fileOut.writeObject(this.storicoMensili);
+		    fileOut.writeObject(this.storicoIngressiMensili);
 		    fileOut.writeObject(this.uscite);
 		    fileOut.writeObject(this.usciteMensili);
 		    fileOut.writeObject(this.utenti);
@@ -469,11 +524,11 @@ public class Magazzino implements Serializable{
 	    JOptionPane.showMessageDialog(null, "Errore nell'aprire il file");
 	}
     }
-    
-    protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, Map<Articolo, Integer> ingressiMensiliLoad, List<Negozio> negoziLoad, 
-	    List<Ordine> ordiniLoad, Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad, List<Map> storicoMensiliLoad, 
-	    List<Uscita> usciteLoad, Map<Articolo, Integer> usciteMensiliLoad, List<Utente> utentiLoad){
-	
+
+    protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, Map<Articolo, Integer> ingressiMensiliLoad, List<Negozio> negoziLoad,
+	    List<Ordine> ordiniLoad, Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad, List<Map> storicoMensiliLoad,
+	    List<Uscita> usciteLoad, Map<Articolo, Integer> usciteMensiliLoad, List<Utente> utentiLoad) {
+
 	this.articoli = articoliLoad;
 	this.ingressi = ingressiLoad;
 	this.ingressiMensili = ingressiMensiliLoad;
@@ -481,16 +536,15 @@ public class Magazzino implements Serializable{
 	this.ordini = ordiniLoad;
 	this.posizione = posizioneLoad;
 	this.quantita = quantitaLoad;
-	this.storicoMensili = storicoMensiliLoad;
+	this.storicoIngressiMensili = storicoMensiliLoad;
 	this.uscite = usciteLoad;
 	this.usciteMensili = usciteMensiliLoad;
 	this.utenti = utentiLoad;
-	
+
     }
 
 }//MAGAZZINO
 
-
-
-
-/************************************************************ FINE **************************************************************************/
+/**
+ * ********************************************************** FINE *************************************************************************
+ */
