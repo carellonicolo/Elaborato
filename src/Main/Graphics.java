@@ -21,6 +21,7 @@ public class Graphics extends javax.swing.JFrame {
 
     public Graphics() {
 
+<<<<<<< HEAD
         //CREO L'OGGETTO MAGAZZINO
         //Magazzino = new m();
         //INIZIALIZZO I COMPONENTI GRAFICI 
@@ -70,6 +71,57 @@ public class Graphics extends javax.swing.JFrame {
         creaNegozioPanel.setVisible(false);
         creaIngressoPanel.setVisible(false);
         visualizzaIngressiPanel.setVisible(false);
+=======
+	//CREO L'OGGETTO MAGAZZINO
+	//Magazzino = new m();
+	//INIZIALIZZO I COMPONENTI GRAFICI 
+	initComponents();
+	adminPanel.setVisible(false);
+
+	//CONFIGURO IL BUTTONGROUP DEGLI SPORT
+	SportButtonGroup.add(nuotoRadioButton);
+	SportButtonGroup.add(calcioRadioButton);
+	SportButtonGroup.add(tennisRadioButton);
+	SportButtonGroup.add(palestraRadioButton);
+	SportButtonGroup.add(sciiRadioButton);
+	SportButtonGroup.add(basketRadioButton);
+	SportButtonGroup.add(pallavoloRadioButton);
+	SportButtonGroup.add(raftingRadioButton);
+	SportButtonGroup.add(ciclismoRadioButton);
+	SportButtonGroup.add(rugbyRadioButton);
+	SportButtonGroup.add(atleticaRadioButton);
+	SportButtonGroup.add(hockeyRadioButton);
+	SportButtonGroup.add(golfRadioButton);
+	SportButtonGroup.add(danzaRadioButton);
+
+	//CONFIGURO IL BUTTONGROUP DEI MATERIALI
+	MaterialiBottonGroup.add(poliestereRadioButton);
+	MaterialiBottonGroup.add(siliconeRadioButton);
+	MaterialiBottonGroup.add(fintaPelleRadioButton);
+	MaterialiBottonGroup.add(goreTexRadioButton);
+	MaterialiBottonGroup.add(poliammideRadioButton);
+	MaterialiBottonGroup.add(polietileneRadioButton);
+	MaterialiBottonGroup.add(elastanRadioButton);
+
+	hideAll();
+	loginPanel.setVisible(true);
+	selezionaButton_NegozioPanel.setVisible(false);
+
+	loginPanel.getRootPane().setDefaultButton(loginButton);
+    }
+
+    public final void hideAll() {
+	newArticlePanel.setVisible(false);
+	visualizzaOrdiniPanel.setVisible(false);
+	loginPanel.setVisible(false);
+	creaNuovoOrdinePanel.setVisible(false);
+	negoziPanel.setVisible(false);
+	visualizzaArticoliPanel.setVisible(false);
+	adminPanel.setVisible(false);
+	creaNegozioPanel.setVisible(false);
+	creaIngressoPanel.setVisible(false);
+	visualizzaIngressiPanel.setVisible(false);
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
 
     }
 
@@ -401,6 +453,7 @@ public class Graphics extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         adminPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
         typeOfUserLabel_AdminPanel.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
@@ -529,6 +582,9 @@ public class Graphics extends javax.swing.JFrame {
         negozioLabel_OrderViewPanel.setForeground(new java.awt.Color(255, 255, 255));
         negozioLabel_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Negozio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
         visualizzaOrdiniPanel.add(negozioLabel_OrderViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 210, 60));
+=======
+        adminPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, -1, -1));
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
 
         tabellaOrdini.setBackground(new java.awt.Color(0, 153, 255));
         tabellaOrdini.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
@@ -817,6 +873,132 @@ public class Graphics extends javax.swing.JFrame {
 
         sfondo.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 350, 310));
 
+<<<<<<< HEAD
+=======
+        visualizzaOrdiniPanel.setBackground(new java.awt.Color(0, 153, 255));
+        visualizzaOrdiniPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        visualizzaOrdiniPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Avenir", 0, 30)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Visualizza Ordini:");
+        visualizzaOrdiniPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        negozioInfo_OrderPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        negozioInfo_OrderPanel.setText("Vedi info Negozio");
+        negozioInfo_OrderPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                negozioInfo_OrderPanelActionPerformed(evt);
+            }
+        });
+        visualizzaOrdiniPanel.add(negozioInfo_OrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 220, -1));
+
+        indietroButton_OrderPanel.setText("<");
+        indietroButton_OrderPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indietroButton_OrderPanelActionPerformed(evt);
+            }
+        });
+        visualizzaOrdiniPanel.add(indietroButton_OrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 41, -1));
+
+        avantiButton_OrderPanel.setText(">");
+        avantiButton_OrderPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avantiButton_OrderPanelActionPerformed(evt);
+            }
+        });
+        visualizzaOrdiniPanel.add(avantiButton_OrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 40, -1));
+
+        modificaButtonOrderPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        modificaButtonOrderPanel.setText("Modifica");
+        modificaButtonOrderPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificaButtonOrderPanelActionPerformed(evt);
+            }
+        });
+        visualizzaOrdiniPanel.add(modificaButtonOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 150, 40));
+
+        chiudiButtonOrderPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        chiudiButtonOrderPanel.setText("Chiudi");
+        chiudiButtonOrderPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chiudiButtonOrderPanelActionPerformed(evt);
+            }
+        });
+        visualizzaOrdiniPanel.add(chiudiButtonOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 150, -1));
+
+        searchFieldOrderPanel.setEditable(false);
+        searchFieldOrderPanel.setBackground(new java.awt.Color(0, 153, 255));
+        searchFieldOrderPanel.setForeground(new java.awt.Color(255, 255, 255));
+        searchFieldOrderPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        visualizzaOrdiniPanel.add(searchFieldOrderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, 30, 20));
+
+        jLabel13.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Cerca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir Next", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaOrdiniPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, 130, 60));
+
+        newOrderButton_orderViewPanel.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
+        newOrderButton_orderViewPanel.setText("Crea Nuovo Ordine");
+        newOrderButton_orderViewPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newOrderButton_orderViewPanelActionPerformed(evt);
+            }
+        });
+        visualizzaOrdiniPanel.add(newOrderButton_orderViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 150, 40));
+
+        orderIDLabel_OrderViewPanel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
+        orderIDLabel_OrderViewPanel.setForeground(new java.awt.Color(255, 255, 255));
+        orderIDLabel_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        orderIDLabel_OrderViewPanel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        visualizzaOrdiniPanel.add(orderIDLabel_OrderViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 210, 60));
+
+        dataLabel_OrderViewPanel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
+        dataLabel_OrderViewPanel.setForeground(new java.awt.Color(255, 255, 255));
+        dataLabel_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaOrdiniPanel.add(dataLabel_OrderViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 210, 60));
+
+        prezzoLabel_OrderViewPanel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
+        prezzoLabel_OrderViewPanel.setForeground(new java.awt.Color(255, 255, 255));
+        prezzoLabel_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Prezzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaOrdiniPanel.add(prezzoLabel_OrderViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 210, 60));
+
+        corriereLabel_OrderViewPanel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
+        corriereLabel_OrderViewPanel.setForeground(new java.awt.Color(255, 255, 255));
+        corriereLabel_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Corriere", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaOrdiniPanel.add(corriereLabel_OrderViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 260, 60));
+
+        jScrollPane1.setBorder(null);
+
+        articoliQuantitaTextArea_OrderViewPanel.setEditable(false);
+        articoliQuantitaTextArea_OrderViewPanel.setBackground(new java.awt.Color(0, 153, 255));
+        articoliQuantitaTextArea_OrderViewPanel.setColumns(20);
+        articoliQuantitaTextArea_OrderViewPanel.setForeground(new java.awt.Color(255, 255, 255));
+        articoliQuantitaTextArea_OrderViewPanel.setRows(5);
+        articoliQuantitaTextArea_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Articoli e Quantità", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 16), new java.awt.Color(255, 255, 255))); // NOI18N
+        jScrollPane1.setViewportView(articoliQuantitaTextArea_OrderViewPanel);
+
+        visualizzaOrdiniPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 260, 210));
+
+        shippedLabel_OrderViewPanell.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
+        shippedLabel_OrderViewPanell.setForeground(new java.awt.Color(255, 255, 255));
+        shippedLabel_OrderViewPanell.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Stato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaOrdiniPanel.add(shippedLabel_OrderViewPanell, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 140, 60));
+
+        generaUscitaButton_OrderViewPanel.setText("Genera Uscita");
+        generaUscitaButton_OrderViewPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generaUscitaButton_OrderViewPanelActionPerformed(evt);
+            }
+        });
+        visualizzaOrdiniPanel.add(generaUscitaButton_OrderViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 160, -1));
+
+        negozioLabel_OrderViewPanel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
+        negozioLabel_OrderViewPanel.setForeground(new java.awt.Color(255, 255, 255));
+        negozioLabel_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Negozio", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaOrdiniPanel.add(negozioLabel_OrderViewPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 210, 60));
+
+        sfondo.add(visualizzaOrdiniPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 560, 680, 400));
+
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
         newArticlePanel.setBackground(new java.awt.Color(0, 153, 255));
         newArticlePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         newArticlePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1346,7 +1528,7 @@ public class Graphics extends javax.swing.JFrame {
                 ComboBoxNegozioActionPerformed(evt);
             }
         });
-        creaNuovoOrdinePanel.add(ComboBoxNegozio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+        creaNuovoOrdinePanel.add(ComboBoxNegozio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 130, -1));
 
         comboBoxArticoli1.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
         comboBoxArticoli1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -1801,16 +1983,17 @@ public class Graphics extends javax.swing.JFrame {
     //
 
     private void usrFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usrFieldActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_usrFieldActionPerformed
 
     //PULSANTE CANCELLA PANNELLO PIN
     private void cancelPinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelPinButtonActionPerformed
-        usrField.setText("");
-        pinField.setText("");
+	usrField.setText("");
+	pinField.setText("");
     }//GEN-LAST:event_cancelPinButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+<<<<<<< HEAD
         
         
         /* DAL TESTO...
@@ -1893,30 +2076,95 @@ public class Graphics extends javax.swing.JFrame {
                 pinField.setText("");
             }
         }
+=======
+
+	//CONTROLLO DA IMPLEMENTARE A PROGETTO FINITO
+	String pin = pinField.getText();
+	String user = usrField.getText();
+
+	if (pin.equals("") || user.equals("") || pin.substring(0, 1).equals(" ") || user.substring(0, 1).equals(" ")) {
+	    JOptionPane.showMessageDialog(null, "Inserire uno username e una password validi");
+	    usrField.setText("");
+	    pinField.setText("");
+	} else {
+	    try {
+		int type = m.loginHashCode(new Utente(user, pin, 1));
+		usrField.setText("");
+		pinField.setText("");
+		JOptionPane.showMessageDialog(null, "Login effettuato correttamente\nTipoAccount: " + type);
+		hideAll();//nascondo tutti i pannelli
+		switch (type) {
+		    case 1:
+			adminPanel.setVisible(true);
+			articoliButtonAdminPanel.setEnabled(true);
+			modificaPosizioneViewArticoliPanel.setEnabled(true);
+			creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.setEnabled(false);
+			modificaButton_cercaLabel__VisualizzaArticoliPanel.setEnabled(false);
+			negoziButtonAdminPanel.setEnabled(false);
+			ordiniButtonAdminPanel.setEnabled(false);
+			ingressiButtonAdminPanel.setEnabled(true);
+			//Bottone per uscite setEnabled(true)
+			break;
+		    case 2:
+			adminPanel.setVisible(true);
+			articoliButtonAdminPanel.setEnabled(true);
+			modificaPosizioneViewArticoliPanel.setEnabled(false);
+			creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.setEnabled(true);
+			modificaButton_cercaLabel__VisualizzaArticoliPanel.setEnabled(true);
+			negoziButtonAdminPanel.setEnabled(true);
+			ordiniButtonAdminPanel.setEnabled(true);
+			ingressiButtonAdminPanel.setEnabled(true);
+			//Bottone per uscite setEnabled(true)
+			break;
+		    case 3:
+			adminPanel.setVisible(true);
+			articoliButtonAdminPanel.setEnabled(false);
+			negoziButtonAdminPanel.setEnabled(false);
+			ordiniButtonAdminPanel.setEnabled(true);
+			ingressiButtonAdminPanel.setEnabled(false);
+			//Bottone per uscite setEnabled(false)
+			break;
+		    case 4:
+			adminPanel.setVisible(true);
+			articoliButtonAdminPanel.setEnabled(true);
+			negoziButtonAdminPanel.setEnabled(true);
+			ordiniButtonAdminPanel.setEnabled(true);
+			ingressiButtonAdminPanel.setEnabled(true);
+			//Bottone per uscite setEnabled(true)
+			break;
+		}
+	    } catch (UserNotFoundException e) {
+		JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattare l'amministratore di sistema il prima possibile");
+		usrField.setText("");
+		pinField.setText("");
+	    }
+	}
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
 
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void chiudiButtonOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButtonOrderPanelActionPerformed
-        hideAll();
-        adminPanel.setVisible(true);
+	hideAll();
+	adminPanel.setVisible(true);
     }//GEN-LAST:event_chiudiButtonOrderPanelActionPerformed
 
     private void usrFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usrFieldKeyPressed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_usrFieldKeyPressed
 
     private void avantiButton_OrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiButton_OrderPanelActionPerformed
-        indexOrder++;
-        ordini();
+	indexOrder++;
+	ordini();
     }//GEN-LAST:event_avantiButton_OrderPanelActionPerformed
 
     private void indietroButton_OrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroButton_OrderPanelActionPerformed
-        indexOrder--;
-        ordini();
+	indexOrder--;
+	ordini();
     }//GEN-LAST:event_indietroButton_OrderPanelActionPerformed
 
     private void newOrderButton_orderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newOrderButton_orderViewPanelActionPerformed
 
+<<<<<<< HEAD
         //INIZIALIZZAZIONE GRAFICA
         addArticleButton_newOrderPanel.setEnabled(true);
         ComboBoxNegozio.removeAllItems();
@@ -1994,6 +2242,87 @@ public class Graphics extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tabellaArticoli.getModel();
         for (int ciao = 0; ciao < m.articoliSize(); ciao++) {
             Articolo a = m.getArticolo(ciao);
+=======
+	//INIZIALIZZAZIONE GRAFICA
+	addArticleButton_newOrderPanel.setEnabled(true);
+	ComboBoxNegozio.removeAllItems();
+	comboBoxArticoli1.removeAllItems();
+	comboBoxArticoli2.removeAllItems();
+	comboBoxArticoli3.removeAllItems();
+	comboBoxArticoli4.removeAllItems();
+	comboBoxArticoli5.removeAllItems();
+	comboBoxArticoli6.removeAllItems();
+	comboBoxArticoli7.removeAllItems();
+	comboBoxArticoli8.removeAllItems();
+	comboBoxArticoli9.removeAllItems();
+	comboBoxArticoli10.removeAllItems();
+
+	comboBoxArticoli2.setEnabled(false);
+	comboBoxArticoli3.setEnabled(false);
+	comboBoxArticoli4.setEnabled(false);
+	comboBoxArticoli5.setEnabled(false);
+	comboBoxArticoli6.setEnabled(false);
+	comboBoxArticoli7.setEnabled(false);
+	comboBoxArticoli8.setEnabled(false);
+	comboBoxArticoli9.setEnabled(false);
+	comboBoxArticoli10.setEnabled(false);
+
+	quantitaField2.setEnabled(false);
+	quantitaField3.setEnabled(false);
+	quantitaField4.setEnabled(false);
+	quantitaField5.setEnabled(false);
+	quantitaField6.setEnabled(false);
+	quantitaField7.setEnabled(false);
+	quantitaField8.setEnabled(false);
+	quantitaField9.setEnabled(false);
+	quantitaField10.setEnabled(false);
+
+	quantitaField1.setText("");
+	quantitaField2.setText("");
+	quantitaField5.setText("");
+	quantitaField8.setText("");
+	quantitaField3.setText("");
+	quantitaField6.setText("");
+	quantitaField9.setText("");
+	quantitaField4.setText("");
+	quantitaField7.setText("");
+	quantitaField10.setText("");
+
+	orderArticleSelected = 1;
+	hideAll();
+	addArticleButton_newOrderPanel.setEnabled(true);
+	creaNuovoOrdinePanel.setVisible(true);
+	corriereField_NewOrderPanel.setText("");
+
+	int i = 0;
+
+	for (i = 0; i < m.negoziSize(); i++) {
+	    ComboBoxNegozio.addItem(m.getNegozi(i).getNome());
+	}
+
+	for (i = 0; i < m.articoliSize(); i++) {
+	    comboBoxArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxArticoli2.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxArticoli3.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxArticoli4.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxArticoli5.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxArticoli6.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxArticoli7.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxArticoli8.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	}
+    }//GEN-LAST:event_newOrderButton_orderViewPanelActionPerformed
+
+    private void articoliButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_articoliButtonAdminPanelActionPerformed
+
+        
+        DefaultTableModel model = (DefaultTableModel)tabellaArticoli.getModel();
+                
+                for(int ciao = 0; ciao < m.articoliSize(); ciao++){
+                    Articolo a = m.getArticolo(ciao);
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
             try {
                 model.addRow(new Object[]{abs(a.getID()), a.getTipoArticolo().getName(), a.getPrezzo()+" €", a.getTipoArticolo().getSports(), a.getTipoArticolo().getMaterial(), m.getQuantita(a), m.getPosition(a)});
             } catch (ArticleDontExistInWareHouseException ex) {
@@ -2004,66 +2333,68 @@ public class Graphics extends javax.swing.JFrame {
         hideAll();
         visualizzaArticoliPanel.setVisible(true);
         articoli();
+
     }//GEN-LAST:event_articoliButtonAdminPanelActionPerformed
 
     private void closeButton_creaNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_creaNegozioPanelActionPerformed
-        exit();
+	exit();
     }//GEN-LAST:event_closeButton_creaNegozioPanelActionPerformed
 
     private void negoziButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negoziButtonAdminPanelActionPerformed
-        hideAll();
-        negoziPanel.setVisible(true);
-        indexShop = 0;
-        negozi();
+	hideAll();
+	negoziPanel.setVisible(true);
+	indexShop = 0;
+	negozi();
     }//GEN-LAST:event_negoziButtonAdminPanelActionPerformed
 
     private void indietroButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroButton_NegozioPanelActionPerformed
-        indexShop--;
-        negozi();
+	indexShop--;
+	negozi();
     }//GEN-LAST:event_indietroButton_NegozioPanelActionPerformed
 
     private void avantiButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiButton_NegozioPanelActionPerformed
-        indexShop++;
-        negozi();
+	indexShop++;
+	negozi();
     }//GEN-LAST:event_avantiButton_NegozioPanelActionPerformed
 
     private void indirizzoField_newNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indirizzoField_newNegozioPanelActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_indirizzoField_newNegozioPanelActionPerformed
 
     private void CodiceFiscaleField_NewNegozioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodiceFiscaleField_NewNegozioActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_CodiceFiscaleField_NewNegozioActionPerformed
 
     private void nomeField_newNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeField_newNegozioPanelActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_nomeField_newNegozioPanelActionPerformed
 
     private void cittaField_NewNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cittaField_NewNegozioPanelActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_cittaField_NewNegozioPanelActionPerformed
 
     private void closeButton_NegozioPanel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_NegozioPanel1ActionPerformed
-        if (from == 0) {
-            hideAll();
-            adminPanel.setVisible(true);
-        } else if (from == 1) {
-            from = 0;
-            indexShop = 0;
-            hideAll();
-            negozi();
-            visualizzaOrdiniPanel.setVisible(true);
-            ordini();
-        }
+	if (from == 0) {
+	    hideAll();
+	    adminPanel.setVisible(true);
+	} else if (from == 1) {
+	    from = 0;
+	    indexShop = 0;
+	    hideAll();
+	    negozi();
+	    visualizzaOrdiniPanel.setVisible(true);
+	    ordini();
+	}
 
     }//GEN-LAST:event_closeButton_NegozioPanel1ActionPerformed
 
     private void CreaNegozioButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreaNegozioButton_NegozioPanelActionPerformed
-        hideAll();
-        creaNegozioPanel.setVisible(true);
+	hideAll();
+	creaNegozioPanel.setVisible(true);
     }//GEN-LAST:event_CreaNegozioButton_NegozioPanelActionPerformed
 
     private void creaFromCreaNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaFromCreaNegozioPanelActionPerformed
+<<<<<<< HEAD
         String cf = CodiceFiscaleField_NewNegozio.getText();
         String nome = nomeField_newNegozioPanel.getText();
         String indirizzo = indirizzoField_newNegozioPanel.getText();
@@ -2082,37 +2413,58 @@ public class Graphics extends javax.swing.JFrame {
         negoziPanel.setVisible(true);
         indexShop = m.negoziSize() - 1;
         negozi();
+=======
+	String cf = CodiceFiscaleField_NewNegozio.getText();
+	String nome = nomeField_newNegozioPanel.getText();
+	String indirizzo = indirizzoField_newNegozioPanel.getText();
+	String citta = cittaField_NewNegozioPanel.getText();
+	try {
+	    m.addNegozi(new Negozio(cf, nome, indirizzo, citta));
+	} catch (Exception e) {
+
+	}
+	JOptionPane.showMessageDialog(null, "Negozio creato con successo!");
+	CodiceFiscaleField_NewNegozio.setText("");
+	nomeField_newNegozioPanel.setText("");
+	indirizzoField_newNegozioPanel.setText("");
+	cittaField_NewNegozioPanel.setText("");
+	hideAll();
+	negoziPanel.setVisible(true);
+	indexShop = m.negoziSize() - 1;
+	negozi();
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
     }//GEN-LAST:event_creaFromCreaNegozioPanelActionPerformed
 
     private void closeButton_newOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_newOrderPanelActionPerformed
-        exit();
+	exit();
     }//GEN-LAST:event_closeButton_newOrderPanelActionPerformed
 
     private void chiudiButton_VisualizzaArticoloPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButton_VisualizzaArticoloPanelActionPerformed
-        hideAll();
-        adminPanel.setVisible(true);
+	hideAll();
+	adminPanel.setVisible(true);
     }//GEN-LAST:event_chiudiButton_VisualizzaArticoloPanelActionPerformed
 
     private void eliminaNegozioButton_VisualizzaNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaNegozioButton_VisualizzaNegozioPanelActionPerformed
-        m.removeNegozio(indexShop);
-        if (indexShop > 0) {
-            indexShop--;
-        }
-        negozi();
+	m.removeNegozio(indexShop);
+	if (indexShop > 0) {
+	    indexShop--;
+	}
+	negozi();
     }//GEN-LAST:event_eliminaNegozioButton_VisualizzaNegozioPanelActionPerformed
 
     private void modificaButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButton_NegozioPanelActionPerformed
-        hideAll();
-        creaNegozioPanel.setVisible(true);
-        CodiceFiscaleField_NewNegozio.setText(m.getNegozi(indexShop).getCodiceFiscale());
-        nomeField_newNegozioPanel.setText(m.getNegozi(indexShop).getNome());
-        indirizzoField_newNegozioPanel.setText(m.getNegozi(indexShop).getindirizzo());
-        cittaField_NewNegozioPanel.setText(m.getNegozi(indexShop).getCitta());
-        modificaFromNewNegozioPanel.setVisible(true);
-        creaFromCreaNegozioPanel.setVisible(false);
+	hideAll();
+	creaNegozioPanel.setVisible(true);
+	CodiceFiscaleField_NewNegozio.setText(m.getNegozi(indexShop).getCodiceFiscale());
+	nomeField_newNegozioPanel.setText(m.getNegozi(indexShop).getNome());
+	indirizzoField_newNegozioPanel.setText(m.getNegozi(indexShop).getindirizzo());
+	cittaField_NewNegozioPanel.setText(m.getNegozi(indexShop).getCitta());
+	modificaFromNewNegozioPanel.setVisible(true);
+	creaFromCreaNegozioPanel.setVisible(false);
     }//GEN-LAST:event_modificaButton_NegozioPanelActionPerformed
 
     private void modificaFromNewNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaFromNewNegozioPanelActionPerformed
+<<<<<<< HEAD
         String cf = CodiceFiscaleField_NewNegozio.getText();
         String nome = nomeField_newNegozioPanel.getText();
         String indirizzo = indirizzoField_newNegozioPanel.getText();
@@ -2130,78 +2482,98 @@ public class Graphics extends javax.swing.JFrame {
         hideAll();
         negoziPanel.setVisible(true);
         negozi();
+=======
+	String cf = CodiceFiscaleField_NewNegozio.getText();
+	String nome = nomeField_newNegozioPanel.getText();
+	String indirizzo = indirizzoField_newNegozioPanel.getText();
+	String citta = cittaField_NewNegozioPanel.getText();
+
+	m.getNegozi(indexShop).setCodiceFiscale(cf);
+	m.getNegozi(indexShop).setNome(nome);
+	m.getNegozi(indexShop).setIndirizzo(indirizzo);
+	m.getNegozi(indexShop).setCitta(citta);
+
+	CodiceFiscaleField_NewNegozio.setText("");
+	nomeField_newNegozioPanel.setText("");
+	indirizzoField_newNegozioPanel.setText("");
+	cittaField_NewNegozioPanel.setText("");
+	hideAll();
+	negoziPanel.setVisible(true);
+	negozi();
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
     }//GEN-LAST:event_modificaFromNewNegozioPanelActionPerformed
 
     private void selezionaButton_NegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selezionaButton_NegozioPanelActionPerformed
-        String corriere = corriereField_NewOrderPanel.getText();
-        //Ordine n = m.addOrdine(new Ordine(m.getNegozi(indexShop)));
-        //m.createExit(m, n)
+	String corriere = corriereField_NewOrderPanel.getText();
+	//Ordine n = m.addOrdine(new Ordine(m.getNegozi(indexShop)));
+	//m.createExit(m, n)
     }//GEN-LAST:event_selezionaButton_NegozioPanelActionPerformed
 
     private void avantiButton_VisualizzaArticoloPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiButton_VisualizzaArticoloPanelActionPerformed
-        indexArticle++;
-        articoli();
+	indexArticle++;
+	articoli();
     }//GEN-LAST:event_avantiButton_VisualizzaArticoloPanelActionPerformed
 
     private void indietroButton_VisualizzaArticoloPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroButton_VisualizzaArticoloPanelActionPerformed
-        indexArticle--;
-        articoli();
+	indexArticle--;
+	articoli();
     }//GEN-LAST:event_indietroButton_VisualizzaArticoloPanelActionPerformed
 
     private void tennisRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tennisRadioButtonActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_tennisRadioButtonActionPerformed
 
     private void inserisciButton_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserisciButton_newArticlePanelActionPerformed
 
-        //di default si assume che il nuoto e il polestere siano rispettivamente lo sport e il materiale di default
-        int tipoMateriale = 0;
-        int sport = 0;
+	//di default si assume che il nuoto e il polestere siano rispettivamente lo sport e il materiale di default
+	int tipoMateriale = 0;
+	int sport = 0;
 
-        //SPORT
-        if (nuotoRadioButton.isSelected()) {
-            sport = 0;
-        }
-        if (calcioRadioButton.isSelected()) {
-            sport = 1;
-        }
-        if (palestraRadioButton.isSelected()) {
-            sport = 2;
-        }
-        if (tennisRadioButton.isSelected()) {
-            sport = 3;
-        }
-        if (sciiRadioButton.isSelected()) {
-            sport = 4;
-        }
-        if (basketRadioButton.isSelected()) {
-            sport = 5;
-        }
-        if (pallavoloRadioButton.isSelected()) {
-            sport = 6;
-        }
-        if (raftingRadioButton.isSelected()) {
-            sport = 7;
-        }
-        if (ciclismoRadioButton.isSelected()) {
-            sport = 8;
-        }
-        if (rugbyRadioButton.isSelected()) {
-            sport = 9;
-        }
-        if (atleticaRadioButton.isSelected()) {
-            sport = 10;
-        }
-        if (hockeyRadioButton.isSelected()) {
-            sport = 11;
-        }
-        if (golfRadioButton.isSelected()) {
-            sport = 12;
-        }
-        if (danzaRadioButton.isSelected()) {
-            sport = 13;
-        }
+	//SPORT
+	if (nuotoRadioButton.isSelected()) {
+	    sport = 0;
+	}
+	if (calcioRadioButton.isSelected()) {
+	    sport = 1;
+	}
+	if (palestraRadioButton.isSelected()) {
+	    sport = 2;
+	}
+	if (tennisRadioButton.isSelected()) {
+	    sport = 3;
+	}
+	if (sciiRadioButton.isSelected()) {
+	    sport = 4;
+	}
+	if (basketRadioButton.isSelected()) {
+	    sport = 5;
+	}
+	if (pallavoloRadioButton.isSelected()) {
+	    sport = 6;
+	}
+	if (raftingRadioButton.isSelected()) {
+	    sport = 7;
+	}
+	if (ciclismoRadioButton.isSelected()) {
+	    sport = 8;
+	}
+	if (rugbyRadioButton.isSelected()) {
+	    sport = 9;
+	}
+	if (atleticaRadioButton.isSelected()) {
+	    sport = 10;
+	}
+	if (hockeyRadioButton.isSelected()) {
+	    sport = 11;
+	}
+	if (golfRadioButton.isSelected()) {
+	    sport = 12;
+	}
+	if (danzaRadioButton.isSelected()) {
+	    sport = 13;
+	}
 
+<<<<<<< HEAD
         //Materiali 
         if (poliestereRadioButton.isSelected()) {
             tipoMateriale = 0;
@@ -2256,28 +2628,85 @@ public class Graphics extends javax.swing.JFrame {
             descrizioneFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
             prezzoField_newArticlePanel.setBackground(Color.red);
         }
+=======
+	//Materiali 
+	if (poliestereRadioButton.isSelected()) {
+	    tipoMateriale = 0;
+	}
+	if (siliconeRadioButton.isSelected()) {
+	    tipoMateriale = 1;
+	}
+	if (fintaPelleRadioButton.isSelected()) {
+	    tipoMateriale = 2;
+	}
+	if (goreTexRadioButton.isSelected()) {
+	    tipoMateriale = 3;
+	}
+	if (poliammideRadioButton.isSelected()) {
+	    tipoMateriale = 4;
+	}
+	if (polietileneRadioButton.isSelected()) {
+	    tipoMateriale = 5;
+	}
+	if (elastanRadioButton.isSelected()) {
+	    tipoMateriale = 6;
+	}
+
+	try {
+	    //prendo i dati inseriti
+	    String nome = nomeFieldTipoArticolo_newArticlePanel.getText();
+	    String descrizione = descrizioneFieldTipoArticolo_newArticlePanel.getText();
+	    int day = Integer.parseInt(dayField_newArticlePanel.getText());
+	    int month = Integer.parseInt(monthField_newArticlePanel.getText());
+	    int year = Integer.parseInt(yearField_newArticlePanel.getText());
+	    GregorianCalendar c = new GregorianCalendar(year, month, day);
+	    float prezzo = Float.parseFloat(prezzoField_newArticlePanel.getText());
+
+	    //aggiungo l'articolo alla lista in magazzino
+	    m.addArticolo(new Articolo(prezzo, c, new TipoArticolo(nome, descrizione, sport, tipoMateriale)));
+
+	    nomeFieldTipoArticolo_newArticlePanel.setText("");
+	    descrizioneFieldTipoArticolo_newArticlePanel.setText("");
+	    prezzoField_newArticlePanel.setText("");
+	    dayField_newArticlePanel.setText("");
+	    monthField_newArticlePanel.setText("");
+	    yearField_newArticlePanel.setText("");
+	    poliestereRadioButton.setSelected(true);
+	    nuotoRadioButton.setSelected(true);
+	    hideAll();//nascondo tutto 
+
+	    indexArticle = m.articoliSize() - 1;//faccio puntare all'ultimo prodotto creato
+	    articoli();//aggiorno la view degli articoli
+	    visualizzaArticoliPanel.setVisible(true);
+	} catch (Exception e) {
+	    nomeFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
+	    descrizioneFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
+	    prezzoField_newArticlePanel.setBackground(Color.red);
+	}
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
 
     }//GEN-LAST:event_inserisciButton_newArticlePanelActionPerformed
 
     private void creaArticoloButtoncercaLabel_VisualizzaArticoliPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaArticoloButtoncercaLabel_VisualizzaArticoliPanelActionPerformed
-        hideAll();
-        modificaButton_newArticlePanel.setVisible(false);
-        inserisciButton_newArticlePanel.setVisible(true);
-        nuotoRadioButton.setSelected(true);
-        poliestereRadioButton.setSelected(true);
-        newArticlePanel.setVisible(true);
+	hideAll();
+	modificaButton_newArticlePanel.setVisible(false);
+	inserisciButton_newArticlePanel.setVisible(true);
+	nuotoRadioButton.setSelected(true);
+	poliestereRadioButton.setSelected(true);
+	newArticlePanel.setVisible(true);
     }//GEN-LAST:event_creaArticoloButtoncercaLabel_VisualizzaArticoliPanelActionPerformed
 
     private void basketRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_basketRadioButtonActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_basketRadioButtonActionPerformed
 
     private void prezzoField_newArticlePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prezzoField_newArticlePanelMouseClicked
-        Color a = new Color(0, 153, 255);
-        prezzoField_newArticlePanel.setBackground(a);
+	Color a = new Color(0, 153, 255);
+	prezzoField_newArticlePanel.setBackground(a);
     }//GEN-LAST:event_prezzoField_newArticlePanelMouseClicked
 
     private void modificaButton_cercaLabel__VisualizzaArticoliPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButton_cercaLabel__VisualizzaArticoliPanelActionPerformed
+<<<<<<< HEAD
         hideAll();//nascondo tutto
 
         newArticlePanel.setVisible(true);
@@ -2360,59 +2789,144 @@ public class Graphics extends javax.swing.JFrame {
                 elastanRadioButton.setSelected(true);
                 break;
         }
+=======
+	hideAll();//nascondo tutto
+
+	newArticlePanel.setVisible(true);
+
+	//configuro il testo in base ai valori dell'oggetto
+	nomeFieldTipoArticolo_newArticlePanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getName());
+	descrizioneFieldTipoArticolo_newArticlePanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getDescription());
+	prezzoField_newArticlePanel.setText(m.getArticolo(indexArticle).getPrezzo() + "");
+	dayField_newArticlePanel.setText(m.getArticolo(indexArticle).getDay());
+	monthField_newArticlePanel.setText(m.getArticolo(indexArticle).getMonth());
+	yearField_newArticlePanel.setText(m.getArticolo(indexArticle).getYear());
+	inserisciButton_newArticlePanel.setVisible(false);
+	modificaButton_newArticlePanel.setVisible(true);
+
+	switch (m.getArticolo(indexArticle).getTipoArticolo().getSports()) {
+	    case "Nuoto":
+		nuotoRadioButton.setSelected(true);
+		break;
+	    case "Calcio":
+		calcioRadioButton.setSelected(true);
+		break;
+	    case "Palestra":
+		palestraRadioButton.setSelected(true);
+		break;
+	    case "Tennis":
+		tennisRadioButton.setSelected(true);
+		break;
+	    case "Scii":
+		sciiRadioButton.setSelected(true);
+		break;
+	    case "Basket":
+		basketRadioButton.setSelected(true);
+		break;
+	    case "Rafting":
+		raftingRadioButton.setSelected(true);
+		break;
+	    case "Ciclismo":
+		ciclismoRadioButton.setSelected(true);
+		break;
+	    case "Rugby":
+		rugbyRadioButton.setSelected(true);
+		break;
+	    case "Atletica":
+		atleticaRadioButton.setSelected(true);
+		break;
+	    case "Hockey":
+		hockeyRadioButton.setSelected(true);
+		break;
+	    case "Golf":
+		golfRadioButton.setSelected(true);
+		break;
+	    case "Pallavolo":
+		pallavoloRadioButton.setSelected(true);
+		break;
+	    case "Danza":
+		danzaRadioButton.setSelected(true);
+		break;
+	}
+
+	switch (m.getArticolo(indexArticle).getTipoArticolo().getMaterial()) {
+	    case "Poliestere":
+		poliestereRadioButton.setSelected(true);
+		break;
+	    case "Silicone":
+		siliconeRadioButton.setSelected(true);
+		break;
+	    case "Finta Pelle":
+		fintaPelleRadioButton.setSelected(true);
+		break;
+	    case "GORE-TEX":
+		goreTexRadioButton.setSelected(true);
+		break;
+	    case "Elastan":
+		poliammideRadioButton.setSelected(true);
+		break;
+	    case "Polietilene":
+		polietileneRadioButton.setSelected(true);
+		break;
+	    case "Poliammide":
+		elastanRadioButton.setSelected(true);
+		break;
+	}
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
 
 
     }//GEN-LAST:event_modificaButton_cercaLabel__VisualizzaArticoliPanelActionPerformed
 
 
     private void modificaButton_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButton_newArticlePanelActionPerformed
-        int tipoMateriale = 0;
-        int sport = 0;
+	int tipoMateriale = 0;
+	int sport = 0;
 
-        //SPORT
-        if (nuotoRadioButton.isSelected()) {
-            sport = 0;
-        }
-        if (calcioRadioButton.isSelected()) {
-            sport = 1;
-        }
-        if (palestraRadioButton.isSelected()) {
-            sport = 2;
-        }
-        if (tennisRadioButton.isSelected()) {
-            sport = 3;
-        }
-        if (sciiRadioButton.isSelected()) {
-            sport = 4;
-        }
-        if (basketRadioButton.isSelected()) {
-            sport = 5;
-        }
-        if (pallavoloRadioButton.isSelected()) {
-            sport = 6;
-        }
-        if (raftingRadioButton.isSelected()) {
-            sport = 7;
-        }
-        if (ciclismoRadioButton.isSelected()) {
-            sport = 8;
-        }
-        if (rugbyRadioButton.isSelected()) {
-            sport = 9;
-        }
-        if (atleticaRadioButton.isSelected()) {
-            sport = 10;
-        }
-        if (hockeyRadioButton.isSelected()) {
-            sport = 11;
-        }
-        if (golfRadioButton.isSelected()) {
-            sport = 12;
-        }
-        if (danzaRadioButton.isSelected()) {
-            sport = 13;
-        }
+	//SPORT
+	if (nuotoRadioButton.isSelected()) {
+	    sport = 0;
+	}
+	if (calcioRadioButton.isSelected()) {
+	    sport = 1;
+	}
+	if (palestraRadioButton.isSelected()) {
+	    sport = 2;
+	}
+	if (tennisRadioButton.isSelected()) {
+	    sport = 3;
+	}
+	if (sciiRadioButton.isSelected()) {
+	    sport = 4;
+	}
+	if (basketRadioButton.isSelected()) {
+	    sport = 5;
+	}
+	if (pallavoloRadioButton.isSelected()) {
+	    sport = 6;
+	}
+	if (raftingRadioButton.isSelected()) {
+	    sport = 7;
+	}
+	if (ciclismoRadioButton.isSelected()) {
+	    sport = 8;
+	}
+	if (rugbyRadioButton.isSelected()) {
+	    sport = 9;
+	}
+	if (atleticaRadioButton.isSelected()) {
+	    sport = 10;
+	}
+	if (hockeyRadioButton.isSelected()) {
+	    sport = 11;
+	}
+	if (golfRadioButton.isSelected()) {
+	    sport = 12;
+	}
+	if (danzaRadioButton.isSelected()) {
+	    sport = 13;
+	}
 
+<<<<<<< HEAD
         //MATERIALI
         if (poliestereRadioButton.isSelected()) {
             tipoMateriale = 0;
@@ -2468,18 +2982,76 @@ public class Graphics extends javax.swing.JFrame {
             descrizioneFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
             prezzoField_newArticlePanel.setBackground(Color.red);
         }
+=======
+	//MATERIALI
+	if (poliestereRadioButton.isSelected()) {
+	    tipoMateriale = 0;
+	}
+	if (siliconeRadioButton.isSelected()) {
+	    tipoMateriale = 1;
+	}
+	if (fintaPelleRadioButton.isSelected()) {
+	    tipoMateriale = 2;
+	}
+	if (goreTexRadioButton.isSelected()) {
+	    tipoMateriale = 3;
+	}
+	if (poliammideRadioButton.isSelected()) {
+	    tipoMateriale = 4;
+	}
+	if (polietileneRadioButton.isSelected()) {
+	    tipoMateriale = 5;
+	}
+	if (elastanRadioButton.isSelected()) {
+	    tipoMateriale = 6;
+	}
+
+	try {
+	    //prendo i dati inseriti
+	    String nome = nomeFieldTipoArticolo_newArticlePanel.getText();
+	    String descrizione = descrizioneFieldTipoArticolo_newArticlePanel.getText();
+	    int day = Integer.parseInt(dayField_newArticlePanel.getText());
+	    int month = Integer.parseInt(monthField_newArticlePanel.getText());
+	    int year = Integer.parseInt(yearField_newArticlePanel.getText());
+	    float prezzo = Float.parseFloat(prezzoField_newArticlePanel.getText());
+
+	    //per comodità modifico tutto
+	    m.getArticolo(indexArticle).setData(year, month, day);
+	    m.getArticolo(indexArticle).setPrezzo(prezzo);
+	    m.getArticolo(indexArticle).setTipoArticolo(new TipoArticolo(nome, descrizione, sport, tipoMateriale));
+
+	    nomeFieldTipoArticolo_newArticlePanel.setText("");
+	    descrizioneFieldTipoArticolo_newArticlePanel.setText("");
+	    prezzoField_newArticlePanel.setText("");
+	    dayField_newArticlePanel.setText("");
+	    monthField_newArticlePanel.setText("");
+	    yearField_newArticlePanel.setText("");
+	    poliestereRadioButton.setSelected(true);
+	    nuotoRadioButton.setSelected(true);
+
+	    hideAll();//nascondo tutto
+	    articoli();//aggiorno la view di articoli
+	    //visualizzo gli articoli
+	    visualizzaArticoliPanel.setVisible(true);
+	} catch (NumberFormatException e) {
+	    nomeFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
+	    descrizioneFieldTipoArticolo_newArticlePanel.setBackground(Color.red);
+	    prezzoField_newArticlePanel.setBackground(Color.red);
+	}
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
     }//GEN-LAST:event_modificaButton_newArticlePanelActionPerformed
 
     private void dataOdierna_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataOdierna_newArticlePanelActionPerformed
-        GregorianCalendar c = new GregorianCalendar(); //prendo la data attuale
-        //e stampo la data attuale
-        dayField_newArticlePanel.setText("" + c.get(GregorianCalendar.DATE));
-        monthField_newArticlePanel.setText("" + c.get(GregorianCalendar.MONTH));
-        yearField_newArticlePanel.setText("" + c.get(GregorianCalendar.YEAR));
+	GregorianCalendar c = new GregorianCalendar(); //prendo la data attuale
+	//e stampo la data attuale
+	dayField_newArticlePanel.setText("" + c.get(GregorianCalendar.DATE));
+	monthField_newArticlePanel.setText("" + c.get(GregorianCalendar.MONTH));
+	yearField_newArticlePanel.setText("" + c.get(GregorianCalendar.YEAR));
     }//GEN-LAST:event_dataOdierna_newArticlePanelActionPerformed
 
     //pulsante esci nel pannello per creare un articolo
     private void cancellaButton_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancellaButton_newArticlePanelActionPerformed
+<<<<<<< HEAD
         nuotoRadioButton.setSelected(false);
         calcioRadioButton.setSelected(false);
         palestraRadioButton.setSelected(false);
@@ -2512,26 +3084,61 @@ public class Graphics extends javax.swing.JFrame {
         hideAll();
         visualizzaArticoliPanel.setVisible(true);
         articoli();
+=======
+	nuotoRadioButton.setSelected(false);
+	calcioRadioButton.setSelected(false);
+	palestraRadioButton.setSelected(false);
+	tennisRadioButton.setSelected(false);
+	sciiRadioButton.setSelected(false);
+	basketRadioButton.setSelected(false);
+	pallavoloRadioButton.setSelected(false);
+	raftingRadioButton.setSelected(false);
+	ciclismoRadioButton.setSelected(false);
+	rugbyRadioButton.setSelected(false);
+	atleticaRadioButton.setSelected(false);
+	hockeyRadioButton.setSelected(false);
+	golfRadioButton.setSelected(false);
+	danzaRadioButton.setSelected(false);
+
+	poliestereRadioButton.setSelected(false);
+	siliconeRadioButton.setSelected(false);
+	fintaPelleRadioButton.setSelected(false);
+	goreTexRadioButton.setSelected(false);
+	poliammideRadioButton.setSelected(false);
+	polietileneRadioButton.setSelected(false);
+	elastanRadioButton.setSelected(false);
+
+	nomeFieldTipoArticolo_newArticlePanel.setText("");
+	descrizioneFieldTipoArticolo_newArticlePanel.setText("");
+	prezzoField_newArticlePanel.setText("");
+	dayField_newArticlePanel.setText("");
+	monthField_newArticlePanel.setText("");
+	yearField_newArticlePanel.setText("");
+	hideAll();
+	visualizzaArticoliPanel.setVisible(true);
+	articoli();
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
     }//GEN-LAST:event_cancellaButton_newArticlePanelActionPerformed
 
     //Nel pannello creaArticolo quando si genera un'eccezzione i campi di testo si colorano da neri a rossi e quando clicco sui i campi per modificarne il valore li ricoloro di nero e cancello la scritta di errore
     private void nomeFieldTipoArticolo_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFieldTipoArticolo_newArticlePanelActionPerformed
-        nomeFieldTipoArticolo_newArticlePanel.setBackground(Color.BLACK);
+	nomeFieldTipoArticolo_newArticlePanel.setBackground(Color.BLACK);
     }//GEN-LAST:event_nomeFieldTipoArticolo_newArticlePanelActionPerformed
 
     private void descrizioneFieldTipoArticolo_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descrizioneFieldTipoArticolo_newArticlePanelActionPerformed
-        descrizioneFieldTipoArticolo_newArticlePanel.setBackground(Color.BLACK);
+	descrizioneFieldTipoArticolo_newArticlePanel.setBackground(Color.BLACK);
     }//GEN-LAST:event_descrizioneFieldTipoArticolo_newArticlePanelActionPerformed
 
     private void prezzoField_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prezzoField_newArticlePanelActionPerformed
-        prezzoField_newArticlePanel.setBackground(Color.BLACK);
+	prezzoField_newArticlePanel.setBackground(Color.BLACK);
     }//GEN-LAST:event_prezzoField_newArticlePanelActionPerformed
 
     private void corriereField_NewOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corriereField_NewOrderPanelActionPerformed
-        corriereField_NewOrderPanel.setBackground(C);
+	corriereField_NewOrderPanel.setBackground(C);
     }//GEN-LAST:event_corriereField_NewOrderPanelActionPerformed
 
     private void creaOrdineButton_orderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaOrdineButton_orderViewPanelActionPerformed
+<<<<<<< HEAD
         quantitaField1.setBackground(C);
         quantitaField2.setBackground(C);
         quantitaField3.setBackground(C);
@@ -2731,6 +3338,212 @@ public class Graphics extends javax.swing.JFrame {
             quantitaField9.setText("");
             quantitaField10.setText("");
         }
+=======
+	quantitaField1.setBackground(C);
+	quantitaField2.setBackground(C);
+	quantitaField3.setBackground(C);
+	quantitaField4.setBackground(C);
+	quantitaField5.setBackground(C);
+	quantitaField6.setBackground(C);
+	quantitaField7.setBackground(C);
+	quantitaField8.setBackground(C);
+	quantitaField9.setBackground(C);
+	quantitaField10.setBackground(C);
+
+	String corriere = corriereField_NewOrderPanel.getText();
+
+	if (corriere.equals("") && corriere.equals(" ")) {//controllo che sia stato inserito un corriere valido
+	    JOptionPane.showMessageDialog(null, "Inserire un campo corriere valido! ");
+	    corriereField_NewOrderPanel.setBackground(Color.red);
+	    return;
+	}
+
+	String negozio = (String) ComboBoxNegozio.getSelectedItem();
+	Negozio x = m.negozioContainedByName(negozio);
+
+	Map<Articolo, Integer> articoliAndQuantita = new HashMap<>();
+
+	int quantita1;
+	int quantita2;
+	int quantita3;
+	int quantita4;
+	int quantita5;
+	int quantita6;
+	int quantita7;
+	int quantita8;
+	int quantita9;
+	int quantita10;
+
+	String articolo1 = (String) comboBoxArticoli1.getSelectedItem();
+	String articolo2 = (String) comboBoxArticoli2.getSelectedItem();
+	String articolo3 = (String) comboBoxArticoli3.getSelectedItem();
+	String articolo4 = (String) comboBoxArticoli4.getSelectedItem();
+	String articolo5 = (String) comboBoxArticoli5.getSelectedItem();
+	String articolo6 = (String) comboBoxArticoli6.getSelectedItem();
+	String articolo7 = (String) comboBoxArticoli7.getSelectedItem();
+	String articolo8 = (String) comboBoxArticoli8.getSelectedItem();
+	String articolo9 = (String) comboBoxArticoli9.getSelectedItem();
+	String articolo10 = (String) comboBoxArticoli10.getSelectedItem();
+
+	//cerco gli articoli dal nome e mi faccio restituire l'oggetto di tipo articolo
+	try {
+	    Articolo a1 = m.articoloContainedByName(articolo1);
+	    Articolo a2 = m.articoloContainedByName(articolo2);
+	    Articolo a3 = m.articoloContainedByName(articolo3);
+	    Articolo a4 = m.articoloContainedByName(articolo4);
+	    Articolo a5 = m.articoloContainedByName(articolo5);
+	    Articolo a6 = m.articoloContainedByName(articolo6);
+	    Articolo a7 = m.articoloContainedByName(articolo7);
+	    Articolo a8 = m.articoloContainedByName(articolo8);
+	    Articolo a9 = m.articoloContainedByName(articolo9);
+	    Articolo a10 = m.articoloContainedByName(articolo10);
+
+	    quantita1 = quantitaField1.getText().equals("") || quantitaField1.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField1.getText());
+	    quantita2 = quantitaField2.getText().equals("") || quantitaField2.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField2.getText());
+	    quantita3 = quantitaField3.getText().equals("") || quantitaField3.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField3.getText());
+	    quantita4 = quantitaField4.getText().equals("") || quantitaField4.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField4.getText());
+	    quantita5 = quantitaField5.getText().equals("") || quantitaField5.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField5.getText());
+	    quantita6 = quantitaField6.getText().equals("") || quantitaField6.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField6.getText());
+	    quantita7 = quantitaField7.getText().equals("") || quantitaField7.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField7.getText());
+	    quantita8 = quantitaField8.getText().equals("") || quantitaField8.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField8.getText());
+	    quantita9 = quantitaField9.getText().equals("") || quantitaField9.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField9.getText());
+	    quantita10 = quantitaField10.getText().equals("") || quantitaField10.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField10.getText());
+
+	    if (quantita1 != 0) {
+		if (articoliAndQuantita.containsKey(a1))//controllo se è già stato inserito
+		{
+		    articoliAndQuantita.put(a1, quantita1 + articoliAndQuantita.get(a1));
+		} else {
+		    articoliAndQuantita.put(a1, quantita1);
+		}
+	    }
+
+	    if (quantita2 != 0) {
+		if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+		{
+		    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+		} else {
+		    articoliAndQuantita.put(a2, quantita2);
+		}
+	    }
+
+	    if (quantita3 != 0) {
+		if (articoliAndQuantita.containsKey(a3))//controllo se è già stato inserito
+		{
+		    articoliAndQuantita.put(a3, quantita3 + articoliAndQuantita.get(a3));
+		} else {
+		    articoliAndQuantita.put(a3, quantita3);
+		}
+	    }
+
+	    if (quantita4 != 0) {
+		if (articoliAndQuantita.containsKey(a4))//controllo se è già stato inserito
+		{
+		    articoliAndQuantita.put(a4, quantita4 + articoliAndQuantita.get(a4));
+		} else {
+		    articoliAndQuantita.put(a4, quantita4);
+		}
+	    }
+
+	    if (quantita5 != 0) {
+		if (articoliAndQuantita.containsKey(a5))//controllo se è già stato inserito
+		{
+		    articoliAndQuantita.put(a5, quantita5 + articoliAndQuantita.get(a5));
+		} else {
+		    articoliAndQuantita.put(a5, quantita5);
+		}
+	    }
+
+	    if (quantita6 != 0) {
+		if (articoliAndQuantita.containsKey(a6))//controllo se è già stato inserito
+		{
+		    articoliAndQuantita.put(a6, quantita6 + articoliAndQuantita.get(a6));
+		} else {
+		    articoliAndQuantita.put(a6, quantita6);
+		}
+	    }
+
+	    if (quantita7 != 0) {
+		if (articoliAndQuantita.containsKey(a7))//controllo se è già stato inserito
+		{
+		    articoliAndQuantita.put(a7, quantita7 + articoliAndQuantita.get(a7));
+		} else {
+		    articoliAndQuantita.put(a7, quantita7);
+		}
+	    }
+
+	    if (quantita8 != 0) {
+		if (articoliAndQuantita.containsKey(a8))//controllo se è già stato inserito
+		{
+		    articoliAndQuantita.put(a8, quantita8 + articoliAndQuantita.get(a8));
+		} else {
+		    articoliAndQuantita.put(a8, quantita8);
+		}
+	    }
+
+	    if (quantita9 != 0) {
+		if (articoliAndQuantita.containsKey(a9))//controllo se è già stato inserito
+		{
+		    articoliAndQuantita.put(a9, quantita9 + articoliAndQuantita.get(a9));
+		} else {
+		    articoliAndQuantita.put(a9, quantita9);
+		}
+	    }
+
+	    if (quantita10 != 0) {
+		if (articoliAndQuantita.containsKey(a10))//controllo se è già stato inserito
+		{
+		    articoliAndQuantita.put(a10, quantita10 + articoliAndQuantita.get(a10));
+		} else {
+		    articoliAndQuantita.put(a10, quantita10);
+		}
+	    }
+
+	    Ordine o1 = new Ordine(x, corriere, new GregorianCalendar(), articoliAndQuantita);
+	    m.addOrdine(o1);
+
+	} catch (ArticleDontExistInWareHouseException | HeadlessException | VoidStringUnexpectedException e) {
+	    JOptionPane.showMessageDialog(null, "Eccezione nel creare l'ordine");
+	    quantitaField1.setBackground(Color.red);
+	    quantitaField2.setBackground(Color.red);
+	    quantitaField3.setBackground(Color.red);
+	    quantitaField4.setBackground(Color.red);
+	    quantitaField5.setBackground(Color.red);
+	    quantitaField6.setBackground(Color.red);
+	    quantitaField7.setBackground(Color.red);
+	    quantitaField8.setBackground(Color.red);
+	    quantitaField9.setBackground(Color.red);
+	    quantitaField10.setBackground(Color.red);
+	} finally {
+	    indexOrder = m.ordineSize() - 1;
+
+	    hideAll();
+	    ordini();
+	    visualizzaOrdiniPanel.setVisible(true);
+
+	    corriereField_NewOrderPanel.setText("");
+	    quantitaField1.setBackground(C);
+	    quantitaField2.setBackground(C);
+	    quantitaField3.setBackground(C);
+	    quantitaField4.setBackground(C);
+	    quantitaField5.setBackground(C);
+	    quantitaField6.setBackground(C);
+	    quantitaField7.setBackground(C);
+	    quantitaField8.setBackground(C);
+	    quantitaField9.setBackground(C);
+	    quantitaField10.setBackground(C);
+	    quantitaField1.setText("");
+	    quantitaField2.setText("");
+	    quantitaField3.setText("");
+	    quantitaField4.setText("");
+	    quantitaField5.setText("");
+	    quantitaField6.setText("");
+	    quantitaField7.setText("");
+	    quantitaField8.setText("");
+	    quantitaField9.setText("");
+	    quantitaField10.setText("");
+	}
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
     }//GEN-LAST:event_creaOrdineButton_orderViewPanelActionPerformed
 
     private void ComboBoxNegozioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxNegozioActionPerformed
@@ -2739,6 +3552,7 @@ public class Graphics extends javax.swing.JFrame {
 
     //ogni volta che l'utente preme aggiungi articolo per rendere visibile una seconda riga di articolo controllo se il primo è stato compilato correttamente
     private void addArticleButton_newOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArticleButton_newOrderPanelActionPerformed
+<<<<<<< HEAD
         quantitaField1.setBackground(C);
         quantitaField2.setBackground(C);
         quantitaField3.setBackground(C);
@@ -2899,59 +3713,222 @@ public class Graphics extends javax.swing.JFrame {
                 }
 
         }
+=======
+	quantitaField1.setBackground(C);
+	quantitaField2.setBackground(C);
+	quantitaField3.setBackground(C);
+	quantitaField4.setBackground(C);
+	quantitaField5.setBackground(C);
+	quantitaField6.setBackground(C);
+	quantitaField7.setBackground(C);
+	quantitaField8.setBackground(C);
+	quantitaField9.setBackground(C);
+	quantitaField10.setBackground(C);
+
+	switch (orderArticleSelected) {
+	    case 1:
+		try {
+		    if (Integer.parseInt(quantitaField1.getText()) > 0) {
+			comboBoxArticoli2.setEnabled(true);
+			quantitaField2.setEnabled(true);
+			orderArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+			quantitaField1.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    quantitaField1.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+
+	    case 2:
+		try {
+		    if (Integer.parseInt(quantitaField2.getText()) > 0) {
+			comboBoxArticoli3.setEnabled(true);
+			quantitaField3.setEnabled(true);
+			orderArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+			quantitaField2.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    quantitaField2.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 3:
+		try {
+		    if (Integer.parseInt(quantitaField3.getText()) > 0) {
+			comboBoxArticoli4.setEnabled(true);
+			quantitaField4.setEnabled(true);
+			orderArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+			quantitaField3.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    quantitaField3.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 4:
+		try {
+		    if (Integer.parseInt(quantitaField4.getText()) > 0) {
+			comboBoxArticoli5.setEnabled(true);
+			quantitaField5.setEnabled(true);
+			orderArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+			quantitaField4.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    quantitaField4.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 5:
+		try {
+		    if (Integer.parseInt(quantitaField5.getText()) > 0) {
+			comboBoxArticoli6.setEnabled(true);
+			quantitaField6.setEnabled(true);
+			orderArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+			quantitaField5.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    quantitaField5.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 6:
+		try {
+		    if (Integer.parseInt(quantitaField6.getText()) > 0) {
+			comboBoxArticoli7.setEnabled(true);
+			quantitaField7.setEnabled(true);
+			orderArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+			quantitaField6.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    quantitaField6.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 7:
+		try {
+		    if (Integer.parseInt(quantitaField7.getText()) > 0) {
+			comboBoxArticoli8.setEnabled(true);
+			quantitaField8.setEnabled(true);
+			orderArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+			quantitaField7.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    quantitaField7.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 8:
+		try {
+		    if (Integer.parseInt(quantitaField8.getText()) > 0) {
+			comboBoxArticoli9.setEnabled(true);
+			quantitaField9.setEnabled(true);
+			orderArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+			quantitaField8.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    quantitaField8.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 9:
+		try {
+		    if (Integer.parseInt(quantitaField9.getText()) > 0) {
+			comboBoxArticoli10.setEnabled(true);
+			quantitaField10.setEnabled(true);
+			orderArticleSelected++;
+			addArticleButton_newOrderPanel.setEnabled(false);
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo e la sua quantità per procedere!!");
+			quantitaField9.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    quantitaField9.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+
+	}
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
     }//GEN-LAST:event_addArticleButton_newOrderPanelActionPerformed
 
     private void quantitaField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField1ActionPerformed
-        Color x = new Color(255, 255, 0);
-        quantitaField1.setBackground(x);
+	Color x = new Color(255, 255, 0);
+	quantitaField1.setBackground(x);
     }//GEN-LAST:event_quantitaField1ActionPerformed
 
     private void quantitaField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField2ActionPerformed
-        Color x = new Color(255, 255, 0);
-        quantitaField2.setBackground(x);
+	Color x = new Color(255, 255, 0);
+	quantitaField2.setBackground(x);
     }//GEN-LAST:event_quantitaField2ActionPerformed
 
     private void quantitaField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField3ActionPerformed
-        Color x = new Color(255, 255, 0);
-        quantitaField3.setBackground(x);
+	Color x = new Color(255, 255, 0);
+	quantitaField3.setBackground(x);
     }//GEN-LAST:event_quantitaField3ActionPerformed
 
     private void quantitaField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField4ActionPerformed
-        Color x = new Color(255, 255, 0);
-        quantitaField4.setBackground(x);
+	Color x = new Color(255, 255, 0);
+	quantitaField4.setBackground(x);
     }//GEN-LAST:event_quantitaField4ActionPerformed
 
     private void quantitaField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField5ActionPerformed
-        Color x = new Color(255, 255, 0);
-        quantitaField5.setBackground(x);
+	Color x = new Color(255, 255, 0);
+	quantitaField5.setBackground(x);
     }//GEN-LAST:event_quantitaField5ActionPerformed
 
     private void quantitaField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField6ActionPerformed
-        Color x = new Color(255, 255, 0);
-        quantitaField6.setBackground(x);
+	Color x = new Color(255, 255, 0);
+	quantitaField6.setBackground(x);
     }//GEN-LAST:event_quantitaField6ActionPerformed
 
     private void quantitaField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField7ActionPerformed
-        Color x = new Color(255, 255, 0);
-        quantitaField7.setBackground(x);
+	Color x = new Color(255, 255, 0);
+	quantitaField7.setBackground(x);
     }//GEN-LAST:event_quantitaField7ActionPerformed
 
     private void quantitaField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField8ActionPerformed
-        Color x = new Color(255, 255, 0);
-        quantitaField8.setBackground(x);
+	Color x = new Color(255, 255, 0);
+	quantitaField8.setBackground(x);
     }//GEN-LAST:event_quantitaField8ActionPerformed
 
     private void quantitaField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField9ActionPerformed
-        Color x = new Color(255, 255, 0);
-        quantitaField9.setBackground(x);
+	Color x = new Color(255, 255, 0);
+	quantitaField9.setBackground(x);
     }//GEN-LAST:event_quantitaField9ActionPerformed
 
     private void quantitaField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField10ActionPerformed
-        Color x = new Color(255, 255, 0);
-        quantitaField10.setBackground(x);
+	Color x = new Color(255, 255, 0);
+	quantitaField10.setBackground(x);
     }//GEN-LAST:event_quantitaField10ActionPerformed
 
     private void creaIngressoButtonIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaIngressoButtonIngressoPanelActionPerformed
+<<<<<<< HEAD
         try {
             Map<Articolo, Integer> posizioni = new TreeMap<>();
             Map<Articolo, Integer> quantita = new TreeMap<>();
@@ -3188,8 +4165,246 @@ public class Graphics extends javax.swing.JFrame {
                     }
                     posizioni.put(a1, posizione1);
             }
+=======
+	try {
+	    Map<Articolo, Integer> posizioni = new TreeMap<>();
+	    Map<Articolo, Integer> quantita = new TreeMap<>();
 
-            /*
+	    //COLORO I TESTI DELLO SFONDO DEL PANNELLO
+	    posizione1Field_newIngressoPanel.setBackground(C);
+	    posizione2Field_newIngressoPanel.setBackground(C);
+	    posizione3Field_newIngressoPanel.setBackground(C);
+	    posizione4Field_newIngressoPanel.setBackground(C);
+	    posizione5Field_newIngressoPanel.setBackground(C);
+	    posizione6Field_newIngressoPanel.setBackground(C);
+	    posizione7Field_newIngressoPanel.setBackground(C);
+	    posizione8Field_newIngressoPanel.setBackground(C);
+	    posizione9Field_newIngressoPanel.setBackground(C);
+	    posizione10Field_newIngressoPanel.setBackground(C);
+
+	    quantitaField1_newIngressoPanel.setBackground(C);
+	    quantitaField2_newIngressoPanel.setBackground(C);
+	    quantitaField3_newIngressoPanel.setBackground(C);
+	    quantitaField4_newIngressoPanel.setBackground(C);
+	    quantitaField5_newIngressoPanel.setBackground(C);
+	    quantitaField6_newIngressoPanel.setBackground(C);
+	    quantitaField7_newIngressoPanel.setBackground(C);
+	    quantitaField8_newIngressoPanel.setBackground(C);
+	    quantitaField9_newIngressoPanel.setBackground(C);
+	    quantitaField10_newIngressoPanel.setBackground(C);
+
+	    //mi dichiaro gli interi di cui ho bisogno
+	    int quantita1, quantita2, quantita3, quantita4, quantita5, quantita6, quantita7, quantita8, quantita9, quantita10;
+	    int posizione1, posizione2, posizione3, posizione4, posizione5, posizione6, posizione7, posizione8, posizione9, posizione10;
+
+	    //mi prendo l'articolo in base alla selezione del combobox
+	    String Articolo1 = (String) comboBoxIngressoArticoli1.getSelectedItem();
+	    String Articolo2 = (String) comboBoxIngressoArticoli2.getSelectedItem();
+	    String Articolo3 = (String) comboBoxIngressoArticoli3.getSelectedItem();
+	    String Articolo4 = (String) comboBoxIngressoArticoli4.getSelectedItem();
+	    String Articolo5 = (String) comboBoxIngressoArticoli5.getSelectedItem();
+	    String Articolo6 = (String) comboBoxIngressoArticoli6.getSelectedItem();
+	    String Articolo7 = (String) comboBoxIngressoArticoli7.getSelectedItem();
+	    String Articolo8 = (String) comboBoxIngressoArticoli8.getSelectedItem();
+	    String Articolo9 = (String) comboBoxIngressoArticoli9.getSelectedItem();
+	    String Articolo10 = (String) comboBoxIngressoArticoli10.getSelectedItem();
+
+	    //mi prendo gli articolo in base al nome del combobox
+	    Articolo a1 = m.articoloContainedByName(Articolo1);
+	    Articolo a2 = m.articoloContainedByName(Articolo2);
+	    Articolo a3 = m.articoloContainedByName(Articolo3);
+	    Articolo a4 = m.articoloContainedByName(Articolo4);
+	    Articolo a5 = m.articoloContainedByName(Articolo5);
+	    Articolo a6 = m.articoloContainedByName(Articolo6);
+	    Articolo a7 = m.articoloContainedByName(Articolo7);
+	    Articolo a8 = m.articoloContainedByName(Articolo8);
+	    Articolo a9 = m.articoloContainedByName(Articolo9);
+	    Articolo a10 = m.articoloContainedByName(Articolo10);
+
+	    //mi prendo o mi setto i valori di quantita e posizione
+	    quantita1 = quantitaField1_newIngressoPanel.getText().equals("") || quantitaField1_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField1_newIngressoPanel.getText());
+	    quantita2 = quantitaField2_newIngressoPanel.getText().equals("") || quantitaField2_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField2_newIngressoPanel.getText());
+	    quantita3 = quantitaField3_newIngressoPanel.getText().equals("") || quantitaField3_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField3_newIngressoPanel.getText());
+	    quantita4 = quantitaField4_newIngressoPanel.getText().equals("") || quantitaField4_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField4_newIngressoPanel.getText());
+	    quantita5 = quantitaField5_newIngressoPanel.getText().equals("") || quantitaField5_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField5_newIngressoPanel.getText());
+	    quantita6 = quantitaField6_newIngressoPanel.getText().equals("") || quantitaField6_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField6_newIngressoPanel.getText());
+	    quantita7 = quantitaField7_newIngressoPanel.getText().equals("") || quantitaField7_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField7_newIngressoPanel.getText());
+	    quantita8 = quantitaField8_newIngressoPanel.getText().equals("") || quantitaField8_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField8_newIngressoPanel.getText());
+	    quantita9 = quantitaField9_newIngressoPanel.getText().equals("") || quantitaField9_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField9_newIngressoPanel.getText());
+	    quantita10 = quantitaField10_newIngressoPanel.getText().equals("") || quantitaField10_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField10_newIngressoPanel.getText());
+
+	    posizione1 = posizione1Field_newIngressoPanel.getText().equals("") || posizione1Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione1Field_newIngressoPanel.getText());
+	    posizione2 = posizione2Field_newIngressoPanel.getText().equals("") || posizione2Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione2Field_newIngressoPanel.getText());
+	    posizione3 = posizione3Field_newIngressoPanel.getText().equals("") || posizione3Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione3Field_newIngressoPanel.getText());
+	    posizione4 = posizione4Field_newIngressoPanel.getText().equals("") || posizione4Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione4Field_newIngressoPanel.getText());
+	    posizione5 = posizione5Field_newIngressoPanel.getText().equals("") || posizione5Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione5Field_newIngressoPanel.getText());
+	    posizione6 = posizione6Field_newIngressoPanel.getText().equals("") || posizione6Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione6Field_newIngressoPanel.getText());
+	    posizione7 = posizione7Field_newIngressoPanel.getText().equals("") || posizione7Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione7Field_newIngressoPanel.getText());
+	    posizione8 = posizione8Field_newIngressoPanel.getText().equals("") || posizione8Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione8Field_newIngressoPanel.getText());
+	    posizione9 = posizione9Field_newIngressoPanel.getText().equals("") || posizione9Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione9Field_newIngressoPanel.getText());
+	    posizione10 = posizione10Field_newIngressoPanel.getText().equals("") || posizione10Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione10Field_newIngressoPanel.getText());
+
+	    //essendo un ingresso si suppone che debba esserci almeno una quantita per poter entrare non è questo il modulo per spostare la posizione
+	    //per modificare la posizione andare direttamente su articolo
+	    Color e = Color.RED;
+
+	    //ora devo solo controllare che l'utente non mi abbia selezionato lo stesso articolo, in tal caso prensdo le quantità e le sommo
+	    //le posizioni invece prendo solo l'ultima
+	    switch (ingressoArticleSelected) {
+		case 10:
+		    if (quantita10 == 0 || posizione10 == 0) {
+			JOptionPane.showMessageDialog(null, "Non sono accettate 0 posizioni o 0 quantita!");
+			quantitaField10_newIngressoPanel.setBackground(e);
+			posizione10Field_newIngressoPanel.setBackground(e);
+			return;
+		    }
+
+		    if (quantita.containsKey(a10)) {
+			quantita.put(a10, quantita.get(a10) + quantita10);
+		    } else {
+			quantita.put(a10, quantita10);
+		    }
+		    posizioni.put(a10, posizione10);
+
+		case 9:
+
+		    if (quantita9 == 0 || posizione9 == 0) {
+			JOptionPane.showMessageDialog(null, "Non sono accettate 0 posizioni o 0 quantita!");
+			quantitaField9_newIngressoPanel.setBackground(e);
+			posizione9Field_newIngressoPanel.setBackground(e);
+			return;
+		    }
+
+		    if (quantita.containsKey(a9)) {
+			quantita.put(a9, quantita.get(a9) + quantita9);
+		    } else {
+			quantita.put(a9, quantita9);
+		    }
+		    posizioni.put(a9, posizione9);
+
+		case 8:
+		    if (quantita8 == 0 || posizione8 == 0) {
+			JOptionPane.showMessageDialog(null, "Non sono accettate 0 posizioni o 0 quantita!");
+			quantitaField8_newIngressoPanel.setBackground(e);
+			posizione8Field_newIngressoPanel.setBackground(e);
+			return;
+		    }
+
+		    if (quantita.containsKey(a8)) {
+			quantita.put(a8, quantita.get(a8) + quantita8);
+		    } else {
+			quantita.put(a8, quantita8);
+		    }
+		    posizioni.put(a8, posizione8);
+
+		case 7:
+		    if (quantita7 == 0 || posizione7 == 0) {
+			JOptionPane.showMessageDialog(null, "Non sono accettate 0 posizioni o 0 quantita!");
+			quantitaField7_newIngressoPanel.setBackground(e);
+			posizione7Field_newIngressoPanel.setBackground(e);
+			return;
+		    }
+
+		    if (quantita.containsKey(a7)) {
+			quantita.put(a7, quantita.get(a7) + quantita7);
+		    } else {
+			quantita.put(a7, quantita7);
+		    }
+		    posizioni.put(a7, posizione7);
+
+		case 6:
+		    if (quantita6 == 0 || posizione6 == 0) {
+			JOptionPane.showMessageDialog(null, "Non sono accettate 0 posizioni o 0 quantita!");
+			quantitaField6_newIngressoPanel.setBackground(e);
+			posizione6Field_newIngressoPanel.setBackground(e);
+			return;
+		    }
+
+		    if (quantita.containsKey(a6)) {
+			quantita.put(a6, quantita.get(a6) + quantita6);
+		    } else {
+			quantita.put(a6, quantita6);
+		    }
+		    posizioni.put(a6, posizione6);
+
+		case 5:
+		    if (quantita5 == 0 || posizione5 == 0) {
+			JOptionPane.showMessageDialog(null, "Non sono accettate 0 posizioni o 0 quantita!");
+			quantitaField5_newIngressoPanel.setBackground(e);
+			posizione5Field_newIngressoPanel.setBackground(e);
+			return;
+		    }
+
+		    if (quantita.containsKey(a5)) {
+			quantita.put(a5, quantita.get(a5) + quantita5);
+		    } else {
+			quantita.put(a5, quantita5);
+		    }
+		    posizioni.put(a5, posizione5);
+
+		case 4:
+		    if (quantita4 == 0 || posizione4 == 0) {
+			JOptionPane.showMessageDialog(null, "Non sono accettate 0 posizioni o 0 quantita!");
+			quantitaField4_newIngressoPanel.setBackground(e);
+			posizione4Field_newIngressoPanel.setBackground(e);
+			return;
+		    }
+
+		    if (quantita.containsKey(a4)) {
+			quantita.put(a4, quantita.get(a4) + quantita4);
+		    } else {
+			quantita.put(a4, quantita4);
+		    }
+		    posizioni.put(a4, posizione4);
+
+		case 3:
+		    if (quantita3 == 0 || posizione3 == 0) {
+			JOptionPane.showMessageDialog(null, "Non sono accettate 0 posizioni o 0 quantita!");
+			quantitaField3_newIngressoPanel.setBackground(e);
+			posizione3Field_newIngressoPanel.setBackground(e);
+			return;
+		    }
+
+		    if (quantita.containsKey(a3)) {
+			quantita.put(a3, quantita.get(a3) + quantita3);
+		    } else {
+			quantita.put(a3, quantita3);
+		    }
+		    posizioni.put(a3, posizione3);
+
+		case 2:
+		    if (quantita2 == 0 || posizione2 == 0) {
+			JOptionPane.showMessageDialog(null, "Non sono accettate 0 posizioni o 0 quantita!");
+			quantitaField2_newIngressoPanel.setBackground(e);
+			posizione2Field_newIngressoPanel.setBackground(e);
+			return;
+		    }
+
+		    if (quantita.containsKey(a2)) {
+			quantita.put(a2, quantita.get(a2) + quantita2);
+		    } else {
+			quantita.put(a2, quantita2);
+		    }
+		    posizioni.put(a2, posizione2);
+
+		case 1:
+		    if (quantita1 == 0 || posizione1 == 0) {
+			JOptionPane.showMessageDialog(null, "Non sono accettate 0 posizioni o 0 quantita!");
+			quantitaField1_newIngressoPanel.setBackground(e);
+			posizione1Field_newIngressoPanel.setBackground(e);
+			return;
+		    }
+
+		    if (quantita.containsKey(a1)) {
+			quantita.put(a1, quantita.get(a1) + quantita2);
+		    } else {
+			quantita.put(a1, quantita1);
+		    }
+		    posizioni.put(a1, posizione1);
+	    }
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
+
+	    /*
             if (quantita1 != 0) {
                 quantita.put(a1, quantita1);
                 if (posizione1 == 0) {
@@ -3330,6 +4545,7 @@ public class Graphics extends javax.swing.JFrame {
                     }
                 }
             }
+<<<<<<< HEAD
              */
             int day = Integer.parseInt(dayField_newIngressoPanel.getText());
             int month = Integer.parseInt(monthField_newIngressoPanel.getText());
@@ -3374,37 +4590,89 @@ public class Graphics extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
         }
+=======
+	     */
+	    GregorianCalendar c;
+	    try {
+		int day = Integer.parseInt(dayField_newIngressoPanel.getText());
+		int month = Integer.parseInt(monthField_newIngressoPanel.getText());
+		int year = Integer.parseInt(yearField_newIngressoPanel.getText());
+		c = new GregorianCalendar(year, month, day);
+	    } catch (Exception ex) {
+		JOptionPane.showMessageDialog(null, "Inserire una data valida");
+		return;
+	    }
+	    if (posizioni.isEmpty() && quantita.isEmpty()) {  //forzo il controllo su entrambe le mappe anche se non dovrebbe essere necessario visto che devono essere identiche
+		//se le mappe sono identiche ignoro l'inserimento 
+		hideAll();
+		ingressi();
+		visualizzaIngressiPanel.setVisible(true);
+		return;
+	    }
+	    //ora posso aggiungere l'ingresso
+	    m.addIngresso(quantita, posizioni, c);
+	    indexIngressi = m.ingressiSize() - 1;
+	    hideAll();
+	    ingressi();
+	    visualizzaIngressiPanel.setVisible(true);
+	    //resetto le stringhe
+	    posizione1Field_newIngressoPanel.setText("");
+	    quantitaField1_newIngressoPanel.setText("");
+	    posizione2Field_newIngressoPanel.setText("");
+	    quantitaField2_newIngressoPanel.setText("");
+	    posizione3Field_newIngressoPanel.setText("");
+	    quantitaField3_newIngressoPanel.setText("");
+	    posizione4Field_newIngressoPanel.setText("");
+	    quantitaField4_newIngressoPanel.setText("");
+	    posizione5Field_newIngressoPanel.setText("");
+	    quantitaField5_newIngressoPanel.setText("");
+	    posizione6Field_newIngressoPanel.setText("");
+	    quantitaField6_newIngressoPanel.setText("");
+	    posizione7Field_newIngressoPanel.setText("");
+	    quantitaField7_newIngressoPanel.setText("");
+	    posizione8Field_newIngressoPanel.setText("");
+	    quantitaField8_newIngressoPanel.setText("");
+	    posizione9Field_newIngressoPanel.setText("");
+	    quantitaField9_newIngressoPanel.setText("");
+	    posizione10Field_newIngressoPanel.setText("");
+	    quantitaField10_newIngressoPanel.setText("");
+
+	} catch (Exception ex) {
+	    Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
+	}
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
     }//GEN-LAST:event_creaIngressoButtonIngressoPanelActionPerformed
 
     private void closeButton_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_newIngressoPanelActionPerformed
-        dayField_newIngressoPanel.setText("");
-        monthField_newIngressoPanel.setText("");
-        yearField_newIngressoPanel.setText("");
-        posizione1Field_newIngressoPanel.setText("");
-        posizione1Field_newIngressoPanel.setText("");
-        posizione1Field_newIngressoPanel.setText("");
-        posizione1Field_newIngressoPanel.setText("");
-        posizione1Field_newIngressoPanel.setText("");
-        posizione1Field_newIngressoPanel.setText("");
-        posizione1Field_newIngressoPanel.setText("");
-        posizione1Field_newIngressoPanel.setText("");
-        posizione1Field_newIngressoPanel.setText("");
-        posizione1Field_newIngressoPanel.setText("");
-        quantitaField1_newIngressoPanel.setText("");
-        quantitaField1_newIngressoPanel.setText("");
-        quantitaField1_newIngressoPanel.setText("");
-        quantitaField1_newIngressoPanel.setText("");
-        quantitaField1_newIngressoPanel.setText("");
-        quantitaField1_newIngressoPanel.setText("");
-        quantitaField1_newIngressoPanel.setText("");
-        quantitaField1_newIngressoPanel.setText("");
-        quantitaField1_newIngressoPanel.setText("");
-        quantitaField1_newIngressoPanel.setText("");
-        hideAll();
-        visualizzaIngressiPanel.setVisible(true);
+	dayField_newIngressoPanel.setText("");
+	monthField_newIngressoPanel.setText("");
+	yearField_newIngressoPanel.setText("");
+	posizione1Field_newIngressoPanel.setText("");
+	posizione1Field_newIngressoPanel.setText("");
+	posizione1Field_newIngressoPanel.setText("");
+	posizione1Field_newIngressoPanel.setText("");
+	posizione1Field_newIngressoPanel.setText("");
+	posizione1Field_newIngressoPanel.setText("");
+	posizione1Field_newIngressoPanel.setText("");
+	posizione1Field_newIngressoPanel.setText("");
+	posizione1Field_newIngressoPanel.setText("");
+	posizione1Field_newIngressoPanel.setText("");
+	quantitaField1_newIngressoPanel.setText("");
+	quantitaField1_newIngressoPanel.setText("");
+	quantitaField1_newIngressoPanel.setText("");
+	quantitaField1_newIngressoPanel.setText("");
+	quantitaField1_newIngressoPanel.setText("");
+	quantitaField1_newIngressoPanel.setText("");
+	quantitaField1_newIngressoPanel.setText("");
+	quantitaField1_newIngressoPanel.setText("");
+	quantitaField1_newIngressoPanel.setText("");
+	quantitaField1_newIngressoPanel.setText("");
+	hideAll();
+	visualizzaIngressiPanel.setVisible(true);
     }//GEN-LAST:event_closeButton_newIngressoPanelActionPerformed
 
     private void addArticleButton_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addArticleButton_newIngressoPanelActionPerformed
+<<<<<<< HEAD
         posizione1Field_newIngressoPanel.setBackground(C);
         posizione2Field_newIngressoPanel.setBackground(C);
         posizione3Field_newIngressoPanel.setBackground(C);
@@ -3602,49 +4870,249 @@ public class Graphics extends javax.swing.JFrame {
                 }
 
         }
+=======
+	posizione1Field_newIngressoPanel.setBackground(C);
+	posizione2Field_newIngressoPanel.setBackground(C);
+	posizione3Field_newIngressoPanel.setBackground(C);
+	posizione4Field_newIngressoPanel.setBackground(C);
+	posizione5Field_newIngressoPanel.setBackground(C);
+	posizione6Field_newIngressoPanel.setBackground(C);
+	posizione7Field_newIngressoPanel.setBackground(C);
+	posizione8Field_newIngressoPanel.setBackground(C);
+	posizione9Field_newIngressoPanel.setBackground(C);
+	posizione10Field_newIngressoPanel.setBackground(C);
+	quantitaField1_newIngressoPanel.setBackground(C);
+	quantitaField2_newIngressoPanel.setBackground(C);
+	quantitaField3_newIngressoPanel.setBackground(C);
+	quantitaField4_newIngressoPanel.setBackground(C);
+	quantitaField5_newIngressoPanel.setBackground(C);
+	quantitaField6_newIngressoPanel.setBackground(C);
+	quantitaField7_newIngressoPanel.setBackground(C);
+	quantitaField8_newIngressoPanel.setBackground(C);
+	quantitaField9_newIngressoPanel.setBackground(C);
+	quantitaField10_newIngressoPanel.setBackground(C);
+
+	switch (ingressoArticleSelected) {
+	    case 1:
+		try {
+		    if ((Integer.parseInt(quantitaField1_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione1Field_newIngressoPanel.getText()) > 0)) {
+			comboBoxIngressoArticoli2.setEnabled(true);
+			posizione2Field_newIngressoPanel.setEditable(true);
+			quantitaField2_newIngressoPanel.setEditable(true);
+			ingressoArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+			posizione1Field_newIngressoPanel.setBackground(Color.red);
+			quantitaField1_newIngressoPanel.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    posizione1Field_newIngressoPanel.setBackground(Color.red);
+		    quantitaField1_newIngressoPanel.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+
+	    case 2:
+		try {
+		    if ((Integer.parseInt(quantitaField2_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione2Field_newIngressoPanel.getText()) > 0)) {
+			comboBoxIngressoArticoli3.setEnabled(true);
+			posizione3Field_newIngressoPanel.setEditable(true);
+			quantitaField3_newIngressoPanel.setEditable(true);
+			ingressoArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+			posizione2Field_newIngressoPanel.setBackground(Color.red);
+			quantitaField2_newIngressoPanel.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    posizione2Field_newIngressoPanel.setBackground(Color.red);
+		    quantitaField2_newIngressoPanel.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 3:
+		try {
+		    if ((Integer.parseInt(quantitaField3_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione3Field_newIngressoPanel.getText()) > 0)) {
+			comboBoxIngressoArticoli4.setEnabled(true);
+			posizione4Field_newIngressoPanel.setEditable(true);
+			quantitaField4_newIngressoPanel.setEditable(true);
+			ingressoArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+			posizione3Field_newIngressoPanel.setBackground(Color.red);
+			quantitaField3_newIngressoPanel.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    posizione3Field_newIngressoPanel.setBackground(Color.red);
+		    quantitaField3_newIngressoPanel.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 4:
+		try {
+		    if ((Integer.parseInt(quantitaField4_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione4Field_newIngressoPanel.getText()) > 0)) {
+			comboBoxIngressoArticoli5.setEnabled(true);
+			posizione5Field_newIngressoPanel.setEditable(true);
+			quantitaField5_newIngressoPanel.setEditable(true);
+			ingressoArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+			posizione4Field_newIngressoPanel.setBackground(Color.red);
+			quantitaField4_newIngressoPanel.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    posizione4Field_newIngressoPanel.setBackground(Color.red);
+		    quantitaField4_newIngressoPanel.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 5:
+		try {
+		    if ((Integer.parseInt(quantitaField5_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione5Field_newIngressoPanel.getText()) > 0)) {
+			comboBoxIngressoArticoli6.setEnabled(true);
+			posizione6Field_newIngressoPanel.setEditable(true);
+			quantitaField6_newIngressoPanel.setEditable(true);
+			ingressoArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+			posizione5Field_newIngressoPanel.setBackground(Color.red);
+			quantitaField5_newIngressoPanel.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    posizione5Field_newIngressoPanel.setBackground(Color.red);
+		    quantitaField5_newIngressoPanel.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 6:
+		try {
+		    if ((Integer.parseInt(quantitaField6_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione6Field_newIngressoPanel.getText()) > 0)) {
+			comboBoxIngressoArticoli7.setEnabled(true);
+			posizione7Field_newIngressoPanel.setEditable(true);
+			quantitaField7_newIngressoPanel.setEditable(true);
+			ingressoArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+			posizione6Field_newIngressoPanel.setBackground(Color.red);
+			quantitaField6_newIngressoPanel.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    posizione6Field_newIngressoPanel.setBackground(Color.red);
+		    quantitaField6_newIngressoPanel.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 7:
+		try {
+		    if ((Integer.parseInt(quantitaField7_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione7Field_newIngressoPanel.getText()) > 0)) {
+			comboBoxIngressoArticoli8.setEnabled(true);
+			posizione8Field_newIngressoPanel.setEditable(true);
+			quantitaField8_newIngressoPanel.setEditable(true);
+			ingressoArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+			posizione7Field_newIngressoPanel.setBackground(Color.red);
+			quantitaField7_newIngressoPanel.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    posizione7Field_newIngressoPanel.setBackground(Color.red);
+		    quantitaField7_newIngressoPanel.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 8:
+		try {
+		    if ((Integer.parseInt(quantitaField8_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione8Field_newIngressoPanel.getText()) > 0)) {
+			comboBoxIngressoArticoli9.setEnabled(true);
+			posizione9Field_newIngressoPanel.setEditable(true);
+			quantitaField9_newIngressoPanel.setEditable(true);
+			ingressoArticleSelected++;
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+			posizione8Field_newIngressoPanel.setBackground(Color.red);
+			quantitaField8_newIngressoPanel.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    posizione8Field_newIngressoPanel.setBackground(Color.red);
+		    quantitaField8_newIngressoPanel.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+	    case 9:
+		try {
+		    if ((Integer.parseInt(quantitaField9_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione9Field_newIngressoPanel.getText()) > 0)) {
+			comboBoxIngressoArticoli10.setEnabled(true);
+			posizione10Field_newIngressoPanel.setEditable(true);
+			quantitaField10_newIngressoPanel.setEditable(true);
+			ingressoArticleSelected++;
+			addArticleButton_newIngressoPanel.setEnabled(false);
+		    } else {
+			JOptionPane.showMessageDialog(null, "inserire il primo articolo, la sua posizione e la sua quantità per procedere!!");
+			posizione9Field_newIngressoPanel.setBackground(Color.red);
+			quantitaField9_newIngressoPanel.setBackground(Color.red);
+		    }
+		} catch (NumberFormatException e) {
+		    JOptionPane.showMessageDialog(null, "Bisogna inserire un numero in posizione e in quantità!! \nNon sono accettati altri tipi di carattere!");
+		    posizione9Field_newIngressoPanel.setBackground(Color.red);
+		    quantitaField9_newIngressoPanel.setBackground(Color.red);
+		} finally {
+		    break;
+		}
+
+	}
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
     }//GEN-LAST:event_addArticleButton_newIngressoPanelActionPerformed
 
     private void comboBoxIngressoArticoli5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxIngressoArticoli5ActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_comboBoxIngressoArticoli5ActionPerformed
 
     private void posizione6Field_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_posizione6Field_newIngressoPanelActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_posizione6Field_newIngressoPanelActionPerformed
 
     private void quantitaField3_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField3_newIngressoPanelActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_quantitaField3_newIngressoPanelActionPerformed
 
     private void quantitaField5_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField5_newIngressoPanelActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_quantitaField5_newIngressoPanelActionPerformed
 
     private void quantitaField7_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantitaField7_newIngressoPanelActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_quantitaField7_newIngressoPanelActionPerformed
 
     private void modificaButtonOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButtonOrderPanelActionPerformed
-        // TODO add your handling code here:
+	// TODO add your handling code here:
     }//GEN-LAST:event_modificaButtonOrderPanelActionPerformed
 
     private void indietroButton_IngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroButton_IngressiPanelActionPerformed
-        indexIngressi--;
-        ingressi();
+	indexIngressi--;
+	ingressi();
     }//GEN-LAST:event_indietroButton_IngressiPanelActionPerformed
 
     private void avantiButton_IngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiButton_IngressiPanelActionPerformed
-        indexIngressi++;
-        ingressi();
+	indexIngressi++;
+	ingressi();
     }//GEN-LAST:event_avantiButton_IngressiPanelActionPerformed
 
     private void chiudiButtonIngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButtonIngressiPanelActionPerformed
-        hideAll();
-        adminPanel.setVisible(true);
+	hideAll();
+	adminPanel.setVisible(true);
     }//GEN-LAST:event_chiudiButtonIngressiPanelActionPerformed
 
     private void newIngressoButton_IngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newIngressoButton_IngressiPanelActionPerformed
 
+<<<<<<< HEAD
         hideAll();
         creaIngressoPanel.setVisible(true);
 
@@ -3720,41 +5188,119 @@ public class Graphics extends javax.swing.JFrame {
             comboBoxIngressoArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
             comboBoxIngressoArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
         }
+=======
+	hideAll();
+	creaIngressoPanel.setVisible(true);
+
+	comboBoxIngressoArticoli1.removeAllItems();
+	comboBoxIngressoArticoli2.removeAllItems();
+	comboBoxIngressoArticoli3.removeAllItems();
+	comboBoxIngressoArticoli4.removeAllItems();
+	comboBoxIngressoArticoli5.removeAllItems();
+	comboBoxIngressoArticoli6.removeAllItems();
+	comboBoxIngressoArticoli7.removeAllItems();
+	comboBoxIngressoArticoli8.removeAllItems();
+	comboBoxIngressoArticoli9.removeAllItems();
+	comboBoxIngressoArticoli10.removeAllItems();
+	posizione1Field_newIngressoPanel.setText("");
+	posizione2Field_newIngressoPanel.setText("");
+	posizione3Field_newIngressoPanel.setText("");
+	posizione4Field_newIngressoPanel.setText("");
+	posizione5Field_newIngressoPanel.setText("");
+	posizione6Field_newIngressoPanel.setText("");
+	posizione7Field_newIngressoPanel.setText("");
+	posizione8Field_newIngressoPanel.setText("");
+	posizione9Field_newIngressoPanel.setText("");
+	posizione10Field_newIngressoPanel.setText("");
+	quantitaField1_newIngressoPanel.setText("");
+	quantitaField2_newIngressoPanel.setText("");
+	quantitaField3_newIngressoPanel.setText("");
+	quantitaField4_newIngressoPanel.setText("");
+	quantitaField5_newIngressoPanel.setText("");
+	quantitaField6_newIngressoPanel.setText("");
+	quantitaField7_newIngressoPanel.setText("");
+	quantitaField8_newIngressoPanel.setText("");
+	quantitaField9_newIngressoPanel.setText("");
+	quantitaField10_newIngressoPanel.setText("");
+	comboBoxIngressoArticoli2.setEnabled(false);
+	comboBoxIngressoArticoli3.setEnabled(false);
+	comboBoxIngressoArticoli4.setEnabled(false);
+	comboBoxIngressoArticoli5.setEnabled(false);
+	comboBoxIngressoArticoli6.setEnabled(false);
+	comboBoxIngressoArticoli7.setEnabled(false);
+	comboBoxIngressoArticoli8.setEnabled(false);
+	comboBoxIngressoArticoli9.setEnabled(false);
+	comboBoxIngressoArticoli10.setEnabled(false);
+	posizione2Field_newIngressoPanel.setEditable(false);
+	posizione3Field_newIngressoPanel.setEditable(false);
+	posizione4Field_newIngressoPanel.setEditable(false);
+	posizione5Field_newIngressoPanel.setEditable(false);
+	posizione6Field_newIngressoPanel.setEditable(false);
+	posizione7Field_newIngressoPanel.setEditable(false);
+	posizione8Field_newIngressoPanel.setEditable(false);
+	posizione9Field_newIngressoPanel.setEditable(false);
+	posizione10Field_newIngressoPanel.setEditable(false);
+	quantitaField2_newIngressoPanel.setEditable(false);
+	quantitaField3_newIngressoPanel.setEditable(false);
+	quantitaField4_newIngressoPanel.setEditable(false);
+	quantitaField5_newIngressoPanel.setEditable(false);
+	quantitaField6_newIngressoPanel.setEditable(false);
+	quantitaField7_newIngressoPanel.setEditable(false);
+	quantitaField8_newIngressoPanel.setEditable(false);
+	quantitaField9_newIngressoPanel.setEditable(false);
+	quantitaField10_newIngressoPanel.setEditable(false);
+
+	ingressoArticleSelected = 1;
+
+	for (int i = 0; i < m.articoliSize(); i++) {
+	    comboBoxIngressoArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxIngressoArticoli2.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxIngressoArticoli3.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxIngressoArticoli4.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxIngressoArticoli5.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxIngressoArticoli6.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxIngressoArticoli7.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxIngressoArticoli8.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxIngressoArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	    comboBoxIngressoArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
+	}
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
     }//GEN-LAST:event_newIngressoButton_IngressiPanelActionPerformed
 
     private void dataOdierna_newIngressoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataOdierna_newIngressoPanelActionPerformed
-        GregorianCalendar c = new GregorianCalendar(); //prendo la data attuale
-        //e stampo la data attuale
-        dayField_newIngressoPanel.setText("" + c.get(GregorianCalendar.DATE));
-        monthField_newIngressoPanel.setText("" + c.get(GregorianCalendar.MONTH));
-        yearField_newIngressoPanel.setText("" + c.get(GregorianCalendar.YEAR));
+	GregorianCalendar c = new GregorianCalendar(); //prendo la data attuale
+	//e stampo la data attuale
+	dayField_newIngressoPanel.setText("" + c.get(GregorianCalendar.DATE));
+	monthField_newIngressoPanel.setText("" + c.get(GregorianCalendar.MONTH));
+	yearField_newIngressoPanel.setText("" + c.get(GregorianCalendar.YEAR));
     }//GEN-LAST:event_dataOdierna_newIngressoPanelActionPerformed
 
     private void generaUscitaButton_OrderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generaUscitaButton_OrderViewPanelActionPerformed
-        try {
-            m.createExit(m.getOrdine(indexOrder));
-            ordini();
-        } catch (OrderNotFound | ArticleNotFound | OrderImpossibleToCreate ex) {
-            JOptionPane.showMessageDialog(null, "Eccezzione nel creare l'uscita");
-        }
+	try {
+	    m.createExit(m.getOrdine(indexOrder));
+	    ordini();
+	} catch (OrderNotFound | ArticleNotFound | OrderImpossibleToCreate ex) {
+	    JOptionPane.showMessageDialog(null, "Eccezione nel creare l'uscita");
+	}
     }//GEN-LAST:event_generaUscitaButton_OrderViewPanelActionPerformed
 
     private void logoutButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonAdminPanelActionPerformed
-        exit();
+	exit();
     }//GEN-LAST:event_logoutButtonAdminPanelActionPerformed
 
     private void saveButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonAdminPanelActionPerformed
-        m.save();
+	m.save();
     }//GEN-LAST:event_saveButtonAdminPanelActionPerformed
 
     private void ingressiButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingressiButtonAdminPanelActionPerformed
-        hideAll();
-        visualizzaIngressiPanel.setVisible(true);
-        indexIngressi = 0;
-        ingressi();
+	hideAll();
+	visualizzaIngressiPanel.setVisible(true);
+	indexIngressi = 0;
+	ingressi();
     }//GEN-LAST:event_ingressiButtonAdminPanelActionPerformed
 
     private void ordiniButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordiniButtonAdminPanelActionPerformed
+<<<<<<< HEAD
         hideAll();
         DefaultTableModel model = (DefaultTableModel) tabellaOrdini.getModel();
         for (int ciao = 0; ciao < m.ordineSize(); ciao++) {
@@ -3781,17 +5327,41 @@ public class Graphics extends javax.swing.JFrame {
         } catch (ArticleDontExistInWareHouseException | PositionAlreadyOccupiedException ex) {
             Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
         }
+=======
+	hideAll();
+	visualizzaOrdiniPanel.setVisible(true);
+	indexOrder = 0;
+	ordini();
+    }//GEN-LAST:event_ordiniButtonAdminPanelActionPerformed
+
+    private void modificaPosizioneViewArticoliPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaPosizioneViewArticoliPanelActionPerformed
+	int newPosition = 0;
+	String s = "";
+	do {
+	    do {
+		s = JOptionPane.showInputDialog("Inserire la nuova posizione: ");
+	    } while (s.equals(" ") && s.equals(""));
+	    newPosition = Integer.parseInt(s);
+	} while (newPosition < 0);
+
+	try {
+	    m.setPosition(m.getArticolo(indexArticle), newPosition);
+	} catch (ArticleDontExistInWareHouseException | PositionAlreadyOccupiedException ex) {
+	    Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
+	}
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
     }//GEN-LAST:event_modificaPosizioneViewArticoliPanelActionPerformed
 
     private void eliminaButton_VisualizzaArticoloPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaButton_VisualizzaArticoloPanelActionPerformed
-        m.removeArticolo(indexArticle);
-        if (indexArticle > 0) {
-            indexArticle--;
-        }
-        articoli();
+	m.removeArticolo(indexArticle);
+	if (indexArticle > 0) {
+	    indexArticle--;
+	}
+	articoli();
     }//GEN-LAST:event_eliminaButton_VisualizzaArticoloPanelActionPerformed
 
     private void fineMeseButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fineMeseButtonAdminPanelActionPerformed
+<<<<<<< HEAD
         int lastMonth = 0;
         for (int i = 0; i < 12; i++) {
             if (m.getStoricoIngressoMensile().get(i) instanceof TreeMap) {
@@ -3800,32 +5370,60 @@ public class Graphics extends javax.swing.JFrame {
         }
         m.saveIngressoMensile(lastMonth);
         m.saveUscitaMensile(lastMonth);
+=======
+	int lastMonth = 0;
+	String sIn = "";
+	String sUs = "";
+
+	Map<Articolo, Integer> mapIn, mapUs;
+
+	for (int i = 0; i < 12; i++) {
+	    if (m.getStoricoIngressoMensile().get(i) instanceof TreeMap) {
+		lastMonth = i;
+	    }
+	}
+	m.saveIngressoMensile(lastMonth);
+	m.saveUscitaMensile(lastMonth);
+	mapIn = (Map<Articolo, Integer>) m.getStoricoIngressoMensile().get(lastMonth);
+	mapUs = (Map<Articolo, Integer>) m.getStoricoUscitaMensile().get(lastMonth);
+
+	for (Articolo X : mapIn.keySet()) {
+	    sIn = sIn + X.getIDtoString() + ": " + mapIn.get(X) + " pezzi\n";
+	}
+	for (Articolo X : mapUs.keySet()) {
+	    sUs = sUs + X.getIDtoString() + ": " + mapUs.get(X) + " pezzi\n";
+	}
+	JOptionPane.showMessageDialog(null, sIn);
+	JOptionPane.showMessageDialog(null, sUs);
+
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
     }//GEN-LAST:event_fineMeseButtonAdminPanelActionPerformed
 
     private void negozioInfo_OrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negozioInfo_OrderPanelActionPerformed
-        try {
-            Negozio n = m.getOrdine(indexOrder).getNegozio();
-            indexShop = m.negozioIndex(n);
-            hideAll();
-            from = 1;
-            negozi();
-            negoziPanel.setVisible(true);
-            indietroButton_NegozioPanel.setEnabled(false);
-            avantiButton_NegozioPanel.setEnabled(false);
-            modificaButton_NegozioPanel.setEnabled(false);
-            selezionaButton_NegozioPanel.setEnabled(false);
-            CreaNegozioButton_NegozioPanel.setEnabled(false);
-            eliminaNegozioButton_VisualizzaNegozioPanel.setEnabled(false);
-        } catch (ShopNotFoundException ex) {
-            Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
-        }
+	try {
+	    Negozio n = m.getOrdine(indexOrder).getNegozio();
+	    indexShop = m.negozioIndex(n);
+	    hideAll();
+	    from = 1;
+	    negozi();
+	    negoziPanel.setVisible(true);
+	    indietroButton_NegozioPanel.setEnabled(false);
+	    avantiButton_NegozioPanel.setEnabled(false);
+	    modificaButton_NegozioPanel.setEnabled(false);
+	    selezionaButton_NegozioPanel.setEnabled(false);
+	    CreaNegozioButton_NegozioPanel.setEnabled(false);
+	    eliminaNegozioButton_VisualizzaNegozioPanel.setEnabled(false);
+	} catch (ShopNotFoundException ex) {
+	    Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
+	}
     }//GEN-LAST:event_negozioInfo_OrderPanelActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.exit(0);
+	System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     void articoli() {
+
         if (m.articoliIsEmpty()) {
             cercaLabel_VisualizzaArticoloPanel.setText("");
             IDLabel_VisualizzaArticoloPanel.setText("");
@@ -3876,9 +5474,11 @@ public class Graphics extends javax.swing.JFrame {
                 System.out.println("Eccezzione");
             }
         }
+
     }
 
     void negozi() {
+<<<<<<< HEAD
         if (m.negoziIsEmpty()) {
             indexShop = 0;
             JOptionPane.showMessageDialog(null, "Nessun Negozio ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
@@ -3934,14 +5534,97 @@ public class Graphics extends javax.swing.JFrame {
             modificaButtonOrderPanel.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Nessun ordine ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
         } else {
+=======
+	if (m.negoziIsEmpty()) {
+	    indexShop = 0;
+	    JOptionPane.showMessageDialog(null, "Nessun Negozio ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
+	    codiceFiscaleLabel_NegozioPanel.setText("");
+	    indirizzoLabel_NegozioPanel.setText("");
+	    nomeNegozioLabel_NegozioPanel.setText("");
+	    cittaNegozio_NegozioPanel.setText("");
+	    eliminaNegozioButton_VisualizzaNegozioPanel.setEnabled(false);
+	    avantiButton_NegozioPanel.setEnabled(false);
+	    indietroButton_NegozioPanel.setEnabled(false);
+	    searchField_NegozioPanel.setEditable(false);
+	    modificaButton_NegozioPanel.setEnabled(false);
+	    selezionaButton_NegozioPanel.setEnabled(false);
+	} else {
 
-            //controlliamo che sia il primo ordine
-            if (indexOrder == 0) {
-                indietroButton_OrderPanel.setEnabled(false);
-            } else {
-                indietroButton_OrderPanel.setEnabled(true);
-            }
+	    if (indexShop == 0) {
+		indietroButton_NegozioPanel.setEnabled(false);
+	    } else {
+		indietroButton_NegozioPanel.setEnabled(true);
+	    }
 
+	    if (indexShop == m.negoziSize() - 1) {
+		avantiButton_NegozioPanel.setEnabled(false);
+	    } else {
+		avantiButton_NegozioPanel.setEnabled(true);
+	    }
+
+	    modificaButton_NegozioPanel.setEnabled(true);
+	    selezionaButton_NegozioPanel.setEnabled(true);
+	    CreaNegozioButton_NegozioPanel.setEnabled(true);
+	    eliminaNegozioButton_VisualizzaNegozioPanel.setEnabled(true);
+	    searchField_NegozioPanel.setText("" + (indexShop + 1));
+	    codiceFiscaleLabel_NegozioPanel.setText(m.getNegozi(indexShop).getCodiceFiscale());
+	    indirizzoLabel_NegozioPanel.setText(m.getNegozi(indexShop).getindirizzo());
+	    nomeNegozioLabel_NegozioPanel.setText(m.getNegozi(indexShop).getNome());
+	    cittaNegozio_NegozioPanel.setText(m.getNegozi(indexShop).getCitta());
+	}
+    }
+
+    void ordini() {
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
+
+	if (m.ordineIsEmpty()) {
+	    orderIDLabel_OrderViewPanel.setText("");
+	    dataLabel_OrderViewPanel.setText("");
+	    prezzoLabel_OrderViewPanel.setText("");
+	    corriereLabel_OrderViewPanel.setText("");
+	    searchFieldOrderPanel.setText("");
+	    corriereLabel_OrderViewPanel.setText("");
+	    searchFieldOrderPanel.setEditable(false);
+	    indietroButton_OrderPanel.setEnabled(false);
+	    avantiButton_OrderPanel.setEnabled(false);
+	    negozioInfo_OrderPanel.setEnabled(false);
+	    modificaButtonOrderPanel.setEnabled(false);
+	    JOptionPane.showMessageDialog(null, "Nessun ordine ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
+	} else {
+
+	    //controlliamo che sia il primo ordine
+	    if (indexOrder == 0) {
+		indietroButton_OrderPanel.setEnabled(false);
+	    } else {
+		indietroButton_OrderPanel.setEnabled(true);
+	    }
+
+	    //controlliamo se sia l'ultimo ordine
+	    if (indexOrder == m.ordineSize() - 1) {
+		avantiButton_OrderPanel.setEnabled(false);
+	    } else {
+		avantiButton_OrderPanel.setEnabled(true);
+	    }
+
+	    negozioInfo_OrderPanel.setEnabled(true);
+	    modificaButtonOrderPanel.setEnabled(true);
+	    negozioLabel_OrderViewPanel.setText(m.getOrdine(indexOrder).getNegozio().getNome());
+	    searchFieldOrderPanel.setText("" + (indexOrder + 1));
+	    orderIDLabel_OrderViewPanel.setText("" + abs(m.getOrdine(indexOrder).getID()));
+	    dataLabel_OrderViewPanel.setText(m.getOrdine(indexOrder).getDataInString());
+	    prezzoLabel_OrderViewPanel.setText("".concat(m.getOrdine(indexOrder).getTotalPrice() + "").replace(".", ",") + " €");
+	    articoliQuantitaTextArea_OrderViewPanel.setText("" + m.getOrdine(indexOrder).toString());
+	    corriereLabel_OrderViewPanel.setText(m.getOrdine(indexOrder).getCorriere());
+	    boolean isShipped = m.getOrdine(indexOrder).isShipped();
+	    if (isShipped) {
+		shippedLabel_OrderViewPanell.setText("Spedito");
+	    } else {
+		shippedLabel_OrderViewPanell.setText("Non spedito");
+	    }
+	    generaUscitaButton_OrderViewPanel.setEnabled(!isShipped);
+	}
+
+<<<<<<< HEAD
             //controlliamo se sia l'ultimo ordine
             if (indexOrder == m.ordineSize() - 1) {
                 avantiButton_OrderPanel.setEnabled(false);
@@ -3996,11 +5679,40 @@ public class Graphics extends javax.swing.JFrame {
             ingressiIDLabel_VisualizzaIngressiPanel.setText("" + abs(m.getIngresso(indexIngressi).getID()));
             articoliQuantitaPosizioneIngressiPanel.setText("" + m.getIngresso(indexIngressi).toString());
         }
+=======
+    }//resetOrder
+
+    void ingressi() {
+	if (m.ingressiIsEmpty()) {
+	    ingressiIDLabel_VisualizzaIngressiPanel.setText("");
+	    searchFieldIngressiPanel.setText("");
+	    indietroButton_IngressiPanel.setEnabled(false);
+	    avantiButton_IngressiPanel.setEnabled(false);
+	    newIngressoButton_IngressiPanel.setEnabled(true);
+	    articoliQuantitaPosizioneIngressiPanel.setText("NESSUN INGRESSO DISPONIBILE NEL DATABASE");
+	    //JOptionPane.showMessageDialog(null, "Nessun ordine ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
+	} else {
+	    if (indexIngressi == 0) {
+		indietroButton_IngressiPanel.setEnabled(false);
+	    } else {
+		indietroButton_IngressiPanel.setEnabled(true);
+	    }
+	    if (indexIngressi == m.ingressiSize() - 1) {
+		avantiButton_IngressiPanel.setEnabled(false);
+	    } else {
+		avantiButton_IngressiPanel.setEnabled(true);
+	    }
+	    dataLabel_VisualizzaIngressiPanel.setText(m.getIngresso(indexIngressi).getDataInString());
+	    searchFieldIngressiPanel.setText("" + (indexIngressi + 1));
+	    ingressiIDLabel_VisualizzaIngressiPanel.setText("" + abs(m.getIngresso(indexIngressi).getID()));
+	    articoliQuantitaPosizioneIngressiPanel.setText("" + m.getIngresso(indexIngressi).toString());
+	}
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
 
     }
 
     void exit() {
-        /*
+	/*
         Object[] options = {"Esci", "Annulla"};//dichiaro i tipi di opzioni nel prossimo JOptionPane
 
         if (JOptionPane.showOptionDialog(null,
@@ -4017,6 +5729,7 @@ public class Graphics extends javax.swing.JFrame {
             loginPanel.setVisible(true);
 
         }//if JOPTIONPANE
+<<<<<<< HEAD
          */
 
         hideAll();
@@ -4024,6 +5737,14 @@ public class Graphics extends javax.swing.JFrame {
         pinField.setText("");
         typeOfUserLabel_AdminPanel.setText("Tipo Utente: Segreteria Amministrativa");
         loginPanel.setVisible(true);
+=======
+	 */
+
+	hideAll();
+	usrField.setText("");
+	pinField.setText("");
+	loginPanel.setVisible(true);
+>>>>>>> 6b2c0af6f5fb9ea4b5274eff82d6e523cfdcf505
     }//exit
 
 
