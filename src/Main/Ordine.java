@@ -12,7 +12,6 @@ public class Ordine extends WarehouseMovement implements Comparable<Ordine>, Ser
     private float prezzo;
     private boolean shipped = false;
     private final String corriere;
-    private final int ID;
 
     private Map<Articolo, Integer> mappa = new TreeMap<>();
 

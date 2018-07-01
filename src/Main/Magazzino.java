@@ -17,7 +17,8 @@ public class Magazzino implements Serializable {
     private List<Negozio> negozi;
     private List<Utente> utenti;
     private List<Map> storicoIngressiMensili, storicoUsciteMensili;
-    private Map<Articolo, Integer> quantita, posizione, ingressiMensili, usciteMensili;
+    private Map<Articolo, Integer> quantita, posizione;
+    private Map<Articolo,Integer> ingressiNicolo, usciteNicolo;
 
     private static Magazzino INSTANCE = null;
 
@@ -28,8 +29,6 @@ public class Magazzino implements Serializable {
     private Magazzino() {
 	this.negozi = new ArrayList();
 	this.uscite = new ArrayList<>();
-	this.usciteMensili = new TreeMap<>();
-	this.ingressiMensili = new TreeMap<>();
 	this.utenti = new ArrayList<>();
 	this.ingressi = new ArrayList<>();
 	this.articoli = new ArrayList<>();
@@ -38,6 +37,8 @@ public class Magazzino implements Serializable {
 	this.posizione = new TreeMap<>();
 	this.storicoIngressiMensili = new ArrayList();
 	this.storicoUsciteMensili = new ArrayList();
+        this.ingressiNicolo = new TreeMap<>();
+        this.usciteNicolo = new TreeMap<>();
 	for (int i = 0; i < 12; i++) {
 	    storicoIngressiMensili.add(new HashMap());
 	    storicoUsciteMensili.add(new HashMap());
@@ -244,25 +245,22 @@ public class Magazzino implements Serializable {
 	return null;
     }
 
-    /**
-     * ***************************************** NEGOZI
-     * **********************************************************
-     */
-    /**
-     * ****************************************** INGRESSO
-     * *******************************************************
-     */
-    public boolean addIngresso(Map<Articolo, Integer> quantitaParameter, Map<Articolo, Integer> posizioneParameter, GregorianCalendar data) {
+    
+    
+    
+    
+    
+    public void addIngresso(Map<Articolo, Integer> quantitaParameter, Map<Articolo, Integer> posizioneParameter, GregorianCalendar data) throws Exception {
 	int tmpQuantita;
 	int tmpPosizione;
 
 	if (!quantitaParameter.keySet().equals(posizioneParameter.keySet())) {
-	    return false;//controllo se gli articoli sono identici nelle due mappe
+	    throw new Exception("Le mappe passate come parametro non hanno gli stessi articoli!!");
 	}
 
 	for (Articolo X : quantitaParameter.keySet()) {
 	    if (articoli.contains(X) == false) {
-		return false;//controllo che ogni articolo presente in uno dei due parametri sia contenuto nell'ARRAYLIST degli articoli
+		throw new Exception("Alcuni Articoli non sono presenti nel catalogo in magazzino!!");
 	    }
 	}
 
@@ -275,17 +273,14 @@ public class Magazzino implements Serializable {
 		this.posizione.put(X, posizioneParameter.get(X));
 	    }
 
+            if(ingressiNicolo.containsKey(X)){
+                ingressiNicolo.put(X, ingressiNicolo.get(X)+quantitaParameter.get(X));
+            } else{
+                ingressiNicolo.put(X, quantitaParameter.get(X));
+            }
 	}//for
-	ingressi.add(new Ingresso(quantitaParameter, posizioneParameter, data));
-	try{
-	    this.addIngressoMensile(new Ingresso(quantitaParameter, posizioneParameter, data));
-	    return true;
-	}
-	catch(DateNotCorrectException e){
-	    JOptionPane.showMessageDialog(null, ""+e.getMessage());
-	    return false;
-	}
-	
+        Ingresso nuovoIngresso = new Ingresso(quantitaParameter, posizioneParameter, data);
+	ingressi.add(nuovoIngresso);
     }
 
     public boolean ingressiIsEmpty() {
@@ -305,57 +300,7 @@ public class Magazzino implements Serializable {
 	return ingressi.indexOf(i);
     }
 
-    public void addIngressoMensile(Ingresso ingresso) throws DateNotCorrectException{
-
-	int mese = 0;
-	Map<Articolo, Integer> quantitaArticoli = ingresso.getQuantitaMap();
-	int tmpQuantita;
-
-	for (Map M : storicoIngressiMensili) {
-	    if (M.isEmpty()) {
-		mese = ingresso.getData().get(Calendar.MONTH);
-	    }
-	    else{
-		mese = storicoIngressiMensili.indexOf(M);
-	    }
-	}
-
-	if (ingresso.getData().get(Calendar.MONTH) > mese) { //se arriva un ingresso del mese successivo a quello salvato, salvo la mappa mensile nello storico e la pulisco
-	    saveIngressoMensile(mese);
-	} else if (ingresso.getData().get(Calendar.MONTH) < mese) {
-	    throw new DateNotCorrectException("La data inserita è di un mese già passato!");
-	}
-
-	for (Articolo X : quantitaArticoli.keySet()) {
-
-	    if (this.ingressiMensili.containsKey(X)) {
-		tmpQuantita = this.ingressiMensili.get(X);
-		this.ingressiMensili.put(X, (tmpQuantita + quantitaArticoli.get(X)));
-	    } else {
-		this.ingressiMensili.put(X, quantitaArticoli.get(X));
-	    }
-	    
-	}
-
-    }
-
-    public void saveIngressoMensile(int mese) {
-	storicoIngressiMensili.add(mese, ingressiMensili);
-	ingressiMensili.clear();
-    }
     
-    public List getStoricoIngressoMensile() {
-	return storicoIngressiMensili;
-    }
-
-    /**
-     * ****************************************** INGRESSO
-     * *******************************************************
-     */
-    /**
-     * ****************************************** USCITE
-     * *******************************************************
-     */
     public void createExit(Ordine n) throws OrderNotFound, ArticleNotFound, OrderImpossibleToCreate {
 	boolean isPossible = true;
 
@@ -384,7 +329,13 @@ public class Magazzino implements Serializable {
 		    for (Articolo articoloOrdine : listaArticoli) {
 			quantita.replace(articoloOrdine, quantita.get(articoloOrdine) - mappaOrdine.get(articoloOrdine));
 		    }
-
+                    for(Articolo X: n.getArticle().keySet())
+                        if(usciteNicolo.containsKey(X))
+                            usciteNicolo.put(X, usciteNicolo.get(X)+n.getArticle().get(X));
+                        else
+                            usciteNicolo.put(X, n.getArticle().get(X));
+                    
+                    
 		    uscite.add(new Uscita(n));
 		    n.createShip();
 		    return;
@@ -397,57 +348,7 @@ public class Magazzino implements Serializable {
 	throw new OrderNotFound("Impossibile generare l'uscita per l'ordine indicato!\nL'ordine non si trova nella lista degli ordini!");
     }//createExit()
     
-    public void addUscitaMensile(Uscita uscita) throws DateNotCorrectException{
-
-	int mese = 0;
-	Map<Articolo, Integer> quantitaArticoli = uscita.getOrdine().getArticle();
-	int tmpQuantita;
-
-	for (Map<Articolo, Integer> M : storicoUsciteMensili) {
-	    if (M.isEmpty()) {
-		mese = uscita.getData().get(Calendar.MONTH);
-	    }
-	    else{
-		mese = storicoUsciteMensili.indexOf(M);
-	    }
-	}
-
-	if (uscita.getData().get(Calendar.MONTH) > mese) { //se arriva un ingresso del mese successivo a quello salvato, salvo la mappa mensile nello storico e la pulisco
-	    saveIngressoMensile(mese);
-	} else if (uscita.getData().get(Calendar.MONTH) < mese) {
-	    throw new DateNotCorrectException("La data inserita è di un mese già passato!");
-	}
-
-	for (Articolo X : quantitaArticoli.keySet()) {
-
-	    if (this.usciteMensili.containsKey(X)) {
-		tmpQuantita = this.usciteMensili.get(X);
-		this.usciteMensili.put(X, (tmpQuantita + quantitaArticoli.get(X)));
-	    } else {
-		this.usciteMensili.put(X, quantitaArticoli.get(X));
-	    }
-	    
-	}
-
-    }
-
-    public void saveUscitaMensile(int mese) {
-	storicoIngressiMensili.add(mese, usciteMensili);
-	usciteMensili.clear();
-    }
     
-    public List getStoricoUscitaMensile() {
-	return storicoUsciteMensili;
-    }
-
-    /**
-     * ****************************************** USCITE
-     * *******************************************************
-     */
-    /**
-     * ****************************************** ORDINI
-     * *******************************************************
-     */
     public boolean addOrdine(Ordine o) {
 	return ordini.add(o);
     }
@@ -471,11 +372,6 @@ public class Magazzino implements Serializable {
     public int ordineSize() {
 	return ordini.size();
     }
-
-    public void resetMounth() {//serve per resettare il totale degli ingressi e uscite in un anno
-	ingressiMensili.clear();
-	usciteMensili.clear();
-    }//resetMounth
 
     public boolean isShipped(int i) {
 	return ordini.get(i).isShipped();
@@ -513,14 +409,11 @@ public class Magazzino implements Serializable {
 		    ObjectOutputStream fileOut = new ObjectOutputStream(new FileOutputStream((file)));
 		    fileOut.writeObject(this.articoli);
 		    fileOut.writeObject(this.ingressi);
-		    fileOut.writeObject(this.ingressiMensili);
 		    fileOut.writeObject(this.negozi);
 		    fileOut.writeObject(this.ordini);
 		    fileOut.writeObject(this.posizione);
 		    fileOut.writeObject(this.quantita);
-		    fileOut.writeObject(this.storicoIngressiMensili);
 		    fileOut.writeObject(this.uscite);
-		    fileOut.writeObject(this.usciteMensili);
 		    fileOut.writeObject(this.utenti);
 		    fileOut.flush();
 		    fileOut.close();
@@ -535,22 +428,34 @@ public class Magazzino implements Serializable {
 	}
     }
 
-    protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, Map<Articolo, Integer> ingressiMensiliLoad, List<Negozio> negoziLoad,
-	    List<Ordine> ordiniLoad, Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad, List<Map> storicoMensiliLoad,
-	    List<Uscita> usciteLoad, Map<Articolo, Integer> usciteMensiliLoad, List<Utente> utentiLoad) {
+    protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, List<Negozio> negoziLoad,
+	    List<Ordine> ordiniLoad, Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad,
+	    List<Uscita> usciteLoad, List<Utente> utentiLoad) {
 
 	this.articoli = articoliLoad;
 	this.ingressi = ingressiLoad;
-	this.ingressiMensili = ingressiMensiliLoad;
 	this.negozi = negoziLoad;
 	this.ordini = ordiniLoad;
 	this.posizione = posizioneLoad;
 	this.quantita = quantitaLoad;
-	this.storicoIngressiMensili = storicoMensiliLoad;
 	this.uscite = usciteLoad;
-	this.usciteMensili = usciteMensiliLoad;
 	this.utenti = utentiLoad;
 
+    }
+    
+    
+    public String chiusuraMensile(){
+        GregorianCalendar dataOdierna = new GregorianCalendar();
+        String s = "Report mensile riferito al "+ dataOdierna.get(GregorianCalendar.MONTH)+""+dataOdierna.get(GregorianCalendar.YEAR)+"\n";
+        s = "Ingressi:\n";
+        for(Articolo X: ingressiNicolo.keySet())
+            s += "Nome Articolo: "+X.getTipoArticolo().getName() + "\t"+ingressiNicolo.get(X) +"pezzi\n";
+        s+="\n\nUscite: \n";
+        for(Articolo X: usciteNicolo.keySet())
+            s += "Nome Articolo" + X.getTipoArticolo().getName() + "\t" + usciteNicolo.get(X)+ "pezzi\n";
+        ingressiNicolo.clear();
+        usciteNicolo.clear();
+        return s;
     }
 
 }//MAGAZZINO

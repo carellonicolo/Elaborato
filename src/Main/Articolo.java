@@ -7,7 +7,7 @@ public final class Articolo extends WarehouseMovement implements Comparable<Arti
 
     private float prezzo;
     private TipoArticolo tipoArticolo;
-    private final int ID;
+    
     /**
      * se non viene passata nessuna data sarà il chiamante la funzione che mi
      * deve passare unda data in formato GregorianCalendar

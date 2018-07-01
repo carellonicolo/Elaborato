@@ -15,6 +15,8 @@ import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.*;
 import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -64,7 +66,7 @@ public class Main implements Serializable{
 			List<Uscita> uscite = (List) fileIn.readObject();
 			Map<Articolo, Integer> usciteMensili = (Map) fileIn.readObject();
 			List<Utente> utenti = (List) fileIn.readObject();
-			Magazzino.getInstance().upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, storicoMensili, uscite, usciteMensili, utenti);
+			//Magazzino.getInstance().upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, storicoMensili, uscite, usciteMensili, utenti);
 			
 			fileIn.close();
 			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
@@ -138,7 +140,9 @@ public class Main implements Serializable{
 
 	    } catch (ArticleAlreadyExistException | ShopAlreadyExistException | UserAlreadyExist | VoidStringUnexpectedException e) {
 		JOptionPane.showMessageDialog(null, "Eccezione");
-	    }
+	    } catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
 	}
 	
 	java.awt.EventQueue.invokeLater(() -> {

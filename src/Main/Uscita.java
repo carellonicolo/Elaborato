@@ -6,7 +6,6 @@ import java.util.GregorianCalendar;
 public class Uscita extends WarehouseMovement implements Comparable<Uscita>, Serializable{
 
     private final Ordine ordine;
-    private final int ID;
     
     public Uscita( Ordine ordine){
         this.ordine = ordine;
