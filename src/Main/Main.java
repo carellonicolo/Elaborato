@@ -55,18 +55,17 @@ public class Main implements Serializable{
 			
 			List<Articolo> articoli = (List) fileIn.readObject();
 			List<Ingresso> ingressi = (List) fileIn.readObject();
-			Map<Articolo, Integer> ingressiMensili = (Map<Articolo, Integer>) fileIn.readObject();
+			Map<Articolo, Integer> ingressiMensili = (Map) fileIn.readObject();
 			List<Negozio> negozi = (List) fileIn.readObject();
 			List<Ordine> ordini = (List) fileIn.readObject();
-			Map<Articolo, Integer> posizione = (Map<Articolo, Integer>) fileIn.readObject();
-			Map<Articolo, Integer> quantita = (Map<Articolo, Integer>) fileIn.readObject();
-			List<Map<Articolo, Integer>> storicoIngressiMensili = (List) fileIn.readObject();
-			List<Map<Articolo, Integer>> storicoUsciteMensili = (List) fileIn.readObject();
+			Map<Articolo, Integer> posizione = (Map) fileIn.readObject();
+			Map<Articolo, Integer> quantita = (Map) fileIn.readObject();
+			List<Map> storicoMensili = (List) fileIn.readObject();
 			List<Uscita> uscite = (List) fileIn.readObject();
-			Map<Articolo, Integer> usciteMensili = (Map<Articolo, Integer>) fileIn.readObject();
+			Map<Articolo, Integer> usciteMensili = (Map) fileIn.readObject();
 			List<Utente> utenti = (List) fileIn.readObject();
-			Magazzino.getInstance().upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, storicoIngressiMensili, storicoUsciteMensili, uscite, usciteMensili, utenti);
-
+			Magazzino.getInstance().upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, storicoMensili, uscite, usciteMensili, utenti);
+			
 			fileIn.close();
 			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
 		    } catch (HeadlessException | IOException | ClassNotFoundException e) {
@@ -77,7 +76,6 @@ public class Main implements Serializable{
 		}
 
 	    } catch (Exception e) {
-		System.out.println(e.getMessage());
 		JOptionPane.showMessageDialog(null, "Errore nell'aprire il file");
 		System.exit(0);
 	    }
