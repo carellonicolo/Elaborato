@@ -69,6 +69,13 @@ public class Ordine extends WarehouseMovement implements Comparable<Ordine>, Ser
     public Negozio getNegozio() {
         return negozio;
     }
+    
+    public int articoliSize(){
+        int sum = 0;
+        for(Articolo X: mappa.keySet())
+            sum += mappa.get(X) == 0 ? 1: mappa.get(X);
+        return sum;
+    }
 
     public float getTotalPrice() {
         return prezzo;

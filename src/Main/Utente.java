@@ -1,7 +1,6 @@
 package Main;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 public class Utente implements UserInterface, Comparable<Utente>, Serializable{
     
