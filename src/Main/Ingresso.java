@@ -15,13 +15,8 @@ public class Ingresso extends WarehouseMovement implements Serializable{
     public static int i;
     
     
-    //COSTRUTTORE
-    public Ingresso(Articolo... article){//se non viene passata la data specificata prendo la data odierna
-        this.posizioni = new TreeMap<>();
-        this.quantita = new TreeMap<>();
-        this.data = new GregorianCalendar();
-    }
-    
+    //COSTRUTTORI
+   
     public Ingresso(Map<Articolo, Integer> quantita, Map<Articolo, Integer> posizioni){
         this.quantita = quantita;
         this.posizioni = posizioni;

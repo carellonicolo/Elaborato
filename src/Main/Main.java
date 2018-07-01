@@ -6,8 +6,10 @@
 package Main;
 
 import Exception.*;
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.GregorianCalendar;
@@ -66,7 +68,7 @@ public class Main implements Serializable{
 			
 			fileIn.close();
 			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
-		    } catch (Exception e) {
+		    } catch (HeadlessException | IOException | ClassNotFoundException e) {
 			System.out.println(e.getMessage());
 			JOptionPane.showMessageDialog(null, "Caricamento non riuscito");
 			System.exit(0);
