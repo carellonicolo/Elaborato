@@ -65,7 +65,11 @@ public class Main implements Serializable{
 			List<Uscita> uscite = (List) fileIn.readObject();
 			Map<Articolo, Integer> usciteMensili = (Map<Articolo, Integer>) fileIn.readObject();
 			List<Utente> utenti = (List) fileIn.readObject();
+<<<<<<< HEAD
 			Magazzino.getInstance().upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, storicoIngressiMensili, storicoUsciteMensili, uscite, usciteMensili, utenti);
+=======
+			Magazzino.getInstance().upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, storicoMensili, uscite, usciteMensili, utenti);
+>>>>>>> f705375936b3dc3d3d94b969c0572bf7c36a5d9e
 			
 			fileIn.close();
 			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
@@ -87,8 +91,8 @@ public class Main implements Serializable{
 	    try {
                 Magazzino m = Magazzino.getInstance();
 		m.addUser(new Utente("utente1", "ciao1", 1));
-                m.INSTANCE.addUser(new Utente("utente2", "ciao2", 2));
-                m.INSTANCE.addUser(new Utente("utente3", "ciao3", 3));
+                m.addUser(new Utente("utente2", "ciao2", 2));
+                m.addUser(new Utente("utente3", "ciao3", 3));
                 
 		Articolo a1 = new Articolo((float) 14, new TipoArticolo("nome1", "Desrizione1", 2, 1));
 		Articolo a2 = new Articolo((float) 17, new TipoArticolo("nome2", "Desrizione2", 3, 3));

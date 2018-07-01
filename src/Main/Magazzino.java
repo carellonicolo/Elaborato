@@ -19,7 +19,7 @@ public class Magazzino implements Serializable {
     private List<Map<Articolo, Integer>> storicoIngressiMensili, storicoUsciteMensili;
     private Map<Articolo, Integer> quantita, posizione, ingressiMensili, usciteMensili;
 
-    public static Magazzino INSTANCE = null;
+    private static Magazzino INSTANCE = null;
 
     /**
      * *********************************** CONSTRUCT
@@ -70,7 +70,6 @@ public class Magazzino implements Serializable {
 
     public void removeUser(int i) {
 	utenti.remove(i);
-	//users.equals(i); Per effettuare il login 
     }
 
     public Utente getUser(int i) {
@@ -104,6 +103,7 @@ public class Magazzino implements Serializable {
 	articoli.add(a);
 	posizione.put(a, 0);
 	quantita.put(a, 0);
+        Collections.sort(articoli);
     }
 
     public boolean removeArticolo(Articolo u) {
@@ -117,6 +117,7 @@ public class Magazzino implements Serializable {
 	posizione.remove(articoli.get(i));
 	quantita.remove(articoli.get(i));
 	articoli.remove(i);
+        Collections.sort(articoli);
     }
 
     public Articolo getArticolo(int i) throws IndexOutOfBoundsException {
@@ -194,6 +195,7 @@ public class Magazzino implements Serializable {
 		throw new ShopAlreadyExistException("Il negozio non esiste nel Database!");
 	    }
 	}
+        Collections.sort(negozi);
 	return negozi.add(i);
     }
 
@@ -201,6 +203,8 @@ public class Magazzino implements Serializable {
 	if (!negozi.remove(i)) {
 	    throw new ShopAlreadyExistException("Il negozio non esiste nel Database!");
 	}
+        negozi.remove(i);
+        Collections.sort(negozi);
     }
 
     public Negozio getNegozi(int i) {
@@ -209,6 +213,7 @@ public class Magazzino implements Serializable {
 
     public void removeNegozio(int i) {
 	negozi.remove(i);
+        Collections.sort(negozi);
     }
 
     public boolean negoziIsEmpty() {

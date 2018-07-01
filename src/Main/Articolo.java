@@ -3,11 +3,11 @@ package Main;
 import java.io.Serializable;
 import java.util.GregorianCalendar;
 
-public class Articolo extends WarehouseMovement implements Comparable<Articolo>, Serializable {
+public final class Articolo extends WarehouseMovement implements Comparable<Articolo>, Serializable {
 
     private float prezzo;
     private TipoArticolo tipoArticolo;
-
+    private final int ID;
     /**
      * se non viene passata nessuna data sarà il chiamante la funzione che mi
      * deve passare unda data in formato GregorianCalendar
@@ -20,18 +20,21 @@ public class Articolo extends WarehouseMovement implements Comparable<Articolo>,
         this.prezzo = price;
         this.tipoArticolo = tipoArticolo;
         this.data = data;//Salvo la data se mi viene passata
+        ID = hashCode();
     }
 
     public Articolo(float price, TipoArticolo tipoArticolo) {//CON DATA
         this.prezzo = price;
         this.tipoArticolo = tipoArticolo;
         this.data = new GregorianCalendar();
+        ID = hashCode();
     }
     
     public Articolo(float price, int day, int month, int year, TipoArticolo tipoArticolo){
         this.prezzo = price;
         this.tipoArticolo = tipoArticolo;
         this.data = new GregorianCalendar(year, month, day);
+        ID = hashCode();
     }
 
     /**
@@ -64,6 +67,10 @@ public class Articolo extends WarehouseMovement implements Comparable<Articolo>,
     
     
     
+    @Override
+    public int getID(){
+        return ID;
+    }
     
     @Override
     public int hashCode() {
