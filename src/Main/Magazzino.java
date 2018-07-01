@@ -16,7 +16,7 @@ public class Magazzino implements Serializable {
     private List<Ingresso> ingressi;
     private List<Negozio> negozi;
     private List<Utente> utenti;
-    private List<Map> storicoIngressiMensili, storicoUsciteMensili;
+    private List<Map<Articolo, Integer>> storicoIngressiMensili, storicoUsciteMensili;
     private Map<Articolo, Integer> quantita, posizione, ingressiMensili, usciteMensili;
 
     public static Magazzino INSTANCE = null;
@@ -514,6 +514,7 @@ public class Magazzino implements Serializable {
 		    fileOut.writeObject(this.posizione);
 		    fileOut.writeObject(this.quantita);
 		    fileOut.writeObject(this.storicoIngressiMensili);
+		    fileOut.writeObject(this.storicoUsciteMensili);
 		    fileOut.writeObject(this.uscite);
 		    fileOut.writeObject(this.usciteMensili);
 		    fileOut.writeObject(this.utenti);
@@ -531,8 +532,8 @@ public class Magazzino implements Serializable {
     }
 
     protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, Map<Articolo, Integer> ingressiMensiliLoad, List<Negozio> negoziLoad,
-	    List<Ordine> ordiniLoad, Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad, List<Map> storicoMensiliLoad,
-	    List<Uscita> usciteLoad, Map<Articolo, Integer> usciteMensiliLoad, List<Utente> utentiLoad) {
+	    List<Ordine> ordiniLoad, Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad, List<Map<Articolo, Integer>> storicoIngressiMensiliLoad,
+	    List<Map<Articolo, Integer>> storicoUsciteMensiliLoad, List<Uscita> usciteLoad, Map<Articolo, Integer> usciteMensiliLoad, List<Utente> utentiLoad) {
 
 	this.articoli = articoliLoad;
 	this.ingressi = ingressiLoad;
@@ -541,7 +542,8 @@ public class Magazzino implements Serializable {
 	this.ordini = ordiniLoad;
 	this.posizione = posizioneLoad;
 	this.quantita = quantitaLoad;
-	this.storicoIngressiMensili = storicoMensiliLoad;
+	this.storicoIngressiMensili = storicoIngressiMensiliLoad;
+	this.storicoUsciteMensili = storicoUsciteMensiliLoad;
 	this.uscite = usciteLoad;
 	this.usciteMensili = usciteMensiliLoad;
 	this.utenti = utentiLoad;
