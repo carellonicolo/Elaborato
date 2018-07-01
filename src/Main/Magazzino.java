@@ -38,6 +38,11 @@ public class Magazzino implements Serializable{
 	this.quantita = new TreeMap<>();
 	this.posizione = new TreeMap<>();
 	this.storicoMensili = new ArrayList();
+	
+	for(int i = 0; i<12; i++){
+	    storicoMensili.add(new TreeMap());
+	}
+	
     }
 
     /**
