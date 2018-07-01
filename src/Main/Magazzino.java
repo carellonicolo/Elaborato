@@ -2,6 +2,7 @@ package Main;
 
 import java.util.*;
 import Exception.*; //importo tutte le mie eccezzioni
+import java.awt.HeadlessException;
 import javax.swing.*;
 import java.io.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -215,6 +216,13 @@ public class Magazzino implements Serializable{
 	return negozi.contains(n);
     }
 
+    public int negozioIndex(Negozio n) throws ShopNotFoundException{
+        if(exist(n))
+            return negozi.lastIndexOf(n);
+        throw new ShopNotFoundException("Negozio non trovato nella lista dei negozi!");
+    }
+    
+    
     public Negozio negozioContainedByName(String s) { //controlla se esiste un negozio con quel nome
 	for (Negozio X : negozi) {
 	    if (X.getNome().equals(s)) {
@@ -239,19 +247,22 @@ public class Magazzino implements Serializable{
 	if (!quantitaParameter.keySet().equals(posizioneParameter.keySet())) {
             return false;//controllo se gli articoli sono identici nelle due mappe
 	}
+        
+        
 	for (Articolo X : quantitaParameter.keySet()) {
 	    if (articoli.contains(X) == false) {
                 return false;//controllo che ogni articolo presente in uno dei due parametri sia contenuto nell'ARRAYLIST degli articoli
 	    }
 	}
+        
+        
 	for (Articolo X : quantitaParameter.keySet()) {//itero su quantitaparameter tanto se arrivo qui so per certo che hanno gli stessi articoli
 	    if (this.quantita.containsKey(X)) {
-		tmpQuantita = this.quantita.get(X);
-		this.quantita.put(X, (tmpQuantita + quantitaParameter.get(X)));
+		this.quantita.put(X, (this.quantita.get(X) + quantitaParameter.get(X)));
 		this.posizione.put(X, posizioneParameter.get(X));
 	    } else {
 		this.quantita.put(X, quantitaParameter.get(X));
-		this.posizione.putIfAbsent(X, posizioneParameter.get(X));
+		this.posizione.put(X, posizioneParameter.get(X));
 	    }
 
 	}//for
@@ -361,21 +372,6 @@ public class Magazzino implements Serializable{
 	throw new OrderNotFound("Impossibile generare l'uscita per l'ordine indicato!\nL'ordine non si trova nella lista degli ordini!");
     }//createExit()
 
-    public boolean removeUscita(Uscita u) {
-	return uscite.remove(u);
-    }
-
-    public Uscita removeUscita(int i) {
-	return uscite.remove(i);
-    }
-
-    public Uscita getUscita(int i) {
-	return uscite.get(i);
-    }
-
-    public boolean usciteIsEmpty() {
-	return uscite.isEmpty();
-    }
 
     /**
      * ****************************************** USCITE
@@ -464,12 +460,12 @@ public class Magazzino implements Serializable{
 		    fileOut.flush();
 		    fileOut.close();
 		    JOptionPane.showMessageDialog(null, "Salvataggio riuscito");
-		} catch (Exception e) {
+		} catch (HeadlessException | IOException e) {
 		    JOptionPane.showMessageDialog(null, "Salvataggio non riuscito");
 		}
 	    }
 
-	} catch (Exception e) {
+	} catch (HeadlessException e) {
 	    JOptionPane.showMessageDialog(null, "Errore nell'aprire il file");
 	}
     }
