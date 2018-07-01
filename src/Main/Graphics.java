@@ -15,7 +15,7 @@ import static java.lang.Math.abs;
 public class Graphics extends javax.swing.JFrame {
     
     static int indexOrder = 0, indexArticle = 0, indexShop = 0, indexIngressi = 0, orderArticleSelected = 1, ingressoArticleSelected = 1, from = 0;
-    private static final Magazzino m = Magazzino.INSTANCE;
+    private static final Magazzino m = Magazzino.getInstance();
     public final Color C = new Color(0, 153, 255);//[0,153,255]
 
     public Graphics() {
