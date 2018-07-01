@@ -83,9 +83,10 @@ public class Main implements Serializable{
 
 	    //ISTANZIO UN PO DI OGGETTI DA USARE COME PROVA
 	    try {
-		Magazzino.INSTANCE.addUser(new Utente("utente1", "ciao1", 1));
-                Magazzino.INSTANCE.addUser(new Utente("utente2", "ciao2", 2));
-                Magazzino.INSTANCE.addUser(new Utente("utente3", "ciao3", 3));
+                Magazzino m = Magazzino.getInstance();
+		m.addUser(new Utente("utente1", "ciao1", 1));
+                m.INSTANCE.addUser(new Utente("utente2", "ciao2", 2));
+                m.INSTANCE.addUser(new Utente("utente3", "ciao3", 3));
                 
 		Articolo a1 = new Articolo((float) 14, new TipoArticolo("nome1", "Desrizione1", 2, 1));
 		Articolo a2 = new Articolo((float) 17, new TipoArticolo("nome2", "Desrizione2", 3, 3));
@@ -107,12 +108,12 @@ public class Main implements Serializable{
 		Ordine o2 = new Ordine(n2, "Corriere2");
 		o2.addArticle(a2, 10);
 		o2.addArticle(a1, 4);
-		Magazzino.INSTANCE.addArticolo(a1);
-		Magazzino.INSTANCE.addArticolo(a2);
-		Magazzino.INSTANCE.addArticolo(a3);
-		Magazzino.INSTANCE.addArticolo(a4);
-		Magazzino.INSTANCE.addArticolo(a5);
-		Magazzino.INSTANCE.addArticolo(a6);
+		m.addArticolo(a1);
+		m.addArticolo(a2);
+		m.addArticolo(a3);
+		m.addArticolo(a4);
+		m.addArticolo(a5);
+		m.addArticolo(a6);
 
 		Map<Articolo, Integer> q = new TreeMap<>();
 		Map<Articolo, Integer> p = new TreeMap<>();
@@ -126,14 +127,14 @@ public class Main implements Serializable{
 		p.put(a3, 2);
 		p.put(a5, 3);
 		p.put(a4, 4);
-		Magazzino.INSTANCE.addIngresso(q, p, new GregorianCalendar());
+		m.addIngresso(q, p, new GregorianCalendar());
 
-		Magazzino.INSTANCE.addNegozi(n1);
-		Magazzino.INSTANCE.addNegozi(n2);
-		Magazzino.INSTANCE.addNegozi(n3);
-		Magazzino.INSTANCE.addNegozi(n4);
-		Magazzino.INSTANCE.addOrdine(o1);
-		Magazzino.INSTANCE.addOrdine(o2);
+		m.addNegozi(n1);
+		m.addNegozi(n2);
+		m.addNegozi(n3);
+		m.addNegozi(n4);
+		m.addOrdine(o1);
+		m.addOrdine(o2);
 
 	    } catch (ArticleAlreadyExistException | ShopAlreadyExistException | UserAlreadyExist | VoidStringUnexpectedException e) {
 		JOptionPane.showMessageDialog(null, "Eccezione");

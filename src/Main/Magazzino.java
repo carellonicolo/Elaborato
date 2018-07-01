@@ -19,7 +19,7 @@ public class Magazzino implements Serializable {
     private List<Map> storicoIngressiMensili, storicoUsciteMensili;
     private Map<Articolo, Integer> quantita, posizione, ingressiMensili, usciteMensili;
 
-    public static final Magazzino INSTANCE = new Magazzino();
+    public static Magazzino INSTANCE = null;
 
     /**
      * *********************************** CONSTRUCT
@@ -38,12 +38,17 @@ public class Magazzino implements Serializable {
 	this.posizione = new TreeMap<>();
 	this.storicoIngressiMensili = new ArrayList();
 	this.storicoUsciteMensili = new ArrayList();
-
 	for (int i = 0; i < 12; i++) {
 	    storicoIngressiMensili.add(new HashMap());
 	    storicoUsciteMensili.add(new HashMap());
 	}
-
+    }
+    
+    //singleton Methods
+    public static Magazzino getInstance(){
+        if(INSTANCE == null)
+            INSTANCE = new Magazzino();
+        return INSTANCE;
     }
 
     /**
