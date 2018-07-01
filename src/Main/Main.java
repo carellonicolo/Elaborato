@@ -65,12 +65,8 @@ public class Main implements Serializable{
 			List<Uscita> uscite = (List) fileIn.readObject();
 			Map<Articolo, Integer> usciteMensili = (Map<Articolo, Integer>) fileIn.readObject();
 			List<Utente> utenti = (List) fileIn.readObject();
-<<<<<<< HEAD
 			Magazzino.getInstance().upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, storicoIngressiMensili, storicoUsciteMensili, uscite, usciteMensili, utenti);
-=======
-			Magazzino.getInstance().upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, storicoMensili, uscite, usciteMensili, utenti);
->>>>>>> f705375936b3dc3d3d94b969c0572bf7c36a5d9e
-			
+
 			fileIn.close();
 			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
 		    } catch (HeadlessException | IOException | ClassNotFoundException e) {

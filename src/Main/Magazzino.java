@@ -253,8 +253,6 @@ public class Magazzino implements Serializable {
      * *******************************************************
      */
     public boolean addIngresso(Map<Articolo, Integer> quantitaParameter, Map<Articolo, Integer> posizioneParameter, GregorianCalendar data) {
-	int tmpQuantita;
-	int tmpPosizione;
 
 	if (!quantitaParameter.keySet().equals(posizioneParameter.keySet())) {
 	    return false;//controllo se gli articoli sono identici nelle due mappe

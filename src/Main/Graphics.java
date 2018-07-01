@@ -72,13 +72,7 @@ public class Graphics extends javax.swing.JFrame {
 	visualizzaIngressiPanel.setVisible(false);
 
     }
-<<<<<<< HEAD
 
-=======
-    
-    
-    
->>>>>>> f705375936b3dc3d3d94b969c0572bf7c36a5d9e
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -1898,11 +1892,7 @@ public class Graphics extends javax.swing.JFrame {
     }//GEN-LAST:event_newOrderButton_orderViewPanelActionPerformed
 
     private void articoliButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_articoliButtonAdminPanelActionPerformed
-<<<<<<< HEAD
-	hideAll();
-	visualizzaArticoliPanel.setVisible(true);
-	articoli();
-=======
+
         
         DefaultTableModel model = (DefaultTableModel)tabellaArticoli.getModel();
                 
@@ -1917,7 +1907,7 @@ public class Graphics extends javax.swing.JFrame {
                 }hideAll();
         visualizzaArticoliPanel.setVisible(true);
         articoli();
->>>>>>> f705375936b3dc3d3d94b969c0572bf7c36a5d9e
+
     }//GEN-LAST:event_articoliButtonAdminPanelActionPerformed
 
     private void closeButton_creaNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton_creaNegozioPanelActionPerformed
@@ -3762,57 +3752,7 @@ public class Graphics extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     void articoli() {
-<<<<<<< HEAD
-	if (m.articoliIsEmpty()) {
-	    cercaLabel_VisualizzaArticoloPanel.setText("");
-	    IDLabel_VisualizzaArticoloPanel.setText("");
-	    prezzoLabel_VisualizzaArticoloPanel.setText("");
-	    dataLabel_VisualizzaArticoloPanel.setText("");
-	    nomeLabel_VisualizzaArticoloPanel.setText("");
-	    descrizioneLabel_VisualizzaArticoloPanel.setText("");
-	    sportLabel_VisualizzaArticoloPanel.setText("");
-	    materialiLabel_VisualizzaArticoloPanel.setText("");
-	    posizioneLabel_VisualizzaArticoloPanel.setText("");
-	    quantitaLabel_VisualizzaArticoloPanel.setText("");
-	    avantiButton_VisualizzaArticoloPanel.setEnabled(false);
-	    eliminaButton_VisualizzaArticoloPanel.setEnabled(false);
-	    indietroButton_VisualizzaArticoloPanel.setEnabled(false);
-	    modificaButton_cercaLabel__VisualizzaArticoliPanel.setEnabled(false);
-	    JOptionPane.showMessageDialog(null, "Nessun Articolo ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
-	} else {
-	    try {
-		//esiste almeno un artiolo salvato
 
-		if (indexArticle == 0) {
-		    indietroButton_VisualizzaArticoloPanel.setEnabled(false);
-		} else {
-		    indietroButton_VisualizzaArticoloPanel.setEnabled(true);
-		}
-		if (indexArticle == m.articoliSize() - 1) {
-		    avantiButton_VisualizzaArticoloPanel.setEnabled(false);
-		} else {
-		    avantiButton_VisualizzaArticoloPanel.setEnabled(true);
-		}
-
-		cercaLabel_VisualizzaArticoloPanel.setText("" + (indexArticle + 1));
-		IDLabel_VisualizzaArticoloPanel.setText("" + abs(m.getArticolo(indexArticle).getID()));
-		prezzoLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getPrezzo());
-		dataLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getDataInString());
-		nomeLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getName());
-		descrizioneLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getDescription());
-		sportLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getSports());
-		materialiLabel_VisualizzaArticoloPanel.setText(m.getArticolo(indexArticle).getTipoArticolo().getMaterial());
-		Articolo articolo = m.getArticolo(indexArticle);
-		int quantita = m.getQuantita(articolo);
-		int posizione = m.getPosition(articolo);
-		quantitaLabel_VisualizzaArticoloPanel.setText(quantita + "");
-		posizioneLabel_VisualizzaArticoloPanel.setText("" + posizione);
-
-	    } catch (ArticleDontExistInWareHouseException ex) {
-		System.out.println("Eccezzione");
-	    }
-	}
-=======
         if (m.articoliIsEmpty()) {
             cercaLabel_VisualizzaArticoloPanel.setText("");
             IDLabel_VisualizzaArticoloPanel.setText("");
@@ -3863,7 +3803,7 @@ public class Graphics extends javax.swing.JFrame {
                 System.out.println("Eccezzione");
             }
         }
->>>>>>> f705375936b3dc3d3d94b969c0572bf7c36a5d9e
+
     }
 
     void negozi() {
