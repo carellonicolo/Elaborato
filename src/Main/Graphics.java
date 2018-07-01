@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import static java.lang.Math.abs;
 
 public class Graphics extends javax.swing.JFrame {
-
+    
     static int indexOrder = 0, indexArticle = 0, indexShop = 0, indexIngressi = 0, orderArticleSelected = 1, ingressoArticleSelected = 1, from = 0;
     private static final Magazzino m = Magazzino.INSTANCE;
     public final Color C = new Color(0, 153, 255);//[0,153,255]
@@ -50,14 +50,14 @@ public class Graphics extends javax.swing.JFrame {
         MaterialiBottonGroup.add(poliammideRadioButton);
         MaterialiBottonGroup.add(polietileneRadioButton);
         MaterialiBottonGroup.add(elastanRadioButton);
-
+        
         hideAll();
         loginPanel.setVisible(true);
         selezionaButton_NegozioPanel.setVisible(false);
-
+        
         loginPanel.getRootPane().setDefaultButton(loginButton);
     }
-
+    
     public final void hideAll() {
         newArticlePanel.setVisible(false);
         visualizzaOrdiniPanel.setVisible(false);
@@ -69,9 +69,9 @@ public class Graphics extends javax.swing.JFrame {
         creaNegozioPanel.setVisible(false);
         creaIngressoPanel.setVisible(false);
         visualizzaIngressiPanel.setVisible(false);
-
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -1699,7 +1699,7 @@ public class Graphics extends javax.swing.JFrame {
         //CONTROLLO DA IMPLEMENTARE A PROGETTO FINITO
         String pin = pinField.getText();
         String user = usrField.getText();
-
+        
         if (pin.equals("") || user.equals("") || pin.substring(0, 1).equals(" ") || user.substring(0, 1).equals(" ")) {
             JOptionPane.showMessageDialog(null, "Inserire uno username e una password validi");
             usrField.setText("");
@@ -1794,7 +1794,7 @@ public class Graphics extends javax.swing.JFrame {
         comboBoxArticoli8.removeAllItems();
         comboBoxArticoli9.removeAllItems();
         comboBoxArticoli10.removeAllItems();
-
+        
         comboBoxArticoli2.setEnabled(false);
         comboBoxArticoli3.setEnabled(false);
         comboBoxArticoli4.setEnabled(false);
@@ -1804,7 +1804,7 @@ public class Graphics extends javax.swing.JFrame {
         comboBoxArticoli8.setEnabled(false);
         comboBoxArticoli9.setEnabled(false);
         comboBoxArticoli10.setEnabled(false);
-
+        
         quantitaField2.setEnabled(false);
         quantitaField3.setEnabled(false);
         quantitaField4.setEnabled(false);
@@ -1814,7 +1814,7 @@ public class Graphics extends javax.swing.JFrame {
         quantitaField8.setEnabled(false);
         quantitaField9.setEnabled(false);
         quantitaField10.setEnabled(false);
-
+        
         quantitaField1.setText("");
         quantitaField2.setText("");
         quantitaField5.setText("");
@@ -1825,19 +1825,19 @@ public class Graphics extends javax.swing.JFrame {
         quantitaField4.setText("");
         quantitaField7.setText("");
         quantitaField10.setText("");
-
+        
         orderArticleSelected = 1;
         hideAll();
         addArticleButton_newOrderPanel.setEnabled(true);
         creaNuovoOrdinePanel.setVisible(true);
         corriereField_NewOrderPanel.setText("");
-
+        
         int i = 0;
-
+        
         for (i = 0; i < m.negoziSize(); i++) {
             ComboBoxNegozio.addItem(m.getNegozi(i).getNome());
         }
-
+        
         for (i = 0; i < m.articoliSize(); i++) {
             comboBoxArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
             comboBoxArticoli2.addItem(m.getArticolo(i).getTipoArticolo().getName());
@@ -1924,7 +1924,7 @@ public class Graphics extends javax.swing.JFrame {
         try {
             m.addNegozi(new Negozio(cf, nome, indirizzo, citta));
         } catch (Exception e) {
-
+            
         }
         JOptionPane.showMessageDialog(null, "Negozio creato con successo!");
         CodiceFiscaleField_NewNegozio.setText("");
@@ -1948,8 +1948,9 @@ public class Graphics extends javax.swing.JFrame {
 
     private void eliminaNegozioButton_VisualizzaNegozioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaNegozioButton_VisualizzaNegozioPanelActionPerformed
         m.removeNegozio(indexShop);
-        if(indexShop > 0) 
+        if (indexShop > 0) {
             indexShop--;
+        }
         negozi();
     }//GEN-LAST:event_eliminaNegozioButton_VisualizzaNegozioPanelActionPerformed
 
@@ -1969,12 +1970,12 @@ public class Graphics extends javax.swing.JFrame {
         String nome = nomeField_newNegozioPanel.getText();
         String indirizzo = indirizzoField_newNegozioPanel.getText();
         String citta = cittaField_NewNegozioPanel.getText();
-
+        
         m.getNegozi(indexShop).setCodiceFiscale(cf);
         m.getNegozi(indexShop).setNome(nome);
         m.getNegozi(indexShop).setIndirizzo(indirizzo);
         m.getNegozi(indexShop).setCitta(citta);
-
+        
         CodiceFiscaleField_NewNegozio.setText("");
         nomeField_newNegozioPanel.setText("");
         indirizzoField_newNegozioPanel.setText("");
@@ -2076,7 +2077,7 @@ public class Graphics extends javax.swing.JFrame {
         if (elastanRadioButton.isSelected()) {
             tipoMateriale = 6;
         }
-
+        
         try {
             //prendo i dati inseriti
             String nome = nomeFieldTipoArticolo_newArticlePanel.getText();
@@ -2089,7 +2090,7 @@ public class Graphics extends javax.swing.JFrame {
 
             //aggiungo l'articolo alla lista in magazzino
             m.addArticolo(new Articolo(prezzo, c, new TipoArticolo(nome, descrizione, sport, tipoMateriale)));
-
+            
             nomeFieldTipoArticolo_newArticlePanel.setText("");
             descrizioneFieldTipoArticolo_newArticlePanel.setText("");
             prezzoField_newArticlePanel.setText("");
@@ -2143,7 +2144,7 @@ public class Graphics extends javax.swing.JFrame {
         yearField_newArticlePanel.setText(m.getArticolo(indexArticle).getYear());
         inserisciButton_newArticlePanel.setVisible(false);
         modificaButton_newArticlePanel.setVisible(true);
-
+        
         switch (m.getArticolo(indexArticle).getTipoArticolo().getSports()) {
             case "Nuoto":
                 nuotoRadioButton.setSelected(true);
@@ -2188,7 +2189,7 @@ public class Graphics extends javax.swing.JFrame {
                 danzaRadioButton.setSelected(true);
                 break;
         }
-
+        
         switch (m.getArticolo(indexArticle).getTipoArticolo().getMaterial()) {
             case "Poliestere":
                 poliestereRadioButton.setSelected(true);
@@ -2212,10 +2213,10 @@ public class Graphics extends javax.swing.JFrame {
                 elastanRadioButton.setSelected(true);
                 break;
         }
-
+        
 
     }//GEN-LAST:event_modificaButton_cercaLabel__VisualizzaArticoliPanelActionPerformed
-
+    
 
     private void modificaButton_newArticlePanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButton_newArticlePanelActionPerformed
         int tipoMateriale = 0;
@@ -2287,7 +2288,7 @@ public class Graphics extends javax.swing.JFrame {
         if (elastanRadioButton.isSelected()) {
             tipoMateriale = 6;
         }
-
+        
         try {
             //prendo i dati inseriti
             String nome = nomeFieldTipoArticolo_newArticlePanel.getText();
@@ -2301,7 +2302,7 @@ public class Graphics extends javax.swing.JFrame {
             m.getArticolo(indexArticle).setData(year, month, day);
             m.getArticolo(indexArticle).setPrezzo(prezzo);
             m.getArticolo(indexArticle).setTipoArticolo(new TipoArticolo(nome, descrizione, sport, tipoMateriale));
-
+            
             nomeFieldTipoArticolo_newArticlePanel.setText("");
             descrizioneFieldTipoArticolo_newArticlePanel.setText("");
             prezzoField_newArticlePanel.setText("");
@@ -2310,7 +2311,7 @@ public class Graphics extends javax.swing.JFrame {
             yearField_newArticlePanel.setText("");
             poliestereRadioButton.setSelected(true);
             nuotoRadioButton.setSelected(true);
-
+            
             hideAll();//nascondo tutto
             articoli();//aggiorno la view di articoli
             //visualizzo gli articoli
@@ -2346,7 +2347,7 @@ public class Graphics extends javax.swing.JFrame {
         hockeyRadioButton.setSelected(false);
         golfRadioButton.setSelected(false);
         danzaRadioButton.setSelected(false);
-
+        
         poliestereRadioButton.setSelected(false);
         siliconeRadioButton.setSelected(false);
         fintaPelleRadioButton.setSelected(false);
@@ -2354,7 +2355,7 @@ public class Graphics extends javax.swing.JFrame {
         poliammideRadioButton.setSelected(false);
         polietileneRadioButton.setSelected(false);
         elastanRadioButton.setSelected(false);
-
+        
         nomeFieldTipoArticolo_newArticlePanel.setText("");
         descrizioneFieldTipoArticolo_newArticlePanel.setText("");
         prezzoField_newArticlePanel.setText("");
@@ -2394,20 +2395,20 @@ public class Graphics extends javax.swing.JFrame {
         quantitaField8.setBackground(C);
         quantitaField9.setBackground(C);
         quantitaField10.setBackground(C);
-
+        
         String corriere = corriereField_NewOrderPanel.getText();
-
+        
         if (corriere.equals("") && corriere.equals(" ")) {//controllo che sia stato inserito un corriere valido
             JOptionPane.showMessageDialog(null, "Inserire un campo corriere valido! ");
             corriereField_NewOrderPanel.setBackground(Color.red);
             return;
         }
-
+        
         String negozio = (String) ComboBoxNegozio.getSelectedItem();
         Negozio x = m.negozioContainedByName(negozio);
-
+        
         Map<Articolo, Integer> articoliAndQuantita = new HashMap<>();
-
+        
         int quantita1;
         int quantita2;
         int quantita3;
@@ -2418,7 +2419,7 @@ public class Graphics extends javax.swing.JFrame {
         int quantita8;
         int quantita9;
         int quantita10;
-
+        
         String articolo1 = (String) comboBoxArticoli1.getSelectedItem();
         String articolo2 = (String) comboBoxArticoli2.getSelectedItem();
         String articolo3 = (String) comboBoxArticoli3.getSelectedItem();
@@ -2442,7 +2443,7 @@ public class Graphics extends javax.swing.JFrame {
             Articolo a8 = m.articoloContainedByName(articolo8);
             Articolo a9 = m.articoloContainedByName(articolo9);
             Articolo a10 = m.articoloContainedByName(articolo10);
-
+            
             quantita1 = quantitaField1.getText().equals("") || quantitaField1.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField1.getText());
             quantita2 = quantitaField2.getText().equals("") || quantitaField2.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField2.getText());
             quantita3 = quantitaField3.getText().equals("") || quantitaField3.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField3.getText());
@@ -2453,11 +2454,11 @@ public class Graphics extends javax.swing.JFrame {
             quantita8 = quantitaField8.getText().equals("") || quantitaField8.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField8.getText());
             quantita9 = quantitaField9.getText().equals("") || quantitaField9.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField9.getText());
             quantita10 = quantitaField10.getText().equals("") || quantitaField10.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField10.getText());
-
+            
             if (quantita1 != 0) {
                 articoliAndQuantita.put(a1, quantita1);
             }
-
+            
             if (quantita2 != 0) {
                 if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
                 {
@@ -2466,7 +2467,7 @@ public class Graphics extends javax.swing.JFrame {
                     articoliAndQuantita.put(a2, quantita2);
                 }
             }
-
+            
             if (quantita3 != 0) {
                 if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
                 {
@@ -2475,7 +2476,7 @@ public class Graphics extends javax.swing.JFrame {
                     articoliAndQuantita.put(a2, quantita2);
                 }
             }
-
+            
             if (quantita4 != 0) {
                 if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
                 {
@@ -2484,7 +2485,7 @@ public class Graphics extends javax.swing.JFrame {
                     articoliAndQuantita.put(a2, quantita2);
                 }
             }
-
+            
             if (quantita5 != 0) {
                 if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
                 {
@@ -2493,7 +2494,7 @@ public class Graphics extends javax.swing.JFrame {
                     articoliAndQuantita.put(a2, quantita2);
                 }
             }
-
+            
             if (quantita6 != 0) {
                 if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
                 {
@@ -2502,7 +2503,7 @@ public class Graphics extends javax.swing.JFrame {
                     articoliAndQuantita.put(a2, quantita2);
                 }
             }
-
+            
             if (quantita7 != 0) {
                 if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
                 {
@@ -2511,7 +2512,7 @@ public class Graphics extends javax.swing.JFrame {
                     articoliAndQuantita.put(a2, quantita2);
                 }
             }
-
+            
             if (quantita8 != 0) {
                 if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
                 {
@@ -2520,7 +2521,7 @@ public class Graphics extends javax.swing.JFrame {
                     articoliAndQuantita.put(a2, quantita2);
                 }
             }
-
+            
             if (quantita9 != 0) {
                 if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
                 {
@@ -2529,7 +2530,7 @@ public class Graphics extends javax.swing.JFrame {
                     articoliAndQuantita.put(a2, quantita2);
                 }
             }
-
+            
             if (quantita10 != 0) {
                 if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
                 {
@@ -2538,10 +2539,10 @@ public class Graphics extends javax.swing.JFrame {
                     articoliAndQuantita.put(a2, quantita2);
                 }
             }
-
+            
             Ordine o1 = new Ordine(x, corriere, new GregorianCalendar(), articoliAndQuantita);
             m.addOrdine(o1);
-
+            
         } catch (ArticleDontExistInWareHouseException | HeadlessException | VoidStringUnexpectedException e) {
             JOptionPane.showMessageDialog(null, "Eccezione");
             quantitaField1.setBackground(Color.red);
@@ -2556,11 +2557,11 @@ public class Graphics extends javax.swing.JFrame {
             quantitaField10.setBackground(Color.red);
         } finally {
             indexOrder = m.ordineSize() - 1;
-
+            
             hideAll();
             ordini();
             visualizzaOrdiniPanel.setVisible(true);
-
+            
             corriereField_NewOrderPanel.setText("");
             quantitaField1.setBackground(C);
             quantitaField2.setBackground(C);
@@ -2601,7 +2602,7 @@ public class Graphics extends javax.swing.JFrame {
         quantitaField8.setBackground(C);
         quantitaField9.setBackground(C);
         quantitaField10.setBackground(C);
-
+        
         switch (orderArticleSelected) {
             case 1:
                 try {
@@ -2619,7 +2620,7 @@ public class Graphics extends javax.swing.JFrame {
                 } finally {
                     break;
                 }
-
+            
             case 2:
                 try {
                     if (Integer.parseInt(quantitaField2.getText()) > 0) {
@@ -2749,7 +2750,7 @@ public class Graphics extends javax.swing.JFrame {
                 } finally {
                     break;
                 }
-
+            
         }
     }//GEN-LAST:event_addArticleButton_newOrderPanelActionPerformed
 
@@ -2819,7 +2820,7 @@ public class Graphics extends javax.swing.JFrame {
             posizione8Field_newIngressoPanel.setBackground(C);
             posizione9Field_newIngressoPanel.setBackground(C);
             posizione10Field_newIngressoPanel.setBackground(C);
-
+            
             quantitaField1_newIngressoPanel.setBackground(C);
             quantitaField2_newIngressoPanel.setBackground(C);
             quantitaField3_newIngressoPanel.setBackground(C);
@@ -2870,7 +2871,7 @@ public class Graphics extends javax.swing.JFrame {
             quantita8 = quantitaField8_newIngressoPanel.getText().equals("") || quantitaField8_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField8_newIngressoPanel.getText());
             quantita9 = quantitaField9_newIngressoPanel.getText().equals("") || quantitaField9_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField9_newIngressoPanel.getText());
             quantita10 = quantitaField10_newIngressoPanel.getText().equals("") || quantitaField10_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField10_newIngressoPanel.getText());
-
+            
             posizione1 = posizione1Field_newIngressoPanel.getText().equals("") || posizione1Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione1Field_newIngressoPanel.getText());
             posizione2 = posizione2Field_newIngressoPanel.getText().equals("") || posizione2Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione2Field_newIngressoPanel.getText());
             posizione3 = posizione3Field_newIngressoPanel.getText().equals("") || posizione3Field_newIngressoPanel.getText().equals(" ") ? 0 : Integer.parseInt(posizione3Field_newIngressoPanel.getText());
@@ -2896,7 +2897,7 @@ public class Graphics extends javax.swing.JFrame {
                         posizione10Field_newIngressoPanel.setBackground(e);
                         return;
                     }
-
+                    
                     if (quantita.containsKey(a10)) {
                         quantita.put(a10, quantita.get(a10) + quantita10);
                     } else {
@@ -2904,23 +2905,21 @@ public class Graphics extends javax.swing.JFrame {
                     }
                     posizioni.put(a10, posizione10);
                 
-                
                 case 9:
-
+                    
                     if (quantita9 == 0 || posizione9 == 0) {
                         JOptionPane.showMessageDialog(null, "Non sono accettate 0 posizioni o 0 quantita!");
                         quantitaField9_newIngressoPanel.setBackground(e);
                         posizione9Field_newIngressoPanel.setBackground(e);
                         return;
                     }
-
+                    
                     if (quantita.containsKey(a9)) {
                         quantita.put(a9, quantita.get(a9) + quantita9);
                     } else {
                         quantita.put(a9, quantita9);
                     }
                     posizioni.put(a9, posizione9);
-                
                 
                 case 8:
                     if (quantita8 == 0 || posizione8 == 0) {
@@ -2929,14 +2928,13 @@ public class Graphics extends javax.swing.JFrame {
                         posizione8Field_newIngressoPanel.setBackground(e);
                         return;
                     }
-
+                    
                     if (quantita.containsKey(a8)) {
                         quantita.put(a8, quantita.get(a8) + quantita8);
                     } else {
                         quantita.put(a8, quantita8);
                     }
                     posizioni.put(a8, posizione8);
-               
                 
                 case 7:
                     if (quantita7 == 0 || posizione7 == 0) {
@@ -2945,14 +2943,13 @@ public class Graphics extends javax.swing.JFrame {
                         posizione7Field_newIngressoPanel.setBackground(e);
                         return;
                     }
-
+                    
                     if (quantita.containsKey(a7)) {
                         quantita.put(a7, quantita.get(a7) + quantita7);
                     } else {
                         quantita.put(a7, quantita7);
                     }
                     posizioni.put(a7, posizione7);
-                
                 
                 case 6:
                     if (quantita6 == 0 || posizione6 == 0) {
@@ -2961,14 +2958,13 @@ public class Graphics extends javax.swing.JFrame {
                         posizione6Field_newIngressoPanel.setBackground(e);
                         return;
                     }
-
+                    
                     if (quantita.containsKey(a6)) {
                         quantita.put(a6, quantita.get(a6) + quantita6);
                     } else {
                         quantita.put(a6, quantita6);
                     }
                     posizioni.put(a6, posizione6);
-                
                 
                 case 5:
                     if (quantita5 == 0 || posizione5 == 0) {
@@ -2977,14 +2973,13 @@ public class Graphics extends javax.swing.JFrame {
                         posizione5Field_newIngressoPanel.setBackground(e);
                         return;
                     }
-
+                    
                     if (quantita.containsKey(a5)) {
                         quantita.put(a10, quantita.get(a5) + quantita5);
                     } else {
                         quantita.put(a5, quantita5);
                     }
                     posizioni.put(a5, posizione5);
-                
                 
                 case 4:
                     if (quantita4 == 0 || posizione4 == 0) {
@@ -2993,14 +2988,13 @@ public class Graphics extends javax.swing.JFrame {
                         posizione4Field_newIngressoPanel.setBackground(e);
                         return;
                     }
-
+                    
                     if (quantita.containsKey(a4)) {
                         quantita.put(a4, quantita.get(a4) + quantita4);
                     } else {
                         quantita.put(a4, quantita4);
                     }
                     posizioni.put(a4, posizione4);
-                
                 
                 case 3:
                     if (quantita3 == 0 || posizione3 == 0) {
@@ -3009,14 +3003,13 @@ public class Graphics extends javax.swing.JFrame {
                         posizione3Field_newIngressoPanel.setBackground(e);
                         return;
                     }
-
+                    
                     if (quantita.containsKey(a3)) {
                         quantita.put(a3, quantita.get(a3) + quantita3);
                     } else {
                         quantita.put(a3, quantita3);
                     }
                     posizioni.put(a3, posizione3);
-                
                 
                 case 2:
                     if (quantita2 == 0 || posizione2 == 0) {
@@ -3025,14 +3018,13 @@ public class Graphics extends javax.swing.JFrame {
                         posizione2Field_newIngressoPanel.setBackground(e);
                         return;
                     }
-
+                    
                     if (quantita.containsKey(a2)) {
                         quantita.put(a2, quantita.get(a2) + quantita2);
                     } else {
                         quantita.put(a2, quantita2);
                     }
                     posizioni.put(a2, posizione2);
-                
                 
                 case 1:
                     if (quantita1 == 0 || posizione1 == 0) {
@@ -3041,7 +3033,7 @@ public class Graphics extends javax.swing.JFrame {
                         posizione1Field_newIngressoPanel.setBackground(e);
                         return;
                     }
-
+                    
                     if (quantita.containsKey(a2)) {
                         quantita.put(a2, quantita.get(a2) + quantita2);
                     } else {
@@ -3049,8 +3041,7 @@ public class Graphics extends javax.swing.JFrame {
                     }
                     posizioni.put(a1, posizione1);
             }
-            
-            
+
             /*
             if (quantita1 != 0) {
                 quantita.put(a1, quantita1);
@@ -3197,7 +3188,7 @@ public class Graphics extends javax.swing.JFrame {
             int month = Integer.parseInt(monthField_newIngressoPanel.getText());
             int year = Integer.parseInt(yearField_newIngressoPanel.getText());
             GregorianCalendar c = new GregorianCalendar(year, month, day);
-
+            
             if (posizioni.isEmpty() && quantita.isEmpty()) {  //forzo il controllo su entrambe le mappe anche se non dovrebbe essere necessario visto che devono essere identiche
                 //se le mappe sono identiche ignoro l'inserimento 
                 hideAll();
@@ -3232,7 +3223,7 @@ public class Graphics extends javax.swing.JFrame {
             quantitaField9_newIngressoPanel.setText("");
             posizione10Field_newIngressoPanel.setText("");
             quantitaField10_newIngressoPanel.setText("");
-
+            
         } catch (Exception ex) {
             Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3287,7 +3278,7 @@ public class Graphics extends javax.swing.JFrame {
         quantitaField8_newIngressoPanel.setBackground(C);
         quantitaField9_newIngressoPanel.setBackground(C);
         quantitaField10_newIngressoPanel.setBackground(C);
-
+        
         switch (ingressoArticleSelected) {
             case 1:
                 try {
@@ -3308,7 +3299,7 @@ public class Graphics extends javax.swing.JFrame {
                 } finally {
                     break;
                 }
-
+            
             case 2:
                 try {
                     if ((Integer.parseInt(quantitaField2_newIngressoPanel.getText()) > 0) && (Integer.parseInt(posizione2Field_newIngressoPanel.getText()) > 0)) {
@@ -3462,7 +3453,7 @@ public class Graphics extends javax.swing.JFrame {
                 } finally {
                     break;
                 }
-
+            
         }
     }//GEN-LAST:event_addArticleButton_newIngressoPanelActionPerformed
 
@@ -3506,10 +3497,10 @@ public class Graphics extends javax.swing.JFrame {
     }//GEN-LAST:event_chiudiButtonIngressiPanelActionPerformed
 
     private void newIngressoButton_IngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newIngressoButton_IngressiPanelActionPerformed
-
+        
         hideAll();
         creaIngressoPanel.setVisible(true);
-
+        
         comboBoxIngressoArticoli1.removeAllItems();
         comboBoxIngressoArticoli2.removeAllItems();
         comboBoxIngressoArticoli3.removeAllItems();
@@ -3567,9 +3558,9 @@ public class Graphics extends javax.swing.JFrame {
         quantitaField8_newIngressoPanel.setEditable(false);
         quantitaField9_newIngressoPanel.setEditable(false);
         quantitaField10_newIngressoPanel.setEditable(false);
-
+        
         ingressoArticleSelected = 1;
-
+        
         for (int i = 0; i < m.articoliSize(); i++) {
             comboBoxIngressoArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
             comboBoxIngressoArticoli2.addItem(m.getArticolo(i).getTipoArticolo().getName());
@@ -3632,7 +3623,7 @@ public class Graphics extends javax.swing.JFrame {
             } while (s.equals(" ") && s.equals(""));
             newPosition = Integer.parseInt(s);
         } while (newPosition < 0);
-
+        
         try {
             m.setPosition(m.getArticolo(indexArticle), newPosition);
         } catch (ArticleDontExistInWareHouseException | PositionAlreadyOccupiedException ex) {
@@ -3642,8 +3633,9 @@ public class Graphics extends javax.swing.JFrame {
 
     private void eliminaButton_VisualizzaArticoloPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaButton_VisualizzaArticoloPanelActionPerformed
         m.removeArticolo(indexArticle);
-        if(indexArticle > 0) 
+        if (indexArticle > 0) {
             indexArticle--;
+        }
         articoli();
     }//GEN-LAST:event_eliminaButton_VisualizzaArticoloPanelActionPerformed
 
@@ -3673,7 +3665,7 @@ public class Graphics extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     void articoli() {
         if (m.articoliIsEmpty()) {
             cercaLabel_VisualizzaArticoloPanel.setText("");
@@ -3687,11 +3679,10 @@ public class Graphics extends javax.swing.JFrame {
             posizioneLabel_VisualizzaArticoloPanel.setText("");
             quantitaLabel_VisualizzaArticoloPanel.setText("");
             avantiButton_VisualizzaArticoloPanel.setEnabled(false);
-
+            eliminaButton_VisualizzaArticoloPanel.setEnabled(false);
             indietroButton_VisualizzaArticoloPanel.setEnabled(false);
             modificaButton_cercaLabel__VisualizzaArticoliPanel.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Nessun Articolo ancora presente nel Database, premi 'crea ordine ora' per crearne uno nuovo subito");
-
         } else {
             try {
                 //esiste almeno un artiolo salvato
@@ -3706,7 +3697,7 @@ public class Graphics extends javax.swing.JFrame {
                 } else {
                     avantiButton_VisualizzaArticoloPanel.setEnabled(true);
                 }
-
+                
                 cercaLabel_VisualizzaArticoloPanel.setText("" + (indexArticle + 1));
                 IDLabel_VisualizzaArticoloPanel.setText("" + abs(m.getArticolo(indexArticle).getID()));
                 prezzoLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getPrezzo());
@@ -3720,13 +3711,13 @@ public class Graphics extends javax.swing.JFrame {
                 int posizione = m.getPosition(articolo);
                 quantitaLabel_VisualizzaArticoloPanel.setText(quantita + "");
                 posizioneLabel_VisualizzaArticoloPanel.setText("" + posizione);
-
+                
             } catch (ArticleDontExistInWareHouseException ex) {
                 System.out.println("Eccezzione");
             }
         }
     }
-
+    
     void negozi() {
         if (m.negoziIsEmpty()) {
             indexShop = 0;
@@ -3735,25 +3726,26 @@ public class Graphics extends javax.swing.JFrame {
             indirizzoLabel_NegozioPanel.setText("");
             nomeNegozioLabel_NegozioPanel.setText("");
             cittaNegozio_NegozioPanel.setText("");
+            eliminaNegozioButton_VisualizzaNegozioPanel.setEnabled(false);
             avantiButton_NegozioPanel.setEnabled(false);
             indietroButton_NegozioPanel.setEnabled(false);
             searchField_NegozioPanel.setEditable(false);
             modificaButton_NegozioPanel.setEnabled(false);
             selezionaButton_NegozioPanel.setEnabled(false);
         } else {
-
+            
             if (indexShop == 0) {
                 indietroButton_NegozioPanel.setEnabled(false);
             } else {
                 indietroButton_NegozioPanel.setEnabled(true);
             }
-
+            
             if (indexShop == m.negoziSize() - 1) {
                 avantiButton_NegozioPanel.setEnabled(false);
             } else {
                 avantiButton_NegozioPanel.setEnabled(true);
             }
-
+            
             modificaButton_NegozioPanel.setEnabled(true);
             selezionaButton_NegozioPanel.setEnabled(true);
             CreaNegozioButton_NegozioPanel.setEnabled(true);
@@ -3765,9 +3757,9 @@ public class Graphics extends javax.swing.JFrame {
             cittaNegozio_NegozioPanel.setText(m.getNegozi(indexShop).getCitta());
         }
     }
-
+    
     void ordini() {
-
+        
         if (m.ordineIsEmpty()) {
             orderIDLabel_OrderViewPanel.setText("");
             dataLabel_OrderViewPanel.setText("");
@@ -3796,7 +3788,7 @@ public class Graphics extends javax.swing.JFrame {
             } else {
                 avantiButton_OrderPanel.setEnabled(true);
             }
-
+            
             negozioInfo_OrderPanel.setEnabled(true);
             modificaButtonOrderPanel.setEnabled(true);
             negozioLabel_OrderViewPanel.setText(m.getOrdine(indexOrder).getNegozio().getNome());
@@ -3814,7 +3806,7 @@ public class Graphics extends javax.swing.JFrame {
             }
             generaUscitaButton_OrderViewPanel.setEnabled(!isShipped);
         }
-
+        
     }//resetOrder
 
     void ingressi() {
@@ -3842,9 +3834,9 @@ public class Graphics extends javax.swing.JFrame {
             ingressiIDLabel_VisualizzaIngressiPanel.setText("" + abs(m.getIngresso(indexIngressi).getID()));
             articoliQuantitaPosizioneIngressiPanel.setText("" + m.getIngresso(indexIngressi).toString());
         }
-
+        
     }
-
+    
     void exit() {
         /*
         Object[] options = {"Esci", "Annulla"};//dichiaro i tipi di opzioni nel prossimo JOptionPane
@@ -3864,7 +3856,7 @@ public class Graphics extends javax.swing.JFrame {
 
         }//if JOPTIONPANE
          */
-
+        
         hideAll();
         usrField.setText("");
         pinField.setText("");
