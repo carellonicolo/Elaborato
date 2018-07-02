@@ -22,10 +22,7 @@ public class Magazzino implements Serializable {
 
     private static Magazzino INSTANCE = null;
 
-    /**
-     * *********************************** CONSTRUCT
-     * ***********************************
-     */
+    
     private Magazzino() {
 	this.negozi = new ArrayList();
 	this.uscite = new ArrayList<>();
@@ -48,10 +45,10 @@ public class Magazzino implements Serializable {
 	return INSTANCE;
     }
 
-    /**
-     * *********************************** USERS
-     * ***********************************
-     */
+
+    
+    
+    
     public void addUser(Utente u) throws UserAlreadyExist {
 	for (Utente X : utenti) {
 	    if (u.equals(X)) {
