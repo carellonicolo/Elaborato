@@ -859,7 +859,7 @@ public class Graphics extends javax.swing.JFrame {
         });
         adminPanel.add(storicoButton_AdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, -1, -1));
 
-        getContentPane().add(adminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1210, 60));
+        getContentPane().add(adminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1210, 70));
 
         creaIngressoPanel.setBackground(new java.awt.Color(0, 153, 255));
         creaIngressoPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
@@ -2252,18 +2252,6 @@ public class Graphics extends javax.swing.JFrame {
     }//GEN-LAST:event_newOrderButton_orderViewPanelActionPerformed
 
     private void articoliButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_articoliButtonAdminPanelActionPerformed
-        //tabellaArticoli.rem
-        DefaultTableModel model = (DefaultTableModel) tabellaArticoli.getModel();
-        model.setRowCount(0);
-        for (int ciao = 0; ciao < m.articoliSize(); ciao++) {
-            Articolo a = m.getArticolo(ciao);
-            try {
-                model.addRow(new Object[]{abs(a.getID()), a.getTipoArticolo().getName(), a.getPrezzo() + " €", a.getTipoArticolo().getSports(), a.getTipoArticolo().getMaterial(), m.getQuantita(a), m.getPosition(a)});
-            } catch (ArticleDontExistInWareHouseException ex) {
-                Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println("Eccezione generata nel comporre la tabella!");
-            }
-        }
         hideAll();
         visualizzaArticoliPanel.setVisible(true);
         articoli();
@@ -2874,70 +2862,68 @@ public class Graphics extends javax.swing.JFrame {
             quantita8 = quantitaField8.getText().equals("") || quantitaField8.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField8.getText());
             quantita9 = quantitaField9.getText().equals("") || quantitaField9.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField9.getText());
             quantita10 = quantitaField10.getText().equals("") || quantitaField10.getText().equals(" ") ? 0 : Integer.parseInt(quantitaField10.getText());
-            
-            
+
             if (articolo1.equals("<Articolo>") && quantita1 != 0) {
                 JOptionPane.showMessageDialog(null, "Selezionare un articolo!");
                 comboBoxArticoli1.setBackground(Color.red);
                 voidSelection = true;
                 return;
-            } 
-            if (articolo2.equals("<Articolo>")&& quantita2 != 0) {
+            }
+            if (articolo2.equals("<Articolo>") && quantita2 != 0) {
                 JOptionPane.showMessageDialog(null, "Selezionare un articolo!");
                 comboBoxArticoli2.setBackground(Color.red);
                 voidSelection = true;
                 return;
-            } 
-            if (articolo3.equals("<Articolo>")&& quantita3 != 0) {
+            }
+            if (articolo3.equals("<Articolo>") && quantita3 != 0) {
                 JOptionPane.showMessageDialog(null, "Selezionare un articolo!");
                 comboBoxArticoli3.setBackground(Color.red);
                 voidSelection = true;
                 return;
-            } 
-            if (articolo4.equals("<Articolo>")&& quantita4 != 0) {
+            }
+            if (articolo4.equals("<Articolo>") && quantita4 != 0) {
                 JOptionPane.showMessageDialog(null, "Selezionare un articolo!");
                 comboBoxArticoli4.setBackground(Color.red);
                 voidSelection = true;
                 return;
-            } 
-            if (articolo5.equals("<Articolo>")&& quantita5 != 0) {
+            }
+            if (articolo5.equals("<Articolo>") && quantita5 != 0) {
                 JOptionPane.showMessageDialog(null, "Selezionare un articolo!");
                 comboBoxArticoli5.setBackground(Color.red);
                 voidSelection = true;
                 return;
-            } 
-            if (articolo6.equals("<Articolo>")&& quantita6 != 0) {
+            }
+            if (articolo6.equals("<Articolo>") && quantita6 != 0) {
                 JOptionPane.showMessageDialog(null, "Selezionare un articolo!");
                 comboBoxArticoli6.setBackground(Color.red);
                 voidSelection = true;
                 return;
-            } 
-            if (articolo7.equals("<Articolo>")&& quantita7 != 0) {
+            }
+            if (articolo7.equals("<Articolo>") && quantita7 != 0) {
                 JOptionPane.showMessageDialog(null, "Selezionare un articolo!");
                 comboBoxArticoli7.setBackground(Color.red);
                 voidSelection = true;
                 return;
-            } 
-            if (articolo8.equals("<Articolo>")&& quantita8 != 0) {
+            }
+            if (articolo8.equals("<Articolo>") && quantita8 != 0) {
                 JOptionPane.showMessageDialog(null, "Selezionare un articolo!");
                 comboBoxArticoli8.setBackground(Color.red);
                 voidSelection = true;
                 return;
-            } 
-            if (articolo9.equals("<Articolo>")&& quantita9 != 0) {
+            }
+            if (articolo9.equals("<Articolo>") && quantita9 != 0) {
                 JOptionPane.showMessageDialog(null, "Selezionare un articolo!");
                 comboBoxArticoli9.setBackground(Color.red);
                 voidSelection = true;
                 return;
             }
-            if (articolo10.equals("<Articolo>")&& quantita10 != 0) {
+            if (articolo10.equals("<Articolo>") && quantita10 != 0) {
                 JOptionPane.showMessageDialog(null, "Selezionare un articolo!");
                 comboBoxArticoli10.setBackground(Color.red);
                 voidSelection = true;
                 return;
             }
-            
- 
+
             Articolo a1 = articolo1.equals("<Articolo>") ? null : m.articoloContainedByName(articolo1);
             Articolo a2 = articolo2.equals("<Articolo>") ? null : m.articoloContainedByName(articolo2);
             Articolo a3 = articolo3.equals("<Articolo>") ? null : m.articoloContainedByName(articolo3);
@@ -2949,16 +2935,6 @@ public class Graphics extends javax.swing.JFrame {
             Articolo a9 = articolo9.equals("<Articolo>") ? null : m.articoloContainedByName(articolo9);
             Articolo a10 = articolo10.equals("<Articolo>") ? null : m.articoloContainedByName(articolo10);
 
-            
-            
-            
-            
-
-            
-            
-            
-            
-            
             if (quantita1 != 0) {
                 articoliAndQuantita.put(a1, quantita1);
             }
@@ -3043,7 +3019,10 @@ public class Graphics extends javax.swing.JFrame {
                     articoliAndQuantita.put(a2, quantita2);
                 }
             }
-
+            if (articoliAndQuantita.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Inserisci almeno un oggetto!");
+                return;
+            }
             Ordine o1 = new Ordine(x, corriere, new GregorianCalendar(), articoliAndQuantita);
             m.addOrdine(o1);
 
@@ -3060,11 +3039,10 @@ public class Graphics extends javax.swing.JFrame {
             quantitaField9.setBackground(Color.red);
             quantitaField10.setBackground(Color.red);
         } finally {
-            if(voidSelection){
+            if (voidSelection) {
                 return;
             }
-            
-            
+
             indexOrder = m.ordineSize() - 1;
 
             hideAll();
@@ -4024,12 +4002,6 @@ public class Graphics extends javax.swing.JFrame {
 
     private void ordiniButtonAdminPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordiniButtonAdminPanelActionPerformed
         hideAll();
-        DefaultTableModel model = (DefaultTableModel) tabellaOrdini.getModel();
-        model.setRowCount(0);
-        for (int ciao = 0; ciao < m.ordineSize(); ciao++) {
-            Ordine a = m.getOrdine(ciao);
-            model.addRow(new Object[]{abs(a.getID()), a.getDataInString(), a.getTotalPrice() + " €", a.getNegozio().getNome(), a.getCorriere(), a.isShipped(), a.articoliSize()});
-        }
         visualizzaOrdiniPanel.setVisible(true);
         indexOrder = 0;
         ordini();
@@ -4253,6 +4225,17 @@ public class Graphics extends javax.swing.JFrame {
                     avantiButton_VisualizzaArticoloPanel.setEnabled(true);
                 }
 
+                DefaultTableModel model = (DefaultTableModel) tabellaArticoli.getModel();
+                model.setRowCount(0);
+                for (int ciao = 0; ciao < m.articoliSize(); ciao++) {
+                    Articolo a = m.getArticolo(ciao);
+                    try {
+                        model.addRow(new Object[]{abs(a.getID()), a.getTipoArticolo().getName(), a.getPrezzo() + " €", a.getTipoArticolo().getSports(), a.getTipoArticolo().getMaterial(), m.getQuantita(a), m.getPosition(a)});
+                    } catch (ArticleDontExistInWareHouseException ex) {
+                        Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println("Eccezione generata nel comporre la tabella!");
+                    }
+                }
                 cercaLabel_VisualizzaArticoloPanel.setText("" + (indexArticle + 1));
                 IDLabel_VisualizzaArticoloPanel.setText("" + abs(m.getArticolo(indexArticle).getID()));
                 prezzoLabel_VisualizzaArticoloPanel.setText("" + m.getArticolo(indexArticle).getPrezzo());
@@ -4344,7 +4327,12 @@ public class Graphics extends javax.swing.JFrame {
             } else {
                 avantiButton_OrderPanel.setEnabled(true);
             }
-
+            DefaultTableModel model = (DefaultTableModel) tabellaOrdini.getModel();
+            model.setRowCount(0);
+            for (int ciao = 0; ciao < m.ordineSize(); ciao++) {
+                Ordine a = m.getOrdine(ciao);
+                model.addRow(new Object[]{abs(a.getID()), a.getDataInString(), a.getTotalPrice() + " €", a.getNegozio().getNome(), a.getCorriere(), a.isShipped(), a.articoliSize()});
+            }
             negozioInfo_OrderPanel.setEnabled(true);
             modificaButtonOrderPanel.setEnabled(true);
             negozioLabel_OrderViewPanel.setText(m.getOrdine(indexOrder).getNegozio().getNome());
