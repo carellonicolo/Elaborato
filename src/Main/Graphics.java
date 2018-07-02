@@ -735,7 +735,6 @@ public class Graphics extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tabellaOrdini.setRowSelectionAllowed(false);
         tabellaOrdini.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tabellaOrdini.setSelectionForeground(new java.awt.Color(0, 153, 255));
         tabellaOrdini.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -4333,6 +4332,7 @@ public class Graphics extends javax.swing.JFrame {
                 Ordine a = m.getOrdine(ciao);
                 model.addRow(new Object[]{abs(a.getID()), a.getDataInString(), a.getTotalPrice() + " €", a.getNegozio().getNome(), a.getCorriere(), a.isShipped(), a.articoliSize()});
             }
+            tabellaOrdini.getSelectionModel().setSelectionInterval(indexOrder, indexOrder);
             negozioInfo_OrderPanel.setEnabled(true);
             modificaButtonOrderPanel.setEnabled(true);
             negozioLabel_OrderViewPanel.setText(m.getOrdine(indexOrder).getNegozio().getNome());
@@ -4343,7 +4343,7 @@ public class Graphics extends javax.swing.JFrame {
             articoliQuantitaTextArea_OrderViewPanel.setText("" + m.getOrdine(indexOrder).toString());
             corriereLabel_OrderViewPanel.setText(m.getOrdine(indexOrder).getCorriere());
             boolean isShipped = m.getOrdine(indexOrder).isShipped();
-            tabellaOrdini.getSelectionModel().setSelectionInterval(indexOrder, indexOrder);
+            
             if (isShipped) {
                 shippedLabel_OrderViewPanell.setForeground(Color.GREEN);
                 shippedLabel_OrderViewPanell.setText("Spedito");

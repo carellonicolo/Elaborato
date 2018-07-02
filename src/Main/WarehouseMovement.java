@@ -6,10 +6,21 @@ public abstract class WarehouseMovement {
 
     protected GregorianCalendar data;
     protected int ID;
+    protected int day, month, year;
     
     //GET - DATA
     public GregorianCalendar getData() {
         return data;
+    }
+    
+    public void ConvertData(){
+        day = data.get(GregorianCalendar.DATE);
+        month = data.get(GregorianCalendar.MONTH);
+        year = data.get(GregorianCalendar.YEAR);
+    }
+    
+    public void revertData(){
+        data = new GregorianCalendar(year, month,day);
     }
 
     public String getDataInString() {
