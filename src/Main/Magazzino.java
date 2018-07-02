@@ -18,7 +18,7 @@ public class Magazzino implements Serializable {
     private List<Utente> utenti;
     private List<String> report;
     private Map<Articolo, Integer> quantita, posizione;
-    private Map<Articolo,Integer> ingressiNicolo, usciteNicolo;
+    private Map<Articolo, Integer> ingressiMensili, usciteMensili;
 
     private static Magazzino INSTANCE = null;
 
@@ -35,16 +35,17 @@ public class Magazzino implements Serializable {
 	this.ordini = new ArrayList<>();
 	this.quantita = new TreeMap<>();
 	this.posizione = new TreeMap<>();
-        this.ingressiNicolo = new TreeMap<>();
-        this.usciteNicolo = new TreeMap<>();
-        this.report = new ArrayList();
+	this.ingressiMensili = new TreeMap<>();
+	this.usciteMensili = new TreeMap<>();
+	this.report = new ArrayList();
     }
-    
+
     //singleton Methods
-    public static Magazzino getInstance(){
-        if(INSTANCE == null)
-            INSTANCE = new Magazzino();
-        return INSTANCE;
+    public static Magazzino getInstance() {
+	if (INSTANCE == null) {
+	    INSTANCE = new Magazzino();
+	}
+	return INSTANCE;
     }
 
     /**
@@ -85,7 +86,6 @@ public class Magazzino implements Serializable {
 	throw new UserNotFoundException("Utente non trovato! \n Username o Password errata!");
     }
 
-    
     //ARTICOLI
     public void addArticolo(Articolo a) throws ArticleAlreadyExistException {
 	if (articoli.contains(a)) {
@@ -94,7 +94,7 @@ public class Magazzino implements Serializable {
 	articoli.add(a);
 	posizione.put(a, 0);
 	quantita.put(a, 0);
-        Collections.sort(articoli);
+	Collections.sort(articoli);
     }
 
     public boolean removeArticolo(Articolo u) {
@@ -108,7 +108,7 @@ public class Magazzino implements Serializable {
 	posizione.remove(articoli.get(i));
 	quantita.remove(articoli.get(i));
 	articoli.remove(i);
-        Collections.sort(articoli);
+	Collections.sort(articoli);
     }
 
     public Articolo getArticolo(int i) throws IndexOutOfBoundsException {
@@ -180,7 +180,7 @@ public class Magazzino implements Serializable {
 		throw new ShopAlreadyExistException("Il negozio non esiste nel Database!");
 	    }
 	}
-        Collections.sort(negozi);
+	Collections.sort(negozi);
 	return negozi.add(i);
     }
 
@@ -188,8 +188,8 @@ public class Magazzino implements Serializable {
 	if (!negozi.remove(i)) {
 	    throw new ShopAlreadyExistException("Il negozio non esiste nel Database!");
 	}
-        negozi.remove(i);
-        Collections.sort(negozi);
+	negozi.remove(i);
+	Collections.sort(negozi);
     }
 
     public Negozio getNegozi(int i) {
@@ -198,7 +198,7 @@ public class Magazzino implements Serializable {
 
     public void removeNegozio(int i) {
 	negozi.remove(i);
-        Collections.sort(negozi);
+	Collections.sort(negozi);
     }
 
     public boolean negoziIsEmpty() {
@@ -229,14 +229,7 @@ public class Magazzino implements Serializable {
 	return null;
     }
 
-    
-    
-    
-    
-    
     public void addIngresso(Map<Articolo, Integer> quantitaParameter, Map<Articolo, Integer> posizioneParameter, GregorianCalendar data) throws Exception {
-	int tmpQuantita;
-	int tmpPosizione;
 
 	if (!quantitaParameter.keySet().equals(posizioneParameter.keySet())) {
 	    throw new Exception("Le mappe passate come parametro non hanno gli stessi articoli!!");
@@ -257,13 +250,13 @@ public class Magazzino implements Serializable {
 		this.posizione.put(X, posizioneParameter.get(X));
 	    }
 
-            if(ingressiNicolo.containsKey(X)){
-                ingressiNicolo.put(X, ingressiNicolo.get(X)+quantitaParameter.get(X));
-            } else{
-                ingressiNicolo.put(X, quantitaParameter.get(X));
-            }
+	    if (ingressiMensili.containsKey(X)) {
+		ingressiMensili.put(X, ingressiMensili.get(X) + quantitaParameter.get(X));
+	    } else {
+		ingressiMensili.put(X, quantitaParameter.get(X));
+	    }
 	}//for
-        Ingresso nuovoIngresso = new Ingresso(quantitaParameter, posizioneParameter, data);
+	Ingresso nuovoIngresso = new Ingresso(quantitaParameter, posizioneParameter, data);
 	ingressi.add(nuovoIngresso);
     }
 
@@ -284,7 +277,6 @@ public class Magazzino implements Serializable {
 	return ingressi.indexOf(i);
     }
 
-    
     public void createExit(Ordine n) throws OrderNotFound, ArticleNotFound, OrderImpossibleToCreate {
 	boolean isPossible = true;
 
@@ -313,13 +305,14 @@ public class Magazzino implements Serializable {
 		    for (Articolo articoloOrdine : listaArticoli) {
 			quantita.replace(articoloOrdine, quantita.get(articoloOrdine) - mappaOrdine.get(articoloOrdine));
 		    }
-                    for(Articolo X: n.getArticle().keySet())
-                        if(usciteNicolo.containsKey(X))
-                            usciteNicolo.put(X, usciteNicolo.get(X)+n.getArticle().get(X));
-                        else
-                            usciteNicolo.put(X, n.getArticle().get(X));
-                    
-                    
+		    for (Articolo X : n.getArticle().keySet()) {
+			if (usciteMensili.containsKey(X)) {
+			    usciteMensili.put(X, usciteMensili.get(X) + n.getArticle().get(X));
+			} else {
+			    usciteMensili.put(X, n.getArticle().get(X));
+			}
+		    }
+
 		    uscite.add(new Uscita(n));
 		    n.createShip();
 		    return;
@@ -331,8 +324,7 @@ public class Magazzino implements Serializable {
 	}
 	throw new OrderNotFound("Impossibile generare l'uscita per l'ordine indicato!\nL'ordine non si trova nella lista degli ordini!");
     }//createExit()
-    
-    
+
     public boolean addOrdine(Ordine o) {
 	return ordini.add(o);
     }
@@ -388,16 +380,19 @@ public class Magazzino implements Serializable {
 	    File file;
 
 	    if (buttonPressed == JFileChooser.APPROVE_OPTION) {
+
 		try {
 		    file = jfc.getSelectedFile();
 		    ObjectOutputStream fileOut = new ObjectOutputStream(new FileOutputStream((file)));
 		    fileOut.writeObject(this.articoli);
 		    fileOut.writeObject(this.ingressi);
+		    fileOut.writeObject(this.ingressiMensili);
 		    fileOut.writeObject(this.negozi);
 		    fileOut.writeObject(this.ordini);
 		    fileOut.writeObject(this.posizione);
 		    fileOut.writeObject(this.quantita);
 		    fileOut.writeObject(this.uscite);
+		    fileOut.writeObject(this.usciteMensili);
 		    fileOut.writeObject(this.utenti);
 		    fileOut.flush();
 		    fileOut.close();
@@ -412,50 +407,57 @@ public class Magazzino implements Serializable {
 	}
     }
 
-    protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, List<Negozio> negoziLoad,
-	    List<Ordine> ordiniLoad, Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad,
-	    List<Uscita> usciteLoad, List<Utente> utentiLoad) {
-
+    protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, Map<Articolo, Integer> ingressiMensiliLoad,
+	    List<Negozio> negoziLoad, List<Ordine> ordiniLoad, Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad,
+	    List<Uscita> usciteLoad, Map<Articolo, Integer> usciteMensiliLoad, List<Utente> utentiLoad) {
+	if (articoliLoad.get(0).getData() == null) {
+	    JOptionPane.showMessageDialog(null, "Articoli null");
+	}
 	this.articoli = articoliLoad;
 	this.ingressi = ingressiLoad;
+	this.ingressiMensili = ingressiMensiliLoad;
 	this.negozi = negoziLoad;
 	this.ordini = ordiniLoad;
 	this.posizione = posizioneLoad;
 	this.quantita = quantitaLoad;
 	this.uscite = usciteLoad;
+	this.usciteMensili = usciteMensiliLoad;
 	this.utenti = utentiLoad;
 
     }
-    
-    public String getReportMensile(int i){
-        return report.get(i);
+
+    public String getReportMensile(int i) {
+	return report.get(i);
     }
-    
-    public int reportSize(){
-        return report.size();
+
+    public int reportSize() {
+	return report.size();
     }
-    
-    public boolean reportIsEmpty(){
-        return report.isEmpty();
+
+    public boolean reportIsEmpty() {
+	return report.isEmpty();
     }
-    
-    public String chiusuraMensile(){
-        GregorianCalendar dataOdierna = new GregorianCalendar();
-        String s = "Report mensile riferito al "+ dataOdierna.get(GregorianCalendar.MONTH)+""+dataOdierna.get(GregorianCalendar.YEAR)+"\n";
-        s = "Ingressi:\n";
-        for(Articolo X: ingressiNicolo.keySet())
-            s += "Nome Articolo: "+X.getTipoArticolo().getName() + "\t"+ingressiNicolo.get(X) +"pezzi\n";
-        s+="\n\nUscite: \n";
-        for(Articolo X: usciteNicolo.keySet())
-            s += "Nome Articolo" + X.getTipoArticolo().getName() + "\t" + usciteNicolo.get(X)+ "pezzi\n";
-        ingressiNicolo.clear();
-        usciteNicolo.clear();
-        report.add(s);
-        return s;
+
+    public String chiusuraMensile() {
+	GregorianCalendar dataOdierna = new GregorianCalendar();
+	String s = "Report mensile riferito al " + dataOdierna.get(GregorianCalendar.MONTH) + "" + dataOdierna.get(GregorianCalendar.YEAR) + "\n";
+	s = "Ingressi:\n";
+	for (Articolo X : ingressiMensili.keySet()) {
+	    s += "Nome Articolo: " + X.getTipoArticolo().getName() + "\t" + ingressiMensili.get(X) + "pezzi\n";
+	}
+	s += "\n\nUscite: \n";
+	for (Articolo X : usciteMensili.keySet()) {
+	    s += "Nome Articolo" + X.getTipoArticolo().getName() + "\t" + usciteMensili.get(X) + "pezzi\n";
+	}
+	ingressiMensili.clear();
+	usciteMensili.clear();
+	report.add(s);
+	return s;
     }
 
 }//MAGAZZINO
 
 /**
- * ********************************************************** FINE *************************************************************************
+ * ********************************************************** FINE
+ * *************************************************************************
  */

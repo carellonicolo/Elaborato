@@ -54,7 +54,7 @@ public class Main implements Serializable{
 		    try {
 			file = jfc.getSelectedFile();
 			ObjectInputStream fileIn = new ObjectInputStream(new FileInputStream((file)));
-			
+			Magazzino mToLoad = Magazzino.getInstance();
 			List<Articolo> articoli = (List) fileIn.readObject();
 			List<Ingresso> ingressi = (List) fileIn.readObject();
 			Map<Articolo, Integer> ingressiMensili = (Map) fileIn.readObject();
@@ -62,11 +62,11 @@ public class Main implements Serializable{
 			List<Ordine> ordini = (List) fileIn.readObject();
 			Map<Articolo, Integer> posizione = (Map) fileIn.readObject();
 			Map<Articolo, Integer> quantita = (Map) fileIn.readObject();
-			List<Map> storicoMensili = (List) fileIn.readObject();
 			List<Uscita> uscite = (List) fileIn.readObject();
 			Map<Articolo, Integer> usciteMensili = (Map) fileIn.readObject();
 			List<Utente> utenti = (List) fileIn.readObject();
-			//Magazzino.getInstance().upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, storicoMensili, uscite, usciteMensili, utenti);
+
+			mToLoad.upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, uscite, usciteMensili, utenti);
 			
 			fileIn.close();
 			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
@@ -74,11 +74,17 @@ public class Main implements Serializable{
 			System.out.println(e.getMessage());
 			JOptionPane.showMessageDialog(null, "Caricamento non riuscito");
 			System.exit(0);
+		    } catch(Exception e){
+			System.out.println("Exception "+e.getMessage());
+			System.exit(0);
 		    }
+		}
+		else{
+		    System.exit(0);
 		}
 
 	    } catch (Exception e) {
-		JOptionPane.showMessageDialog(null, "Errore nell'aprire il file");
+		JOptionPane.showMessageDialog(null, "Errore nell'aprire il file: " + e.getMessage());
 		System.exit(0);
 	    }
 	} else {
