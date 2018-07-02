@@ -16,7 +16,7 @@ public class Magazzino implements Serializable {
     private List<Ingresso> ingressi;
     private List<Negozio> negozi;
     private List<Utente> utenti;
-    private List<Map> storicoIngressiMensili, storicoUsciteMensili;
+    private List<String> report;
     private Map<Articolo, Integer> quantita, posizione;
     private Map<Articolo,Integer> ingressiNicolo, usciteNicolo;
 
@@ -35,14 +35,9 @@ public class Magazzino implements Serializable {
 	this.ordini = new ArrayList<>();
 	this.quantita = new TreeMap<>();
 	this.posizione = new TreeMap<>();
-	this.storicoIngressiMensili = new ArrayList();
-	this.storicoUsciteMensili = new ArrayList();
         this.ingressiNicolo = new TreeMap<>();
         this.usciteNicolo = new TreeMap<>();
-	for (int i = 0; i < 12; i++) {
-	    storicoIngressiMensili.add(new HashMap());
-	    storicoUsciteMensili.add(new HashMap());
-	}
+        this.report = new ArrayList();
     }
     
     //singleton Methods
@@ -90,13 +85,8 @@ public class Magazzino implements Serializable {
 	throw new UserNotFoundException("Utente non trovato! \n Username o Password errata!");
     }
 
-    /**
-     * *********************************** USERS
-     * ***********************************
-     */
-    /**
-     * *******************************ARTICOLI*******************************************
-     */
+    
+    //ARTICOLI
     public void addArticolo(Articolo a) throws ArticleAlreadyExistException {
 	if (articoli.contains(a)) {
 	    throw new ArticleAlreadyExistException("L'articolo è già presente nella lista!");
@@ -183,13 +173,7 @@ public class Magazzino implements Serializable {
 	this.quantita.put(a, quantita);
     }
 
-    /**
-     * *******************************ARTICOLI*******************************************
-     */
-    /**
-     * ***************************************** NEGOZI
-     * **********************************************************
-     */
+    //NEGOZI
     public boolean addNegozi(Negozio i) throws ShopAlreadyExistException {
 	for (Negozio X : negozi) {
 	    if (X.equals(i)) {
@@ -443,6 +427,17 @@ public class Magazzino implements Serializable {
 
     }
     
+    public String getReportMensile(int i){
+        return report.get(i);
+    }
+    
+    public int reportSize(){
+        return report.size();
+    }
+    
+    public boolean reportIsEmpty(){
+        return report.isEmpty();
+    }
     
     public String chiusuraMensile(){
         GregorianCalendar dataOdierna = new GregorianCalendar();
@@ -455,6 +450,7 @@ public class Magazzino implements Serializable {
             s += "Nome Articolo" + X.getTipoArticolo().getName() + "\t" + usciteNicolo.get(X)+ "pezzi\n";
         ingressiNicolo.clear();
         usciteNicolo.clear();
+        report.add(s);
         return s;
     }
 

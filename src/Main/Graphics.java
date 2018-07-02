@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Graphics extends javax.swing.JFrame {
 
-    static int indexOrder = 0, indexArticle = 0, indexShop = 0, indexIngressi = 0, orderArticleSelected = 1, ingressoArticleSelected = 1, from = 0;
+    static int indexOrder = 0, indexArticle = 0, indexShop = 0, indexIngressi = 0, orderArticleSelected = 1, ingressoArticleSelected = 1, from = 0, index = 0;
     private static final Magazzino m = Magazzino.getInstance();
     public final Color C = new Color(0, 153, 255);//[0,153,255]
 
@@ -70,7 +70,7 @@ public class Graphics extends javax.swing.JFrame {
         creaNegozioPanel.setVisible(false);
         creaIngressoPanel.setVisible(false);
         visualizzaIngressiPanel.setVisible(false);
-
+        storicoPanel.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -113,6 +113,7 @@ public class Graphics extends javax.swing.JFrame {
         fineMeseButtonAdminPanel = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         typeOfUserLabel_AdminPanel = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         visualizzaArticoliPanel = new javax.swing.JPanel();
         IDLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
         prezzoLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
@@ -298,6 +299,15 @@ public class Graphics extends javax.swing.JFrame {
         closeButton_creaNegozioPanel = new javax.swing.JButton();
         modificaFromNewNegozioPanel = new javax.swing.JButton();
         sfondo = new javax.swing.JPanel();
+        storicoPanel = new javax.swing.JPanel();
+        titleLabel_StoricoMensile = new javax.swing.JLabel();
+        avantiButton_StoricoPanel = new javax.swing.JButton();
+        cercaLAbel_StoricoPanel = new javax.swing.JTextField();
+        indietroButton_StoricoPanel = new javax.swing.JButton();
+        cercaBorderLabel_Pan = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        reportMensileTextArea_ReportPanel = new javax.swing.JTextArea();
+        chiudiButton_reportPanel = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -552,7 +562,7 @@ public class Graphics extends javax.swing.JFrame {
                 fineMeseButtonAdminPanelActionPerformed(evt);
             }
         });
-        adminPanel.add(fineMeseButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, -1, -1));
+        adminPanel.add(fineMeseButtonAdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, -1, -1));
 
         jButton1.setText("Chiudi");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -564,9 +574,17 @@ public class Graphics extends javax.swing.JFrame {
 
         typeOfUserLabel_AdminPanel.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
         typeOfUserLabel_AdminPanel.setForeground(new java.awt.Color(255, 255, 255));
-        adminPanel.add(typeOfUserLabel_AdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 20, 230, 20));
+        adminPanel.add(typeOfUserLabel_AdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, 230, 20));
 
-        getContentPane().add(adminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1180, 50));
+        jButton2.setText("Storico Mensile");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        adminPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, -1, -1));
+
+        getContentPane().add(adminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1210, 50));
 
         visualizzaArticoliPanel.setBackground(new java.awt.Color(0, 153, 255));
         visualizzaArticoliPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
@@ -1761,7 +1779,101 @@ public class Graphics extends javax.swing.JFrame {
         getContentPane().add(creaNegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 230, 500, 190));
 
         sfondo.setBackground(new java.awt.Color(0, 153, 255));
+        sfondo.setForeground(new java.awt.Color(255, 255, 255));
         sfondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        storicoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        storicoPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        storicoPanel.setForeground(new java.awt.Color(255, 255, 255));
+
+        titleLabel_StoricoMensile.setFont(new java.awt.Font("Avenir Next", 0, 36)); // NOI18N
+        titleLabel_StoricoMensile.setForeground(new java.awt.Color(255, 255, 255));
+        titleLabel_StoricoMensile.setText("Storico Mensile: ");
+
+        avantiButton_StoricoPanel.setText(">");
+        avantiButton_StoricoPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avantiButton_StoricoPanelActionPerformed(evt);
+            }
+        });
+
+        cercaLAbel_StoricoPanel.setEditable(false);
+        cercaLAbel_StoricoPanel.setBackground(new java.awt.Color(0, 153, 255));
+        cercaLAbel_StoricoPanel.setForeground(new java.awt.Color(255, 255, 255));
+        cercaLAbel_StoricoPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
+        indietroButton_StoricoPanel.setText("<");
+        indietroButton_StoricoPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indietroButton_StoricoPanelActionPerformed(evt);
+            }
+        });
+
+        cercaBorderLabel_Pan.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Cerca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir Next", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        jScrollPane5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        reportMensileTextArea_ReportPanel.setBackground(new java.awt.Color(0, 153, 255));
+        reportMensileTextArea_ReportPanel.setColumns(20);
+        reportMensileTextArea_ReportPanel.setRows(5);
+        jScrollPane5.setViewportView(reportMensileTextArea_ReportPanel);
+
+        chiudiButton_reportPanel.setText("Chiudi");
+        chiudiButton_reportPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chiudiButton_reportPanelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout storicoPanelLayout = new javax.swing.GroupLayout(storicoPanel);
+        storicoPanel.setLayout(storicoPanelLayout);
+        storicoPanelLayout.setHorizontalGroup(
+            storicoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, storicoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(storicoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(storicoPanelLayout.createSequentialGroup()
+                        .addComponent(titleLabel_StoricoMensile)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(storicoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(storicoPanelLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(cercaLAbel_StoricoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(storicoPanelLayout.createSequentialGroup()
+                                .addGap(80, 80, 80)
+                                .addComponent(avantiButton_StoricoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(storicoPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(indietroButton_StoricoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cercaBorderLabel_Pan, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(storicoPanelLayout.createSequentialGroup()
+                        .addGap(0, 13, Short.MAX_VALUE)
+                        .addGroup(storicoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(chiudiButton_reportPanel)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(20, 20, 20))
+        );
+        storicoPanelLayout.setVerticalGroup(
+            storicoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(storicoPanelLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(storicoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cercaBorderLabel_Pan, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(storicoPanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(storicoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cercaLAbel_StoricoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(avantiButton_StoricoPanel)
+                            .addComponent(indietroButton_StoricoPanel)))
+                    .addComponent(titleLabel_StoricoMensile))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(chiudiButton_reportPanel))
+        );
+
+        sfondo.add(storicoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 30, 520, 360));
+
         getContentPane().add(sfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2260, 980));
 
         pack();
@@ -3795,6 +3907,53 @@ public class Graphics extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void avantiButton_StoricoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avantiButton_StoricoPanelActionPerformed
+        index++;
+        ordini();
+    }//GEN-LAST:event_avantiButton_StoricoPanelActionPerformed
+
+    private void indietroButton_StoricoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroButton_StoricoPanelActionPerformed
+        index--;
+        ordini();
+    }//GEN-LAST:event_indietroButton_StoricoPanelActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        index = 0;
+        storicoPanel.setVisible(true);
+        reportMensileTextArea_ReportPanel.setText("");
+        report();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void chiudiButton_reportPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiudiButton_reportPanelActionPerformed
+        index = 0;
+        reportMensileTextArea_ReportPanel.setText("");
+        hideAll();
+        adminPanel.setVisible(true);
+    }//GEN-LAST:event_chiudiButton_reportPanelActionPerformed
+
+    void report(){
+        if(m.reportIsEmpty()){
+            JOptionPane.showMessageDialog(null, "Nessun report ancora presente nel Database");
+            reportMensileTextArea_ReportPanel.setText("");
+            indietroButton_StoricoPanel.setEnabled(false);
+            avantiButton_StoricoPanel.setEnabled(false);
+            cercaLAbel_StoricoPanel.setText("");
+        }else{
+            if(index == 0){
+                indietroButton_StoricoPanel.setEnabled(false);
+                avantiButton_StoricoPanel.setEnabled(true);
+            }else if(index == m.reportSize()){
+                indietroButton_StoricoPanel.setEnabled(true);
+                avantiButton_StoricoPanel.setEnabled(true);
+            } else{
+                indietroButton_StoricoPanel.setEnabled(true);
+                avantiButton_StoricoPanel.setEnabled(true);
+            }
+            reportMensileTextArea_ReportPanel.setText(""+m.getReportMensile(index));
+            cercaLAbel_StoricoPanel.setText(""+index);
+            
+        }
+    }
     void articoli() {
         if (m.articoliIsEmpty()) {
             cercaLabel_VisualizzaArticoloPanel.setText("");
@@ -3929,7 +4088,7 @@ public class Graphics extends javax.swing.JFrame {
             articoliQuantitaTextArea_OrderViewPanel.setText("" + m.getOrdine(indexOrder).toString());
             corriereLabel_OrderViewPanel.setText(m.getOrdine(indexOrder).getCorriere());
             boolean isShipped = m.getOrdine(indexOrder).isShipped();
-            tabellaArticoli.getSelectionModel().setSelectionInterval(indexArticle, indexArticle);
+            tabellaOrdini.getSelectionModel().setSelectionInterval(indexOrder, indexOrder);
             if (isShipped) {
                 shippedLabel_OrderViewPanell.setForeground(Color.GREEN);
                 shippedLabel_OrderViewPanell.setText("Spedito");
@@ -3971,25 +4130,6 @@ public class Graphics extends javax.swing.JFrame {
     }
 
     void exit() {
-        /*
-        Object[] options = {"Esci", "Annulla"};//dichiaro i tipi di opzioni nel prossimo JOptionPane
-
-        if (JOptionPane.showOptionDialog(null,
-                "Sei sicuro di voler uscire dalla sezione riservata?\nConfermano si esce e per effettuare ulteriori operazioni bisogna rieffettuare il login", "Logout",
-                JOptionPane.YES_NO_CANCEL_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                options,
-                options[1]) == 0) {
-
-            hideAll();
-            usrField.setText("");
-            pinField.setText("");
-            loginPanel.setVisible(true);
-
-        }//if JOPTIONPANE
-         */
-
         hideAll();
         usrField.setText("");
         pinField.setText("");
@@ -4018,16 +4158,20 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JButton avantiButton_IngressiPanel;
     private javax.swing.JButton avantiButton_NegozioPanel;
     private javax.swing.JButton avantiButton_OrderPanel;
+    private javax.swing.JButton avantiButton_StoricoPanel;
     private javax.swing.JButton avantiButton_VisualizzaArticoloPanel;
     private javax.swing.JRadioButton basketRadioButton;
     private javax.swing.JRadioButton calcioRadioButton;
     private javax.swing.JButton cancelPinButton;
     private javax.swing.JButton cancellaButton_newArticlePanel;
+    private javax.swing.JLabel cercaBorderLabel_Pan;
+    private javax.swing.JTextField cercaLAbel_StoricoPanel;
     private javax.swing.JLabel cercaLabel_VisualizzaArticoloPanel;
     private javax.swing.JLabel cercaLabel__VisualizzaArticoliPanel;
     private javax.swing.JButton chiudiButtonIngressiPanel;
     private javax.swing.JButton chiudiButtonOrderPanel;
     private javax.swing.JButton chiudiButton_VisualizzaArticoloPanel;
+    private javax.swing.JButton chiudiButton_reportPanel;
     private javax.swing.JRadioButton ciclismoRadioButton;
     private javax.swing.JTextField cittaField_NewNegozioPanel;
     private javax.swing.JLabel cittaNegozio_NegozioPanel;
@@ -4090,6 +4234,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JButton indietroButton_IngressiPanel;
     private javax.swing.JButton indietroButton_NegozioPanel;
     private javax.swing.JButton indietroButton_OrderPanel;
+    private javax.swing.JButton indietroButton_StoricoPanel;
     private javax.swing.JButton indietroButton_VisualizzaArticoloPanel;
     private javax.swing.JTextField indirizzoField_newNegozioPanel;
     private javax.swing.JLabel indirizzoLabel_NegozioPanel;
@@ -4097,6 +4242,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JLabel ingressiIDLabel_VisualizzaIngressiPanel;
     private javax.swing.JButton inserisciButton_newArticlePanel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JFrame jFrame1;
@@ -4125,6 +4271,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel loginTitleLabel;
@@ -4196,6 +4343,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JLabel quantitaLabel_NewOrderPanel;
     private javax.swing.JLabel quantitaLabel_VisualizzaArticoloPanel;
     private javax.swing.JRadioButton raftingRadioButton;
+    private javax.swing.JTextArea reportMensileTextArea_ReportPanel;
     private javax.swing.JRadioButton rugbyRadioButton;
     private javax.swing.JButton saveButtonAdminPanel;
     private javax.swing.JRadioButton sciiRadioButton;
@@ -4208,9 +4356,11 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JRadioButton siliconeRadioButton;
     private javax.swing.JLabel sportLabelTipoArticolo_newArticlePanel;
     private javax.swing.JLabel sportLabel_VisualizzaArticoloPanel;
+    private javax.swing.JPanel storicoPanel;
     private javax.swing.JTable tabellaArticoli;
     private javax.swing.JTable tabellaOrdini;
     private javax.swing.JRadioButton tennisRadioButton;
+    private javax.swing.JLabel titleLabel_StoricoMensile;
     private javax.swing.JLabel titleLabel__VisualizzaArticoliPanel;
     private javax.swing.JLabel titolo_newArticlePanel;
     private javax.swing.JLabel typeOfUserLabel_AdminPanel;
