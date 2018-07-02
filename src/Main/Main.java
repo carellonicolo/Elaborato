@@ -43,6 +43,7 @@ public class Main implements Serializable{
 	int buttonPressed = JOptionPane.showOptionDialog(null, "Caricare un Magazzino già esistente o crearne uno nuovo?", "Messaggio d'apertura", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
 
 	if (buttonPressed == 0) {
+	    
 	    try {
 		JFileChooser jfc = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("File dati binari (.dat)", "dat");
@@ -52,24 +53,15 @@ public class Main implements Serializable{
 
 		if (button == JFileChooser.APPROVE_OPTION) {
 		    try {
+			
 			file = jfc.getSelectedFile();
 			ObjectInputStream fileIn = new ObjectInputStream(new FileInputStream((file)));
-			Magazzino mToLoad = Magazzino.getInstance();
-			List<Articolo> articoli = (List) fileIn.readObject();
-			List<Ingresso> ingressi = (List) fileIn.readObject();
-			Map<Articolo, Integer> ingressiMensili = (Map) fileIn.readObject();
-			List<Negozio> negozi = (List) fileIn.readObject();
-			List<Ordine> ordini = (List) fileIn.readObject();
-			Map<Articolo, Integer> posizione = (Map) fileIn.readObject();
-			Map<Articolo, Integer> quantita = (Map) fileIn.readObject();
-			List<Uscita> uscite = (List) fileIn.readObject();
-			Map<Articolo, Integer> usciteMensili = (Map) fileIn.readObject();
-			List<Utente> utenti = (List) fileIn.readObject();
-
-			mToLoad.upload(articoli, ingressi, ingressiMensili, negozi, ordini, posizione, quantita, uscite, usciteMensili, utenti);
 			
+			Magazzino.uploadInstance(fileIn);
+
 			fileIn.close();
 			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
+		    
 		    } catch (HeadlessException | IOException | ClassNotFoundException e) {
 			System.out.println(e.getMessage());
 			JOptionPane.showMessageDialog(null, "Caricamento non riuscito");

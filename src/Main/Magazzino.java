@@ -45,7 +45,9 @@ public class Magazzino implements Serializable {
 	return INSTANCE;
     }
 
-
+    public static void uploadInstance(ObjectInputStream ois) throws IOException, ClassNotFoundException{
+	INSTANCE = (Magazzino) ois.readObject();
+    }
     
     
     
@@ -369,6 +371,11 @@ public class Magazzino implements Serializable {
      * SAVE DATA IN FILE
      */
     public void save() {
+	
+	for(){
+	    
+	}
+	
 	try {
 	    JFileChooser jfc = new JFileChooser();
 	    FileNameExtensionFilter filter = new FileNameExtensionFilter("File dati binari (.dat)", "dat");
@@ -381,16 +388,7 @@ public class Magazzino implements Serializable {
 		try {
 		    file = jfc.getSelectedFile();
 		    ObjectOutputStream fileOut = new ObjectOutputStream(new FileOutputStream((file)));
-		    fileOut.writeObject(this.articoli);
-		    fileOut.writeObject(this.ingressi);
-		    fileOut.writeObject(this.ingressiMensili);
-		    fileOut.writeObject(this.negozi);
-		    fileOut.writeObject(this.ordini);
-		    fileOut.writeObject(this.posizione);
-		    fileOut.writeObject(this.quantita);
-		    fileOut.writeObject(this.uscite);
-		    fileOut.writeObject(this.usciteMensili);
-		    fileOut.writeObject(this.utenti);
+		    fileOut.writeObject(INSTANCE);
 		    fileOut.flush();
 		    fileOut.close();
 		    JOptionPane.showMessageDialog(null, "Salvataggio riuscito");
@@ -402,25 +400,6 @@ public class Magazzino implements Serializable {
 	} catch (HeadlessException e) {
 	    JOptionPane.showMessageDialog(null, "Errore nell'aprire il file");
 	}
-    }
-
-    protected void upload(List<Articolo> articoliLoad, List<Ingresso> ingressiLoad, Map<Articolo, Integer> ingressiMensiliLoad,
-	    List<Negozio> negoziLoad, List<Ordine> ordiniLoad, Map<Articolo, Integer> posizioneLoad, Map<Articolo, Integer> quantitaLoad,
-	    List<Uscita> usciteLoad, Map<Articolo, Integer> usciteMensiliLoad, List<Utente> utentiLoad) {
-	if (articoliLoad.get(0).getData() == null) {
-	    JOptionPane.showMessageDialog(null, "Articoli null");
-	}
-	this.articoli = articoliLoad;
-	this.ingressi = ingressiLoad;
-	this.ingressiMensili = ingressiMensiliLoad;
-	this.negozi = negoziLoad;
-	this.ordini = ordiniLoad;
-	this.posizione = posizioneLoad;
-	this.quantita = quantitaLoad;
-	this.uscite = usciteLoad;
-	this.usciteMensili = usciteMensiliLoad;
-	this.utenti = utentiLoad;
-
     }
 
     public String getReportMensile(int i) {
