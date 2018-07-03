@@ -191,7 +191,7 @@ public class Magazzino implements Serializable {
 	Collections.sort(negozi);
     }
 
-    public Negozio getNegozi(int i) {
+    public Negozio getNegozio(int i) {
 	return negozi.get(i);
     }
 
@@ -347,7 +347,11 @@ public class Magazzino implements Serializable {
     public int ordineSize() {
 	return ordini.size();
     }
-
+    
+    public void setOrdine(int i, Ordine o){
+        ordini.remove(i);
+        ordini.add(i, o);
+    } 
     public boolean isShipped(int i) {
 	return ordini.get(i).isShipped();
     }
@@ -372,6 +376,12 @@ public class Magazzino implements Serializable {
      */
     public void save() {
 	
+<<<<<<< HEAD
+=======
+	    
+	
+	
+>>>>>>> 47483a1e47a00664f8b52ff5c0bd2df38e7db0d0
 	try {
 	    JFileChooser jfc = new JFileChooser();
 	    FileNameExtensionFilter filter = new FileNameExtensionFilter("File dati binari (.dat)", "dat");

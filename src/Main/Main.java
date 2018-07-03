@@ -60,8 +60,8 @@ public class Main implements Serializable{
 			Magazzino.uploadInstance(fileIn);
 
 			fileIn.close();
-			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
-		    
+			JOptionPane.showMessageDialog(null, "Caricamento riuscito\n ID primo articolo: "+ Magazzino.getInstance().getArticolo(0).getID()+"\nsecondoID: "+ Magazzino.getInstance().getArticolo(1).getID());
+                        
 		    } catch (HeadlessException | IOException | ClassNotFoundException e) {
 			System.out.println(e.getMessage());
 			JOptionPane.showMessageDialog(null, "Caricamento non riuscito");
