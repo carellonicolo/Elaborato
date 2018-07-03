@@ -82,9 +82,9 @@ public class Main implements Serializable{
 	    //ISTANZIO UN PO DI OGGETTI DA USARE COME PROVA
 	    try {
                 Magazzino m = Magazzino.getInstance();
-		m.addUser(new Utente("utente1", "ciao1", 1));
-                m.addUser(new Utente("utente2", "ciao2", 2));
-                m.addUser(new Utente("utente3", "ciao3", 3));
+		m.addUser(new Utente("ingegneria-software", "magazziniere", 1));
+                m.addUser(new Utente("nicolocarello", "segreteria", 2));
+                m.addUser(new Utente("stefanospada", "responsabile", 3));
                 
 		Articolo a1 = new Articolo((float) 14, new TipoArticolo("nome1", "Desrizione1", 2, 1));
 		Articolo a2 = new Articolo((float) 17, new TipoArticolo("nome2", "Desrizione2", 3, 3));

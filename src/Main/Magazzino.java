@@ -78,6 +78,9 @@ public class Magazzino implements Serializable {
 
     public int loginHashCode(Utente u) throws UserNotFoundException {
 	for (Utente X : utenti) {
+            System.out.println("123:"+X.hashCode());
+            System.out.println("u" +u.hashCode());
+            System.out.println();
 	    if (u.hashCode() == X.hashCode()) {
 		return X.getTypeInt();
 	    }
@@ -371,10 +374,7 @@ public class Magazzino implements Serializable {
 	throw new OrderNotFound("Impossibile trovare l'ordine specificato!");
     }
 
-    /**
-     * ****************************************** ORDINI
-     * *******************************************************
-     */
+
     /**
      * SAVE DATA IN FILE
      */

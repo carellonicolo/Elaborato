@@ -4,18 +4,10 @@ import java.io.Serializable;
 
 public class Utente implements UserInterface, Comparable<Utente>, Serializable{
     
-    public static final String typeOfUsers[] = {"Magazziniere", "Segreteria Amministrativa", "Responsabile Negozi"};
-    
-    public enum typeUser{
-        Magazziniere,
-        Segreteria_amministrativa,
-        Responsabile_negozi
-    }
-    
+        
     private String usr;
     private String pwd;
     private int t; 
-    
     
     /*********************COSTRUTTORE**********************/
     public Utente(String user, String password, int type){
@@ -113,7 +105,7 @@ public class Utente implements UserInterface, Comparable<Utente>, Serializable{
     /*****************************************TO-STRING*******************************************/
     @Override
     public String toString(){//per sicurezza non passo la password in chiaro
-        return "Username: "+usr+"\nPassword: "+"********\n"+"Tipo Account: "+t+" - "+typeOfUsers[t];
+        return "Username: "+usr+"\nPassword: "+"********\n"+"Tipo Account: "+t+" ";
     }
 
 }//fine Utente

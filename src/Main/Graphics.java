@@ -84,6 +84,42 @@ public class Graphics extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         SportButtonGroup = new javax.swing.ButtonGroup();
         MaterialiBottonGroup = new javax.swing.ButtonGroup();
+        visualizzaIngressiPanel = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        indietroButton_IngressiPanel = new javax.swing.JButton();
+        avantiButton_IngressiPanel = new javax.swing.JButton();
+        chiudiButtonIngressiPanel = new javax.swing.JButton();
+        searchFieldIngressiPanel = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        newIngressoButton_IngressiPanel = new javax.swing.JButton();
+        ingressiIDLabel_VisualizzaIngressiPanel = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        articoliQuantitaPosizioneIngressiPanel = new javax.swing.JTextArea();
+        dataLabel_VisualizzaIngressiPanel = new javax.swing.JLabel();
+        duplicaIngressoButton_IngressiPanel = new javax.swing.JButton();
+        visualizzaArticoliPanel = new javax.swing.JPanel();
+        IDLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
+        prezzoLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
+        posizioneLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
+        nomeLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
+        descrizioneLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
+        sportLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
+        materialiLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
+        avantiButton_VisualizzaArticoloPanel = new javax.swing.JButton();
+        indietroButton_VisualizzaArticoloPanel = new javax.swing.JButton();
+        modificaButton_cercaLabel__VisualizzaArticoliPanel = new javax.swing.JButton();
+        creaArticoloButtoncercaLabel_VisualizzaArticoliPanel = new javax.swing.JButton();
+        chiudiButton_VisualizzaArticoloPanel = new javax.swing.JButton();
+        TipoArticoloLabel__VisualizzaArticoliPanel = new javax.swing.JLabel();
+        cercaLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
+        cercaLabel__VisualizzaArticoliPanel = new javax.swing.JLabel();
+        dataLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
+        quantitaLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
+        modificaPosizioneViewArticoliPanel = new javax.swing.JButton();
+        titleLabel__VisualizzaArticoliPanel = new javax.swing.JLabel();
+        eliminaButton_VisualizzaArticoloPanel = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabellaArticoli = new javax.swing.JTable();
         loginPanel = new javax.swing.JPanel();
         pinField = new javax.swing.JPasswordField();
         cancelPinButton = new javax.swing.JButton();
@@ -226,18 +262,6 @@ public class Graphics extends javax.swing.JFrame {
         yearField_newIngressoPanel = new javax.swing.JTextField();
         dataLabel_newIngressoPanel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        visualizzaIngressiPanel = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        indietroButton_IngressiPanel = new javax.swing.JButton();
-        avantiButton_IngressiPanel = new javax.swing.JButton();
-        chiudiButtonIngressiPanel = new javax.swing.JButton();
-        searchFieldIngressiPanel = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        newIngressoButton_IngressiPanel = new javax.swing.JButton();
-        ingressiIDLabel_VisualizzaIngressiPanel = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        articoliQuantitaPosizioneIngressiPanel = new javax.swing.JTextArea();
-        dataLabel_VisualizzaIngressiPanel = new javax.swing.JLabel();
         creaNegozioPanel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         indirizzoField_newNegozioPanel = new javax.swing.JTextField();
@@ -257,29 +281,6 @@ public class Graphics extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         reportMensileTextArea_ReportPanel = new javax.swing.JTextArea();
         chiudiButton_reportPanel = new javax.swing.JButton();
-        visualizzaArticoliPanel = new javax.swing.JPanel();
-        IDLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
-        prezzoLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
-        posizioneLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
-        nomeLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
-        descrizioneLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
-        sportLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
-        materialiLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
-        avantiButton_VisualizzaArticoloPanel = new javax.swing.JButton();
-        indietroButton_VisualizzaArticoloPanel = new javax.swing.JButton();
-        modificaButton_cercaLabel__VisualizzaArticoliPanel = new javax.swing.JButton();
-        creaArticoloButtoncercaLabel_VisualizzaArticoliPanel = new javax.swing.JButton();
-        chiudiButton_VisualizzaArticoloPanel = new javax.swing.JButton();
-        TipoArticoloLabel__VisualizzaArticoliPanel = new javax.swing.JLabel();
-        cercaLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
-        cercaLabel__VisualizzaArticoliPanel = new javax.swing.JLabel();
-        dataLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
-        quantitaLabel_VisualizzaArticoloPanel = new javax.swing.JLabel();
-        modificaPosizioneViewArticoliPanel = new javax.swing.JButton();
-        titleLabel__VisualizzaArticoliPanel = new javax.swing.JLabel();
-        eliminaButton_VisualizzaArticoloPanel = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabellaArticoli = new javax.swing.JTable();
         creaNuovoOrdinePanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         creaOrdineButton_orderViewPanel = new javax.swing.JButton();
@@ -347,6 +348,300 @@ public class Graphics extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        visualizzaIngressiPanel.setBackground(new java.awt.Color(0, 153, 255));
+        visualizzaIngressiPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        visualizzaIngressiPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setFont(new java.awt.Font("Avenir", 0, 30)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Visualizza Ingressi:");
+        visualizzaIngressiPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        indietroButton_IngressiPanel.setBackground(new java.awt.Color(0, 0, 0));
+        indietroButton_IngressiPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        indietroButton_IngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
+        indietroButton_IngressiPanel.setText("<");
+        indietroButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indietroButton_IngressiPanelActionPerformed(evt);
+            }
+        });
+        visualizzaIngressiPanel.add(indietroButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 41, -1));
+
+        avantiButton_IngressiPanel.setBackground(new java.awt.Color(0, 0, 0));
+        avantiButton_IngressiPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        avantiButton_IngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
+        avantiButton_IngressiPanel.setText(">");
+        avantiButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avantiButton_IngressiPanelActionPerformed(evt);
+            }
+        });
+        visualizzaIngressiPanel.add(avantiButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 40, -1));
+
+        chiudiButtonIngressiPanel.setBackground(new java.awt.Color(0, 0, 0));
+        chiudiButtonIngressiPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        chiudiButtonIngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
+        chiudiButtonIngressiPanel.setText("Chiudi");
+        chiudiButtonIngressiPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chiudiButtonIngressiPanelActionPerformed(evt);
+            }
+        });
+        visualizzaIngressiPanel.add(chiudiButtonIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 120, -1));
+
+        searchFieldIngressiPanel.setEditable(false);
+        searchFieldIngressiPanel.setBackground(new java.awt.Color(0, 153, 255));
+        searchFieldIngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
+        searchFieldIngressiPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        visualizzaIngressiPanel.add(searchFieldIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 30, 20));
+
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "cerca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir Next", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaIngressiPanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 130, 60));
+
+        newIngressoButton_IngressiPanel.setBackground(new java.awt.Color(0, 0, 0));
+        newIngressoButton_IngressiPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        newIngressoButton_IngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
+        newIngressoButton_IngressiPanel.setText("Crea Nuovo Ingresso");
+        newIngressoButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newIngressoButton_IngressiPanelActionPerformed(evt);
+            }
+        });
+        visualizzaIngressiPanel.add(newIngressoButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, -1, -1));
+
+        ingressiIDLabel_VisualizzaIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
+        ingressiIDLabel_VisualizzaIngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
+        ingressiIDLabel_VisualizzaIngressiPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        ingressiIDLabel_VisualizzaIngressiPanel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        visualizzaIngressiPanel.add(ingressiIDLabel_VisualizzaIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 140, 60));
+
+        jScrollPane3.setBorder(null);
+
+        articoliQuantitaPosizioneIngressiPanel.setEditable(false);
+        articoliQuantitaPosizioneIngressiPanel.setBackground(new java.awt.Color(0, 153, 255));
+        articoliQuantitaPosizioneIngressiPanel.setColumns(20);
+        articoliQuantitaPosizioneIngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
+        articoliQuantitaPosizioneIngressiPanel.setRows(5);
+        articoliQuantitaPosizioneIngressiPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jScrollPane3.setViewportView(articoliQuantitaPosizioneIngressiPanel);
+
+        visualizzaIngressiPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 470, 290));
+
+        dataLabel_VisualizzaIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
+        dataLabel_VisualizzaIngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
+        dataLabel_VisualizzaIngressiPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        dataLabel_VisualizzaIngressiPanel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        visualizzaIngressiPanel.add(dataLabel_VisualizzaIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 160, 60));
+
+        duplicaIngressoButton_IngressiPanel.setBackground(new java.awt.Color(0, 0, 0));
+        duplicaIngressoButton_IngressiPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        duplicaIngressoButton_IngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
+        duplicaIngressoButton_IngressiPanel.setText("Effettua Nuovamente l'ingresso");
+        duplicaIngressoButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                duplicaIngressoButton_IngressiPanelActionPerformed(evt);
+            }
+        });
+        visualizzaIngressiPanel.add(duplicaIngressoButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 250, -1));
+
+        getContentPane().add(visualizzaIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 490, 490));
+
+        visualizzaArticoliPanel.setBackground(new java.awt.Color(0, 153, 255));
+        visualizzaArticoliPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        visualizzaArticoliPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        IDLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        IDLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        IDLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaArticoliPanel.add(IDLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 190, 50));
+
+        prezzoLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        prezzoLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        prezzoLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Prezzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaArticoliPanel.add(prezzoLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 190, 50));
+
+        posizioneLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        posizioneLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        posizioneLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Posizione", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaArticoliPanel.add(posizioneLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 190, 50));
+
+        nomeLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        nomeLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        nomeLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaArticoliPanel.add(nomeLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 200, 50));
+
+        descrizioneLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        descrizioneLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        descrizioneLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Descrizione", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaArticoliPanel.add(descrizioneLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 200, 50));
+
+        sportLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        sportLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        sportLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Sport", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaArticoliPanel.add(sportLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 200, 50));
+
+        materialiLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        materialiLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        materialiLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Materiale", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaArticoliPanel.add(materialiLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 200, 50));
+
+        avantiButton_VisualizzaArticoloPanel.setBackground(new java.awt.Color(0, 0, 0));
+        avantiButton_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        avantiButton_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        avantiButton_VisualizzaArticoloPanel.setText(">");
+        avantiButton_VisualizzaArticoloPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avantiButton_VisualizzaArticoloPanelActionPerformed(evt);
+            }
+        });
+        visualizzaArticoliPanel.add(avantiButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 40, 30));
+
+        indietroButton_VisualizzaArticoloPanel.setBackground(new java.awt.Color(0, 0, 0));
+        indietroButton_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        indietroButton_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        indietroButton_VisualizzaArticoloPanel.setText("<");
+        indietroButton_VisualizzaArticoloPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indietroButton_VisualizzaArticoloPanelActionPerformed(evt);
+            }
+        });
+        visualizzaArticoliPanel.add(indietroButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 41, -1));
+
+        modificaButton_cercaLabel__VisualizzaArticoliPanel.setBackground(new java.awt.Color(0, 0, 0));
+        modificaButton_cercaLabel__VisualizzaArticoliPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        modificaButton_cercaLabel__VisualizzaArticoliPanel.setForeground(new java.awt.Color(255, 255, 255));
+        modificaButton_cercaLabel__VisualizzaArticoliPanel.setText("Modifica");
+        modificaButton_cercaLabel__VisualizzaArticoliPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificaButton_cercaLabel__VisualizzaArticoliPanelActionPerformed(evt);
+            }
+        });
+        visualizzaArticoliPanel.add(modificaButton_cercaLabel__VisualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, 180, -1));
+
+        creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.setBackground(new java.awt.Color(0, 0, 0));
+        creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.setForeground(new java.awt.Color(255, 255, 255));
+        creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.setText("Crea Articolo");
+        creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                creaArticoloButtoncercaLabel_VisualizzaArticoliPanelActionPerformed(evt);
+            }
+        });
+        visualizzaArticoliPanel.add(creaArticoloButtoncercaLabel_VisualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 360, 170, -1));
+
+        chiudiButton_VisualizzaArticoloPanel.setBackground(new java.awt.Color(0, 0, 0));
+        chiudiButton_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        chiudiButton_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        chiudiButton_VisualizzaArticoloPanel.setText("Chiudi");
+        chiudiButton_VisualizzaArticoloPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chiudiButton_VisualizzaArticoloPanelActionPerformed(evt);
+            }
+        });
+        visualizzaArticoliPanel.add(chiudiButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 150, -1));
+
+        TipoArticoloLabel__VisualizzaArticoliPanel.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        TipoArticoloLabel__VisualizzaArticoliPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Tipo Articolo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaArticoliPanel.add(TipoArticoloLabel__VisualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 270, 280));
+
+        cercaLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        cercaLabel_VisualizzaArticoloPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        visualizzaArticoliPanel.add(cercaLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 30, 30));
+
+        cercaLabel__VisualizzaArticoliPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        cercaLabel__VisualizzaArticoliPanel.setForeground(new java.awt.Color(255, 255, 255));
+        cercaLabel__VisualizzaArticoliPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Cerca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaArticoliPanel.add(cercaLabel__VisualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 130, 60));
+
+        dataLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        dataLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        dataLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Data inserimento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaArticoliPanel.add(dataLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 190, 50));
+
+        quantitaLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
+        quantitaLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        quantitaLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Quantità", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
+        visualizzaArticoliPanel.add(quantitaLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 190, 50));
+
+        modificaPosizioneViewArticoliPanel.setBackground(new java.awt.Color(0, 0, 0));
+        modificaPosizioneViewArticoliPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        modificaPosizioneViewArticoliPanel.setForeground(new java.awt.Color(255, 255, 255));
+        modificaPosizioneViewArticoliPanel.setText("Modifica posizione");
+        modificaPosizioneViewArticoliPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificaPosizioneViewArticoliPanelActionPerformed(evt);
+            }
+        });
+        visualizzaArticoliPanel.add(modificaPosizioneViewArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 360, 190, -1));
+
+        titleLabel__VisualizzaArticoliPanel.setBackground(new java.awt.Color(0, 153, 255));
+        titleLabel__VisualizzaArticoliPanel.setFont(new java.awt.Font("Avenir", 0, 36)); // NOI18N
+        titleLabel__VisualizzaArticoliPanel.setForeground(new java.awt.Color(255, 255, 255));
+        titleLabel__VisualizzaArticoliPanel.setText("Visualizza Articoli");
+        visualizzaArticoliPanel.add(titleLabel__VisualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 330, 50));
+
+        eliminaButton_VisualizzaArticoloPanel.setBackground(new java.awt.Color(0, 0, 0));
+        eliminaButton_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
+        eliminaButton_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
+        eliminaButton_VisualizzaArticoloPanel.setText("Elimina");
+        eliminaButton_VisualizzaArticoloPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminaButton_VisualizzaArticoloPanelActionPerformed(evt);
+            }
+        });
+        visualizzaArticoliPanel.add(eliminaButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 150, -1));
+
+        jScrollPane2.setToolTipText("");
+
+        tabellaArticoli.setBackground(new java.awt.Color(0, 153, 255));
+        tabellaArticoli.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
+        tabellaArticoli.setForeground(new java.awt.Color(255, 255, 255));
+        tabellaArticoli.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Articolo", "Prezzo", "sport", "Materiale", "Quantità", "Posizione"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabellaArticoli.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tabellaArticoli.setSelectionForeground(new java.awt.Color(0, 153, 255));
+        tabellaArticoli.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabellaArticoli.setShowGrid(true);
+        tabellaArticoli.getTableHeader().setReorderingAllowed(false);
+        tabellaArticoli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabellaArticoliMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tabellaArticoli);
+        if (tabellaArticoli.getColumnModel().getColumnCount() > 0) {
+            tabellaArticoli.getColumnModel().getColumn(2).setMaxWidth(50);
+            tabellaArticoli.getColumnModel().getColumn(5).setMaxWidth(80);
+            tabellaArticoli.getColumnModel().getColumn(6).setMaxWidth(80);
+        }
+
+        visualizzaArticoliPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, 600, 310));
+
+        getContentPane().add(visualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, 1160, 400));
 
         loginPanel.setBackground(new java.awt.Color(0, 153, 255));
         loginPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
@@ -518,12 +813,12 @@ public class Graphics extends javax.swing.JFrame {
         articoliQuantitaTextArea_OrderViewPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Articoli e Quantità", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Grande", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
         jScrollPane1.setViewportView(articoliQuantitaTextArea_OrderViewPanel);
 
-        visualizzaOrdiniPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 260, 310));
+        visualizzaOrdiniPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 260, 310));
 
         shippedLabel_OrderViewPanell.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
         shippedLabel_OrderViewPanell.setForeground(new java.awt.Color(255, 255, 255));
         shippedLabel_OrderViewPanell.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Stato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaOrdiniPanel.add(shippedLabel_OrderViewPanell, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 260, 60));
+        visualizzaOrdiniPanel.add(shippedLabel_OrderViewPanell, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 260, 60));
 
         generaUscitaButton_OrderViewPanel.setBackground(new java.awt.Color(0, 0, 0));
         generaUscitaButton_OrderViewPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
@@ -567,7 +862,6 @@ public class Graphics extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tabellaOrdini.setColumnSelectionAllowed(true);
         tabellaOrdini.setSelectionBackground(new java.awt.Color(255, 255, 255));
         tabellaOrdini.setSelectionForeground(new java.awt.Color(0, 153, 255));
         tabellaOrdini.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -629,7 +923,7 @@ public class Graphics extends javax.swing.JFrame {
                 avantiButton_NegozioPanelActionPerformed(evt);
             }
         });
-        negoziPanel.add(avantiButton_NegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 40, -1));
+        negoziPanel.add(avantiButton_NegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 40, -1));
 
         indietroButton_NegozioPanel.setBackground(new java.awt.Color(0, 0, 0));
         indietroButton_NegozioPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
@@ -640,11 +934,15 @@ public class Graphics extends javax.swing.JFrame {
                 indietroButton_NegozioPanelActionPerformed(evt);
             }
         });
-        negoziPanel.add(indietroButton_NegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 41, -1));
-        negoziPanel.add(searchField_NegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 93, -1));
+        negoziPanel.add(indietroButton_NegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 41, -1));
+
+        searchField_NegozioPanel.setBackground(new java.awt.Color(0, 153, 255));
+        searchField_NegozioPanel.setForeground(new java.awt.Color(255, 255, 255));
+        searchField_NegozioPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        negoziPanel.add(searchField_NegozioPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 40, 30));
 
         jLabel21.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2), "Cerca", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
-        negoziPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 200, 50));
+        negoziPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 170, 60));
 
         modificaButton_NegozioPanel.setBackground(new java.awt.Color(0, 0, 0));
         modificaButton_NegozioPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
@@ -1351,95 +1649,6 @@ public class Graphics extends javax.swing.JFrame {
 
         getContentPane().add(creaIngressoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1350, 440, 530, 450));
 
-        visualizzaIngressiPanel.setBackground(new java.awt.Color(0, 153, 255));
-        visualizzaIngressiPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        visualizzaIngressiPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel16.setFont(new java.awt.Font("Avenir", 0, 30)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Visualizza Ingressi:");
-        visualizzaIngressiPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        indietroButton_IngressiPanel.setBackground(new java.awt.Color(0, 0, 0));
-        indietroButton_IngressiPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
-        indietroButton_IngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
-        indietroButton_IngressiPanel.setText("<");
-        indietroButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                indietroButton_IngressiPanelActionPerformed(evt);
-            }
-        });
-        visualizzaIngressiPanel.add(indietroButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 41, -1));
-
-        avantiButton_IngressiPanel.setBackground(new java.awt.Color(0, 0, 0));
-        avantiButton_IngressiPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
-        avantiButton_IngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
-        avantiButton_IngressiPanel.setText(">");
-        avantiButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                avantiButton_IngressiPanelActionPerformed(evt);
-            }
-        });
-        visualizzaIngressiPanel.add(avantiButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 40, -1));
-
-        chiudiButtonIngressiPanel.setBackground(new java.awt.Color(0, 0, 0));
-        chiudiButtonIngressiPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
-        chiudiButtonIngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
-        chiudiButtonIngressiPanel.setText("Chiudi");
-        chiudiButtonIngressiPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chiudiButtonIngressiPanelActionPerformed(evt);
-            }
-        });
-        visualizzaIngressiPanel.add(chiudiButtonIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 120, -1));
-
-        searchFieldIngressiPanel.setEditable(false);
-        searchFieldIngressiPanel.setBackground(new java.awt.Color(0, 153, 255));
-        searchFieldIngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
-        searchFieldIngressiPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        visualizzaIngressiPanel.add(searchFieldIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 30, 20));
-
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "cerca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Avenir Next", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaIngressiPanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 130, 60));
-
-        newIngressoButton_IngressiPanel.setBackground(new java.awt.Color(0, 0, 0));
-        newIngressoButton_IngressiPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
-        newIngressoButton_IngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
-        newIngressoButton_IngressiPanel.setText("Crea Nuovo Ingresso");
-        newIngressoButton_IngressiPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newIngressoButton_IngressiPanelActionPerformed(evt);
-            }
-        });
-        visualizzaIngressiPanel.add(newIngressoButton_IngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, -1, -1));
-
-        ingressiIDLabel_VisualizzaIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
-        ingressiIDLabel_VisualizzaIngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
-        ingressiIDLabel_VisualizzaIngressiPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        ingressiIDLabel_VisualizzaIngressiPanel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        visualizzaIngressiPanel.add(ingressiIDLabel_VisualizzaIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 140, 60));
-
-        jScrollPane3.setBorder(null);
-
-        articoliQuantitaPosizioneIngressiPanel.setEditable(false);
-        articoliQuantitaPosizioneIngressiPanel.setBackground(new java.awt.Color(0, 153, 255));
-        articoliQuantitaPosizioneIngressiPanel.setColumns(20);
-        articoliQuantitaPosizioneIngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
-        articoliQuantitaPosizioneIngressiPanel.setRows(5);
-        articoliQuantitaPosizioneIngressiPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jScrollPane3.setViewportView(articoliQuantitaPosizioneIngressiPanel);
-
-        visualizzaIngressiPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 470, 290));
-
-        dataLabel_VisualizzaIngressiPanel.setFont(new java.awt.Font("Avenir", 0, 15)); // NOI18N
-        dataLabel_VisualizzaIngressiPanel.setForeground(new java.awt.Color(255, 255, 255));
-        dataLabel_VisualizzaIngressiPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        dataLabel_VisualizzaIngressiPanel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        visualizzaIngressiPanel.add(dataLabel_VisualizzaIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 160, 60));
-
-        getContentPane().add(visualizzaIngressiPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 490, 450));
-
         creaNegozioPanel.setBackground(new java.awt.Color(0, 153, 255));
         creaNegozioPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         creaNegozioPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1632,200 +1841,6 @@ public class Graphics extends javax.swing.JFrame {
         );
 
         sfondo.add(storicoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 30, 520, 360));
-
-        visualizzaArticoliPanel.setBackground(new java.awt.Color(0, 153, 255));
-        visualizzaArticoliPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        visualizzaArticoliPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        IDLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        IDLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        IDLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaArticoliPanel.add(IDLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 190, 50));
-
-        prezzoLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        prezzoLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        prezzoLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Prezzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaArticoliPanel.add(prezzoLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 190, 50));
-
-        posizioneLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        posizioneLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        posizioneLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Posizione", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaArticoliPanel.add(posizioneLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 190, 50));
-
-        nomeLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        nomeLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        nomeLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaArticoliPanel.add(nomeLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 200, 50));
-
-        descrizioneLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        descrizioneLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        descrizioneLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Descrizione", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaArticoliPanel.add(descrizioneLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 200, 50));
-
-        sportLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        sportLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        sportLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Sport", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaArticoliPanel.add(sportLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 200, 50));
-
-        materialiLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        materialiLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        materialiLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Materiale", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaArticoliPanel.add(materialiLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 200, 50));
-
-        avantiButton_VisualizzaArticoloPanel.setBackground(new java.awt.Color(0, 0, 0));
-        avantiButton_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
-        avantiButton_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        avantiButton_VisualizzaArticoloPanel.setText(">");
-        avantiButton_VisualizzaArticoloPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                avantiButton_VisualizzaArticoloPanelActionPerformed(evt);
-            }
-        });
-        visualizzaArticoliPanel.add(avantiButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 40, 30));
-
-        indietroButton_VisualizzaArticoloPanel.setBackground(new java.awt.Color(0, 0, 0));
-        indietroButton_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
-        indietroButton_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        indietroButton_VisualizzaArticoloPanel.setText("<");
-        indietroButton_VisualizzaArticoloPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                indietroButton_VisualizzaArticoloPanelActionPerformed(evt);
-            }
-        });
-        visualizzaArticoliPanel.add(indietroButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 41, -1));
-
-        modificaButton_cercaLabel__VisualizzaArticoliPanel.setBackground(new java.awt.Color(0, 0, 0));
-        modificaButton_cercaLabel__VisualizzaArticoliPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
-        modificaButton_cercaLabel__VisualizzaArticoliPanel.setForeground(new java.awt.Color(255, 255, 255));
-        modificaButton_cercaLabel__VisualizzaArticoliPanel.setText("Modifica");
-        modificaButton_cercaLabel__VisualizzaArticoliPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificaButton_cercaLabel__VisualizzaArticoliPanelActionPerformed(evt);
-            }
-        });
-        visualizzaArticoliPanel.add(modificaButton_cercaLabel__VisualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, -1));
-
-        creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.setBackground(new java.awt.Color(0, 0, 0));
-        creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
-        creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.setForeground(new java.awt.Color(255, 255, 255));
-        creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.setText("Crea Articolo");
-        creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                creaArticoloButtoncercaLabel_VisualizzaArticoliPanelActionPerformed(evt);
-            }
-        });
-        visualizzaArticoliPanel.add(creaArticoloButtoncercaLabel_VisualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, -1, -1));
-
-        chiudiButton_VisualizzaArticoloPanel.setBackground(new java.awt.Color(0, 0, 0));
-        chiudiButton_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
-        chiudiButton_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        chiudiButton_VisualizzaArticoloPanel.setText("Chiudi");
-        chiudiButton_VisualizzaArticoloPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chiudiButton_VisualizzaArticoloPanelActionPerformed(evt);
-            }
-        });
-        visualizzaArticoliPanel.add(chiudiButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, -1, -1));
-
-        TipoArticoloLabel__VisualizzaArticoliPanel.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
-        TipoArticoloLabel__VisualizzaArticoliPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Tipo Articolo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaArticoliPanel.add(TipoArticoloLabel__VisualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 270, 280));
-
-        cercaLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        cercaLabel_VisualizzaArticoloPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        visualizzaArticoliPanel.add(cercaLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 30, 30));
-
-        cercaLabel__VisualizzaArticoliPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        cercaLabel__VisualizzaArticoliPanel.setForeground(new java.awt.Color(255, 255, 255));
-        cercaLabel__VisualizzaArticoliPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Cerca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaArticoliPanel.add(cercaLabel__VisualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 130, 60));
-
-        dataLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        dataLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        dataLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Data inserimento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaArticoliPanel.add(dataLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 190, 50));
-
-        quantitaLabel_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir", 0, 13)); // NOI18N
-        quantitaLabel_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        quantitaLabel_VisualizzaArticoloPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Quantità", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Avenir", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
-        visualizzaArticoliPanel.add(quantitaLabel_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 190, 50));
-
-        modificaPosizioneViewArticoliPanel.setBackground(new java.awt.Color(0, 0, 0));
-        modificaPosizioneViewArticoliPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
-        modificaPosizioneViewArticoliPanel.setForeground(new java.awt.Color(255, 255, 255));
-        modificaPosizioneViewArticoliPanel.setText("Modifica posizione");
-        modificaPosizioneViewArticoliPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificaPosizioneViewArticoliPanelActionPerformed(evt);
-            }
-        });
-        visualizzaArticoliPanel.add(modificaPosizioneViewArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 150, -1));
-
-        titleLabel__VisualizzaArticoliPanel.setBackground(new java.awt.Color(0, 153, 255));
-        titleLabel__VisualizzaArticoliPanel.setFont(new java.awt.Font("Avenir", 0, 36)); // NOI18N
-        titleLabel__VisualizzaArticoliPanel.setForeground(new java.awt.Color(255, 255, 255));
-        titleLabel__VisualizzaArticoliPanel.setText("Visualizza Articoli");
-        visualizzaArticoliPanel.add(titleLabel__VisualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 330, 50));
-
-        eliminaButton_VisualizzaArticoloPanel.setBackground(new java.awt.Color(0, 0, 0));
-        eliminaButton_VisualizzaArticoloPanel.setFont(new java.awt.Font("Avenir Next", 0, 14)); // NOI18N
-        eliminaButton_VisualizzaArticoloPanel.setForeground(new java.awt.Color(255, 255, 255));
-        eliminaButton_VisualizzaArticoloPanel.setText("Elimina");
-        eliminaButton_VisualizzaArticoloPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminaButton_VisualizzaArticoloPanelActionPerformed(evt);
-            }
-        });
-        visualizzaArticoliPanel.add(eliminaButton_VisualizzaArticoloPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
-
-        jScrollPane2.setToolTipText("");
-
-        tabellaArticoli.setBackground(new java.awt.Color(0, 153, 255));
-        tabellaArticoli.setFont(new java.awt.Font("Avenir Next", 0, 13)); // NOI18N
-        tabellaArticoli.setForeground(new java.awt.Color(255, 255, 255));
-        tabellaArticoli.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Articolo", "Prezzo", "sport", "Materiale", "Quantità", "Posizione"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabellaArticoli.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        tabellaArticoli.setSelectionForeground(new java.awt.Color(0, 153, 255));
-        tabellaArticoli.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        tabellaArticoli.setShowGrid(true);
-        tabellaArticoli.getTableHeader().setReorderingAllowed(false);
-        tabellaArticoli.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabellaArticoliMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(tabellaArticoli);
-        if (tabellaArticoli.getColumnModel().getColumnCount() > 0) {
-            tabellaArticoli.getColumnModel().getColumn(2).setMaxWidth(50);
-            tabellaArticoli.getColumnModel().getColumn(5).setMaxWidth(80);
-            tabellaArticoli.getColumnModel().getColumn(6).setMaxWidth(80);
-        }
-
-        visualizzaArticoliPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, 600, 340));
-
-        sfondo.add(visualizzaArticoliPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 590, 1160, 400));
 
         creaNuovoOrdinePanel.setBackground(new java.awt.Color(0, 153, 255));
         creaNuovoOrdinePanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
@@ -2155,7 +2170,11 @@ public class Graphics extends javax.swing.JFrame {
             try {
                 int type = m.loginHashCode(new Utente(user, pin, 1));
                 JOptionPane.showMessageDialog(null, "Login effettuato correttamente\nTipoAccount: " + type);
+                System.out.println("u1 = " + m.getUser(0).hashCode() + "\nu2 = " + m.getUser(1).hashCode() + "\nu3 = " + m.getUser(2).hashCode());
+                System.out.println("" + type);
+
                 hideAll();//nascondo tutti i pannelli
+
                 switch (type) {
                     case 1://Magazziniere
                         adminPanel.setVisible(true);
@@ -2164,10 +2183,16 @@ public class Graphics extends javax.swing.JFrame {
                         creaArticoloButtoncercaLabel_VisualizzaArticoliPanel.setEnabled(false);
                         modificaButton_cercaLabel__VisualizzaArticoliPanel.setEnabled(false);
                         negoziButtonAdminPanel.setEnabled(false);
-                        ordiniButtonAdminPanel.setEnabled(false);
+                        ordiniButtonAdminPanel.setEnabled(true);
+                        newOrderButton_orderViewPanel.setEnabled(false);
+                        duplicaOrderButton_orderViewPanel.setEnabled(false);
+                        modificaButtonOrderPanel.setEnabled(false);
+                        cancellaOrderButton_orderViewPanel.setEnabled(false);
                         ingressiButtonAdminPanel.setEnabled(true);
+                        storicoButton_AdminPanel.setEnabled(false);
                         typeOfUserLabel_AdminPanel.setText("Tipo Utente: Magazziniere");
-                        
+                        fineMeseButtonAdminPanel.setEnabled(false);
+
                         //Bottone per uscite setEnabled(true)
                         break;
 
@@ -2180,6 +2205,12 @@ public class Graphics extends javax.swing.JFrame {
                         negoziButtonAdminPanel.setEnabled(true);
                         ordiniButtonAdminPanel.setEnabled(true);
                         ingressiButtonAdminPanel.setEnabled(true);
+                        storicoButton_AdminPanel.setEnabled(true);
+                        fineMeseButtonAdminPanel.setEnabled(true);
+                        newOrderButton_orderViewPanel.setEnabled(true);
+                        duplicaOrderButton_orderViewPanel.setEnabled(true);
+                        modificaButtonOrderPanel.setEnabled(true);
+                        cancellaOrderButton_orderViewPanel.setEnabled(true);
                         typeOfUserLabel_AdminPanel.setText("Tipo Utente: Segreteria Amministrativa");
                         //Bottone per uscite setEnabled(true)
                         break;
@@ -2189,19 +2220,11 @@ public class Graphics extends javax.swing.JFrame {
                         articoliButtonAdminPanel.setEnabled(false);
                         negoziButtonAdminPanel.setEnabled(false);
                         ordiniButtonAdminPanel.setEnabled(true);
+                        storicoButton_AdminPanel.setEnabled(false);
                         ingressiButtonAdminPanel.setEnabled(false);
+                        fineMeseButtonAdminPanel.setEnabled(false);
                         typeOfUserLabel_AdminPanel.setText("Tipo Utente: Responsabile dei Negozi");
-                        //Bottone per uscite setEnabled(false)
-                        break;
-
-                    case 4:
-                        adminPanel.setVisible(true);
-                        articoliButtonAdminPanel.setEnabled(true);
-                        negoziButtonAdminPanel.setEnabled(true);
-                        ordiniButtonAdminPanel.setEnabled(true);
-                        ingressiButtonAdminPanel.setEnabled(true);
-                        //Bottone per uscite setEnabled(true)
-                        break;
+                    //Bottone per uscite setEnabled(false)
                 }
             } catch (UserNotFoundException e) {
                 JOptionPane.showMessageDialog(null, "Impossibile effettuare il login; riprovare più tardi, se il problema persiste contattare l'amministratore di sistema il prima possibile");
@@ -2239,6 +2262,7 @@ public class Graphics extends javax.swing.JFrame {
     private void newOrderButton_orderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newOrderButton_orderViewPanelActionPerformed
         modificaOrCreaOrdine = 1;
         bool = false;
+        creaOrdineButton_orderViewPanel.setText("Crea");
         //INIZIALIZZAZIONE GRAFICA
         ComboBoxNegozio.removeAllItems();
         comboBoxArticoli1.removeAllItems();
@@ -2376,6 +2400,15 @@ public class Graphics extends javax.swing.JFrame {
             negozi();
             visualizzaOrdiniPanel.setVisible(true);
             ordini();
+            indietroButton_NegozioPanel.setVisible(true);
+            avantiButton_NegozioPanel.setVisible(true);
+            modificaButton_NegozioPanel.setVisible(true);
+            selezionaButton_NegozioPanel.setVisible(true);
+            CreaNegozioButton_NegozioPanel.setVisible(true);
+            eliminaNegozioButton_VisualizzaNegozioPanel.setVisible(true);
+            jLabel21.setVisible(true);
+            searchField_NegozioPanel.setVisible(true);
+            tabellaNegozi.setVisible(true);
         }
 
     }//GEN-LAST:event_closeButton_NegozioPanel1ActionPerformed
@@ -3020,74 +3053,74 @@ public class Graphics extends javax.swing.JFrame {
             }
 
             if (quantita3 != 0) {
-                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                if (articoliAndQuantita.containsKey(a3))//controllo se è già stato inserito
                 {
-                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                    articoliAndQuantita.put(a3, quantita3 + articoliAndQuantita.get(a3));
                 } else {
-                    articoliAndQuantita.put(a2, quantita2);
+                    articoliAndQuantita.put(a3, quantita3);
                 }
             }
 
             if (quantita4 != 0) {
-                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                if (articoliAndQuantita.containsKey(a4))//controllo se è già stato inserito
                 {
-                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                    articoliAndQuantita.put(a4, quantita4 + articoliAndQuantita.get(a4));
                 } else {
-                    articoliAndQuantita.put(a2, quantita2);
+                    articoliAndQuantita.put(a4, quantita4);
                 }
             }
 
             if (quantita5 != 0) {
-                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                if (articoliAndQuantita.containsKey(a5))//controllo se è già stato inserito
                 {
-                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                    articoliAndQuantita.put(a5, quantita5 + articoliAndQuantita.get(a5));
                 } else {
-                    articoliAndQuantita.put(a2, quantita2);
+                    articoliAndQuantita.put(a5, quantita5);
                 }
             }
 
             if (quantita6 != 0) {
-                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                if (articoliAndQuantita.containsKey(a6))//controllo se è già stato inserito
                 {
-                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                    articoliAndQuantita.put(a6, quantita6 + articoliAndQuantita.get(a6));
                 } else {
-                    articoliAndQuantita.put(a2, quantita2);
+                    articoliAndQuantita.put(a6, quantita6);
                 }
             }
 
             if (quantita7 != 0) {
-                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                if (articoliAndQuantita.containsKey(a7))//controllo se è già stato inserito
                 {
-                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                    articoliAndQuantita.put(a7, quantita7 + articoliAndQuantita.get(a7));
                 } else {
-                    articoliAndQuantita.put(a2, quantita2);
+                    articoliAndQuantita.put(a7, quantita7);
                 }
             }
 
             if (quantita8 != 0) {
-                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                if (articoliAndQuantita.containsKey(a8))//controllo se è già stato inserito
                 {
-                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                    articoliAndQuantita.put(a8, quantita8 + articoliAndQuantita.get(a8));
                 } else {
-                    articoliAndQuantita.put(a2, quantita2);
+                    articoliAndQuantita.put(a8, quantita8);
                 }
             }
 
             if (quantita9 != 0) {
-                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                if (articoliAndQuantita.containsKey(a9))//controllo se è già stato inserito
                 {
-                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                    articoliAndQuantita.put(a9, quantita9 + articoliAndQuantita.get(a9));
                 } else {
-                    articoliAndQuantita.put(a2, quantita2);
+                    articoliAndQuantita.put(a9, quantita9);
                 }
             }
 
             if (quantita10 != 0) {
-                if (articoliAndQuantita.containsKey(a2))//controllo se è già stato inserito
+                if (articoliAndQuantita.containsKey(a10))//controllo se è già stato inserito
                 {
-                    articoliAndQuantita.put(a2, quantita2 + articoliAndQuantita.get(a2));
+                    articoliAndQuantita.put(a10, quantita10 + articoliAndQuantita.get(a10));
                 } else {
-                    articoliAndQuantita.put(a2, quantita2);
+                    articoliAndQuantita.put(a10, quantita10);
                 }
             }
             if (articoliAndQuantita.isEmpty()) {
@@ -3095,12 +3128,14 @@ public class Graphics extends javax.swing.JFrame {
                 return;
             }
             Ordine o1 = new Ordine(x, corriere, new GregorianCalendar(), articoliAndQuantita);
-            if( modificaOrCreaOrdine == 1 )
-            m.addOrdine(o1);
-            if( modificaOrCreaOrdine == 2)
-            ;
-            
-            
+            if (modificaOrCreaOrdine == 1) {
+                m.addOrdine(o1);
+                indexOrder = m.ordineSize() - 1;
+            }
+            if (modificaOrCreaOrdine == 2) {
+                m.setOrdine(indexOrder, o1);
+            }
+
         } catch (ArticleDontExistInWareHouseException | HeadlessException | VoidStringUnexpectedException e) {
             JOptionPane.showMessageDialog(null, "Eccezione");
             quantitaField1.setBackground(Color.red);
@@ -3117,8 +3152,6 @@ public class Graphics extends javax.swing.JFrame {
             if (voidSelection) {
                 return;
             }
-
-            indexOrder = m.ordineSize() - 1;
 
             hideAll();
             ordini();
@@ -3950,7 +3983,7 @@ public class Graphics extends javax.swing.JFrame {
         creaNuovoOrdinePanel.setVisible(true);
         Ordine o = m.getOrdine(indexOrder);
         creaOrdineButton_orderViewPanel.setText("Modifica");
-        corriereField_NewOrderPanel.setText(o.getCorriere());
+
         bool = false;
         //INIZIALIZZAZIONE GRAFICA
         ComboBoxNegozio.removeAllItems();
@@ -3999,16 +4032,16 @@ public class Graphics extends javax.swing.JFrame {
         orderArticleSelected = 1;
         hideAll();
         creaNuovoOrdinePanel.setVisible(true);
-        corriereField_NewOrderPanel.setText("");
+        corriereField_NewOrderPanel.setText(o.getCorriere());
 
         //negoazio
         for (int i = 0; i < m.negoziSize(); i++) {
             ComboBoxNegozio.addItem(m.getNegozio(i).getNome());
         }
-        if(m.negoziExist(o.getNegozio())){
+        if (m.negoziExist(o.getNegozio())) {
             ComboBoxNegozio.setSelectedItem(o.getNegozio().getNome());
-        }else{
-            ComboBoxNegozio.addItem(o.getNegozio().getNome());  
+        } else {
+            ComboBoxNegozio.addItem(o.getNegozio().getNome());
             ComboBoxNegozio.setSelectedItem(o.getNegozio().getNome());
         }
 
@@ -4037,67 +4070,86 @@ public class Graphics extends javax.swing.JFrame {
             comboBoxArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
             comboBoxArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
         }
-        
+
         int y = 0;
-        for(Articolo X: o.getArticle().keySet()){
-            switch(y){
-                case 0: 
+        for (Articolo X : o.getArticle().keySet()) {
+            switch (y) {
+                case 0:
                     comboBoxArticoli1.setSelectedItem(X.getTipoArticolo().getName());
                     comboBoxArticoli1.setEnabled(true);
-                    quantitaField1.setText(""+o.getArticle().get(X));
+                    quantitaField1.setText("" + o.getArticle().get(X));
                     quantitaField1.setEnabled(true);
+                    quantitaField2.setEnabled(true);
+                    comboBoxArticoli2.setEnabled(true);
                     break;
-                case 1: 
+                case 1:
                     comboBoxArticoli2.setSelectedItem(X.getTipoArticolo().getName());
                     comboBoxArticoli2.setEnabled(true);
-                    quantitaField2.setText(""+o.getArticle().get(X));
+                    quantitaField2.setText("" + o.getArticle().get(X));
                     quantitaField2.setEnabled(true);
+                    quantitaField3.setEnabled(true);
+                    comboBoxArticoli3.setEnabled(true);
                     break;
-                case 2: 
+                case 2:
                     comboBoxArticoli3.setSelectedItem(X.getTipoArticolo().getName());
                     comboBoxArticoli3.setEnabled(true);
-                    quantitaField3.setText(""+o.getArticle().get(X));
+                    quantitaField3.setText("" + o.getArticle().get(X));
                     quantitaField3.setEnabled(true);
+                    quantitaField4.setEnabled(true);
+                    comboBoxArticoli4.setEnabled(true);
                     break;
-                case 3: 
+                case 3:
                     comboBoxArticoli4.setSelectedItem(X.getTipoArticolo().getName());
                     comboBoxArticoli4.setEnabled(true);
-                    quantitaField4.setText(""+o.getArticle().get(X));
+                    quantitaField4.setText("" + o.getArticle().get(X));
                     quantitaField4.setEnabled(true);
+                    quantitaField5.setEnabled(true);
+                    comboBoxArticoli5.setEnabled(true);
                     break;
                 case 4:
                     comboBoxArticoli5.setSelectedItem(X.getTipoArticolo().getName());
                     comboBoxArticoli5.setEnabled(true);
-                    quantitaField5.setText(""+o.getArticle().get(X));
+                    quantitaField5.setText("" + o.getArticle().get(X));
                     quantitaField5.setEnabled(true);
+                    quantitaField6.setEnabled(true);
+                    comboBoxArticoli6.setEnabled(true);
                     break;
                 case 5:
                     comboBoxArticoli6.setSelectedItem(X.getTipoArticolo().getName());
                     comboBoxArticoli6.setEnabled(true);
-                    quantitaField6.setText(""+o.getArticle().get(X));
+                    quantitaField6.setText("" + o.getArticle().get(X));
                     quantitaField6.setEnabled(true);
+                    quantitaField7.setEnabled(true);
+                    comboBoxArticoli7.setEnabled(true);
                     break;
                 case 6:
                     comboBoxArticoli7.setSelectedItem(X.getTipoArticolo().getName());
                     comboBoxArticoli7.setEnabled(true);
-                    quantitaField7.setText(""+o.getArticle().get(X));
+                    quantitaField7.setText("" + o.getArticle().get(X));
                     quantitaField7.setEnabled(true);
+                    quantitaField8.setEnabled(true);
+                    comboBoxArticoli8.setEnabled(true);
                     break;
                 case 7:
                     comboBoxArticoli8.setSelectedItem(X.getTipoArticolo().getName());
                     comboBoxArticoli8.setEnabled(true);
-                    quantitaField8.setText(""+o.getArticle().get(X));
+                    quantitaField8.setText("" + o.getArticle().get(X));
                     quantitaField8.setEnabled(true);
+                    quantitaField9.setEnabled(true);
+                    comboBoxArticoli9.setEnabled(true);
                     break;
                 case 8:
                     comboBoxArticoli9.setSelectedItem(X.getTipoArticolo().getName());
                     comboBoxArticoli9.setEnabled(true);
-                    quantitaField9.setText(""+o.getArticle().get(X));
+                    quantitaField9.setText("" + o.getArticle().get(X));
                     quantitaField9.setEnabled(true);
-                    break;
-                case 9: comboBoxArticoli10.setSelectedItem(X.getTipoArticolo().getName());
+                    quantitaField10.setEnabled(true);
                     comboBoxArticoli10.setEnabled(true);
-                    quantitaField10.setText(""+o.getArticle().get(X));
+                    break;
+                case 9:
+                    comboBoxArticoli10.setSelectedItem(X.getTipoArticolo().getName());
+                    comboBoxArticoli10.setEnabled(true);
+                    quantitaField10.setText("" + o.getArticle().get(X));
                     quantitaField10.setEnabled(true);
             }
             y++;
@@ -4254,6 +4306,7 @@ public class Graphics extends javax.swing.JFrame {
         } catch (ArticleDontExistInWareHouseException | PositionAlreadyOccupiedException ex) {
             Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
         }
+        articoli();
     }//GEN-LAST:event_modificaPosizioneViewArticoliPanelActionPerformed
 
     private void eliminaButton_VisualizzaArticoloPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaButton_VisualizzaArticoloPanelActionPerformed
@@ -4276,12 +4329,15 @@ public class Graphics extends javax.swing.JFrame {
             from = 1;
             negozi();
             negoziPanel.setVisible(true);
-            indietroButton_NegozioPanel.setEnabled(false);
-            avantiButton_NegozioPanel.setEnabled(false);
-            modificaButton_NegozioPanel.setEnabled(false);
-            selezionaButton_NegozioPanel.setEnabled(false);
-            CreaNegozioButton_NegozioPanel.setEnabled(false);
-            eliminaNegozioButton_VisualizzaNegozioPanel.setEnabled(false);
+            indietroButton_NegozioPanel.setVisible(false);
+            avantiButton_NegozioPanel.setVisible(false);
+            modificaButton_NegozioPanel.setVisible(false);
+            selezionaButton_NegozioPanel.setVisible(false);
+            CreaNegozioButton_NegozioPanel.setVisible(false);
+            eliminaNegozioButton_VisualizzaNegozioPanel.setVisible(false);
+            jLabel21.setVisible(false);
+            searchField_NegozioPanel.setVisible(false);
+            tabellaNegozi.setVisible(false);
         } catch (ShopNotFoundException ex) {
             Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4401,10 +4457,10 @@ public class Graphics extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBoxArticoli9ItemStateChanged
 
     private void cancellaOrderButton_orderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancellaOrderButton_orderViewPanelActionPerformed
-        if(indexOrder == m.ordineSize()){
-                m.removeOrdine(m.getOrdine(indexOrder));
-                indexOrder= m.ordineSize();
-        }else if(indexOrder == 0){
+        if (indexOrder == m.ordineSize()) {
+            m.removeOrdine(m.getOrdine(indexOrder));
+            indexOrder = m.ordineSize();
+        } else if (indexOrder == 0) {
             m.removeOrdine(m.getOrdine(indexOrder));
             indexOrder = 0;
         }
@@ -4413,7 +4469,7 @@ public class Graphics extends javax.swing.JFrame {
 
     private void duplicaOrderButton_orderViewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_duplicaOrderButton_orderViewPanelActionPerformed
         m.addOrdine(m.getOrdine(indexOrder));
-        indexOrder = m.ordineSize()-1;
+        indexOrder = m.ordineSize() - 1;
         ordini();
     }//GEN-LAST:event_duplicaOrderButton_orderViewPanelActionPerformed
 
@@ -4421,6 +4477,20 @@ public class Graphics extends javax.swing.JFrame {
         indexShop = tabellaNegozi.getSelectedRow();
         negozi();
     }//GEN-LAST:event_tabellaNegoziMouseClicked
+
+    private void duplicaIngressoButton_IngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_duplicaIngressoButton_IngressiPanelActionPerformed
+        try {
+            Map<Articolo, Integer> mq = m.getIngresso(indexIngressi).getQuantitaMap();
+            Map<Articolo, Integer> mp = m.getIngresso(indexIngressi).getPositionMap();
+            GregorianCalendar data = new GregorianCalendar();
+            m.addIngresso(mq, mp, data);
+            indexIngressi = m.ingressiSize() - 1;
+            ingressi();
+        } catch (Exception ex) {
+            Logger.getLogger(Graphics.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_duplicaIngressoButton_IngressiPanelActionPerformed
 
     void report() {
         if (m.reportIsEmpty()) {
@@ -4442,7 +4512,7 @@ public class Graphics extends javax.swing.JFrame {
                 avantiButton_StoricoPanel.setEnabled(true);
             }
             reportMensileTextArea_ReportPanel.setText("" + m.getReportMensile(index));
-            cercaLAbel_StoricoPanel.setText("" + index);
+            cercaLAbel_StoricoPanel.setText("" + (index + 1));
 
         }
     }
@@ -4538,12 +4608,12 @@ public class Graphics extends javax.swing.JFrame {
             } else {
                 avantiButton_NegozioPanel.setEnabled(true);
             }
-            
+
             DefaultTableModel model = (DefaultTableModel) tabellaNegozi.getModel();
             model.setRowCount(0);
             for (int ciao = 0; ciao < m.negoziSize(); ciao++) {
                 Negozio a = m.getNegozio(ciao);
-                model.addRow(new Object[]{ a.getCodiceFiscale().toUpperCase(), a.getNome(), a.getindirizzo(), a.getCitta()});
+                model.addRow(new Object[]{a.getCodiceFiscale().toUpperCase(), a.getNome(), a.getindirizzo(), a.getCitta()});
             }
             tabellaNegozi.getSelectionModel().setSelectionInterval(indexShop, indexShop);
             modificaButton_NegozioPanel.setEnabled(true);
@@ -4610,7 +4680,7 @@ public class Graphics extends javax.swing.JFrame {
             articoliQuantitaTextArea_OrderViewPanel.setText("" + m.getOrdine(indexOrder).toString());
             corriereLabel_OrderViewPanel.setText(m.getOrdine(indexOrder).getCorriere());
             boolean isShipped = m.getOrdine(indexOrder).isShipped();
-            
+
             if (isShipped) {
                 shippedLabel_OrderViewPanell.setForeground(Color.GREEN);
                 shippedLabel_OrderViewPanell.setText("Spedito");
@@ -4748,6 +4818,7 @@ public class Graphics extends javax.swing.JFrame {
     private javax.swing.JTextField dayField_newIngressoPanel;
     private javax.swing.JTextField descrizioneFieldTipoArticolo_newArticlePanel;
     private javax.swing.JLabel descrizioneLabel_VisualizzaArticoloPanel;
+    private javax.swing.JButton duplicaIngressoButton_IngressiPanel;
     private javax.swing.JButton duplicaOrderButton_orderViewPanel;
     private javax.swing.JRadioButton elastanRadioButton;
     private javax.swing.JButton eliminaButton_VisualizzaArticoloPanel;

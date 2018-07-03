@@ -89,7 +89,7 @@ public final class Ingresso extends WarehouseMovement implements Serializable, C
     }
     @Override
     public boolean equals(Object other) {
-        return other instanceof Ingresso && ((Ingresso)other).getID() == ID;
+        return other instanceof Ingresso && ((Ingresso)other).ID == ID;
     }
   
     @Override
