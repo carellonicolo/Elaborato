@@ -376,12 +376,6 @@ public class Magazzino implements Serializable {
      */
     public void save() {
 	
-<<<<<<< HEAD
-=======
-	    
-	
-	
->>>>>>> 47483a1e47a00664f8b52ff5c0bd2df38e7db0d0
 	try {
 	    JFileChooser jfc = new JFileChooser();
 	    FileNameExtensionFilter filter = new FileNameExtensionFilter("File dati binari (.dat)", "dat");
