@@ -3946,7 +3946,163 @@ public class Graphics extends javax.swing.JFrame {
 
     private void modificaButtonOrderPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificaButtonOrderPanelActionPerformed
         hideAll();
+        modificaOrCreaOrdine = 2;
         creaNuovoOrdinePanel.setVisible(true);
+        Ordine o = m.getOrdine(indexOrder);
+        creaOrdineButton_orderViewPanel.setText("Modifica");
+        corriereField_NewOrderPanel.setText(o.getCorriere());
+        bool = false;
+        //INIZIALIZZAZIONE GRAFICA
+        ComboBoxNegozio.removeAllItems();
+        comboBoxArticoli1.removeAllItems();
+        comboBoxArticoli2.removeAllItems();
+        comboBoxArticoli3.removeAllItems();
+        comboBoxArticoli4.removeAllItems();
+        comboBoxArticoli5.removeAllItems();
+        comboBoxArticoli6.removeAllItems();
+        comboBoxArticoli7.removeAllItems();
+        comboBoxArticoli8.removeAllItems();
+        comboBoxArticoli9.removeAllItems();
+        comboBoxArticoli10.removeAllItems();
+
+        comboBoxArticoli2.setEnabled(false);
+        comboBoxArticoli3.setEnabled(false);
+        comboBoxArticoli4.setEnabled(false);
+        comboBoxArticoli5.setEnabled(false);
+        comboBoxArticoli6.setEnabled(false);
+        comboBoxArticoli7.setEnabled(false);
+        comboBoxArticoli8.setEnabled(false);
+        comboBoxArticoli9.setEnabled(false);
+        comboBoxArticoli10.setEnabled(false);
+
+        quantitaField2.setEnabled(false);
+        quantitaField3.setEnabled(false);
+        quantitaField4.setEnabled(false);
+        quantitaField5.setEnabled(false);
+        quantitaField6.setEnabled(false);
+        quantitaField7.setEnabled(false);
+        quantitaField8.setEnabled(false);
+        quantitaField9.setEnabled(false);
+        quantitaField10.setEnabled(false);
+
+        quantitaField1.setText("");
+        quantitaField2.setText("");
+        quantitaField5.setText("");
+        quantitaField8.setText("");
+        quantitaField3.setText("");
+        quantitaField6.setText("");
+        quantitaField9.setText("");
+        quantitaField4.setText("");
+        quantitaField7.setText("");
+        quantitaField10.setText("");
+
+        orderArticleSelected = 1;
+        hideAll();
+        creaNuovoOrdinePanel.setVisible(true);
+        corriereField_NewOrderPanel.setText("");
+
+        //negoazio
+        for (int i = 0; i < m.negoziSize(); i++) {
+            ComboBoxNegozio.addItem(m.getNegozio(i).getNome());
+        }
+        if(m.negoziExist(o.getNegozio())){
+            ComboBoxNegozio.setSelectedItem(o.getNegozio().getNome());
+        }else{
+            ComboBoxNegozio.addItem(o.getNegozio().getNome());  
+            ComboBoxNegozio.setSelectedItem(o.getNegozio().getNome());
+        }
+
+        comboBoxArticoli1.addItem("<Articolo>");
+        comboBoxArticoli2.addItem("<Articolo>");
+        comboBoxArticoli3.addItem("<Articolo>");
+        comboBoxArticoli4.addItem("<Articolo>");
+        comboBoxArticoli5.addItem("<Articolo>");
+        comboBoxArticoli6.addItem("<Articolo>");
+        comboBoxArticoli7.addItem("<Articolo>");
+        comboBoxArticoli8.addItem("<Articolo>");
+        comboBoxArticoli9.addItem("<Articolo>");
+        comboBoxArticoli9.addItem("<Articolo>");
+        comboBoxArticoli10.addItem("<Articolo>");
+
+        for (int i = 0; i < m.articoliSize(); i++) {
+            comboBoxArticoli1.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli2.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli3.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli4.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli5.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli6.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli7.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli8.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli9.addItem(m.getArticolo(i).getTipoArticolo().getName());
+            comboBoxArticoli10.addItem(m.getArticolo(i).getTipoArticolo().getName());
+        }
+        
+        int y = 0;
+        for(Articolo X: o.getArticle().keySet()){
+            switch(y){
+                case 0: 
+                    comboBoxArticoli1.setSelectedItem(X.getTipoArticolo().getName());
+                    comboBoxArticoli1.setEnabled(true);
+                    quantitaField1.setText(""+o.getArticle().get(X));
+                    quantitaField1.setEnabled(true);
+                    break;
+                case 1: 
+                    comboBoxArticoli2.setSelectedItem(X.getTipoArticolo().getName());
+                    comboBoxArticoli2.setEnabled(true);
+                    quantitaField2.setText(""+o.getArticle().get(X));
+                    quantitaField2.setEnabled(true);
+                    break;
+                case 2: 
+                    comboBoxArticoli3.setSelectedItem(X.getTipoArticolo().getName());
+                    comboBoxArticoli3.setEnabled(true);
+                    quantitaField3.setText(""+o.getArticle().get(X));
+                    quantitaField3.setEnabled(true);
+                    break;
+                case 3: 
+                    comboBoxArticoli4.setSelectedItem(X.getTipoArticolo().getName());
+                    comboBoxArticoli4.setEnabled(true);
+                    quantitaField4.setText(""+o.getArticle().get(X));
+                    quantitaField4.setEnabled(true);
+                    break;
+                case 4:
+                    comboBoxArticoli5.setSelectedItem(X.getTipoArticolo().getName());
+                    comboBoxArticoli5.setEnabled(true);
+                    quantitaField5.setText(""+o.getArticle().get(X));
+                    quantitaField5.setEnabled(true);
+                    break;
+                case 5:
+                    comboBoxArticoli6.setSelectedItem(X.getTipoArticolo().getName());
+                    comboBoxArticoli6.setEnabled(true);
+                    quantitaField6.setText(""+o.getArticle().get(X));
+                    quantitaField6.setEnabled(true);
+                    break;
+                case 6:
+                    comboBoxArticoli7.setSelectedItem(X.getTipoArticolo().getName());
+                    comboBoxArticoli7.setEnabled(true);
+                    quantitaField7.setText(""+o.getArticle().get(X));
+                    quantitaField7.setEnabled(true);
+                    break;
+                case 7:
+                    comboBoxArticoli8.setSelectedItem(X.getTipoArticolo().getName());
+                    comboBoxArticoli8.setEnabled(true);
+                    quantitaField8.setText(""+o.getArticle().get(X));
+                    quantitaField8.setEnabled(true);
+                    break;
+                case 8:
+                    comboBoxArticoli9.setSelectedItem(X.getTipoArticolo().getName());
+                    comboBoxArticoli9.setEnabled(true);
+                    quantitaField9.setText(""+o.getArticle().get(X));
+                    quantitaField9.setEnabled(true);
+                    break;
+                case 9: comboBoxArticoli10.setSelectedItem(X.getTipoArticolo().getName());
+                    comboBoxArticoli10.setEnabled(true);
+                    quantitaField10.setText(""+o.getArticle().get(X));
+                    quantitaField10.setEnabled(true);
+            }
+            y++;
+        }
+        bool = true;
     }//GEN-LAST:event_modificaButtonOrderPanelActionPerformed
 
     private void indietroButton_IngressiPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroButton_IngressiPanelActionPerformed

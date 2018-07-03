@@ -56,11 +56,9 @@ public class Main implements Serializable{
 			
 			file = jfc.getSelectedFile();
 			ObjectInputStream fileIn = new ObjectInputStream(new FileInputStream((file)));
-			
 			Magazzino.uploadInstance(fileIn);
-
 			fileIn.close();
-			JOptionPane.showMessageDialog(null, "Caricamento riuscito\n ID primo articolo: "+ Magazzino.getInstance().getArticolo(0).getID()+"\nsecondoID: "+ Magazzino.getInstance().getArticolo(1).getID());
+			JOptionPane.showMessageDialog(null, "Caricamento riuscito");
                         
 		    } catch (HeadlessException | IOException | ClassNotFoundException e) {
 			System.out.println(e.getMessage());
@@ -75,7 +73,7 @@ public class Main implements Serializable{
 		    System.exit(0);
 		}
 
-	    } catch (Exception e) {
+	    } catch (HeadlessException e) {
 		JOptionPane.showMessageDialog(null, "Errore nell'aprire il file: " + e.getMessage());
 		System.exit(0);
 	    }
@@ -137,7 +135,7 @@ public class Main implements Serializable{
 		m.addOrdine(o2);
 
 	    } catch (ArticleAlreadyExistException | ShopAlreadyExistException | UserAlreadyExist | VoidStringUnexpectedException e) {
-		JOptionPane.showMessageDialog(null, "Eccezione");
+		JOptionPane.showMessageDialog(null, "Eccezione nell'instanziare gli oggetti demo");
 	    } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }

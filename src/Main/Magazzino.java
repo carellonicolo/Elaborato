@@ -194,6 +194,10 @@ public class Magazzino implements Serializable {
     public Negozio getNegozio(int i) {
 	return negozi.get(i);
     }
+    
+    public boolean negoziExist(Negozio i){
+        return negozi.contains(i);
+    }
 
     public void removeNegozio(int i) {
 	negozi.remove(i);
