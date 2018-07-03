@@ -1,8 +1,9 @@
 package Main;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
-public abstract class WarehouseMovement {
+public abstract class WarehouseMovement implements Serializable{
 
     protected GregorianCalendar data;
     protected int ID;
