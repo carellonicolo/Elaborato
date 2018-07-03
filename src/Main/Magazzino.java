@@ -380,9 +380,6 @@ public class Magazzino implements Serializable {
      */
     public void save() {
 	
-	    
-	
-	
 	try {
 	    JFileChooser jfc = new JFileChooser();
 	    FileNameExtensionFilter filter = new FileNameExtensionFilter("File dati binari (.dat)", "dat");
